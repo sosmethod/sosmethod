@@ -10,9 +10,10 @@ import {LayoutService} from './services/layout';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [TranslateService],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.scss'],
+  styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class AppComponent implements OnInit {
 
     constructor(public layout: LayoutService) {

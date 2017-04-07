@@ -1,8 +1,0 @@
-<md-card-title>{{(product$ | async)?.name}}</md-card-title>
-<md-select placeholder="License type" [(ngModel)]="license">
-    <md-option value="perpetual">Perpetual</md-option>
-    <md-option value="annual">Annual</md-option>
-</md-select>
-<md-input-container>
-    <input mdInput type="number" placeholder="Number of users" [(value)]="userCount" min="1">
-</md-input-container>

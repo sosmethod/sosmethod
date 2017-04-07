@@ -7,3 +7,248 @@ $primary: mat-palette($mat-orange,800);
 $accent: mat-palette($mat-blue,600);
 
 $theme: mat-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);
+
+@import './sos-circle-color';
+
+h2
+{
+    color: white;
+    margin-bottom: 40px;
+    font-family: "Century Gothic", sans-serif;
+}
+
+.sos-circle {
+    opacity: 0;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    border: 2px solid #FFFFFF;
+    padding: 10px;
+    vertical-align: middle;
+    font-size: 18px;
+    color: #ffffff;
+    transition: border ease-in-out .25s, box-shadow ease-in-out .25s;
+    position: relative;
+    z-index: 1;
+    font-family: "Century Gothic", sans-serif;
+    letter-spacing: 1px;
+}
+
+.sos-circle > span {
+    border-radius: 100%;
+    border: 2px solid #FFFFFF;
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    box-shadow: inset 0 0 40px rgba(255, 255, 255, .75);
+    transition: border ease-in-out .25s, box-shadow ease-in-out .25s;
+    position: relative;
+}
+
+.sos-circle > span:nth-of-type(1),
+.sos-circle > span:nth-of-type(2),
+.sos-circle > span:nth-of-type(3) {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    animation: borderAnim 5s ease-in-out infinite alternate;
+}
+
+.sos-circle > span:nth-of-type(2) {
+    animation: borderAnim2 6s ease-in-out infinite alternate;
+}
+
+.sos-circle > span:nth-of-type(2):before {
+    top: 8px;
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+}
+
+.sos-circle > span:nth-of-type(2):before {
+    animation: beforeAnim2 6s ease-in-out infinite alternate;
+}
+
+.sos-circle > span:nth-of-type(3) {
+    animation: borderAnim3 7s ease-in-out infinite;
+}
+
+
+.sos-circle-blue {
+    border: 2px solid rgba(11, 228, 230, .5);
+}
+
+.sos-circle-blue > span {
+    border: 2px solid rgba(11, 228, 230, .5);
+    box-shadow: inset 0 0 40px rgba(11, 228, 230, .25);
+}
+
+.sos-circle-blue > span:before {
+    border: 2px solid rgba(11, 228, 230, .10);
+    box-shadow: none;
+}
+
+.sos-circle-blue:hover {
+    border: 2px solid rgba(11, 255, 230, 1);
+}
+
+.sos-circle-blue:hover > span {
+    border: 2px solid rgba(11, 228, 230, 1);
+    box-shadow: inset 0 0 40px rgba(11, 228, 230, .75);
+}
+
+.sos-circle-blue:hover > span:before {
+    border: 2px solid rgba(11, 228, 230, .50);
+    box-shadow: none;
+}
+
+.sos-circle-green {
+    border: 2px solid rgba(12, 243, 173, .5);
+}
+
+.sos-circle-green > span {
+    border: 2px solid rgba(12, 243, 173, .5);
+    box-shadow: inset 0 0 40px rgba(12, 243, 173, .25);
+}
+
+.sos-circle-green > span:before {
+    border: 2px solid rgba(12, 243, 173, .10);
+    box-shadow: none;
+}
+
+.sos-circle-green:hover {
+    border: 2px solid rgba(12, 243, 173, 1);
+}
+
+.sos-circle-green:hover > span {
+    border: 2px solid rgba(12, 243, 173, 1);
+    box-shadow: inset 0 0 40px rgba(12, 243, 173, .75);
+}
+
+.sos-circle-green:hover > span:before {
+    border: 2px solid rgba(12, 243, 173, .50);
+    box-shadow: none;
+}
+
+.sos-circle-yellow {
+    border: 2px solid rgba(255, 216, 133, .5);
+}
+
+.sos-circle-yellow > span {
+    border: 2px solid rgba(255, 216, 133, .5);
+    box-shadow: inset 0 0 40px rgba(255, 216, 133, .25);
+}
+
+.sos-circle-yellow > span:before {
+    border: 2px solid rgba(255, 216, 133, .10);
+    box-shadow: none;
+}
+
+.sos-circle-yellow:hover {
+    border: 2px solid rgba(255, 216, 133, 1);
+}
+
+.sos-circle-yellow:hover > span {
+    border: 2px solid rgba(255, 216, 133, 1);
+    box-shadow: inset 0 0 40px rgba(255, 216, 133, .75);
+}
+
+.sos-circle-yellow:hover span:before {
+    border: 2px solid rgba(255, 216, 133, .50);
+    box-shadow: none;
+}
+
+.sos-circle-ruby {
+    border: 2px solid rgba(219, 92, 204, 0.5);
+}
+
+.sos-circle-ruby > span {
+    border: 2px solid rgba(219, 92, 204, 0.5);
+    box-shadow: inset 0 0 40px rgba(219, 92, 204, .25);
+}
+
+.sos-circle-ruby > span:before {
+    border: 2px solid rgba(219, 92, 204, .10);
+    box-shadow: none;
+}
+
+.sos-circle-ruby:hover {
+    border: 2px solid rgba(219, 92, 204, 1);
+}
+
+.sos-circle-ruby:hover > span {
+    border: 2px solid rgba(219, 92, 204, 1);
+    box-shadow: inset 0 0 40px rgba(219, 92, 204, .75);
+}
+
+.sos-circle-ruby:hover > span:before {
+    border: 2px solid rgba(219, 92, 204, .50);
+    box-shadow: none;
+}
+
+.sos-circle-purple {
+    border: 2px solid rgba(132, 0, 255, .5);
+}
+
+.sos-circle-purple > span {
+    border: 2px solid rgba(132, 0, 255, .5);
+    box-shadow: inset 0 0 40px rgba(132, 0, 255, .25);
+}
+
+.sos-circle-purple > span:before {
+    border: 2px solid rgba(132, 0, 255, .10);
+    box-shadow: none;
+}
+
+.sos-circle-purple:hover {
+    border: 2px solid rgba(132, 0, 255, 1);
+}
+
+.sos-circle-purple:hover > span {
+    border: 2px solid rgba(132, 0, 255, 1);
+    box-shadow: inset 0 0 40px rgba(132, 0, 255, .75);
+}
+
+.sos-circle-purple:hover > span:before {
+    border: 2px solid rgba(132, 0, 255, .50);
+    box-shadow: none;
+}
+
+.sos-circle-coral {
+    border: 2px solid rgba(247, 114, 114, .5);
+}
+
+.sos-circle-coral > span {
+    border: 2px solid rgba(247, 114, 114, .5);
+    box-shadow: inset 0 0 40px rgba(247, 114, 114, .25);
+}
+
+.sos-circle-coral > span:before {
+    border: 2px solid rgba(247, 114, 114, .10);
+    box-shadow: none;
+}
+
+.sos-circle-coral:hover {
+    border: 2px solid rgba(247, 114, 114, 1);
+}
+
+.sos-circle-coral:hover > span {
+    border: 2px solid rgba(247, 114, 114, 1);
+    box-shadow: inset 0 0 40px rgba(247, 114, 114, .75);
+}
+
+.sos-circle-coral:hover > span:before {
+    border: 2px solid rgba(247, 114, 114, .50);
+    box-shadow: none;
+}
+
+

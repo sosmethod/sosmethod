@@ -13,25 +13,10 @@ import {AccountLinksComponent} from './navigation/account-links/account-links';
 import {LanguageMenuComponent} from './navigation/language/language';
 import {FooterComponent} from './navigation/footer/footer';
 
-import {ProductTilesComponent} from './funnel/product-tiles/product-tiles';
-import {ProductTileComponent} from './funnel/product-tile/product-tile';
-import {ProductDescriptionComponent} from './funnel/product-description/product-description';
-import {ProductSummaryComponent} from './funnel/product-summary/product-summary';
-import {SubscriptionsAddComponent} from './funnel/subscriptions-add/subscriptions-add';
-import {SubscriptionsComponent} from './funnel/subscriptions/subscriptions';
-import {SubscriptionComponent} from './funnel/subscription/subscription';
-
 import {TranslateModule} from '@ngx-translate/core';
 
 import {PipesModule} from '../pipes';
-import {ActPremiumCloudComponent} from './funnel/subscription/actpremiumcloud';
-import {ActEmarketingComponent} from './funnel/subscription/actemarketing';
-import {SupportComponent} from './funnel/subscription/support';
-import {ActPremiumComponent} from './funnel/subscription/actpremium';
-import {HandheldContactComponent} from './funnel/subscription/handheld';
-import {SubtotalComponent} from './funnel/subtotal/subtotal';
-import {TrackerComponent} from './funnel/tracker/tracker';
-
+import {NavigationModule} from './navigation';
 
 export const COMPONENTS = [
     LayoutComponent,
@@ -42,20 +27,6 @@ export const COMPONENTS = [
     SupportMenuComponent,
     LanguageMenuComponent,
     AccountLinksComponent,
-    ProductTilesComponent,
-    ProductTileComponent,
-    ProductDescriptionComponent,
-    ProductSummaryComponent,
-    SubscriptionsAddComponent,
-    SubscriptionsComponent,
-    SubscriptionComponent,
-    ActPremiumCloudComponent,
-    ActEmarketingComponent,
-    SupportComponent,
-    ActPremiumComponent,
-    HandheldContactComponent,
-    SubtotalComponent,
-    TrackerComponent
 ];
 
 
@@ -67,7 +38,9 @@ export const COMPONENTS = [
         RouterModule,
         PipesModule,
         TranslateModule,
-        FormsModule
+        FormsModule,
+
+        NavigationModule
     ],
     declarations: COMPONENTS,
     exports: COMPONENTS
