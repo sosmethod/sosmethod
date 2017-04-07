@@ -22,12 +22,7 @@ import {ForgotPassword2Component} from './components/account/reset/reset';
 import {ForgotPasswordPageComponent} from './components/account/forgot/forgot';
 import {ResendCodeComponent} from './components/account/resend/resend';
 
-// home
-import {SecureHomeComponent} from './components/funnel/home/home';
-import {LogoutComponent} from './components/funnel/logout/logout';
-
 // auth services
-import {ProductCatalogService} from './services/product-catalog';
 import {LayoutService} from './services/layout';
 import {AuthService} from './services/auth.service';
 
@@ -64,8 +59,6 @@ export function HttpLoaderFactory(http: Http) {
         AppComponent,
         AccountLoginPageComponent,
         NotFoundPageComponent,
-        SecureHomeComponent,
-        LogoutComponent,
         ResendCodeComponent,
         ForgotPassword2Component,
         ForgotPasswordPageComponent,
@@ -77,7 +70,6 @@ export function HttpLoaderFactory(http: Http) {
     providers: [
         TranslateService,
         CanActivateTeam,
-        ProductCatalogService,
         LayoutService,
         AuthService
     ],

@@ -1,18 +1,5 @@
 ﻿<bc-layout>
-  <bc-sidenav [open]="layout.sidebarOpen$ | async">
-    <bc-nav-item (activate)="closeSidenav()" routerLink="/home" icon="toc" hint="Purchase a new subscription">
-      Purchase Act!
-    </bc-nav-item>
-    <bc-nav-item (activate)="closeSidenav()" routerLink="/home/subscriptions" icon="toc" hint="View your active subscriptions">
-      My Subscriptions
-    </bc-nav-item>
-    <bc-nav-item (activate)="closeSidenav()" routerLink="/home/payments" icon="payment" hint="View past and recent billing information">
-      Billing History
-    </bc-nav-item>
-    <bc-nav-item (activate)="closeSidenav()" routerLink="/home/support" icon="help" hint="Get help with using this site">
-      Support
-    </bc-nav-item>
-  </bc-sidenav>
+  <bc-sidenav [open]="layout.sidebarOpen$ | async"></bc-sidenav>
   <bc-toolbar (openMenu)="openSidenav()" [lang]="language$ | async">
     {{ 'HOME.TITLE' | translate }}
   </bc-toolbar>

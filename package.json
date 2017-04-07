@@ -5,12 +5,12 @@
   "main": "index.ts",
   "scripts": {
     "ng": "ng",
-    "start": "ng start",
-    "build": "ng build",
+    "start": "webpack-dev-server --inline --progress --port 9090",
+    "build": "concurrently \"rimraf dist\" \"webpack --config config/webpack.prod.js --progress --profile --bail\"",
     "build-dev": "concurrently \"rimraf dist\" \"webpack --display-error-details --config config/webpack.dev.js --progress --profile --bail\"",
     "typings": "typings",
     "lint": "tslint ./src/app/**/*.ts",
-    "test": "ng test",
+    "test": "karma start --browsers Chrome",
     "e2e": "ng e2e"
   },
   "repository": {
