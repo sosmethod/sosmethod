@@ -1,0 +1,8 @@
+﻿<button md-button (click)="setSelectedProduct()" [class.selected]="(catalog.selectedProduct$ | async) === subscription.type">
+  <md-card>
+    <md-card-title *ngIf="subscription.type == 'ActPremiumCloud'">Act! Premium Cloud</md-card-title>
+    <md-card-title *ngIf="subscription.type == 'ActPremium'">Act! Premium</md-card-title>
+    <md-card-title *ngIf="subscription.type == 'ActPro'">Act! Pro</md-card-title>
+    <bc-product-description [product]="subscription.type"></bc-product-description>
+  </md-card>
+</button>

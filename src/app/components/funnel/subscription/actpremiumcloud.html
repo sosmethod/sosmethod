@@ -1,0 +1,4 @@
+<md-card-title>{{(product$ | async)?.name}}</md-card-title>
+<md-input-container>
+    <input mdInput type="number" placeholder="Number of users" [(value)]="userCount" min="1">
+</md-input-container>

@@ -1,0 +1,46 @@
+﻿.container {
+  display: flex;
+}
+
+.preview {
+  width: 40%;
+  padding: 20px;
+}
+
+.long-description {
+  width: 60%;
+  padding: 20px;
+}
+
+.price-columns {
+  display: flex;
+}
+
+.long-description md-card-title,
+.long-description md-card-subtitle,
+.long-description > p {
+  text-align: center;
+}
+
+.includes,
+.price-dropdown {
+  width: 50%;
+}
+
+.price-dropdown {
+  padding: 20px;
+  text-align:center;
+}
+
+.price-dropdown h1 {
+  font-size:96px;
+  margin:0;
+}
+
+.price-dropdown sup {
+  font-size:24px;
+}
+
+md-select {
+  display:block;
+}

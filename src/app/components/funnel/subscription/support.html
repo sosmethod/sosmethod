@@ -1,0 +1,7 @@
+<md-card-title>{{(product$ | async)?.name}}</md-card-title>
+<md-select placeholder="Get help when you need it" [(ngModel)]="support">
+    <md-option value="yearly">1 Year ($99/year)</md-option>
+    <md-option value="monthly">30 day ($35/month)</md-option>
+    <md-option value="premium">Premium ($5/user/month)</md-option>
+    <md-option value="none">No support :(</md-option>
+</md-select>

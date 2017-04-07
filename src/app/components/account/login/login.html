@@ -1,0 +1,33 @@
+﻿<md-card>
+  <md-card-title>Login</md-card-title>
+  <md-card-subtitle>Log in to manage your Act! subscriptions and account information.</md-card-subtitle>
+  <form method="POST" action="#" role="form">
+    <div *ngIf="errorMessage!=null" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+    <md-input-container>
+      <input mdInput id="signupEmail" required type="email" placeholder="Email" maxlength="100" [(ngModel)]="authUser.name"
+             [ngModelOptions]="{standalone: true}">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput id="signupPassword" required type="password" maxlength="25" placeholder="Password"
+             length="40" [(ngModel)]="authUser.password" [ngModelOptions]="{standalone: true}">
+    </md-input-container>
+    <div class="form-group">
+      <button md-raised-button color="primary" id="signupSubmit" type="submit" (click)="login()">
+        Login
+      </button>
+    </div>
+
+  </form>
+  <md-card-actions>
+    <a md-button [routerLink]="['/account/forgot']"> <i></i> Forgot Password?</a>
+    <a md-button [routerLink]="['/account/resend']"> <i></i> Resend Confirmation Code</a>
+  </md-card-actions>
+</md-card>
+<md-card>
+  <md-card-title>Register</md-card-title>
+  <md-card-subtitle>New user? Register here</md-card-subtitle>
+  <a md-button color="primary" [routerLink]="['/account/register']"> <i></i> Register</a>
+</md-card>
