@@ -1,0 +1,60 @@
+<div id="account" class="modal">
+    <form action="/account">
+        <a href="/">X</a>
+        <h2>Account</h2>
+        <a href="/account" class="button">Account</a>
+        <a href="/timeline_meditations" class="button">Meditations</a>
+        <a href="/timeline_discovery" class="button">Discovery</a><br />
+        <br />
+        <div class="hr"><span></span><span></span><span></span></div>
+        <br />
+        <label>
+            <span>First name</span>
+            <input name="first" type="text" value=""/>
+        </label>
+        <label>
+            <span>Last name</span>
+            <input name="last" type="text" value=""/>
+        </label>
+        <label>
+            <span>Email</span>
+            <input name="email" type="text" value=""/>
+        </label>
+        <label>
+            <span>Password</span>
+            <input name="passwd" type="password" value=""/>
+        </label>
+        <label>
+            <span>New Password</span>
+            <a href="#change-password">Change password</a>
+            <input name="new-passwd" type="password" value=""/>
+        </label>
+        <button type="submit">Save</button>
+        <label>
+            <span>Subscription</span>
+        </label>
+        <ul class="options">
+            <li>
+                <a href="/signup/monthly_trial">
+                    <h4>Monthly</h4>
+                    <h5>each month</h5>
+                    <input type="hidden" name="monthly_trial" value="1299" />
+                </a>
+            </li>
+            <li>
+                <a href="/signup/yearly">
+                    <h4>Yearly</h4>
+                    <h5>$95.88 a year</h5>
+                    <input type="hidden" name="yearly" value="9588" />
+                </a>
+            </li>
+            <li>
+                <a href="/signup/2year">
+                    <h4>2 Year</h4>
+                    <h5>59.88 per year</h5>
+                    <input type="hidden" name="2year" value="11976" />
+                </a>
+            </li>
+        </ul>
+    </form>
+</div>

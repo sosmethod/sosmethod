@@ -1,0 +1,50 @@
+﻿:host {
+
+  color: #444;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  /deep/ {
+
+    .mat-sidenav-container {
+      background: rgba(0, 0, 0, 0.03);
+      color: inherit;
+    }
+
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: #444;
+      text-decoration: none;
+      outline: none;
+    }
+
+    router-outlet + *,
+    bc-home,
+    .mat-toolbar-layout,
+    .page-container {
+      width: 1000px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    img, video, canvas, svg {
+      max-width: 100%;
+    }
+
+    .mat-input-wrapper {
+      margin: 0 !important;
+    }
+
+    .mat-card > .mat-card-actions:last-child {
+      padding-top: 40px;
+      margin: 0;
+    }
+
+    md-select, .mat-input-container {
+      padding: 15px 0;
+    }
+  }
+}

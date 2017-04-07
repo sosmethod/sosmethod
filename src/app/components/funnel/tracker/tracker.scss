@@ -1,0 +1,50 @@
+@import '../../../app.component';
+
+:host {
+  display:flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding:0 0 40px;
+}
+
+ol {
+  list-style: none;
+  margin:0;
+  padding:0;
+  display:flex;
+}
+
+li {
+  padding:0;
+  list-style:none;
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  border:2px solid mat-color($primary);
+  margin:0 20px;
+  position:relative;
+}
+
+li a {
+  display:flex;
+  align-items: flex-end;
+  justify-content: center;
+  height:100%;
+}
+
+h5 {
+  align-self: flex-end;
+  margin:0;
+  position:relative;
+  top:1.5em;
+}
+
+li span {
+  position:absolute;
+  top:50%;
+  margin-top:-20px;
+  text-align:center;
+  font-size:35px;
+}
+
