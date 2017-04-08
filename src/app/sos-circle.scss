@@ -1,0 +1,63 @@
+
+.sos-circle {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    border: 2px solid #FFFFFF;
+    padding: 10px;
+    vertical-align: middle;
+    font-size: 18px;
+    color: #ffffff;
+    transition: border ease-in-out .25s, box-shadow ease-in-out .25s;
+    position: relative;
+    z-index: 1;
+    font-family: "Century Gothic", sans-serif;
+    letter-spacing: 1px;
+}
+
+.sos-circle > span {
+    border-radius: 100%;
+    border: 2px solid #FFFFFF;
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    box-shadow: inset 0 0 40px rgba(255, 255, 255, .75);
+    transition: border ease-in-out .25s, box-shadow ease-in-out .25s;
+    position: relative;
+}
+
+.sos-circle > span:nth-of-type(1),
+.sos-circle > span:nth-of-type(2),
+.sos-circle > span:nth-of-type(3) {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    animation: borderAnim 5s ease-in-out infinite alternate;
+}
+
+.sos-circle > span:nth-of-type(2) {
+    animation: borderAnim2 6s ease-in-out infinite alternate;
+}
+
+.sos-circle > span:nth-of-type(2):before {
+    top: 8px;
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+}
+
+.sos-circle > span:nth-of-type(2):before {
+    animation: beforeAnim2 6s ease-in-out infinite alternate;
+}
+
+.sos-circle > span:nth-of-type(3) {
+    animation: borderAnim3 7s ease-in-out infinite;
+}
+

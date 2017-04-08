@@ -1,0 +1,33 @@
+
+a[href="#fullscreen"]
+{
+    opacity: .7;
+    background-image:url(/assets/full-screen-icon-png-11_white.png);
+    background-size:60% auto;
+    background-position: 50% 50%;
+}
+
+a[href="#rewind"]
+{
+    background-image: url(/assets/rewind_active.png);
+    opacity: .7;
+    background-size: 60% auto;
+    background-position: 50% 50%;
+}
+
+body.meditations #player-buttons > a[href="#rewind"]
+{
+    display:none;
+}
+
+a[href="#fullscreen"]:active,
+a[href="#fullscreen"]:hover,
+a[href="#fullscreen"]:focus,
+a[href="#rewind"]:active,
+a[href="#rewind"]:hover,
+a[href="#rewind"]:focus
+{
+    opacity: 1;
+}
+
+

@@ -1,25 +1,186 @@
 
-
-:host(bc-footer) {
-  width:1000px;
-  display: flex;
-  margin:0 auto;
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 1000;
 }
 
-:host > div {
-  width:25%;
+footer > a,
+footer > button {
+    display: inline-block;
+    height: 36px;
+    width: 36px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    margin: 8px 12px;
+    padding: 0;
 }
 
-ul {
-  list-style: none;
-  margin:0;
-  padding:0;
+h2 {
+    font-size: 16px;
+    padding: 10px 20px;
+    position: fixed;
+    left: 0;
+    bottom: 50px;
+    max-width: 400px;
+    font-family: "Century Gothic", sans-serif;
+    color: white;
+    margin: 0;
+    text-align: center;
+    transition: ease-in-out .25s;
 }
 
-li {
-  padding:10px;
-  margin:0;
-  list-style: none;
+footer #tools-menu.active li:first-of-type {
+    height: 80px;
+    line-height: 100%;
+    text-align: center;
 }
 
+#bonus ol,
+footer ol,
+#share ol {
+    list-style: none;
+    margin: 0;
+    bottom: 50px;
+    position: fixed;
+    left: 20px;
+    padding: 0;
+    color: white;
+    max-width: 350px;
+    max-height: 0;
+    min-width: 200px;
+    background: rgba(73, 151, 203, .8);
+}
 
+share.active ol,
+footer ol.active {
+    z-index: 1000;
+    max-height: 100%;
+    padding: 10px 10px 0 10px;
+}
+
+footer ol.active li,
+body #share ol li {
+    height: 45px;
+    transition-delay: 0s;
+    border-radius: 1px;
+    position: relative;
+    user-input: inherit;
+}
+
+footer ol li:after,
+#share ol li:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 100%;
+    margin-top: -6px;
+    height: 2px;
+    background: rgba(255, 255, 255, .7);
+    background: linear-gradient(to left, transparent, white, white, white, transparent);
+    border-radius: 100%;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(255, 255, 255, .7);
+    left: 0;
+    opacity: 0;
+    transition: ease-in-out .25s;
+}
+
+#secondary-menu li:nth-last-of-type(3) {
+    display: none;
+}
+
+footer ol.active li:after,
+body #share ol li:after {
+    opacity: 1;
+    transition-delay: 0s;
+    transition: ease-in-out .25s;
+}
+
+footer ol li,
+#share ol li {
+    padding: 0;
+    background: transparent;
+    height: 0;
+    overflow: hidden;
+    transition: ease-in-out .25s;
+    border-bottom: 1px solid transparent;
+    user-input: none;
+    position: relative;
+}
+
+#bonus ol li a,
+footer ol li a,
+#share ol li a {
+    color: #fff;
+    padding: 5px 5px 15px 5px;
+    display: block;
+}
+
+footer ol li a span {
+    display: block;
+}
+
+footer ol li a small {
+    display: block;
+    position: relative;
+    left: 10px;
+    padding-right: 10px;
+}
+
+footer #tools-menu.active li {
+    height: 60px;
+}
+
+footer a[href*="facebook"] {
+    background-image: url(/assets/icon_static_fb.png);
+}
+
+footer a[href*="facebook"]:active,
+footer a[href*="facebook"]:hover,
+footer a[href*="facebook"]:focus {
+    background-image: url(/assets/icon_active_fb.png);
+}
+
+footer a[href*="#secondary-menu"] {
+    background-image: url(/assets/icon_static_menu.png);
+}
+
+footer a[href*="#secondary-menu"]:active,
+footer a[href*="#secondary-menu"]:hover,
+footer a[href*="#secondary-menu"]:focus {
+    background-image: url(/assets/icon_active_menu.png);
+}
+
+footer a[href*="#tools-menu"] {
+    background-image: url(/assets/icon_static_tools.png);
+}
+
+footer a[href*="#tools-menu"]:active,
+footer a[href*="#tools-menu"]:hover,
+footer a[href*="#tools-menu"]:focus {
+    background-image: url(/assets/icon_active_tools.png);
+}
+
+footer a[href*="twitter"] {
+    background-image: url(/assets/icon_static_twitter.png);
+}
+
+footer a[href*="twitter"]:active,
+footer a[href*="twitter"]:hover,
+footer a[href*="twitter"]:focus {
+    background-image: url(/assets/icon_active_twitter.png);
+}
+
+footer a[href*="instagram"] {
+    background-image: url(/assets/icon_static_insta.png);
+}
+
+footer a[href*="instagram"]:active,
+footer a[href*="instagram"]:hover,
+footer a[href*="instagram"]:focus {
+    background-image: url(/assets/icon_active_insta.png);
+}

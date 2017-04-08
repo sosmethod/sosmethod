@@ -7,6 +7,7 @@ import {HttpModule, Http} from '@angular/http';
 import {MaterialModule} from '@angular/material';
 
 import {ComponentsModule} from './components';
+import {NavigationModule} from './components/navigation/navigation.module';
 
 import {AppComponent} from './app.component';
 
@@ -44,7 +45,7 @@ export function HttpLoaderFactory(http: Http) {
         CommonModule,
         BrowserModule,
         MaterialModule,
-        ComponentsModule,
+
         HttpModule,
         TranslateModule.forRoot({
             loader: {
@@ -53,7 +54,10 @@ export function HttpLoaderFactory(http: Http) {
                 deps: [Http]
             }
         }),
-        RouterModule.forRoot(routes, {useHash: true})
+        RouterModule.forRoot(routes, {useHash: true}),
+
+        ComponentsModule,
+        NavigationModule
     ],
     declarations: [
         AppComponent,
