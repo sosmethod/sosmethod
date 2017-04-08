@@ -17,6 +17,7 @@ import {TranslateModule} from '@ngx-translate/core';
 
 import {PipesModule} from '../pipes';
 import {NavigationModule} from './navigation';
+import {VideoComponent} from "./navigation/video/video";
 
 export const COMPONENTS = [
     LayoutComponent,
@@ -27,6 +28,7 @@ export const COMPONENTS = [
     SupportMenuComponent,
     LanguageMenuComponent,
     AccountLinksComponent,
+    VideoComponent
 ];
 
 

@@ -16,18 +16,9 @@
     }
 
     a {
-      color: #444;
+      color: white;
       text-decoration: none;
       outline: none;
-    }
-
-    router-outlet + *,
-    bc-home,
-    .mat-toolbar-layout,
-    .page-container {
-      width: 1000px;
-      margin: 0 auto;
-      display: block;
     }
 
     img, video, canvas, svg {

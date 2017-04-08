@@ -1,3 +1,28 @@
-﻿span[flex] {
+﻿
+:host {
+  z-index:100;
+  position:fixed;
+  width:100%;
+}
+
+.mat-toolbar {
+  background:transparent;
+  font-weight: normal;
+  font-size:inherit;
+}
+
+span[flex] {
   flex: 1 1 auto;
 }
+
+img {
+  max-height:70px;
+  vertical-align: middle;
+}
+
+.account {
+  flex: 1 1 auto;
+  text-align: right;
+}
+
+

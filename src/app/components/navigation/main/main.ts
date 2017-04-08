@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'bc-sidenav',
+    selector: 'bc-main-menu',
     templateUrl: './main.html',
     styleUrls: ['./main.scss']
 })

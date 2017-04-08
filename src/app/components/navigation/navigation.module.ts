@@ -7,7 +7,7 @@ import {RouterModule} from '@angular/router';
 import {MainComponent} from './main/main';
 
 export const COMPONENTS = [
-    MainComponent,
+    MainComponent
 ];
 
 
@@ -23,4 +23,8 @@ export const COMPONENTS = [
     exports: COMPONENTS
 })
 export class NavigationModule {
+
+
 }
+
+
