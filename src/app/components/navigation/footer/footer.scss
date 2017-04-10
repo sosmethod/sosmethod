@@ -6,17 +6,24 @@ footer {
     width: 100%;
     height: 50px;
     z-index: 1000;
+    display: flex;
+    flex-direction: row;
 }
 
 footer > a,
+footer > .stretch-right > button,
 footer > button {
-    display: inline-block;
     height: 36px;
     width: 36px;
     vertical-align: middle;
     background-repeat: no-repeat;
+    background-position: 50% 50%;
     margin: 8px 12px;
     padding: 0;
+    min-width:0;
+    display:inline-block;
+    border-radius: 100%;
+    overflow:hidden;
 }
 
 h2 {
@@ -33,106 +40,8 @@ h2 {
     transition: ease-in-out .25s;
 }
 
-footer #tools-menu.active li:first-of-type {
-    height: 80px;
-    line-height: 100%;
-    text-align: center;
-}
-
-#bonus ol,
-footer ol,
-#share ol {
-    list-style: none;
-    margin: 0;
-    bottom: 50px;
-    position: fixed;
-    left: 20px;
-    padding: 0;
-    color: white;
-    max-width: 350px;
-    max-height: 0;
-    min-width: 200px;
-    background: rgba(73, 151, 203, .8);
-}
-
-share.active ol,
-footer ol.active {
-    z-index: 1000;
-    max-height: 100%;
-    padding: 10px 10px 0 10px;
-}
-
-footer ol.active li,
-body #share ol li {
-    height: 45px;
-    transition-delay: 0s;
-    border-radius: 1px;
-    position: relative;
-    user-input: inherit;
-}
-
-footer ol li:after,
-#share ol li:after {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 100%;
-    margin-top: -6px;
-    height: 2px;
-    background: rgba(255, 255, 255, .7);
-    background: linear-gradient(to left, transparent, white, white, white, transparent);
-    border-radius: 100%;
-    width: 100%;
-    box-shadow: 0 0 5px rgba(255, 255, 255, .7);
-    left: 0;
-    opacity: 0;
-    transition: ease-in-out .25s;
-}
-
-#secondary-menu li:nth-last-of-type(3) {
-    display: none;
-}
-
-footer ol.active li:after,
-body #share ol li:after {
-    opacity: 1;
-    transition-delay: 0s;
-    transition: ease-in-out .25s;
-}
-
-footer ol li,
-#share ol li {
-    padding: 0;
-    background: transparent;
-    height: 0;
-    overflow: hidden;
-    transition: ease-in-out .25s;
-    border-bottom: 1px solid transparent;
-    user-input: none;
-    position: relative;
-}
-
-#bonus ol li a,
-footer ol li a,
-#share ol li a {
-    color: #fff;
-    padding: 5px 5px 15px 5px;
-    display: block;
-}
-
-footer ol li a span {
-    display: block;
-}
-
-footer ol li a small {
-    display: block;
-    position: relative;
-    left: 10px;
-    padding-right: 10px;
-}
-
-footer #tools-menu.active li {
-    height: 60px;
+footer .stretch-right {
+    flex: 1 1 auto;
 }
 
 footer a[href*="facebook"] {
@@ -145,23 +54,23 @@ footer a[href*="facebook"]:focus {
     background-image: url(/assets/icon_active_fb.png);
 }
 
-footer a[href*="#secondary-menu"] {
+footer .menu-icon {
     background-image: url(/assets/icon_static_menu.png);
 }
 
-footer a[href*="#secondary-menu"]:active,
-footer a[href*="#secondary-menu"]:hover,
-footer a[href*="#secondary-menu"]:focus {
+footer .menu-icon:active,
+footer .menu-icon:hover,
+footer .menu-icon:focus {
     background-image: url(/assets/icon_active_menu.png);
 }
 
-footer a[href*="#tools-menu"] {
+footer .tools-icon {
     background-image: url(/assets/icon_static_tools.png);
 }
 
-footer a[href*="#tools-menu"]:active,
-footer a[href*="#tools-menu"]:hover,
-footer a[href*="#tools-menu"]:focus {
+footer .tools-icon:active,
+footer .tools-icon:hover,
+footer .tools-icon:focus {
     background-image: url(/assets/icon_active_tools.png);
 }
 
@@ -183,4 +92,36 @@ footer a[href*="instagram"]:active,
 footer a[href*="instagram"]:hover,
 footer a[href*="instagram"]:focus {
     background-image: url(/assets/icon_active_insta.png);
+}
+
+footer .stretch-right button
+{
+    transition: margin-right .15s ease-in-out;
+    background-image:url(/assets/icon_static_bk-tray.png);
+}
+
+footer .stretch-right button:hover
+{
+    background-image:url(/assets/icon_active_bk-tray.png);
+}
+
+footer .stretch-right button.active
+{
+    margin-right:150px;
+    background-image:url(/assets/icon_static_bk-tray-close.png);
+}
+
+footer .stretch-right button.active:hover
+{
+    background-image:url(/assets/icon_active_bk-tray-close.png);
+}
+
+footer /deep/ .mat-button-focus-overlay,
+footer /deep/ .mat-button-ripple
+{
+    border-radius: 100%;
+}
+
+.stretch-right {
+    text-align: right;
 }

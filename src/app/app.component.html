@@ -1,6 +1,6 @@
 ﻿<bc-layout [class]="route | async">
   <bc-sidenav [open]="layout.sidebarOpen$ | async"></bc-sidenav>
-  <bc-toolbar (openMenu)="openSidenav()" [lang]="language$ | async">
+  <bc-toolbar (openMenu)="openSidenav()">
     {{ 'HOME.TITLE' | translate }}
   </bc-toolbar>
   <router-outlet></router-outlet>

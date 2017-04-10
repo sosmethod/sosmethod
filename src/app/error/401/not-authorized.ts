@@ -1,10 +1,9 @@
-﻿import { Component, ChangeDetectionStrategy } from '@angular/core';
+﻿import { Component } from '@angular/core';
 
 
 @Component({
   selector: 'bc-not-authorized',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './not-authorized.html',
   styleUrls: ['./not-authorized.scss']
 })
-export class NotAuthorizedPageComponent { }
+export class NotAuthorizedComponent { }

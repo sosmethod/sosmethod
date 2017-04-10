@@ -1,0 +1,73 @@
+
+:host {
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#course-menu {
+    position:relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    transition: opacity ease-in-out .25s;
+    text-align: center;
+    z-index: 10;
+    display: block;
+    opacity: 1;
+}
+
+#course-menu:before {
+    content: " ";
+    background: url(/assets/ellipse.png) no-repeat 50% 50% transparent;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+
+/*
+transform: rotate(-1);
+*/
+
+a {
+    color: #ffffff;
+    font-size: 18px;
+    display: block;
+    padding: 25px;
+    font-family: "Century Gothic", sans-serif;
+    letter-spacing: 1px;
+}
+
+#course-menu div {
+    height: 3px;
+    position: relative;
+    background: linear-gradient(to left, transparent, white, white, white, transparent);
+    font-family: "Century Gothic", sans-serif;
+    letter-spacing: 1px;
+    display: block;
+    opacity: 1;
+}
+
+#course-menu div:before {
+    content: " ";
+    position: absolute;
+    left: 50%;
+    background-color: rgba(73,151,203,.55);
+    width: 50px;
+    height: 50px;
+    margin-top: -25px;
+    margin-left: -25px;
+    display: block;
+    border-radius: 100%;
+    box-shadow: 0 0 100px rgba(73,151,203,.8), 0 0 100px rgba(73,151,203,.8), 0 0 100px rgba(73,151,203,.8), 0 0 100px rgba(73,151,203,.8);
+    z-index: -1;
+}

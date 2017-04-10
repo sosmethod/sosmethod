@@ -1,43 +1,24 @@
 ﻿import { Routes } from '@angular/router';
 
-import { NotFoundPageComponent } from './error/404/not-found';
-import { NotAuthorizedPageComponent } from './error/401/not-authorized';
-import { ResendCodeComponent } from './components/account/resend/resend';
+import { NotFoundComponent } from './error/404/not-found';
+import { NotAuthorizedComponent } from './error/401/not-authorized';
 
-import { AccountLoginPageComponent } from './components/account/login/login';
-import { AccountRegisterPageComponent } from './components/account/register/register';
-import { AccountConfirmPageComponent } from './components/account/confirm/confirm';
-import { ForgotPassword2Component } from './components/account/reset/reset';
-import { ForgotPasswordPageComponent } from './components/account/forgot/forgot';
 
-import { CanActivateTeam } from './guards/secure';
+import { AuthGuard } from './guards/auth';
 
-import { AppComponent } from './app.component';
+
 import {MainComponent} from './components/navigation/main/main';
-
-const homeRoutes: Routes = [
-    {
-        path: '',
-        canActivate: [CanActivateTeam],
-        canActivateChild: [CanActivateTeam],
-        children: [
-//            { path: 'about', component: AboutComponent },
-            { path: 'account/login', component: AccountLoginPageComponent },
-            { path: 'account/register', component: AccountRegisterPageComponent },
-            { path: 'account/confirm/:username', component: AccountConfirmPageComponent },
-            { path: 'account/resend', component: ResendCodeComponent },
-            { path: 'account/reset/:email', component: ForgotPassword2Component },
-            { path: 'account/forgot', component: ForgotPasswordPageComponent },
-            { path: '', component: MainComponent }
-        ]
-    },
-];
+import {CourseComponent} from './components/navigation/course/course';
+import {DiscoveryComponent} from './components/navigation/discovery/discovery';
+import {MeditationComponent} from './components/navigation/meditation/meditation';
+import {SignupComponent} from './components/signup/signup';
+import {GiftComponent} from './components/gift/gift';
 
 const secureHomeRoutes: Routes = [
     {
         path: 'home',
-        canActivate: [CanActivateTeam],
-        canActivateChild: [CanActivateTeam],
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
         children: [
         ]
     }
@@ -46,22 +27,67 @@ const secureHomeRoutes: Routes = [
 export const routes: Routes = [
     {
         path: '',
-        children: [
-            ...homeRoutes,
-            ...secureHomeRoutes,
-            {
-                path: '',
-                component: AppComponent
-            }
-        ]
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        data: {roles: ['anonymous']},
+        component: MainComponent,
+    },
+    {
+        path: 'signup',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        data: {roles: ['anonymous']},
+        component: SignupComponent,
+    },
+    {
+        path: 'gift',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        data: {roles: ['anonymous']},
+        component: GiftComponent,
+    },
+    {
+        path: 'explore',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        data: {roles: ['anonymous']},
+        component: CourseComponent,
+    },
+    {
+        path: 'discovery',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        data: {roles: ['anonymous']},
+        component: DiscoveryComponent,
+    },
+    {
+        path: 'discovery/:discovery',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        data: {roles: ['anonymous']},
+        component: DiscoveryComponent,
+    },
+    {
+        path: 'meditation',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        data: {roles: ['anonymous']},
+        component: MeditationComponent,
+    },
+    {
+        path: 'meditation/:meditation',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        data: {roles: ['anonymous']},
+        component: MeditationComponent,
     },
     {
         path: '**error400',
-        component: NotAuthorizedPageComponent
+        component: NotAuthorizedComponent
     },
     {
         path: '**',
-        component: NotFoundPageComponent
+        component: NotFoundComponent
     },
 
 ];

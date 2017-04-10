@@ -1,5 +1,5 @@
-﻿import {NgModule,} from '@angular/core';
-import {FormsModule,} from '@angular/forms';
+﻿import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
@@ -8,20 +8,13 @@ import {MaterialModule} from '@angular/material';
 
 import {ComponentsModule} from './components';
 import {NavigationModule} from './components/navigation/navigation.module';
+import {AccountModule} from './components/account/account.module';
 
 import {AppComponent} from './app.component';
 
 // errors
-import {NotFoundPageComponent} from './error/404/not-found';
-import {NotAuthorizedPageComponent} from './error/401/not-authorized';
-
-// account
-import {AccountLoginPageComponent} from './components/account/login/login';
-import {AccountRegisterPageComponent} from './components/account/register/register';
-import {AccountConfirmPageComponent} from './components/account/confirm/confirm';
-import {ForgotPassword2Component} from './components/account/reset/reset';
-import {ForgotPasswordPageComponent} from './components/account/forgot/forgot';
-import {ResendCodeComponent} from './components/account/resend/resend';
+import {NotFoundComponent} from './error/404/not-found';
+import {NotAuthorizedComponent} from './error/401/not-authorized';
 
 // auth services
 import {LayoutService} from './services/layout';
@@ -32,7 +25,7 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateService} from '@ngx-translate/core';
 
-import {CanActivateTeam} from './guards/secure';
+import {AuthGuard} from './guards/auth';
 import {routes} from './app.routing';
 
 export function HttpLoaderFactory(http: Http) {
@@ -56,24 +49,18 @@ export function HttpLoaderFactory(http: Http) {
         }),
         RouterModule.forRoot(routes, {useHash: true}),
 
+        AccountModule,
         ComponentsModule,
         NavigationModule
     ],
     declarations: [
         AppComponent,
-        AccountLoginPageComponent,
-        NotFoundPageComponent,
-        ResendCodeComponent,
-        ForgotPassword2Component,
-        ForgotPasswordPageComponent,
-        AccountLoginPageComponent,
-        AccountRegisterPageComponent,
-        AccountConfirmPageComponent,
-        NotAuthorizedPageComponent,
+        NotFoundComponent,
+        NotAuthorizedComponent,
     ],
     providers: [
         TranslateService,
-        CanActivateTeam,
+        AuthGuard,
         LayoutService,
         AuthService
     ],

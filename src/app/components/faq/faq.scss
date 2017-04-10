@@ -1,0 +1,68 @@
+
+:host {
+
+    > div {
+        background: rgba(255, 255, 255, 0.8);
+        color: #333;
+    }
+
+    h1 {
+        margin: 0;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        text-align: center;
+        color: #333;
+
+    }
+
+    .faq {
+        padding-right: 50px;
+    }
+
+    > div > div > ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-radius: 20px;
+        position: relative;
+        width: auto;
+        display: block;
+    }
+
+    > div > div > ul > li {
+    }
+
+    > div > div > ul > li > div {
+        top: 0;
+        left: 100%;
+        margin-left: 60px;
+        display: none;
+        padding: 20px;
+        border-radius: 20px;
+        position: static;
+        height: auto;
+        width: auto;
+    }
+
+    li a {
+        position: relative;
+        display: block;
+        padding: 20px;
+        color: #333;
+    }
+
+    li a.active ~ div,
+    ul:hover a[href="#faq-how-help"].active ~ div {
+        display: block;
+    }
+
+    ul:hover a[href="#faq-how-help"]:after,
+    ul:hover a[href="#faq-how-help"] ~ div {
+        display: none;
+    }
+
+    a[href="#faq-how-help"] ~ div {
+        display: block;
+    }
+
+}

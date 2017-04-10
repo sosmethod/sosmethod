@@ -1,9 +1,15 @@
-﻿:host {
+﻿
+:host {
 
   color: #444;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 
   /deep/ {
+
+    .mat-sidenav-content {
+      overflow:initial;
+      overflow-y:auto;
+      overflow-x: hidden;
+    }
 
     .mat-sidenav-container {
       background: rgba(0, 0, 0, 0.03);

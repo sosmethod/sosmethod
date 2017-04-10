@@ -5,7 +5,7 @@ import {Router, ActivatedRoute} from '@angular/router';
     selector: 'bc-forgot',
     templateUrl: './forgot.html'
 })
-export class ForgotPasswordPageComponent {
+export class ForgotPasswordComponent {
     email: string;
     errorMessage: string;
 

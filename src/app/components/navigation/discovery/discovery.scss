@@ -1,0 +1,51 @@
+
+:host {
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#discovery {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    overflow: visible;
+    z-index: 1;
+    transition: opacity ease-in-out .25s;
+}
+
+#discovery a {
+    display:block;
+    width:150px;
+    height:150px;
+    border-radius: 100%;
+    padding:10px;
+    vertical-align: middle;
+    font-size:18px;
+    color:#ffffff;
+    transition: border ease-in-out .25s, box-shadow ease-in-out .25s;
+    position: absolute;
+    z-index: 1;
+    font-family: "Century Gothic", sans-serif;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+#discovery span:nth-of-type(4) {
+    height:100%;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#discovery-leaf a {
+    width: 100px;
+    height: 100px;
+    display: none;
+}
