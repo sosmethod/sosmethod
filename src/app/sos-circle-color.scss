@@ -55,30 +55,30 @@
     box-shadow: none;
 }
 
-.sos-circle-yellow {
+.sos-circle-gold {
     border: 2px solid rgba(255, 216, 133, .5);
 }
 
-.sos-circle-yellow > span {
+.sos-circle-gold > span {
     border: 2px solid rgba(255, 216, 133, .5);
     box-shadow: inset 0 0 40px rgba(255, 216, 133, .25);
 }
 
-.sos-circle-yellow > span:before {
+.sos-circle-gold > span:before {
     border: 2px solid rgba(255, 216, 133, .10);
     box-shadow: none;
 }
 
-.sos-circle-yellow:hover {
+.sos-circle-gold:hover {
     border: 2px solid rgba(255, 216, 133, 1);
 }
 
-.sos-circle-yellow:hover > span {
+.sos-circle-gold:hover > span {
     border: 2px solid rgba(255, 216, 133, 1);
     box-shadow: inset 0 0 40px rgba(255, 216, 133, .75);
 }
 
-.sos-circle-yellow:hover span:before {
+.sos-circle-gold:hover span:before {
     border: 2px solid rgba(255, 216, 133, .50);
     box-shadow: none;
 }

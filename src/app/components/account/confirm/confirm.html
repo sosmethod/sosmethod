@@ -18,10 +18,10 @@
       <button md-raised-button color="primary" (click)="onConfirmRegistration($event)" id="confirmRegistration" type="submit">Confirm</button>
     </div>
     <md-card-actions>
-      Can't find your code? <a md-button color="primary" [routerLink]="['/account/resend']">Resend Code</a>
+      Can't find your code? <a md-raised-button color="primary" [routerLink]="['/account/resend']">Resend Code</a>
       <br />
-      <a md-button [routerLink]="['/account/register']">Register</a>
-      <a md-button [routerLink]="['/account/login']">Login</a>
+      <a md-raised-button [routerLink]="['/account/register']">Register</a>
+      <a md-raised-button [routerLink]="['/account/login']">Login</a>
     </md-card-actions>
   </form>
 </md-card>

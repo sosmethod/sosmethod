@@ -1,10 +1,10 @@
-import { Component, Output, EventEmitter, ChangeDetectorRef, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, Output, EventEmitter, ChangeDetectorRef, OnInit, Input } from '@angular/core';
 
 
 @Component({
     selector: 'bc-course',
     templateUrl: './course.html',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    styleUrls: ['./course.scss']
 })
 export class CourseComponent implements OnInit {
 

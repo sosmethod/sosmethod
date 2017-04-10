@@ -1,15 +1,14 @@
 ﻿import 'rxjs/add/operator/let';
 import { Observable } from 'rxjs/Observable';
-import { Component, ChangeDetectionStrategy, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import {LayoutService} from './services/layout';
-import {Router} from "@angular/router";
-import {Subject} from "rxjs";
+import {Router} from '@angular/router';
+import {Subject} from 'rxjs/Subject';
 
 
 @Component({
   selector: 'bc-app',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [TranslateService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
@@ -37,11 +36,11 @@ export class AppComponent implements OnInit {
     }
 
     closeSidenav() {
-      this.layout.sidebarOpen$ = Observable.of(false);
+      this.layout.sidebarOpen$.next(false);
     }
 
     openSidenav() {
-      this.layout.sidebarOpen$ = Observable.of(true);
+      this.layout.sidebarOpen$.next(true);
     }
 
 }

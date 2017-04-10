@@ -1,5 +1,6 @@
+<md-dialog-content>
 <div id="tools">
-    <div id="tool-stop_drop">
+    <div *ngIf="dialogRef.config.data.tool == 'stop_drop'">
         <a href="#close">X</a>
         <h1>Stop, Drop &amp; Roll</h1>
         <p>Don’t wait till you’re in a panic to check it out. Try <strong>Stop, Drop &amp; Roll</strong> the next time you get an upsetting phone call, feel road rage, or someone pushes your buttons.<br /></p>
@@ -18,14 +19,14 @@
         <p>Once you have shifted out of the intensity of a downward spiral, then – <strong>Choose one of the meditations</strong> that help you <strong>Roll</strong> with an inspired response. We suggestion using any you feel drawn to in the moment.</p>
         <p><strong>Stop, Drop &amp; Roll</strong> really helps to calm the flames so you make better choices and get back into a state of mind that supports the life you want.</p>
     </div>
-    <div id="tool-envision">
+    <div *ngIf="dialogRef.config.data.tool == 'envision'">
         <a href="#close">X</a>
         <h1>REQUEST &amp; ENVISION</h1>
         <p>It's wonderful to have deductive reasoning skills – but consider how many of our best ideas happen in the shower. Is it because our mind is at rest?<br />
             <strong>Request &amp; Envision</strong> accesses solutions you can’t find from the linear mind. When we attune to higher mind intelligence, we are connecting with a remarkable creative flow.</p>
         <p>The renowned author, Dr. Ernest F. Pecci, says that “In a highly creative individual the brain must be trained to create new thinking channels.” When we set a heart/mind vision, we are changing brain function so that it assists us to create a new environment. We can generate a new future by shifting the thoughts that set positive actions and circumstances in motion.</p>
         <h2>Request &amp; Envision</h2>
-        <p><h2>1. EXPLORE:</h2> one area where you would like to have a solution to something that troubles you – or where you want inspiration to move forward on a new idea or project</p>
+        <p><strong>1. EXPLORE:</strong> one area where you would like to have a solution to something that troubles you – or where you want inspiration to move forward on a new idea or project</p>
         <p><strong>Write the Request</strong> as an invitation for higher knowledge rather than a demand for answers. Such as:</p>
         <ul><li><strong>Guide</strong> and show me the best way to ________ sample:<br />
             <strong>Guide</strong> and show me the best way to communicate with my wife.<br /></li>
@@ -43,20 +44,20 @@
         <br /><hr />
         <br /><hr />
         <br /><hr />
-        <p><h2>2. LISTEN:</h2> to any <strong>SOS Meditation</strong> to fuel inspiration and creativity.</p>
-        <p><h2>3. ENGAGE:</h2> Act on any insights you get –now or in the days and weeks ahead as more insight appears.</p>
+        <p><strong>2. LISTEN:</strong> to any <strong>SOS Meditation</strong> to fuel inspiration and creativity.</p>
+        <p><strong>3. ENGAGE:</strong> Act on any insights you get –now or in the days and weeks ahead as more insight appears.</p>
         <p><strong>Request &amp; Envision</strong> can be woven into life to develop clarity, overcome challenges, or just to gain insight on new projects and adventures. Repeat often, as insights you get are just the next step; they’re usually not an ultimate answer.</p>
         <p>Be sure to <strong>Journal</strong> your ideas and what happens – as it gives you confidence in your ability to always find solutions. We’re on a journey, and each step is one that assists us to grow, to become more mindful, and aware of our strengths and capabilities.</p>
     </div>
-    <div id="tool-positivity">
+    <div *ngIf="dialogRef.config.data.tool == 'positivity'">
         <a href="#close">X</a>
         <h1>Positivity Tool</h1>
         <p>With the <strong>Positivity</strong> Tool you move up the emotional scale, from negative to positive, in incremental steps. This way your mind doesn’t have to take too big a leap. When we’re worried or upset - by refocusing on what we’re “thankful for”, or “what would make this week special?” – it helps us move up that spiral of emotion gradually.</p>
         <p>If your answer to “What would make this week special” is to “win the lottery” – your mind could resist that big of a leap - so it could actually have the opposite effect. When the mind doesn’t believe something’s possible, you subconsciously reject the idea, and feel even worse.</p>
         <p>When your focus is on thoughts that make you smile, it helps set the stage for your day, life, and future to be all that you want it to be.</p>
         <p><strong>The Positivity Tool begins by focusing on 3 questions:</strong></p>
-        <h2>1. EXPLORE</h2>
-        <h3>What am I thankful for?</h3>
+        <strong>1. EXPLORE</strong>
+        <strong>What am I thankful for?</strong>
         <p>When you think about what you’re grateful for - notice how these ‘Happy thoughts’ make you feel. Brain science shows us how effective it is when neuro-transmitters are stimulated. Dopamine, the natural pleasure chemical, floods the brain, improving your mood. Some examples you could write are:</p>
         <blockquote><ul>
             <li>I’m thankful for my friends.</li>
@@ -86,11 +87,11 @@
         <br /><hr />
         <br /><hr />
         <br /><hr />
-        <p><h2>2. LISTEN:</h2> to any of the <strong>SOS Meditations</strong> to fuel inspiration and creativity.</p>
-        <p><h2>3. ENGAGE:</h2> Take action on what you’ve written, and any insights you get - now and in the coming days.</p>
+        <p><strong>2. LISTEN:</strong> to any of the <strong>SOS Meditations</strong> to fuel inspiration and creativity.</p>
+        <p><strong>3. ENGAGE:</strong> Take action on what you’ve written, and any insights you get - now and in the coming days.</p>
         <p>You can apply the Positivity Tool anytime you wake up with worry or upset. OR several times a week. It helps to switch gears and develop a positive environment in your mind, body, and in your day.</p>
     </div>
-    <div id="tool-rewind">
+    <div *ngIf="dialogRef.config.data.tool == 'rewind'">
         <a href="#close">X</a>
         <h1>Rewind</h1>
         <p>Applying the <strong>Rewind Tool</strong> helps to decrease the effects of genetic inheritance and increase empowerment. Having a mindful awareness of what isn’t working, is as important as directing our attention to what is. The <strong>Rewind Tool</strong> assists us by exploring both areas.</p>
@@ -106,16 +107,16 @@
         <br /><hr />
         <br /><hr />
         <br /><hr />
-        <p><h2>2. LISTEN:</h2> Open to the mindful awareness this healing environment offers in meditation.</p>
-        <p><h2>3. ENGAGE:</h2> Stay open to the insight you get. Become aware of what wants to change. Then take action - now and in the coming days.</p>
+        <p><strong>2. LISTEN:</strong> Open to the mindful awareness this healing environment offers in meditation.</p>
+        <p><strong>3. ENGAGE:</strong> Stay open to the insight you get. Become aware of what wants to change. Then take action - now and in the coming days.</p>
         <p>Each day builds on the next. It's not a race, it's the unfolding of a life you grow to enjoy more and more each day.</p>
     </div>
-    <div id="tool-possibility_5">
+    <div *ngIf="dialogRef.config.data.tool == 'possibility_5'">
         <a href="#close">X</a>
         <h1>Possibility of 5</h1>
         <p>The Possibility of 5 Tool shows you how to get your power back, how to get a mindset of so much possibility, you don’t only feel better right away – you’re truly inspired and ready to set a new course of action.  The Possibility of 5 opens a data base of inspired solutions.</p>
         <p>We don’t have to be victims of our circumstances; we can tap into the intelligence and remarkable potential we have - and discover limitless possibilities to prosper and thrive. So, let’s get started:</p>
-        <p><h2>1. EXPLORE:</h2> - Begin by focusing on 3 questions:</p>
+        <p><strong>1. EXPLORE:</strong> - Begin by focusing on 3 questions:</p>
         <p><strong>What is triggering you?</strong> Some examples are:</p>
         <ul><li>I feel like I am being taken advantage of</li>
             <li>I don't like being dominated or manipulated</li>
@@ -145,8 +146,8 @@
         <br /><hr />
         <br /><hr />
         <br /><hr />
-        <p><h2>2. LISTEN:</h2> - to any one of the meditations, to stimulate those neurotransmitters that fuel inspiration and better decisions. And</p>
-        <p><h2>3. ENGAGE:</h2> – take action in the days ahead on what you journal. Some examples of actions are:</p>
+        <p><strong>2. LISTEN:</strong> - to any one of the meditations, to stimulate those neurotransmitters that fuel inspiration and better decisions. And</p>
+        <p><strong>3. ENGAGE:</strong> – take action in the days ahead on what you journal. Some examples of actions are:</p>
         <ul><li>Sign the deal and - move on</li>
             <li>Set a timeline for beginning an exciting project.</li>
             <li>Set intention for finding caring, supportive new partnerships</li>
@@ -159,7 +160,7 @@
         <p><strong>The Possibility of 5</strong> can be used throughout life. There will always be storms, but we won’t have to worry when they show up, if we just remember this Tool. It can also be used to spark new ideas that are out of the box – and filled with possibility.</p>
         <p>If you didn’t finish writing, do that now, before beginning your meditation. Remember, every day is a new day! Life can be GREAT!</p>
     </div>
-    <div id="tool-communication">
+    <div *ngIf="dialogRef.config.data.tool == 'communication'">
         <a href="#close">X</a>
         <h1>Conscious Communication</h1>
         <p>You are always broadcasting, 24/7 to everyone around you, including the intelligent cells in your body. Your emotional state is affected by your thoughts, and how you feel about what others say.</p>
@@ -183,9 +184,11 @@
         <br /><hr />
         <br /><hr />
         <br /><hr />
-        <p><h2>2. LISTEN:</h2> and open to the mindful awareness this healing environment offers in meditation.</p>
-        <p><h2>3. ENGAGE:</h2> Become aware of what wants to change. Then take action - now and in the coming days. Notice how Conscious Communication shifts the way you feel and the way others respond to you.</p>
+        <p><strong>2. LISTEN:</strong> and open to the mindful awareness this healing environment offers in meditation.</p>
+        <p><strong>3. ENGAGE:</strong> Become aware of what wants to change. Then take action - now and in the coming days. Notice how Conscious Communication shifts the way you feel and the way others respond to you.</p>
         <p><strong>Conscious Communication</strong> isn’t about putting on a false front. It’s about attuning every part of you to be more mindful, uplifting, and supportive.  What this offers is a new perspective that opens more compassion, empathy, and love. ☺</p>
         <p>Whenever thoughts and words surface that feel like an old pattern, try repeating “Thank you. I love you.” This simple phrase has immediate effects, try it and see. And if you want to feel it for yourself, just press play and listen to today’s meditation.</p>
     </div>
 </div>
+</md-dialog-content>
+

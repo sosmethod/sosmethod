@@ -4,7 +4,6 @@
     width: 150px;
     height: 150px;
     border-radius: 100%;
-    border: 2px solid #FFFFFF;
     padding: 10px;
     vertical-align: middle;
     font-size: 18px;
@@ -14,6 +13,23 @@
     z-index: 1;
     font-family: "Century Gothic", sans-serif;
     letter-spacing: 1px;
+}
+
+.sos-circle.sos-circle-mini {
+    height: 65px;
+    width: 65px;
+}
+
+.sos-circle.sos-circle-mini > span:nth-of-type(1) {
+    animation: borderAnimSmall 5s ease-in-out infinite alternate;
+}
+
+.sos-circle.sos-circle-mini > span:nth-of-type(2) {
+    animation: borderAnimSmall2 6s ease-in-out infinite alternate;
+}
+
+.sos-circle.sos-circle-mini > span:nth-of-type(3) {
+    animation: borderAnimSmall3 7s ease-in-out infinite
 }
 
 .sos-circle > span {

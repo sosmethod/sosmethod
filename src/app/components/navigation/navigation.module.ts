@@ -5,9 +5,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 
 import {MainComponent} from './main/main';
+import {DiscoveryComponent} from './discovery/discovery';
+import {MeditationComponent} from './meditation/meditation';
+import {CourseComponent} from './course/course';
 
 export const COMPONENTS = [
-    MainComponent
+    MainComponent,
+    CourseComponent,
+    DiscoveryComponent,
+    MeditationComponent
 ];
 
 

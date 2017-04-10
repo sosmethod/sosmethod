@@ -21,7 +21,7 @@ export class RegistrationUser {
     templateUrl: './register.html',
     styleUrls: ['./register.scss']
 })
-export class AccountRegisterPageComponent {
+export class AccountRegisterComponent {
     registrationUser: RegistrationUser;
     router: Router;
     errorMessage: string;

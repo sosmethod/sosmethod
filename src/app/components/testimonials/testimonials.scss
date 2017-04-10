@@ -1,0 +1,82 @@
+
+.testimonials
+{
+    background:#fff;
+    padding:60px 0;
+    background: url(/assets/shutterstock_280074035_small.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.testimonials > div
+{
+    margin:100px 0;
+    padding:60px;
+    background: url(/assets/pink_bar.png) transparent;
+    background-size:cover;
+}
+
+h1
+{
+    text-align: center;
+    color:#fff;
+    font-style: normal;
+    padding-top:0;
+    margin-top:0;
+}
+
+q
+{
+    margin-bottom:20px;
+    display:block;
+    position:relative;
+    min-height:120px;
+}
+
+.testimonials q:before,
+.testimonials q:after
+{
+    font-size:24px;
+}
+
+.testimonials q:before
+{
+    position:absolute;
+    right:100%;
+    top:-.25em;
+}
+
+.testimonials blockquote
+{
+    color:white;
+    margin: 0 -4px;
+    display: inline-block;
+    padding: 40px;
+    outline:none;
+}
+
+.testimonials blockquote div > span
+{
+    margin-left:-106px;
+    padding-left:120px;
+    display:inline-block;
+    vertical-align: middle;
+    width:100%;
+}
+
+.testimonials blockquote div img
+{
+    height:100px;
+    width:100px;
+    border-radius: 100%;
+    vertical-align: middle;
+    display:inline-block;
+}
+
+.testimonials blockquote div span:first-child
+{
+    display:block;
+    font-weight:bold;
+}
+
+

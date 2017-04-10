@@ -5,7 +5,7 @@ import {Router, ActivatedRoute} from '@angular/router';
     selector: 'bc-confirm-page',
     templateUrl: './confirm.html'
 })
-export class AccountConfirmPageComponent implements OnInit, OnDestroy {
+export class AccountConfirmComponent implements OnInit, OnDestroy {
     confirmationCode: string;
     email: string;
     errorMessage: string;

@@ -1,13 +1,15 @@
 ﻿<md-toolbar>
     <div id="logo">
-        <a href="/"><img src="/assets/SOS-Logo-Tag-2017-all-wht.png"/><img src="/assets/SOS-Method-Logo-2017-White.png"/></a>
+        <a routerLink="/">
+            <img src="/assets/SOS-Logo-Tag-2017-all-wht.png" *ngIf="(route | async) != 'home'" />
+            <img src="/assets/SOS-Method-Logo-2017-White.png"  *ngIf="(route | async) == 'home'"/></a>
     </div>
     <div class="account">
-        <a href="/login">login</a>
-        <a href="/account"></a>
-        <a href="#contact">contact us</a>
+        <a md-raised-button routerLink="/login">login</a>
+        <a md-raised-button routerLink="/account"></a>
+        <a md-raised-button (click)="showContactDialog()">contact us</a>
         <img src="/assets/icon_static_user_man.png"/>
-        <a href="/logout">logout</a>
+        <a md-raised-button routerLink="/logout">logout</a>
     </div>
     <div id="jquery_jplayer" style="width: 0; height: 0;"></div>
 </md-toolbar>
