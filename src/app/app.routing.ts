@@ -13,6 +13,9 @@ import {DiscoveryComponent} from './components/navigation/discovery/discovery';
 import {MeditationComponent} from './components/navigation/meditation/meditation';
 import {SignupComponent} from './components/signup/signup';
 import {GiftComponent} from './components/gift/gift';
+import {DialogGuard} from "./guards/dialog";
+import {FaqDialogComponent} from "./components/faq/faq";
+import {ContactDialogComponent} from "./components/contact/contact";
 
 const secureHomeRoutes: Routes = [
     {
@@ -80,6 +83,20 @@ export const routes: Routes = [
         canActivateChild: [AuthGuard],
         data: {roles: ['anonymous']},
         component: MeditationComponent,
+    },
+    {
+        path: 'faq',
+        canActivate: [AuthGuard, DialogGuard],
+        canActivateChild: [AuthGuard, DialogGuard],
+        data: {roles: ['anonymous']},
+        component: FaqDialogComponent,
+    },
+    {
+        path: 'contact',
+        canActivate: [AuthGuard, DialogGuard],
+        canActivateChild: [AuthGuard, DialogGuard],
+        data: {roles: ['anonymous']},
+        component: ContactDialogComponent,
     },
     {
         path: '**error400',

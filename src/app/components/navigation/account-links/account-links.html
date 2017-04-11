@@ -1,3 +1,3 @@
-﻿<button md-raised-button aria-label="Log in to your account" routerLink="/account/login" *ngIf="!(authService.loggedIn$ | async)">Log In</button>
+﻿<button md-raised-button mdTooltip="Log in to your account" routerLink="/account/login" *ngIf="!(authService.loggedIn$ | async)">Log In</button>
 <button md-raised-button routerLink="/home/logout" *ngIf="(authService.loggedIn$ | async)">Log Out</button>
-<button md-raised-button aria-label="Log out" routerLink="/account/register" *ngIf="!(authService.loggedIn$ | async)">Register</button>
+<button md-raised-button mdTooltip="Log out" routerLink="/account/register" *ngIf="!(authService.loggedIn$ | async)">Register</button>

@@ -1,5 +1,13 @@
 ﻿md-sidenav {
   max-width: 140px;
+  position:fixed;
+  right:0;
+  top:0;
+  bottom:0;
+}
+
+:host {
+
 }
 
 aside img

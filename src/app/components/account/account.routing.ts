@@ -10,13 +10,14 @@ import { AccountConfirmComponent } from './confirm/confirm';
 import { ForgotPassword2Component } from './reset/reset';
 import { ForgotPasswordComponent } from './forgot/forgot';
 import { LogoutComponent } from './logout/logout';
+import {DialogGuard} from "../../guards/dialog";
 
 
 export const accountRoutes: Routes = [
     {
         path: 'account',
-        canActivate: [AuthGuard],
-        canActivateChild: [AuthGuard],
+        canActivate: [AuthGuard, DialogGuard],
+        canActivateChild: [AuthGuard, DialogGuard],
         data: {roles: ['anonymous', 'user']},
         children: [
 //            { path: 'about', component: AboutComponent },

@@ -5,7 +5,7 @@
             <img src="/assets/SOS-Method-Logo-2017-White.png"  *ngIf="(route | async) == 'home'"/></a>
     </div>
     <div class="account">
-        <a md-raised-button routerLink="/login">login</a>
+        <a md-raised-button (click)="showLoginDialog()">login</a>
         <a md-raised-button routerLink="/account"></a>
         <a md-raised-button (click)="showContactDialog()">contact us</a>
         <img src="/assets/icon_static_user_man.png"/>

@@ -1,23 +1,16 @@
-﻿<form class="form-signin" method="POST" action="#" role="form">
-  <div class="form-group">
-    <h2>Forgot Password</h2>
-  </div>
-  <div *ngIf="errorMessage!=null" class="alert alert-danger">
-    {{ errorMessage }}
-  </div>
-  <div class="form-group">
-    <label class="control-label" for="signupEmail">Email</label>
-    <input id="signupEmail" type="email" maxlength="50" class="form-control" [(ngModel)]="email"
-           [ngModelOptions]="{standalone: true}">
-  </div>
-  <div class="form-group">
-    <button (click)="onNext($event)" id="nextPage" type="submit" class="btn btn-info btn-block">
-      Next
-    </button>
-  </div>
-
-  <hr>
-  <p>
-    <a [routerLink]="['/home/register']"> <i class="fa fa-fw fa-group"></i> Register</a> <a [routerLink]="['/home/login']"><i class="fa fa-fw fa-user"></i>Login</a>
-  </p>
-</form>
+﻿<a md-button md-dialog-close (click)="dialog.closeAll()"><md-icon>cancel</md-icon></a>
+<h2 md-dialog-title>Forgot Password</h2>
+<md-dialog-content>
+    <div *ngIf="errorMessage!=null" class="alert alert-danger">
+        {{ errorMessage }}
+    </div>
+    <md-input-container>
+        <input mdInput id="signupEmail" type="email" maxlength="50" placeholder="Email" [(ngModel)]="email"
+               [ngModelOptions]="{standalone: true}">
+    </md-input-container>
+</md-dialog-content>
+<md-dialog-actions>
+    <button md-raised-button color="primary" (click)="onNext($event)" type="submit">Next</button>
+    <a md-button [routerLink]="['/account/register']"> <md-icon>group</md-icon> Register</a>
+    <a md-button [routerLink]="['/account/login']"> <md-icon>account box</md-icon> Login</a>
+</md-dialog-actions>

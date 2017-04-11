@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Optional} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {FaqDialogComponent} from "../faq/faq";
 
@@ -10,9 +10,10 @@ import {FaqDialogComponent} from "../faq/faq";
 })
 export class ContactDialogComponent {
 
-    constructor(public dialogRef: MdDialogRef<ContactDialogComponent>, public dialog: MdDialog) {}
+    constructor(public dialog: MdDialog, @Optional() public dialogRef?: MdDialogRef<ContactDialogComponent>) {}
 
     showFaqDialog() {
+        this.dialog.closeAll();
         this.dialog.open(FaqDialogComponent);
     }
 }

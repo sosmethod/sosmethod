@@ -1,6 +1,6 @@
 <footer>
     <h2>Discover mindful tools for well-being; <br/> rapid stress relief, focus, and peace of mind.</h2>
-    <button md-raised-button hint="Menu / Tools" class="menu-icon" [mdMenuTriggerFor]="secondary"></button>
+    <button md-raised-button mdTooltip="Menu / Tools" class="menu-icon" [mdMenuTriggerFor]="secondary"></button>
     <md-menu #secondary="mdMenu" class="secondary">
         <button md-menu-item routerLink="/signup">Sign Up</button>
         <button md-menu-item routerLink="/gift">Gift SOS</button>
@@ -36,7 +36,7 @@
     <a md-raised-button href="https://twitter.com/thesosmethod"> </a>
     <a md-raised-button href="https://www.instagram.com/thesosmethod/"> </a>
     <div class="stretch-right">
-        <button md-raised-button title="Choose a background" [class.active]="layout.sidebarOpen$ | async" (click)="showMenu.emit()"> </button>
+        <button md-raised-button title="Choose a background" [class.active]="layout.sidebarOpen$ | async" (click)="toggleSidenav()"> </button>
     </div>
 </footer>
 <md-menu #share="mdMenu" class="share">
