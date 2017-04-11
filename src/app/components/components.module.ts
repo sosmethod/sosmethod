@@ -65,7 +65,6 @@ export const COMPONENTS = [
         NavigationModule
     ],
     declarations: COMPONENTS,
-    bootstrap: [ContactDialogComponent, FaqDialogComponent, ToolDialogComponent],
     exports: COMPONENTS
 })
 export class ComponentsModule {

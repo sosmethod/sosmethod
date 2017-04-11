@@ -1,4 +1,6 @@
-﻿<md-card>
+﻿<a md-button md-dialog-close (click)="dialog.closeAll()"><md-icon>cancel</md-icon></a>
+<md-dialog-content>
+<md-card>
   <md-card-title>Login</md-card-title>
   <md-card-subtitle>Already have an account?</md-card-subtitle>
   <a md-raised-button color="primary" [routerLink]="['/account/login']">Login</a>
@@ -51,3 +53,5 @@
     </div>
   </form>
 </md-card>
+</md-dialog-content>
+

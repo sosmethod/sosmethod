@@ -1,8 +1,9 @@
 ﻿import 'rxjs/add/operator/let';
-import { OnInit, Component } from '@angular/core';
-import { Router } from '@angular/router';
+import {OnInit, Component, Optional} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { AuthUser } from '../../../models/auth-user';
+import {MdDialog, MdDialogRef} from "@angular/material";
 
 
 @Component({
@@ -20,8 +21,12 @@ export class AccountLoginComponent implements OnInit {
     message: string;
 
     constructor(
+        public route: ActivatedRoute,
         public router: Router,
-        public authService: AuthService) { }
+        public authService: AuthService,
+        public dialog: MdDialog,
+        @Optional() public dialogRef?: MdDialogRef<AccountLoginComponent>) {
+    }
 
     ngOnInit() {
         this.errorMessage = null;

@@ -12,10 +12,11 @@ import {ToolDialogComponent} from '../../tools/tool';
     styleUrls: ['./footer.scss']
 })
 export class FooterComponent {
-    @Output() showMenu = new EventEmitter();
+
+    public isOpen: boolean;
 
     constructor(public layout: LayoutService, public dialog: MdDialog) {
-
+        this.layout.sidebarOpen$.subscribe(o => this.isOpen = o);
     }
 
     showToolDialog(t: string) {
@@ -28,6 +29,10 @@ export class FooterComponent {
 
     showContactDialog() {
         this.dialog.open(ContactDialogComponent);
+    }
+
+    toggleSidenav() {
+        this.layout.sidebarOpen$.next(!this.isOpen);
     }
 
 }

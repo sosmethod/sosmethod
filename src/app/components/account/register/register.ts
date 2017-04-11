@@ -1,5 +1,7 @@
-﻿import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+﻿import {Component, Optional} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AuthService} from '../../../services/auth.service';
+import {MdDialog, MdDialogRef} from '@angular/material';
 
 export class RegistrationUser {
     name: {
@@ -23,11 +25,14 @@ export class RegistrationUser {
 })
 export class AccountRegisterComponent {
     registrationUser: RegistrationUser;
-    router: Router;
     errorMessage: string;
 
-    constructor(router: Router) {
-        this.router = router;
+    constructor(
+        public route: ActivatedRoute,
+        public router: Router,
+        public authService: AuthService,
+        public dialog: MdDialog,
+        @Optional() public dialogRef?: MdDialogRef<AccountRegisterComponent>) {
         this.onInit();
     }
 

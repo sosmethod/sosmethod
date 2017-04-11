@@ -5,6 +5,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {HttpModule, Http} from '@angular/http';
 import {MaterialModule} from '@angular/material';
+import {NguiScrollableModule} from "@ngui/scrollable";
 
 import {ComponentsModule} from './components';
 import {NavigationModule} from './components/navigation/navigation.module';
@@ -26,6 +27,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateService} from '@ngx-translate/core';
 
 import {AuthGuard} from './guards/auth';
+import {DialogGuard} from "./guards/dialog";
 import {routes} from './app.routing';
 
 export function HttpLoaderFactory(http: Http) {
@@ -38,6 +40,7 @@ export function HttpLoaderFactory(http: Http) {
         CommonModule,
         BrowserModule,
         MaterialModule,
+        NguiScrollableModule,
 
         HttpModule,
         TranslateModule.forRoot({
@@ -61,6 +64,7 @@ export function HttpLoaderFactory(http: Http) {
     providers: [
         TranslateService,
         AuthGuard,
+        DialogGuard,
         LayoutService,
         AuthService
     ],

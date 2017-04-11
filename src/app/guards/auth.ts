@@ -18,11 +18,11 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     canActivate(route: ActivatedRouteSnapshot,
                 state: RouterStateSnapshot): boolean {
 
-        let user = this.authService.getDecodedToken();
-        let userRoles = (user ? user.roles : null) || [this.authService.isLoggedIn() ? 'user' : 'anonymous'];
+        const user = this.authService.getDecodedToken();
+        const userRoles = (user ? user.roles : null) || [this.authService.isLoggedIn() ? 'user' : 'anonymous'];
         console.log('Roles: ' + userRoles);
-        let roles = <Array<string>>route.data['roles'] || <Array<string>>route.parent.data['roles'];
-        let canActivate = (roles == null || userRoles.filter((r: string) => roles.indexOf(r) !== -1).length > 0);
+        const roles = <Array<string>>route.data['roles'] || <Array<string>>route.parent.data['roles'];
+        const canActivate = (roles == null || userRoles.filter((r: string) => roles.indexOf(r) !== -1).length > 0);
         console.log('GUARD: ' + (canActivate ? 'allow' : 'deny') + ' "' + route.routeConfig.path + '" ' + roles + ' ' + userRoles);
         if (this.redirect) {
             clearTimeout(this.redirect);

@@ -3,6 +3,7 @@ import {MdDialog} from '@angular/material';
 import {ContactDialogComponent} from '../../contact/contact';
 import {Router} from "@angular/router";
 import {Subject} from "rxjs";
+import {AccountLoginComponent} from "../../account/login/login";
 
 
 @Component({
@@ -27,5 +28,9 @@ export class ToolbarComponent implements OnInit {
 
     showContactDialog() {
         this.dialog.open(ContactDialogComponent);
+    }
+
+    showLoginDialog() {
+        this.dialog.open(AccountLoginComponent);
     }
 }
