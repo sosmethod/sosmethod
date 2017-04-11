@@ -23,7 +23,6 @@ export const COMPONENTS = [
     ResendCodeComponent,
     ForgotPassword2Component,
     ForgotPasswordComponent,
-    AccountLoginComponent,
     AccountRegisterComponent,
     AccountConfirmComponent
 ];
