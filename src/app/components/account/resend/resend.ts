@@ -1,5 +1,6 @@
-﻿import { Component } from '@angular/core';
+﻿import {Component, Optional} from '@angular/core';
 import { Router } from '@angular/router';
+import {MdDialog, MdDialogRef} from "@angular/material";
 
 
 @Component({
@@ -11,7 +12,9 @@ export class ResendCodeComponent {
     email: string;
     errorMessage: string;
 
-    constructor(public router: Router) {
+    constructor(public router: Router,
+                public dialog: MdDialog,
+                @Optional() public dialogRef?: MdDialogRef<ResendCodeComponent>) {
 
     }
 

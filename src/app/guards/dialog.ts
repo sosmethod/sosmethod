@@ -23,12 +23,20 @@ export class DialogGuard {
 
     redirectDialog(route: ActivatedRouteSnapshot) {
         const that = route.component;
-        setTimeout(() => {
-            this.router.navigate(['']);
-            this.dialog.closeAll();
-            this.dialog.open(<any>that);
-        });
-        return false;
+        console.log();
+        if (route.routeConfig && this.router.config.filter(c => c && c.component && c.component === that
+            || c && c.children && c.children.filter(r =>
+            r && r.component && r.path
+            && r.component === that
+            && r.path === route.routeConfig.path).length > 0).length > 0) {
+            setTimeout(() => {
+                this.router.navigate(['']);
+                this.dialog.closeAll();
+                this.dialog.open(<any>that);
+            });
+            return false;
+        }
+        return true;
     }
 }
 
