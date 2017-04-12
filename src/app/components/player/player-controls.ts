@@ -1,3 +1,22 @@
+import {Component, Optional} from '@angular/core';
+import {MdDialog, MdDialogRef} from '@angular/material';
+import {FaqDialogComponent} from "../faq/faq";
+
+
+@Component({
+    selector: 'bc-player-controls',
+    templateUrl: './player-controls.html',
+    styleUrls: ['./player-controls.scss']
+})
+export class PlayerControlsComponent {
+
+    constructor() {
+
+    }
+
+}
+
+
 
 
 /*

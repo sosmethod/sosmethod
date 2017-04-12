@@ -2,6 +2,14 @@
   display: flex;
 }
 
+md-card-title {
+  display: flex;
+}
+
+md-card-title span {
+  width:50%;
+}
+
 md-card {
   width: 50%;
 }

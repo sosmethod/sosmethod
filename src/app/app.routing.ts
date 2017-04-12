@@ -16,6 +16,10 @@ import {GiftComponent} from './components/gift/gift';
 import {DialogGuard} from "./guards/dialog";
 import {FaqDialogComponent} from "./components/faq/faq";
 import {ContactDialogComponent} from "./components/contact/contact";
+import {SurveyDialogComponent} from "./components/survey/survey";
+import {BeginComponent} from "./components/navigation/begin/begin";
+import {PlayerComponent} from "./components/player/player";
+import {ToolDialogComponent} from "./components/tools/tool";
 
 const secureHomeRoutes: Routes = [
     {
@@ -85,6 +89,13 @@ export const routes: Routes = [
         component: MeditationComponent,
     },
     {
+        path: 'tool/:tool',
+        canActivate: [AuthGuard, DialogGuard],
+        canActivateChild: [AuthGuard, DialogGuard],
+        data: {roles: ['anonymous']},
+        component: ToolDialogComponent,
+    },
+    {
         path: 'faq',
         canActivate: [AuthGuard, DialogGuard],
         canActivateChild: [AuthGuard, DialogGuard],
@@ -97,6 +108,41 @@ export const routes: Routes = [
         canActivateChild: [AuthGuard, DialogGuard],
         data: {roles: ['anonymous']},
         component: ContactDialogComponent,
+    },
+    {
+        path: 'survey',
+        canActivate: [AuthGuard, DialogGuard],
+        canActivateChild: [AuthGuard, DialogGuard],
+        data: {roles: ['anonymous']},
+        component: SurveyDialogComponent,
+    },
+    {
+        path: 'begin',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        data: {roles: ['anonymous']},
+        component: BeginComponent,
+    },
+    {
+        path: '_5_day/:discovery/:audio',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        data: {roles: ['anonymous']},
+        component: PlayerComponent,
+    },
+    {
+        path: '_11_day/:discovery/:audio',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        data: {roles: ['anonymous']},
+        component: PlayerComponent,
+    },
+    {
+        path: 'meditations/:discovery/:meditation/:audio',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        data: {roles: ['anonymous']},
+        component: PlayerComponent,
     },
     {
         path: '**error400',

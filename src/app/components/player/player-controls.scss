@@ -1,4 +1,29 @@
 
+#player-buttons > a
+{
+    display:inline-block;
+    height: 36px;
+    width:36px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    margin:8px 12px;
+    padding:0;
+}
+
+#player-buttons > a
+{
+    margin:8px 0;
+}
+
+#player-buttons
+{
+    position:fixed;
+    z-index: 2000;
+    right:10px;
+    bottom:10px;
+    transition: ease-in-out .8s;
+}
+
 a[href="#fullscreen"]
 {
     opacity: .7;

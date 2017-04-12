@@ -1,169 +1,190 @@
 
-.sos-circle-blue {
-    border: 2px solid rgba(11, 228, 230, .5);
+.sos-circle.sos-circle-blue, .sos-circle-blue, .sos-circle-blue .mat-button-wrapper {
+
+    &:not(.mat-button-wrapper) {
+        border: 2px solid rgba(11, 228, 230, .5);
+    }
+
+    & > span:not(.mat-button-wrapper) {
+        border: 2px solid rgba(11, 228, 230, .5);
+        box-shadow: inset 0 0 40px rgba(11, 228, 230, .25);
+    }
+
+    & > span:not(.mat-button-wrapper):before {
+        border: 2px solid rgba(11, 228, 230, .10);
+        box-shadow: none;
+    }
+
+    &:not(.mat-button-wrapper):hover {
+        border: 2px solid rgba(11, 255, 230, 1);
+    }
+
+    &:hover > span:not(.mat-button-wrapper) {
+        border: 2px solid rgba(11, 228, 230, 1);
+        box-shadow: inset 0 0 40px rgba(11, 228, 230, .75);
+    }
+
+    &:hover > span:not(.mat-button-wrapper):before {
+        border: 2px solid rgba(11, 228, 230, .50);
+        box-shadow: none;
+    }
 }
 
-.sos-circle-blue > span {
-    border: 2px solid rgba(11, 228, 230, .5);
-    box-shadow: inset 0 0 40px rgba(11, 228, 230, .25);
+.sos-circle.sos-circle-green, .sos-circle-green, .sos-circle-green .mat-button-wrapper {
+
+    &:not(.mat-button-wrapper) {
+        border: 2px solid rgba(12, 243, 173, .5);
+    }
+
+    & > span:not(.mat-button-wrapper) {
+        border: 2px solid rgba(12, 243, 173, .5);
+        box-shadow: inset 0 0 40px rgba(12, 243, 173, .25);
+    }
+
+    & > span:not(.mat-button-wrapper):before {
+        border: 2px solid rgba(12, 243, 173, .10);
+        box-shadow: none;
+    }
+
+    &:not(.mat-button-wrapper):hover {
+        border: 2px solid rgba(12, 243, 173, 1);
+    }
+
+    &:hover > span:not(.mat-button-wrapper) {
+        border: 2px solid rgba(12, 243, 173, 1);
+        box-shadow: inset 0 0 40px rgba(12, 243, 173, .75);
+    }
+
+    &:hover > span:not(.mat-button-wrapper):before {
+        border: 2px solid rgba(12, 243, 173, .50);
+        box-shadow: none;
+    }
 }
 
-.sos-circle-blue > span:before {
-    border: 2px solid rgba(11, 228, 230, .10);
-    box-shadow: none;
+.sos-circle.sos-circle-gold, .sos-circle-gold, .sos-circle-gold .mat-button-wrapper {
+
+    &:not(.mat-button-wrapper) {
+        border: 2px solid rgba(255, 216, 133, .5);
+    }
+
+    & > span:not(.mat-button-wrapper) {
+        border: 2px solid rgba(255, 216, 133, .5);
+        box-shadow: inset 0 0 40px rgba(255, 216, 133, .25);
+    }
+
+    & > span:not(.mat-button-wrapper):before {
+        border: 2px solid rgba(255, 216, 133, .10);
+        box-shadow: none;
+    }
+
+    &:not(.mat-button-wrapper):hover {
+        border: 2px solid rgba(255, 216, 133, 1);
+    }
+
+    &:hover > span:not(.mat-button-wrapper) {
+        border: 2px solid rgba(255, 216, 133, 1);
+        box-shadow: inset 0 0 40px rgba(255, 216, 133, .75);
+    }
+
+    &:hover span:not(.mat-button-wrapper):before {
+        border: 2px solid rgba(255, 216, 133, .50);
+        box-shadow: none;
+    }
+
 }
 
-.sos-circle-blue:hover {
-    border: 2px solid rgba(11, 255, 230, 1);
+.sos-circle.sos-circle-ruby, .sos-circle-ruby, .sos-circle-ruby .mat-button-wrapper {
+
+    &:not(.mat-button-wrapper) {
+        border: 2px solid rgba(219, 92, 204, 0.5);
+    }
+
+    & > span:not(.mat-button-wrapper) {
+        border: 2px solid rgba(219, 92, 204, 0.5);
+        box-shadow: inset 0 0 40px rgba(219, 92, 204, .25);
+    }
+
+    & > span:not(.mat-button-wrapper):before {
+        border: 2px solid rgba(219, 92, 204, .10);
+        box-shadow: none;
+    }
+
+    &:not(.mat-button-wrapper):hover {
+        border: 2px solid rgba(219, 92, 204, 1);
+    }
+
+    &:hover > span:not(.mat-button-wrapper) {
+        border: 2px solid rgba(219, 92, 204, 1);
+        box-shadow: inset 0 0 40px rgba(219, 92, 204, .75);
+    }
+
+    &:hover > span:not(.mat-button-wrapper):before {
+        border: 2px solid rgba(219, 92, 204, .50);
+        box-shadow: none;
+    }
+
 }
 
-.sos-circle-blue:hover > span {
-    border: 2px solid rgba(11, 228, 230, 1);
-    box-shadow: inset 0 0 40px rgba(11, 228, 230, .75);
+.sos-circle.sos-circle-purple, .sos-circle-purple, .sos-circle-purple .mat-button-wrapper {
+
+    &:not(.mat-button-wrapper) {
+        border: 2px solid rgba(132, 0, 255, .5);
+    }
+
+    & > span:not(.mat-button-wrapper) {
+        border: 2px solid rgba(132, 0, 255, .5);
+        box-shadow: inset 0 0 40px rgba(132, 0, 255, .25);
+    }
+
+    & > span:not(.mat-button-wrapper):before {
+        border: 2px solid rgba(132, 0, 255, .10);
+        box-shadow: none;
+    }
+
+    &:not(.mat-button-wrapper):hover {
+        border: 2px solid rgba(132, 0, 255, 1);
+    }
+
+    &:hover > span:not(.mat-button-wrapper) {
+        border: 2px solid rgba(132, 0, 255, 1);
+        box-shadow: inset 0 0 40px rgba(132, 0, 255, .75);
+    }
+
+    &:hover > span:not(.mat-button-wrapper):before {
+        border: 2px solid rgba(132, 0, 255, .50);
+        box-shadow: none;
+    }
+
 }
 
-.sos-circle-blue:hover > span:before {
-    border: 2px solid rgba(11, 228, 230, .50);
-    box-shadow: none;
-}
+.sos-circle.sos-circle-coral, .sos-circle-coral, .sos-circle-coral .mat-button-wrapper {
 
-.sos-circle-green {
-    border: 2px solid rgba(12, 243, 173, .5);
-}
+    &:not(.mat-button-wrapper) {
+        border: 2px solid rgba(247, 114, 114, .5);
+    }
 
-.sos-circle-green > span {
-    border: 2px solid rgba(12, 243, 173, .5);
-    box-shadow: inset 0 0 40px rgba(12, 243, 173, .25);
-}
+    & > span:not(.mat-button-wrapper) {
+        border: 2px solid rgba(247, 114, 114, .5);
+        box-shadow: inset 0 0 40px rgba(247, 114, 114, .25);
+    }
 
-.sos-circle-green > span:before {
-    border: 2px solid rgba(12, 243, 173, .10);
-    box-shadow: none;
-}
+    & > span:not(.mat-button-wrapper):before {
+        border: 2px solid rgba(247, 114, 114, .10);
+        box-shadow: none;
+    }
 
-.sos-circle-green:hover {
-    border: 2px solid rgba(12, 243, 173, 1);
-}
+    &:not(.mat-button-wrapper):hover {
+        border: 2px solid rgba(247, 114, 114, 1);
+    }
 
-.sos-circle-green:hover > span {
-    border: 2px solid rgba(12, 243, 173, 1);
-    box-shadow: inset 0 0 40px rgba(12, 243, 173, .75);
-}
+    &:hover > span:not(.mat-button-wrapper) {
+        border: 2px solid rgba(247, 114, 114, 1);
+        box-shadow: inset 0 0 40px rgba(247, 114, 114, .75);
+    }
 
-.sos-circle-green:hover > span:before {
-    border: 2px solid rgba(12, 243, 173, .50);
-    box-shadow: none;
-}
+    &:hover > span:not(.mat-button-wrapper):before {
+        border: 2px solid rgba(247, 114, 114, .50);
+        box-shadow: none;
+    }
 
-.sos-circle-gold {
-    border: 2px solid rgba(255, 216, 133, .5);
 }
-
-.sos-circle-gold > span {
-    border: 2px solid rgba(255, 216, 133, .5);
-    box-shadow: inset 0 0 40px rgba(255, 216, 133, .25);
-}
-
-.sos-circle-gold > span:before {
-    border: 2px solid rgba(255, 216, 133, .10);
-    box-shadow: none;
-}
-
-.sos-circle-gold:hover {
-    border: 2px solid rgba(255, 216, 133, 1);
-}
-
-.sos-circle-gold:hover > span {
-    border: 2px solid rgba(255, 216, 133, 1);
-    box-shadow: inset 0 0 40px rgba(255, 216, 133, .75);
-}
-
-.sos-circle-gold:hover span:before {
-    border: 2px solid rgba(255, 216, 133, .50);
-    box-shadow: none;
-}
-
-.sos-circle-ruby {
-    border: 2px solid rgba(219, 92, 204, 0.5);
-}
-
-.sos-circle-ruby > span {
-    border: 2px solid rgba(219, 92, 204, 0.5);
-    box-shadow: inset 0 0 40px rgba(219, 92, 204, .25);
-}
-
-.sos-circle-ruby > span:before {
-    border: 2px solid rgba(219, 92, 204, .10);
-    box-shadow: none;
-}
-
-.sos-circle-ruby:hover {
-    border: 2px solid rgba(219, 92, 204, 1);
-}
-
-.sos-circle-ruby:hover > span {
-    border: 2px solid rgba(219, 92, 204, 1);
-    box-shadow: inset 0 0 40px rgba(219, 92, 204, .75);
-}
-
-.sos-circle-ruby:hover > span:before {
-    border: 2px solid rgba(219, 92, 204, .50);
-    box-shadow: none;
-}
-
-.sos-circle-purple {
-    border: 2px solid rgba(132, 0, 255, .5);
-}
-
-.sos-circle-purple > span {
-    border: 2px solid rgba(132, 0, 255, .5);
-    box-shadow: inset 0 0 40px rgba(132, 0, 255, .25);
-}
-
-.sos-circle-purple > span:before {
-    border: 2px solid rgba(132, 0, 255, .10);
-    box-shadow: none;
-}
-
-.sos-circle-purple:hover {
-    border: 2px solid rgba(132, 0, 255, 1);
-}
-
-.sos-circle-purple:hover > span {
-    border: 2px solid rgba(132, 0, 255, 1);
-    box-shadow: inset 0 0 40px rgba(132, 0, 255, .75);
-}
-
-.sos-circle-purple:hover > span:before {
-    border: 2px solid rgba(132, 0, 255, .50);
-    box-shadow: none;
-}
-
-.sos-circle-coral {
-    border: 2px solid rgba(247, 114, 114, .5);
-}
-
-.sos-circle-coral > span {
-    border: 2px solid rgba(247, 114, 114, .5);
-    box-shadow: inset 0 0 40px rgba(247, 114, 114, .25);
-}
-
-.sos-circle-coral > span:before {
-    border: 2px solid rgba(247, 114, 114, .10);
-    box-shadow: none;
-}
-
-.sos-circle-coral:hover {
-    border: 2px solid rgba(247, 114, 114, 1);
-}
-
-.sos-circle-coral:hover > span {
-    border: 2px solid rgba(247, 114, 114, 1);
-    box-shadow: inset 0 0 40px rgba(247, 114, 114, .75);
-}
-
-.sos-circle-coral:hover > span:before {
-    border: 2px solid rgba(247, 114, 114, .50);
-    box-shadow: none;
-}
-

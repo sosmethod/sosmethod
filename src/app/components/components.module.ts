@@ -8,7 +8,6 @@ import {LayoutComponent} from './navigation/layout/layout';
 import {NavItemComponent} from './navigation/nav-item/nav-item';
 import {SidenavComponent} from './navigation/sidenav/sidenav';
 import {ToolbarComponent} from './navigation/toolbar/toolbar';
-import {SupportMenuComponent} from './navigation/support/support';
 import {AccountLinksComponent} from './navigation/account-links/account-links';
 import {LanguageMenuComponent} from './navigation/language/language';
 import {FooterComponent} from './navigation/footer/footer';
@@ -27,6 +26,9 @@ import {GiftComponent} from './gift/gift';
 import {FoundationComponent} from './gift/foundation';
 import {FaqDialogComponent} from './faq/faq';
 import {ToolDialogComponent} from "./tools/tool";
+import {SurveyDialogComponent} from "./survey/survey";
+import {PlayerComponent} from "./player/player";
+import {PlayerControlsComponent} from "./player/player-controls";
 
 
 export const COMPONENTS = [
@@ -35,7 +37,6 @@ export const COMPONENTS = [
     SidenavComponent,
     ToolbarComponent,
     FooterComponent,
-    SupportMenuComponent,
     LanguageMenuComponent,
     AccountLinksComponent,
     VideoComponent,
@@ -44,8 +45,10 @@ export const COMPONENTS = [
     TestimonialsComponent,
     GiftTestimonialsComponent,
     FoundationComponent,
+    PlayerComponent,
+    PlayerControlsComponent,
 
-
+    SurveyDialogComponent,
     ContactDialogComponent,
     FaqDialogComponent,
     ToolDialogComponent

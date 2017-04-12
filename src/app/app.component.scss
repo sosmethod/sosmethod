@@ -36,6 +36,9 @@ html, body {
 }
 
 body {
+    .mat-button-focus-overlay {
+        display:none;
+    }
 
     .mat-sidenav-content {
         overflow:initial;
@@ -265,8 +268,8 @@ body {
         position:absolute;
         right:0;
         top:0;
-        min-height:0;
-        min-width: 0;
+        min-height:36px;
+        min-width: 36px;
         padding:0;
     }
 }

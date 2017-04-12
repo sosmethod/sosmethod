@@ -32,7 +32,7 @@ export class DialogGuard {
             setTimeout(() => {
                 this.router.navigate(['']);
                 this.dialog.closeAll();
-                this.dialog.open(<any>that);
+                this.dialog.open(<any>that, {data: route});
             });
             return false;
         }

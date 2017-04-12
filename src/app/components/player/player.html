@@ -1,3 +1,4 @@
+<bc-discovery-series *ngIf="route.routeConfig.path.indexOf('_5_day') > -1 || route.path.indexOf('_11_day') > -1"></bc-discovery-series>
 <div id="player">
     <div class="preview-inner">
         <div class="preview-progress centerized"></div>
@@ -5,8 +6,6 @@
             <a href="#play" class="play centerized"></a>
             <a href="#pause" class="pause centerized"></a>
         </div>
-
-
-
     </div>
 </div>
+<bc-player-controls></bc-player-controls>
