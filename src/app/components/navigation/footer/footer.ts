@@ -19,10 +19,6 @@ export class FooterComponent {
         this.layout.sidebarOpen$.subscribe(o => this.isOpen = o);
     }
 
-    showToolDialog(t: string) {
-        this.dialog.open(ToolDialogComponent, {data: {tool: t}});
-    }
-
     showFAQDialog() {
         this.dialog.open(FaqDialogComponent);
     }

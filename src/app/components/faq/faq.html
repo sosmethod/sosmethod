@@ -1,4 +1,4 @@
-<a md-button md-dialog-close (click)="dialog.closeAll()"><md-icon>cancel</md-icon></a>
+<a md-button md-dialog-close (click)="dialog.closeAll()" tabindex="-1"><md-icon>cancel</md-icon></a>
 <h2 md-dialog-title>Frequently Asked Questions</h2>
 <md-dialog-content>
     <div class="faq">
@@ -44,3 +44,6 @@
         </ul>
     </div>
 </md-dialog-content>
+<md-dialog-actions>
+    <a md-raised-button color="primary" (click)="dialog.closeAll()">Close</a>
+</md-dialog-actions>

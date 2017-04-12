@@ -1,9 +1,8 @@
-﻿<a md-button md-dialog-close (click)="dialog.closeAll()"><md-icon>cancel</md-icon></a>
+﻿<a md-button md-dialog-close (click)="dialog.closeAll()" tabindex="-1"><md-icon>cancel</md-icon></a>
+<md-card-title md-dialog-title><span>Login</span><span>Register</span></md-card-title>
 <md-dialog-content>
   <md-card>
-    <md-card-title md-dialog-title>Login</md-card-title>
     <md-card-subtitle>Log in to track your progress.</md-card-subtitle>
-    <form method="POST" action="#" role="form">
       <div *ngIf="errorMessage!=null" class="alert alert-danger">
         {{ errorMessage }}
       </div>
@@ -16,21 +15,16 @@
         <input mdInput id="signupPassword" required type="password" maxlength="25" placeholder="Password"
                length="40" [(ngModel)]="authUser.password" [ngModelOptions]="{standalone: true}">
       </md-input-container>
-      <div class="form-group">
-        <button md-raised-button color="primary" id="signupSubmit" type="submit" (click)="login()">
-          Login
-        </button>
-      </div>
-
-    </form>
-    <md-card-actions>
-      <a md-raised-button [routerLink]="['/account/forgot']"> <i></i> Forgot Password?</a>
-      <a md-raised-button [routerLink]="['/account/resend']"> <i></i> Resend Confirmation Code</a>
-    </md-card-actions>
   </md-card>
   <md-card>
-    <md-card-title>Register</md-card-title>
     <md-card-subtitle>New user? Register here</md-card-subtitle>
     <a md-raised-button color="primary" [routerLink]="['/account/register']"> <i></i> Register</a>
   </md-card>
 </md-dialog-content>
+<md-dialog-actions>
+  <button md-raised-button color="primary" id="signupSubmit" type="submit" (click)="login()">
+    Login
+  </button>
+  <a md-raised-button [routerLink]="['/account/forgot']"> <i></i> Forgot Password?</a>
+  <a md-raised-button [routerLink]="['/account/resend']"> <i></i> Resend Confirmation Code</a>
+</md-dialog-actions>

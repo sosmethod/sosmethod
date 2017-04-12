@@ -18,7 +18,7 @@ export class DiscoveryComponent implements OnInit {
         this.createMenus(true);
     }
 
-    createMenus(isDiscovery: boolean) {
+    public createMenus(isDiscovery: boolean) {
         const that = this;
         const discovery = $(this.discovery.nativeElement);
         discovery.addClass('open');
@@ -30,7 +30,7 @@ export class DiscoveryComponent implements OnInit {
         });
     }
 
-    sizeNode(degrees: number, lineLength: number) {
+    public sizeNode(degrees: number, lineLength: number) {
         $(this).find('b').stop().css({
             width: '', height: '', transform: ''
         });
