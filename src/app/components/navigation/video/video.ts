@@ -12,7 +12,7 @@ export class VideoComponent {
 
     constructor(public layout: LayoutService) {
         layout.video$.subscribe(v => {
-            this.videoPlayer.nativeElement.src = v + '.webm';
+            this.videoPlayer.nativeElement.src = [v + '.webm', v + '.mp4'];
             this.videoPlayer.nativeElement.load();
             this.videoPlayer.nativeElement.play();
             if (v.indexOf('1927594') > -1) {

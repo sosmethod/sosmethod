@@ -1,68 +1,126 @@
 <bc-course></bc-course>
 <div id="meditation" #discovery>
-    <div id="meditation-leaf">
-        <a routerLink="/meditations/classic_calm/calm_strength"><b></b><span></span><span></span><span></span><span>
+    <div id="meditation-leaf" #discoveryLeaf>
+        <a routerLink="/meditations/classic_calm/calm_strength"
+           class=" sos-circle sos-circle-purple"
+           *ngIf="(series$ | async) === 'classic_calm'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> calm &amp; strength</span></span></a>
-        <a routerLink="/meditations/classic_calm/ease_comfort"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/classic_calm/ease_comfort"
+           class=" sos-circle sos-circle-purple"
+           *ngIf="(series$ | async) === 'classic_calm'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> ease &amp; comfort</span></span></a>
-        <a routerLink="/meditations/classic_calm/breathe"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/classic_calm/breathe"
+           class=" sos-circle sos-circle-purple"
+           *ngIf="(series$ | async) === 'classic_calm'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> breathe, just breathe</span></span></a>
-        <a routerLink="/meditations/classic_calm/into_silence"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/classic_calm/into_silence"
+           class=" sos-circle sos-circle-purple"
+           *ngIf="(series$ | async) === 'classic_calm'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> into the silence</span></span></a>
-        <a routerLink="/meditations/classic_calm/sweet_spot"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/classic_calm/sweet_spot"
+           class=" sos-circle sos-circle-purple"
+           *ngIf="(series$ | async) === 'classic_calm'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> the sweet spot</span></span></a>
-        <a routerLink="/meditations/classic_calm/easy_breath"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/classic_calm/easy_breath"
+           class=" sos-circle sos-circle-purple"
+           *ngIf="(series$ | async) === 'classic_calm'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> easy breath</span></span></a>
 
-        <a routerLink="/meditations/elevate/believe"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/elevate/believe"
+           class=" sos-circle sos-circle-gold"
+           *ngIf="(series$ | async) === 'elevate'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> I believe</span></span></a>
-        <a routerLink="/meditations/elevate/say_yes"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/elevate/say_yes"
+           class=" sos-circle sos-circle-gold"
+           *ngIf="(series$ | async) === 'elevate'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> say yes</span></span></a>
-        <a routerLink="/meditations/elevate/music_heart"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/elevate/music_heart"
+           class=" sos-circle sos-circle-gold"
+           *ngIf="(series$ | async) === 'elevate'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> music in my heart</span></span></a>
-        <a routerLink="/meditations/elevate/paint_life"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/elevate/paint_life"
+           class=" sos-circle sos-circle-gold"
+           *ngIf="(series$ | async) === 'elevate'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> paint life's canvas</span></span></a>
-        <a routerLink="/meditation/elevate#/meditations/elevate/happy_reason"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditation/elevate#/meditations/elevate/happy_reason"
+           class=" sos-circle sos-circle-gold"
+           *ngIf="(series$ | async) === 'elevate'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> happy for no reason</span></span></a>
-        <a routerLink="/meditations/elevate/this_moment"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/elevate/this_moment"
+           class=" sos-circle sos-circle-gold"
+           *ngIf="(series$ | async) === 'elevate'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> in this moment</span></span></a>
 
-        <a routerLink="/meditations/relax/light_on"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/relax/light_on"
+           class=" sos-circle sos-circle-green"
+           *ngIf="(series$ | async) === 'relax'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> turn on the light</span></span></a>
-        <a routerLink="/meditations/relax/body_stars"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/relax/body_stars"
+           class=" sos-circle sos-circle-green"
+           *ngIf="(series$ | async) === 'relax'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> body of stars</span></span></a>
-        <a routerLink="/meditations/relax/connect"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/relax/connect"
+           class=" sos-circle sos-circle-green"
+           *ngIf="(series$ | async) === 'relax'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> connect</span></span></a>
-        <a routerLink="/meditations/relax/play_all_relax" class="popout"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/relax/play_all_relax"
+           class=" sos-circle popout"
+           *ngIf="(series$ | async) === 'relax'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> play all</span></span></a>
-        <a routerLink="/meditations/relax/serenity"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/relax/serenity"
+           class=" sos-circle sos-circle-green"
+           *ngIf="(series$ | async) === 'relax'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> serenity</span></span></a>
-        <a routerLink="/meditations/relax/tranquility"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/relax/tranquility"
+           class=" sos-circle sos-circle-green"
+           *ngIf="(series$ | async) === 'relax'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> tranquility</span></span></a>
-        <a routerLink="/meditations/relax/soothe"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/relax/soothe"
+           class=" sos-circle sos-circle-green"
+           *ngIf="(series$ | async) === 'relax'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> soothe</span></span></a>
-        <a routerLink="/meditations/relax/play_all_sleep" class="popout"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/relax/play_all_sleep"
+           class=" sos-circle popout"
+           *ngIf="(series$ | async) === 'relax'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> play all</span></span></a>
 
-        <a routerLink="/meditations/affirming_word/grateful"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/affirming_word/grateful"
+           class=" sos-circle sos-circle-ruby"
+           *ngIf="(series$ | async) === 'affirming_word'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> grateful</span></span></a>
-        <a routerLink="/meditations/affirming_word/moon_rising"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/affirming_word/moon_rising"
+           class=" sos-circle sos-circle-ruby"
+           *ngIf="(series$ | async) === 'affirming_word'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> moon rising</span></span></a>
-        <a routerLink="/meditations/affirming_word/divine_love"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/affirming_word/divine_love"
+           class=" sos-circle sos-circle-ruby"
+           *ngIf="(series$ | async) === 'affirming_word'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> divine love</span></span></a>
-        <a routerLink="/meditations/affirming_word/bless_day"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/affirming_word/bless_day"
+           class=" sos-circle sos-circle-ruby"
+           *ngIf="(series$ | async) === 'affirming_word'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> bless this day</span></span></a>
-        <a routerLink="/meditations/affirming_word/francis"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/affirming_word/francis"
+           class=" sos-circle sos-circle-ruby"
+           *ngIf="(series$ | async) === 'affirming_word'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> St. Francis</span></span></a>
 
-        <a routerLink="/meditations/love_forgiveness/love_you"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/love_forgiveness/love_you"
+           class=" sos-circle sos-circle-blue"
+           *ngIf="(series$ | async) === 'love_forgiveness'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> the love in you</span></span></a>
-        <a routerLink="/meditations/love_forgiveness/forgiveness"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/love_forgiveness/forgiveness"
+           class=" sos-circle sos-circle-blue"
+           *ngIf="(series$ | async) === 'love_forgiveness'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> forgiven</span></span></a>
-        <a routerLink="/meditations/love_forgiveness/thank_you"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/love_forgiveness/thank_you"
+           class=" sos-circle sos-circle-blue"
+           *ngIf="(series$ | async) === 'love_forgiveness'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> thank you, I love you</span></span></a>
 
-        <a routerLink="/meditations/emergency/breath"><b></b><span></span><span></span><span></span><span>
+        <a routerLink="/meditations/emergency/breath"
+           class=" sos-circle sos-circle-coral"
+           *ngIf="(series$ | async) === 'emergency'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> three breath awareness</span></span></a>
     </div>
     <a routerLink="/meditation/classic_calm" class=" sos-circle sos-circle-purple" title="Daily stress relief and inspiration"><b></b><span></span><span></span><span></span><span>
