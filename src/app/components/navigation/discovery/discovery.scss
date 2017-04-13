@@ -47,10 +47,8 @@
         align-items: center;
     }
 
-    #discovery-leaf a, #meditation-leaf a {
-        width: 100px;
-        height: 100px;
-        display: none;
+    a.popout > b {
+        width: 250px;
     }
 
     & a b {
@@ -77,3 +75,25 @@
 
 }
 
+#meditation-leaf, #discovery-leaf {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    overflow: visible;
+    text-align: center;
+    transition: opacity ease-in-out .25s;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+#discovery-leaf a, #meditation-leaf a {
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+    visibility: visible;
+}
+
+#meditation-leaf a b:before, #discovery-leaf a b:before {
+    left: 50px;
+}

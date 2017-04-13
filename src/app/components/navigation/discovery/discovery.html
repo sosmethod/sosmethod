@@ -1,41 +1,72 @@
 <bc-course></bc-course>
-<div id="discovery" ng2-scrollable ngui-scrollable #discovery>
-    <div id="discovery-leaf">
-        <a md-button routerLink="/_5_day/essentials" title="Release stress &amp; expand peace of mind"><b></b><span></span><span></span><span></span><span>
+<div id="discovery" #discovery>
+    <div id="discovery-leaf" #discoveryLeaf>
+        <a md-button routerLink="/_5_day/essentials" title="Release stress &amp; expand peace of mind"
+           class=" sos-circle sos-circle-purple"
+            *ngIf="(series$ | async) === 'essentials'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 5 day</span></span></a>
-        <a md-button routerLink="/_11_day/essentials" title="Advance positivity &amp; mindful awareness"><b></b><span></span><span></span><span></span><span>
+        <a md-button routerLink="/_11_day/essentials" title="Advance positivity &amp; mindful awareness"
+           class=" sos-circle sos-circle-purple"
+           *ngIf="(series$ | async) === 'essentials'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 11 day</span></span></a>
-        <a md-button routerLink="/_5_day/soothing_relief" title="Reduce anxiety, depression &amp; trauma"><b></b><span></span><span></span><span></span><span>
+        <a md-button routerLink="/_5_day/soothing_relief" title="Reduce anxiety, depression &amp; trauma"
+           class=" sos-circle sos-circle-green"
+           *ngIf="(series$ | async) === 'soothing_relief'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 5 day</span></span></a>
-        <a md-button routerLink="/_11_day/soothing_relief" title="Overcome patterns, gain vitality &amp; joy"><b></b><span></span><span></span><span></span><span>
+        <a md-button routerLink="/_11_day/soothing_relief" title="Overcome patterns, gain vitality &amp; joy"
+           class=" sos-circle sos-circle-green"
+           *ngIf="(series$ | async) === 'soothing_relief'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 11 day</span></span></a>
-        <a md-button routerLink="/_5_day/improving_relationships" title="Open communication &amp; acceptance"><b></b><span></span><span></span><span></span><span>
+        <a md-button routerLink="/_5_day/improving_relationships" title="Open communication &amp; acceptance"
+           class=" sos-circle sos-circle-ruby"
+           *ngIf="(series$ | async) === 'improving_relationships'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 5 day</span></span></a>
-        <a md-button routerLink="/discovery/improving_relationships#/_11_day/improving_relationships" title="Forgive &amp; appreciate yourself &amp; others"><b></b><span></span><span></span><span></span><span>
+        <a md-button routerLink="/discovery/improving_relationships#/_11_day/improving_relationships"
+           title="Forgive &amp; appreciate yourself &amp; others"
+           class=" sos-circle sos-circle-ruby"
+           *ngIf="(series$ | async) === 'improving_relationships'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 11 day</span></span></a>
-        <a md-button routerLink="/_5_day/focus_and_creativity" title="Boost courage, confidence &amp; Inspiration"><b></b><span></span><span></span><span></span><span>
+        <a md-button routerLink="/_5_day/focus_and_creativity" title="Boost courage, confidence &amp; Inspiration"
+           class=" sos-circle sos-circle-gold"
+           *ngIf="(series$ | async) === 'focus_and_creativity'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 5 day</span></span></a>
-        <a md-button routerLink="/_11_day/focus_and_creativity" title="Increase performance &amp; fulfillment"><b></b><span></span><span></span><span></span><span>
+        <a md-button routerLink="/_11_day/focus_and_creativity" title="Increase performance &amp; fulfillment"
+           class=" sos-circle sos-circle-gold"
+           *ngIf="(series$ | async) === 'focus_and_creativity'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 11 day</span></span></a>
-        <a md-button routerLink="/discovery/kids#/_5_day/kids" title="COMING SOON"><b></b><span></span><span></span><span></span><span>
+        <a md-button routerLink="/discovery/kids#/_5_day/kids" title="COMING SOON"
+           class=" sos-circle sos-circle-blue"
+           *ngIf="(series$ | async) === 'kids'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 5 day</span></span></a>
-        <a md-button routerLink="/discovery/kids#/_11_day/kids" title="COMING SOON"><b></b><span></span><span></span><span></span><span>
+        <a md-button routerLink="/discovery/kids#/_11_day/kids" title="COMING SOON"
+           class=" sos-circle sos-circle-blue"
+           *ngIf="(series$ | async) === 'kids'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 11 day</span></span></a>
-        <a md-button routerLink="/discovery/pets#/_5_day/pets" title="COMING SOON"><b></b><span></span><span></span><span></span><span>
+        <a md-button routerLink="/discovery/pets#/_5_day/pets" title="COMING SOON"
+           class=" sos-circle sos-circle-coral"
+           *ngIf="(series$ | async) === 'pets'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 5 day</span></span></a>
-        <a md-button routerLink="/discovery/pets#/_11_day/pets" title="COMING SOON"><b></b><span></span><span></span><span></span><span>
+        <a md-button routerLink="/discovery/pets#/_11_day/pets" title="COMING SOON"
+           class=" sos-circle sos-circle-coral"
+           *ngIf="(series$ | async) === 'pets'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 11 day</span></span></a>
     </div>
-    <a md-button routerLink="/discovery/essentials" class=" sos-circle sos-circle-purple"><b></b><span></span><span></span><span></span><span>
+    <a md-button routerLink="/discovery/essentials"
+       class=" sos-circle sos-circle-purple"><b></b><span></span><span></span><span></span><span>
         <span class="centerized">essentials</span></span></a>
-    <a md-button routerLink="/discovery/soothing_relief" class=" sos-circle sos-circle-green"><b></b><span></span><span></span><span></span><span>
+    <a md-button routerLink="/discovery/soothing_relief"
+       class=" sos-circle sos-circle-green"><b></b><span></span><span></span><span></span><span>
         <span class="centerized">soothing <br/>relief</span></span></a>
-    <a md-button routerLink="/discovery/improving_relationships" class=" sos-circle sos-circle-ruby"><b></b><span></span><span></span><span></span><span>
+    <a md-button routerLink="/discovery/improving_relationships"
+       class=" sos-circle sos-circle-ruby"><b></b><span></span><span></span><span></span><span>
         <span class="centerized">improving <br/>relationships</span></span></a>
-    <a md-button routerLink="/discovery/focus_and_creativity" class=" sos-circle sos-circle-gold"><b></b><span></span><span></span><span></span><span>
+    <a md-button routerLink="/discovery/focus_and_creativity"
+       class=" sos-circle sos-circle-gold"><b></b><span></span><span></span><span></span><span>
         <span class="centerized">focus and <br/>creativity</span></span></a>
-    <a md-button routerLink="/discovery/kids" class=" sos-circle sos-circle-blue"><b></b><span></span><span></span><span></span><span>
+    <a md-button routerLink="/discovery/kids"
+       class=" sos-circle sos-circle-blue"><b></b><span></span><span></span><span></span><span>
         <span class="centerized">super kids</span></span></a>
-    <a md-button routerLink="/discovery/pets" class=" sos-circle sos-circle-coral"><b></b><span></span><span></span><span></span><span>
+    <a md-button routerLink="/discovery/pets"
+       class=" sos-circle sos-circle-coral"><b></b><span></span><span></span><span></span><span>
         <span class="centerized">happy dogs</span></span></a>
 </div>

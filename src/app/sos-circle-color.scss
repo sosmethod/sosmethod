@@ -1,4 +1,36 @@
 
+
+.sos-circle.popout, .popout .mat-button-wrapper {
+
+    &:not(.mat-button-wrapper) {
+        border: 2px solid rgba(140,200,250,.5);
+    }
+
+    & > span:not(.mat-button-wrapper) {
+        border: 2px solid rgba(140,200,250,.5);
+        box-shadow: inset 0 0 40px rgba(140,200,250,.25);
+    }
+
+    & > span:not(.mat-button-wrapper):before {
+        border: 2px solid rgba(140,200,250,.10);
+        box-shadow:none;
+    }
+
+    &:not(.mat-button-wrapper):hover {
+        border: 2px solid rgba(140,200,250,1);
+    }
+
+    &:hover > span:not(.mat-button-wrapper) {
+        border: 2px solid rgba(140,200,250,1);
+        box-shadow: inset 0 0 40px rgba(140,200,250,.75);
+    }
+
+    &:hover > span:not(.mat-button-wrapper):before {
+        border: 2px solid rgba(140,200,250,.50);
+        box-shadow:none;
+    }
+}
+
 .sos-circle.sos-circle-blue, .sos-circle-blue, .sos-circle-blue .mat-button-wrapper {
 
     &:not(.mat-button-wrapper) {

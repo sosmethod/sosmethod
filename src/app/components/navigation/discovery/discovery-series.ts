@@ -22,6 +22,10 @@ export class DiscoverySeriesComponent implements OnInit {
             return params['discovery'];
         });
         this.day$ = this.route.params.map(params => {
+            if (!params['audio']) {
+                // TODO: get first uncompleted or first
+                //this.router.navigate([]);
+            }
             const match = (/Day_([0-9]+)|_[0-9]+_([0-9]+)/ig).exec(params['audio'].replace(/ |%20/ig, '_'));
             return '_day_' + parseInt(match[1] || match[2]);
         });
