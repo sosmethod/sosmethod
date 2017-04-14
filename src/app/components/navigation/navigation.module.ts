@@ -11,6 +11,8 @@ import {CourseComponent} from './course/course';
 import {BeginComponent} from "./begin/begin";
 import {DiscoverySeriesComponent} from "./discovery/discovery-series";
 import {DiscoverySubtextComponent} from "./discovery/discovery-subtext";
+import {MeditationsComponent} from "./meditation/meditations";
+import {MeditateComponent} from "./meditate/meditate";
 
 export const COMPONENTS = [
     MainComponent,
@@ -19,7 +21,9 @@ export const COMPONENTS = [
     MeditationComponent,
     BeginComponent,
     DiscoverySeriesComponent,
-    DiscoverySubtextComponent
+    DiscoverySubtextComponent,
+    MeditationsComponent,
+    MeditateComponent
 ];
 
 

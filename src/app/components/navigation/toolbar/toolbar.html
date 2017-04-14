@@ -1,8 +1,8 @@
 ﻿<md-toolbar>
     <div id="logo">
         <a routerLink="/">
-            <img src="/assets/SOS-Logo-Tag-2017-all-wht.png" *ngIf="(route | async) != 'home'" />
-            <img src="/assets/SOS-Method-Logo-2017-White.png"  *ngIf="(route | async) == 'home'"/></a>
+            <img src="/assets/SOS-Logo-Tag-2017-all-wht.png" *ngIf="(route$ | async) != 'home' && (route$ | async) != '_5_day' && (route$ | async) != '_11_day' && (route$ | async) != 'meditations'" />
+            <img src="/assets/SOS-Method-Logo-2017-White.png"  *ngIf="(route$ | async) == 'home'"/></a>
     </div>
     <div class="account">
         <a md-raised-button (click)="showLoginDialog()">login</a>

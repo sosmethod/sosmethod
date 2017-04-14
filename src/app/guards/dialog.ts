@@ -23,7 +23,6 @@ export class DialogGuard {
 
     redirectDialog(route: ActivatedRouteSnapshot) {
         const that = route.component;
-        console.log();
         if (route.routeConfig && this.router.config.filter(c => c && c.component && c.component === that
             || c && c.children && c.children.filter(r =>
             r && r.component && r.path

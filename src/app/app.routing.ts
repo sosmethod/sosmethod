@@ -145,42 +145,65 @@ export const routes: Routes = [
         canActivate: [AuthGuard],
         canActivateChild: [AuthGuard],
         data: {roles: ['anonymous']},
-        component: PlayerComponent,
-        children: [{
-            path: ':audio',
-            canActivate: [AuthGuard],
-            canActivateChild: [AuthGuard],
-            data: {roles: ['anonymous']},
-            component: PlayerComponent,
-        }]
+        children: [
+            {
+                path: ':audio',
+                canActivate: [AuthGuard],
+                canActivateChild: [AuthGuard],
+                data: {roles: ['anonymous']},
+                component: PlayerComponent,
+            },
+            {
+                path: '',
+                canActivate: [AuthGuard],
+                canActivateChild: [AuthGuard],
+                data: {roles: ['anonymous']},
+                component: PlayerComponent,
+            }]
     },
     {
         path: '_11_day/:discovery',
         canActivate: [AuthGuard],
         canActivateChild: [AuthGuard],
         data: {roles: ['anonymous']},
-        component: PlayerComponent,
-        children: [{
-            path: ':audio',
-            canActivate: [AuthGuard],
-            canActivateChild: [AuthGuard],
-            data: {roles: ['anonymous']},
-            component: PlayerComponent,
-        }]
+        children: [
+            {
+                path: ':audio',
+                canActivate: [AuthGuard],
+                canActivateChild: [AuthGuard],
+                data: {roles: ['anonymous']},
+                component: PlayerComponent,
+            },
+            {
+                path: '',
+                canActivate: [AuthGuard],
+                canActivateChild: [AuthGuard],
+                data: {roles: ['anonymous']},
+                component: PlayerComponent,
+            }
+        ]
     },
     {
         path: 'meditations/:discovery/:meditation',
         canActivate: [AuthGuard],
         canActivateChild: [AuthGuard],
         data: {roles: ['anonymous']},
-        component: PlayerComponent,
-        children: [{
-            path: ':audio',
-            canActivate: [AuthGuard],
-            canActivateChild: [AuthGuard],
-            data: {roles: ['anonymous']},
-            component: PlayerComponent,
-        }]
+        children: [
+            {
+                path: ':audio',
+                canActivate: [AuthGuard],
+                canActivateChild: [AuthGuard],
+                data: {roles: ['anonymous']},
+                component: PlayerComponent,
+            },
+            {
+                path: '',
+                canActivate: [AuthGuard],
+                canActivateChild: [AuthGuard],
+                data: {roles: ['anonymous']},
+                component: PlayerComponent,
+            }
+        ]
     },
     {
         path: '**error400',
