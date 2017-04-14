@@ -1,7 +1,6 @@
 ﻿
 :host {
-  z-index:100;
-  position:fixed;
+  position:absolute;
   width:100%;
   top:0;
   left:0;
@@ -12,6 +11,11 @@
   background:transparent;
   font-weight: normal;
   font-size:inherit;
+}
+
+a {
+  position: relative;
+  z-index: 1000;
 }
 
 span[flex] {
