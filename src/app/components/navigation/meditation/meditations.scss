@@ -19,3 +19,17 @@ div {
     width:100%;
     left:0;
 }
+
+.back {
+    position: absolute;
+    height: 28px;
+    width: 29px;
+    top: 20px;
+    left: 20px;
+    background: url(/assets/back_active.png) no-repeat left 50% transparent;
+    opacity: .7;
+    transition: ease-in-out .8s;
+    z-index: 2000;
+    border: none;
+    min-width: 0;
+}
