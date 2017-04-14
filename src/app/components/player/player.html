@@ -1,11 +1,21 @@
-<bc-discovery-series *ngIf="route.routeConfig.path.indexOf('_5_day') > -1 || route.path.indexOf('_11_day') > -1"></bc-discovery-series>
+<bc-discovery-series *ngIf="isDiscovery$ | async"></bc-discovery-series>
+<bc-meditations *ngIf="(isDiscovery$ | async) == false"></bc-meditations>
 <div id="player">
     <div class="preview-inner">
-        <div class="preview-progress centerized"></div>
+        <div class="preview-progress centerized">
+            <md-progress-spinner
+                    color="primary"
+                    mode="determinate"
+                    [value]="value">
+            </md-progress-spinner>
+        </div>
         <div class="preview-play">
-            <a href="#play" class="play centerized"></a>
-            <a href="#pause" class="pause centerized"></a>
+            <a href="play()" class="play centerized"></a>
+            <a href="pause()" class="pause centerized"></a>
         </div>
     </div>
 </div>
 <bc-player-controls></bc-player-controls>
+<bc-meditate></bc-meditate>
+
+

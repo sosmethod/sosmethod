@@ -14,6 +14,14 @@ export class PlayerControlsComponent {
 
     }
 
+    fullscreen() {
+
+    }
+
+    rewind() {
+
+    }
+
 }
 
 

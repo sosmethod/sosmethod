@@ -22,19 +22,19 @@
     transition: ease-in-out .8s;
 }
 
-a[href="#fullscreen"]
+a.fullscreen
 {
     opacity: .7;
     background-image:url(/assets/full-screen-icon-png-11_white.png);
-    background-size:60% auto;
+    background-size: auto 100%;
     background-position: 50% 50%;
 }
 
-a[href="#rewind"]
+a.rewind
 {
     background-image: url(/assets/rewind_active.png);
+    background-size: auto 100%;
     opacity: .7;
-    background-size: 60% auto;
     background-position: 50% 50%;
 }
 

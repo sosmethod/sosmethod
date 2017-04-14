@@ -13,7 +13,7 @@ import {AccountLoginComponent} from "../../account/login/login";
 })
 export class ToolbarComponent implements OnInit {
     @Output() openMenu = new EventEmitter();
-    public route: Subject<string> = new Subject();
+    public route$: Subject<string> = new Subject();
 
     constructor(public router: Router, private ref: ChangeDetectorRef, public dialog: MdDialog) {
 
@@ -22,7 +22,7 @@ export class ToolbarComponent implements OnInit {
     ngOnInit() {
         const that = this;
         this.router.events.subscribe((e) => {
-            that.route.next(e.url.split('/')[1] || 'home');
+            that.route$.next(e.url.split('/')[1] || 'home');
         });
     }
 

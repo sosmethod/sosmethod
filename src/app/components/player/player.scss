@@ -32,6 +32,15 @@
 
 }
 
+#player .preview-inner {
+    position:relative;
+}
+
+#player .preview-play {
+    position:absolute;
+    top:0;
+}
+
 #player .preview-play .play {
     background: url(/assets/play.png) no-repeat 50% 50%;
     background-size:auto 30px;
@@ -43,8 +52,24 @@
     background-size:auto 30px;
 }
 
-#player .preview-progress
-{
+#player .preview-progress {
     background:none transparent;
 }
+
+#player .preview-progress:before {
+    content: " ";
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 100%;
+}
+
+md-progress-spinner {
+    height:65px;
+    width:65px;
+}
+
 
