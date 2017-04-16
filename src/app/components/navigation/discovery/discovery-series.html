@@ -1,4 +1,4 @@
-<a md-button class="back" routerLink=""> </a>
+<a md-button class="back" (click)="goBackToCourse()"> </a>
 <div [class]="day$ | async"></div>
 <bc-discovery-subtext></bc-discovery-subtext>
 <div *ngIf="(series$ | async) == 'essentials' && router.url.indexOf('_5_day') > -1"

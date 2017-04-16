@@ -1,6 +1,7 @@
-import {Component, Optional} from '@angular/core';
+import {Component, OnInit, Optional} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {FaqDialogComponent} from "../faq/faq";
+import {AudioService} from "../../services/audio";
 
 
 @Component({
@@ -8,10 +9,13 @@ import {FaqDialogComponent} from "../faq/faq";
     templateUrl: './player-controls.html',
     styleUrls: ['./player-controls.scss']
 })
-export class PlayerControlsComponent {
+export class PlayerControlsComponent implements OnInit {
 
     constructor() {
 
+    }
+
+    ngOnInit() {
     }
 
     fullscreen() {

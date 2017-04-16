@@ -38,17 +38,17 @@ a.rewind
     background-position: 50% 50%;
 }
 
-body.meditations #player-buttons > a[href="#rewind"]
+/deep/ .meditations #player-buttons > a.rewind
 {
     display:none;
 }
 
-a[href="#fullscreen"]:active,
-a[href="#fullscreen"]:hover,
-a[href="#fullscreen"]:focus,
-a[href="#rewind"]:active,
-a[href="#rewind"]:hover,
-a[href="#rewind"]:focus
+a.fullscreen:active,
+a.fullscreen:hover,
+a.fullscreen:focus,
+a.rewind:active,
+a.rewind:hover,
+a.rewind:focus
 {
     opacity: 1;
 }

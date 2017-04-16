@@ -1,6 +1,12 @@
 <bc-discovery-series *ngIf="isDiscovery$ | async"></bc-discovery-series>
 <bc-meditations *ngIf="(isDiscovery$ | async) == false"></bc-meditations>
-<div id="player">
+<div id="player" [class.single]="(audio.playerPositions | async) == 1"
+     [class.triple]="(audio.playerPositions | async) == 3"
+     [class.first]="(audio.position | async) == 0"
+     [class.second]="(audio.position | async) == 1"
+     [class.third]="(audio.position | async) == 2"
+     [class.playing]="(audio.state | async) == 'playing'"
+     [class.stopped]="(audio.state | async) != 'playing'">
     <div class="preview-inner">
         <div class="preview-progress centerized">
             <md-progress-spinner
@@ -10,8 +16,8 @@
             </md-progress-spinner>
         </div>
         <div class="preview-play">
-            <a (click)="play()" class="play centerized"></a>
-            <a (click)="pause()" class="pause centerized"></a>
+            <a (click)="audio.Play()" class="play centerized"></a>
+            <a (click)="audio.Pause()" class="pause centerized"></a>
         </div>
     </div>
 </div>

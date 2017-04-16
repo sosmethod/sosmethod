@@ -13,6 +13,7 @@ import {DiscoverySeriesComponent} from "./discovery/discovery-series";
 import {DiscoverySubtextComponent} from "./discovery/discovery-subtext";
 import {MeditationsComponent} from "./meditation/meditations";
 import {MeditateComponent} from "./meditate/meditate";
+import {MeditationsSubtextComponent} from "./meditation/meditations-subtext";
 
 export const COMPONENTS = [
     MainComponent,
@@ -23,7 +24,8 @@ export const COMPONENTS = [
     DiscoverySeriesComponent,
     DiscoverySubtextComponent,
     MeditationsComponent,
-    MeditateComponent
+    MeditateComponent,
+    MeditationsSubtextComponent
 ];
 
 

@@ -14,7 +14,6 @@ import {FooterComponent} from './navigation/footer/footer';
 
 import {TranslateModule} from '@ngx-translate/core';
 
-import {PipesModule} from '../pipes';
 import {NavigationModule} from './navigation';
 
 import {VideoComponent} from './navigation/video/video';
@@ -25,10 +24,11 @@ import {GiftTestimonialsComponent} from './testimonials/gift-testimonials';
 import {GiftComponent} from './gift/gift';
 import {FoundationComponent} from './gift/foundation';
 import {FaqDialogComponent} from './faq/faq';
-import {ToolDialogComponent} from "./tools/tool";
-import {SurveyDialogComponent} from "./survey/survey";
-import {PlayerComponent} from "./player/player";
-import {PlayerControlsComponent} from "./player/player-controls";
+import {ToolDialogComponent} from './tools/tool';
+import {SurveyDialogComponent} from './survey/survey';
+import {PlayerComponent} from './player/player';
+import {PlayerControlsComponent} from './player/player-controls';
+import {BonusDialogComponent} from "./bonus/bonus";
 
 
 export const COMPONENTS = [
@@ -51,7 +51,8 @@ export const COMPONENTS = [
     SurveyDialogComponent,
     ContactDialogComponent,
     FaqDialogComponent,
-    ToolDialogComponent
+    ToolDialogComponent,
+    BonusDialogComponent
 ];
 
 
@@ -61,7 +62,6 @@ export const COMPONENTS = [
         ReactiveFormsModule,
         MaterialModule,
         RouterModule,
-        PipesModule,
         TranslateModule,
         FormsModule,
 

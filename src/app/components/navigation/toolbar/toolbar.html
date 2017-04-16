@@ -1,15 +1,20 @@
-﻿<md-toolbar>
+﻿<md-toolbar *ngIf="(route$ | async) != '_5_day' && (route$ | async) != '_11_day' && (route$ | async) != 'meditations'">
     <div id="logo">
         <a routerLink="/">
             <img src="/assets/SOS-Logo-Tag-2017-all-wht.png" *ngIf="(route$ | async) != 'home' && (route$ | async) != '_5_day' && (route$ | async) != '_11_day' && (route$ | async) != 'meditations'" />
             <img src="/assets/SOS-Method-Logo-2017-White.png"  *ngIf="(route$ | async) == 'home'"/></a>
     </div>
     <div class="account">
-        <a md-raised-button (click)="showLoginDialog()">login</a>
-        <a md-raised-button routerLink="/account"></a>
-        <a md-raised-button (click)="showContactDialog()">contact us</a>
-        <img src="/assets/icon_static_user_man.png"/>
-        <a md-raised-button routerLink="/logout">logout</a>
+        <a md-raised-button (click)="showLoginDialog()"
+           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup'">login</a>
+        <a md-raised-button routerLink="/account"
+           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup'"></a>
+        <a md-raised-button (click)="showContactDialog()"
+           *ngIf="(route$ | async) == 'gift' || (route$ | async) == 'signup'">contact us</a>
+        <img src="/assets/icon_static_user_man.png"
+             *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup'" />
+        <a md-raised-button routerLink="/logout"
+           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup'">logout</a>
     </div>
-    <div id="jquery_jplayer" style="width: 0; height: 0;"></div>
 </md-toolbar>
+<audio #player></audio>

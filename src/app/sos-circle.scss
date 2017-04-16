@@ -40,6 +40,7 @@
     &, .mat-button-wrapper {
 
         & > span:not(.mat-button-wrapper):nth-of-type(4) {
+            min-height:100%;
             top: 0;
             left: 0;
             width: auto;
@@ -49,7 +50,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            position: absolute;
         }
 
         & > span:not(.mat-button-wrapper):nth-of-type(1),

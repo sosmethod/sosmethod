@@ -13,6 +13,7 @@
 }
 
 #discovery, #meditation {
+
     & {
         position: relative;
         width: 150px;
@@ -68,7 +69,7 @@
         display: block;
         position: absolute;
         height: 100%;
-        left: 50%;
+        left: 75px;
         background: #fff;
         right: 0;
     }
@@ -97,3 +98,31 @@
 #meditation-leaf a b:before, #discovery-leaf a b:before {
     left: 50px;
 }
+
+@media (max-width: 700px) {
+
+    #discovery a b:before, #meditation a b:before {
+        left: 60px;
+    }
+
+    #discovery a, #meditation a, #meditation, #discovery {
+        width: 120px;
+        height: 120px;
+    }
+
+    #meditation-leaf, #discovery-leaf {
+        margin-top:20px;
+        margin-left:20px;
+    }
+
+    #meditation-leaf a, #discovery-leaf a, #meditation-leaf, #discovery-leaf {
+        height: 80px;
+        width: 80px;
+    }
+
+    #meditation-leaf a b:before, #discovery-leaf a b:before {
+        left: 40px;
+    }
+
+}
+

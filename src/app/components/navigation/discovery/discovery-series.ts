@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import {Observable, Subject} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
+import {AudioService} from "../../../services/audio";
 
 
 @Component({
@@ -19,11 +20,13 @@ export class DiscoverySeriesComponent implements OnInit {
     constructor(
         public route: ActivatedRoute,
         public router: Router,
-        private _el: ElementRef) {
+        private _el: ElementRef,
+        public audio: AudioService) {
 
     }
 
     ngOnInit() {
+        const that = this;
         this.series$ = this.route.params.map(params => {
             return params['discovery'];
         });
@@ -32,14 +35,20 @@ export class DiscoverySeriesComponent implements OnInit {
             if (!params['audio'] || params['audio'] === '') {
                 // TODO: get first uncompleted or first
                 setTimeout(() => {
-                    const audio = $(this._el.nativeElement).find('ol [routerLink*="' + series + '"]').first().attr('routerLink');
-                    return this.router.navigate([audio]);
+                    const audio = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]').first().attr('routerLink');
+                    return that.router.navigate([audio]);
                 });
                 return '';
             } else {
+                this.audio.nextUp = this.audio.AWS + encodeURIComponent(params['audio']);
                 const match = (/Day_([0-9]+)|_[0-9]+_([0-9]+)/ig).exec(params['audio'].replace(/ |%20/ig, '_'));
                 return '_day_' + parseInt(match[1] || match[2]);
             }
         });
     }
+
+    goBackToCourse() {
+        this.series$.subscribe((series) => this.router.navigate(['/discovery/' + series]));
+    }
 }
+

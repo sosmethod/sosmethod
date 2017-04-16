@@ -5,11 +5,12 @@ import { TranslateService } from '@ngx-translate/core';
 import {LayoutService} from './services/layout';
 import {Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
+import {AudioService} from "./services/audio";
 
 
 @Component({
   selector: 'bc-app',
-  providers: [TranslateService],
+  providers: [TranslateService, AudioService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None

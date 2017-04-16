@@ -1,9 +1,9 @@
 #player {
-    position:absolute;
     top:0;
     right:0;
     bottom:0;
     left:0;
+    min-height:100%;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -34,11 +34,13 @@
 
 #player .preview-inner {
     position:relative;
+    transition: margin ease-in-out .25s;
 }
 
 #player .preview-play {
     position:absolute;
     top:0;
+    z-index: 100;
 }
 
 #player .preview-play .play {
@@ -72,4 +74,31 @@ md-progress-spinner {
     width:65px;
 }
 
+.first .preview-inner {
+    margin-left:-89px;
+}
+
+.second .preview-inner {
+    margin-left:89px;
+}
+
+.triple.first .preview-inner {
+    margin-left: -184px;
+}
+
+.triple.second .preview-inner {
+    margin-left: -5px;
+}
+
+.triple.third .preview-inner {
+    margin-left: 174px;
+}
+
+#player.playing .preview-play .play {
+    display:none;
+}
+
+#player.playing .preview-play .pause {
+    display:block;
+}
 

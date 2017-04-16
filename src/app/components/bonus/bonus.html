@@ -1,7 +1,25 @@
-<div id="bonus">
-    <div id="bonus-grateful">
-        <a href="#close">X</a>
-        <h1>I Am Grateful</h1>
+<a md-button md-dialog-close (click)="dialog.closeAll()" tabindex="-1"><md-icon>cancel</md-icon></a>
+<h1 md-dialog-title *ngIf="(tool$ | async) == 'grateful'">I Am Grateful</h1>
+<h1 md-dialog-title *ngIf="(tool$ | async) == 'bless_day'">I Bless This Day</h1>
+<h1 md-dialog-title *ngIf="(tool$ | async) == 'moon_rising'">Moon Rising</h1>
+<h1 md-dialog-title *ngIf="(tool$ | async) == 'st_francis'">PRAYER OF ST. FRANCIS</h1>
+<h1 md-dialog-title *ngIf="(tool$ | async) == 'divine_love'">Divine Love</h1>
+<h1 md-dialog-title *ngIf="(tool$ | async) == 'essentials_day_1'">SOS Meditation Instructions</h1>
+<h1 md-dialog-title *ngIf="(tool$ | async) == 'essentials11_day_3'">3 Simple Steps</h1>
+<h1 md-dialog-title *ngIf="(tool$ | async) == 'essentials11_day_5'">Reflect</h1>
+<h1 *ngIf="(tool$ | async) == 'essentials11_day_6'">Affirming Word Meditations</h1>
+<h1 *ngIf="(tool$ | async) == 'essentials11_day_7'">Synaptic pruning</h1>
+<h1 *ngIf="(tool$ | async) == 'essentials11_day_9'">Reflect</h1>
+<h1 *ngIf="(tool$ | async) == 'essentials11_day_10'">Relax and Deep Sleep Meditations</h1>
+<h1 *ngIf="(tool$ | async) == 'essentials11_day_11'">Feeding the Mind/Body</h1>
+<h1 *ngIf="(tool$ | async) == 'soothing_day_2'">Epigenetics</h1>
+<h1 *ngIf="(tool$ | async) == 'improving_day_2'">Power of Thoughts</h1>
+<h1 *ngIf="(tool$ | async) == 'improving_day_5'">Conscious Communication Reminder</h1>
+<h1 *ngIf="(tool$ | async) == 'creativity_day_2'">Lazer-like Focus</h1>
+<h1 *ngIf="(tool$ | async) == 'creativity_day_4'">Breakdowns to Breakthrough Tip</h1>
+<md-dialog-content>
+    <div id="bonus">
+    <div *ngIf="(tool$ | async) == 'grateful'">
         <p>I am grateful<br />
             I am thankful<br />
             I am loved</p>
@@ -40,9 +58,7 @@
         <p>I am loved</p>
         <p>I am blessed</p>
     </div>
-    <div id="bonus-bless_day">
-        <a href="#close">X</a>
-        <h1>I Bless This Day</h1>
+    <div *ngIf="(tool$ | async) == 'bless_day'">
         <p>I bless this day and give thanks for my life<br />
             And embrace the joy and vitality it offers me.<br />
             I give you my love, and I ask you<br />
@@ -78,9 +94,7 @@
             And embrace the healing and freedom it offers me.</p>
         <p>Now and back through all time</p>
     </div>
-    <div id="bonus-moon_rising">
-        <a href="#close">X</a>
-        <h1>Moon Rising</h1>
+    <div *ngIf="(tool$ | async) == 'moon_rising'">
         <p>For as long as the moon shall rise<br />
             May I be at peace.<br />
             For as long as the sun shall shine,<br />
@@ -106,9 +120,7 @@
             Immersed in Peace<br />
             I dwell in the breath of infinite Love</p>
     </div>
-    <div id="bonus-st_francis">
-        <a href="#close">X</a>
-        <h1>PRAYER OF ST. FRANCIS</h1>
+    <div *ngIf="(tool$ | async) == 'st_francis'">
         <p>Infinite Wisdom… please make me an instrument of your peace,</p>
         <p>Where there is hate, I will offer love instead;</p>
         <p>Where there is injustice, I will offer the spirit of forgiveness;</p>
@@ -125,9 +137,7 @@
         <p>Divine Light… please make me an instrument of your peace</p>
         <p>So I might be in that wisdom… that sets us all free</p>
     </div>
-    <div id="bonus-divine_love">
-        <a href="#close">X</a>
-        <h1>Divine Love</h1>
+    <div *ngIf="(tool$ | async) == 'divine_love'">
         <p>Divine love, divine love, divine love<br />
             Divine will, divine will, divine will<br />
             Divine Light, divine Light, divine Light<br />
@@ -146,9 +156,7 @@
         <p>Divine love….. Divine will…. Divine Light,….<br />
             Flows through me into this world.</p>
     </div>
-    <div id="bonus-essentials_day_1">
-        <a href="#close">X</a>
-        <h1>SOS Meditation Instructions</h1>
+    <div *ngIf="(tool$ | async) == 'essentials_day_1'">
         <p>Sit comfortably or lie down, close your eyes, and begin with an easy breath.</p>
         <p>If thoughts arise, don’t worry its natural. See them like clouds on a windy day and each time
             you become aware of them, just bring your awareness back to your enjoyment of the
@@ -163,75 +171,60 @@
             from when you began. When you can, Slowly and gently open your eyes. Then bring that
             awareness with you back to the room and your day.</p>
     </div>
-    <div id="bonus-essentials_day_2">
-        <a href="#close">X</a>
+    <div *ngIf="(tool$ | async) == 'essentials_day_2'">
         <ol>
             <li>Share</li>
             <li><a href="http://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dess_day_2&t=Check out The SOS Method!" target="_blank"></a></li>
             <li><a href="https://twitter.com/intent/tweet?text=Check out https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dess_day_2" target="_blank"></a></li>
         </ol>
-        <img src="/ess_day_2.jpeg" title="The first step to clear thinking is to question what we know about the past."></div>
-    <div id="bonus-essentials_day_3">
-        <a href="#close">X</a>
+        <img src="/assets/ess_day_2.jpeg" title="The first step to clear thinking is to question what we know about the past."></div>
+    <div *ngIf="(tool$ | async) == 'essentials_day_3'">
         <ol>
             <li>Share</li>
             <li><a href="http://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dess_day_3&t=Check out The SOS Method!" target="_blank"></a></li>
             <li><a href="https://twitter.com/intent/tweet?text=Check out https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dess_day_3" target="_blank"></a></li>
         </ol>
-        <img src="/ess_day_3.jpeg" title="The moon is reachable... if you put all of your energy into doing the most important thing everyday."></div>
-    <div id="bonus-essentials_day_5">
-        <a href="#close">X</a>
+        <img src="/assets/ess_day_3.jpeg" title="The moon is reachable... if you put all of your energy into doing the most important thing everyday."></div>
+    <div *ngIf="(tool$ | async) == 'essentials_day_5'">
         <ol>
             <li>Share</li>
             <li><a href="http://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dess_day_5&t=Check out The SOS Method!" target="_blank"></a></li>
             <li><a href="https://twitter.com/intent/tweet?text=Check out https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dess_day_5" target="_blank"></a></li>
         </ol>
-        <img src="/ess_day_5.jpeg" title="We are what we repeatedly do.  Excellent then is not an act, it's a habit. - Aristotle"></div>
-    <div id="bonus-essentials11_day_1">
-        <a href="#close">X</a>
+        <img src="/assets/ess_day_5.jpeg" title="We are what we repeatedly do.  Excellent then is not an act, it's a habit. - Aristotle"></div>
+    <div *ngIf="(tool$ | async) == 'essentials11_day_1'">
         <ol>
             <li>Share</li>
             <li><a href="http://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dess11_day_1&t=Check out The SOS Method!" target="_blank"></a></li>
             <li><a href="https://twitter.com/intent/tweet?text=Check out https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dess11_day_1" target="_blank"></a></li>
         </ol>
-        <img src="/ess11_day_1.jpeg" title="Don't stumble over something behind you."></div>
-    <div id="bonus-essentials11_day_2">
-        <a href="#close">X</a>
+        <img src="/assets/ess11_day_1.jpeg" title="Don't stumble over something behind you."></div>
+    <div *ngIf="(tool$ | async) == 'essentials11_day_2'">
         <ol>
             <li>Share</li>
             <li><a href="http://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dess11_day_2&t=Check out The SOS Method!" target="_blank"></a></li>
             <li><a href="https://twitter.com/intent/tweet?text=Check out https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dess11_day_2" target="_blank"></a></li>
         </ol>
-        <img src="/ess11_day_2.jpeg" title="A mind that is stretched by a new experience can never go back to it's old dimensions."></div>
-    <div id="bonus-essentials11_day_3">
-        <a href="#close">X</a>
-        <h1>3 Simple Steps</h1>
+        <img src="/assets/ess11_day_2.jpeg" title="A mind that is stretched by a new experience can never go back to it's old dimensions."></div>
+    <div *ngIf="(tool$ | async) == 'essentials11_day_3'">
         <p>1. Explore what we want to focus on. So we can narrow the million directions our mind goes in every day, to a more laser like focus.
             2. Listen to the SOS Meditation of your choice. This helps generate those feel good sensations, making it easier to access creativity and inspired solutions.
             3. Engage – take action on the insights we get in meditation, or what is journaled.</p>
     </div>
-    <div id="bonus-essentials11_day_5">
-        <a href="#close">X</a>
-        <h1>Reflect</h1>
+    <div *ngIf="(tool$ | async) == 'essentials11_day_5'">
         <p>What is that heart/mind vision you value and want to bring to reality? Reflect, then journal your vision:</p>
         <br /><hr />
         <br /><hr />
         <br /><hr />
     </div>
-    <div id="bonus-essentials11_day_6">
-        <a href="#close">X</a>
-        <h1>Affirming Word Meditations</h1>
+    <div *ngIf="(tool$ | async) == 'essentials11_day_6'">
         <p>Affirming Word Meditations are a wonderful way to set the tone for any day. It’s not just about repeating positive words - by listening or repeating these meditations, whether silently or aloud, you are priming the brain to build a neural net of positive pathways.</p>
         <p>It’s a simple technique that can be inspirational as well as healing for the mind, body and soul. The more we weave the dynamic intelligence in meditation into our lives, the more results we’ll see.</p>
     </div>
-    <div id="bonus-essentials11_day_7">
-        <a href="#close">X</a>
-        <h1>Synaptic pruning</h1>
+    <div *ngIf="(tool$ | async) == 'essentials11_day_7'">
         <iframe id="landing-intro-player" src="https://www.youtube.com/embed/L3SdBzc5yY0?rel=0&amp;controls=0&amp;modestbranding=1&amp;showinfo=0&amp;enablejsapi=1&amp;origin="></iframe>
     </div>
-    <div id="bonus-essentials11_day_9">
-        <a href="#close">X</a>
-        <h1>Reflect</h1>
+    <div *ngIf="(tool$ | async) == 'essentials11_day_9'">
         <p>What valuable lesson can you learn from something that challenged you? Reflect, then journal it.</p>
         <br /><hr />
         <br /><hr />
@@ -241,85 +234,68 @@
         <br /><hr />
         <br /><hr />
     </div>
-    <div id="bonus-essentials11_day_10">
-        <a href="#close">X</a>
-        <h1>Relax and Deep Sleep Meditations</h1>
+    <div *ngIf="(tool$ | async) == 'essentials11_day_10'">
         <p>There are millions of neurons in the brain, each producing its own electrical signals. These signals combined, generate brain waves. Human beings have 5 different types of these electric patterns. Each serves a purpose to help us cope with various situations – whether it is to process and learn new information or calm down after a stressful day.</p>
         <p>Binaural beats cause the brain to match the frequency of the binaural tone. This is what is known as the “frequency following response”. Similar to the theory of tuning forks.</p>
         <p>The frequencies used in the Relax and Deep Sleep meditations are either alpha, beta or theta to reduce hyperactivity and encourage our heart-rate, blood pressure and breathing to slow down. They promote pleasant states of mind that our body already recognizes. Be sure to listen on headphones to get the full effect.</p>
     </div>
-    <div id="bonus-essentials11_day_11">
-        <a href="#close">X</a>
-        <h1>Feeding the Mind/Body</h1>
+    <div *ngIf="(tool$ | async) == 'essentials11_day_11'">
         <p>A native American grandfather was speaking to his grandson. “I feel as though I have two wolves fighting in my heart. One wolf is the angry, vengeful, violent one. The other is the loving, compassionate one.” The boy asked, “Which wolf will win the fight grandfather?” “The one that I feed,” was the old man’s knowing reply.</p>
         <p>Our mind and body respond to what we feed them – whether it’s thoughts and emotions of fear, resentment and anxiety – or the opposite – positive experiences and feelings of hope, appreciation, and love. That’s why taking time to feed our mind and body is vital.</p>
     </div>
-    <div id="bonus-soothing_day_1">
-        <a href="#close">X</a>
+    <div *ngIf="(tool$ | async) == 'soothing_day_1'">
         <ol>
             <li>Share</li>
             <li><a href="http://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dsoothing_day_1&t=Check out The SOS Method!" target="_blank"></a></li>
             <li><a href="https://twitter.com/intent/tweet?text=Check out https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3soothing_day_1" target="_blank"></a></li>
         </ol>
-        <img src="/soothing_day_1.jpeg" title="The opposite of depression is not happiness but vitality."></div>
-    <div id="bonus-soothing_day_2">
-        <a href="#close">X</a>
-        <h1>Epigenetics</h1>
+        <img src="/assets/soothing_day_1.jpeg" title="The opposite of depression is not happiness but vitality."></div>
+    <div *ngIf="(tool$ | async) == 'soothing_day_2'">
         <p>Jonathan Seckl, a geneticist at the University of Edinburgh, research on how a mother’s stress could affect her unborn children:</p>
-        <a href="https://books.google.com/books?id=58klBAAAQBAJ&printsec=frontcover#v=onepage&q&f=false">Read on Google Books<br /><img src="/hormones.png" /></a>
+        <a href="https://books.google.com/books?id=58klBAAAQBAJ&printsec=frontcover#v=onepage&q&f=false">Read on Google Books<br /><img src="/assets/hormones.png" /></a>
     </div>
-    <div id="bonus-soothing_day_5">
-        <a href="#close">X</a>
+    <div *ngIf="(tool$ | async) == 'soothing_day_5'">
         <ol>
             <li>Share</li>
             <li><a href="http://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dsoothing_day_5&t=Check out The SOS Method!" target="_blank"></a></li>
             <li><a href="https://twitter.com/intent/tweet?text=Check out https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dsoothing_day_5" target="_blank"></a></li>
         </ol>
-        <img src="/soothing_day_5.jpeg" title="The trick to success is to choose the right habit and bring just enough discipline to establish it."></div>
-    <div id="bonus-improving_day_1">
-        <a href="#close">X</a>
+        <img src="/assets/soothing_day_5.jpeg" title="The trick to success is to choose the right habit and bring just enough discipline to establish it."></div>
+    <div *ngIf="(tool$ | async) == 'improving_day_1'">
         <ol>
             <li>Share</li>
             <li><a href="http://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dimproving_day_1&t=Check out The SOS Method!" target="_blank"></a></li>
             <li><a href="https://twitter.com/intent/tweet?text=Check out https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dimproving_day_1" target="_blank"></a></li>
         </ol>
-        <img src="/improving_day_1.jpeg" title="We need to learn to love ourselves in all our glory and imperfections. If we cannot love ourselves, we cannot fully open to our ability to love others or our potential to create. - John Lennon" /></div>
-    <div id="bonus-improving_day_2">
-        <a href="#close">X</a>
-        <h1>Power of Thoughts</h1>
+        <img src="/assets/improving_day_1.jpeg" title="We need to learn to love ourselves in all our glory and imperfections. If we cannot love ourselves, we cannot fully open to our ability to love others or our potential to create. - John Lennon" /></div>
+    <div *ngIf="(tool$ | async) == 'improving_day_2'">
         <p>Harvard Psychologist Ellen Langer’s “Counterclockwise” study:</p>
-        <a href="http://www.ellenlanger.com/books/1/counterclockwise">Read online<br /><img src="/counter.png" /></a>
+        <a href="http://www.ellenlanger.com/books/1/counterclockwise">Read online<br /><img src="/assets/counter.png" /></a>
     </div>
-    <div id="bonus-improving_day_4">
-        <a href="#close">X</a>
+    <div *ngIf="(tool$ | async) == 'improving_day_4'">
         <ol>
             <li>Share</li>
             <li><a href="http://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dimproving_day_4&t=Check out The SOS Method!" target="_blank"></a></li>
             <li><a href="https://twitter.com/intent/tweet?text=Check out https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dimproving_day_4" target="_blank"></a></li>
         </ol>
-        <img src="/improving_day_4.jpeg" title="Everyone is a genius.  But if you judge a fish by its ability to climb a tree, it will spend its whole life believing that it is stupid. - Albert Einstein" /></div>
-    <div id="bonus-improving_day_5">
-        <a href="#close">X</a>
+        <img src="/assets/improving_day_4.jpeg" title="Everyone is a genius.  But if you judge a fish by its ability to climb a tree, it will spend its whole life believing that it is stupid. - Albert Einstein" /></div>
+    <div *ngIf="(tool$ | async) == 'improving_day_5'">
         <ol>
             <li>Share</li>
             <li><a href="http://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dimproving_day_5&t=Check out The SOS Method!" target="_blank"></a></li>
             <li><a href="https://twitter.com/intent/tweet?text=Check out https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Deimproving_day_5" target="_blank"></a></li>
         </ol>
-        <h1>Conscious Communication Reminder</h1>
         <p>You can change the conversation in your head. All you have to do is:</p>
-        <img src="/improving_day_5.jpeg" title="Talk to yourself like you'd talk to someone you love." />
+        <img src="/assets/improving_day_5.jpeg" title="Talk to yourself like you'd talk to someone you love." />
     </div>
-    <div id="bonus-creativity_day_1">
-        <a href="#close">X</a>
+    <div *ngIf="(tool$ | async) == 'creativity_day_1'">
         <ol>
             <li>Share</li>
             <li><a href="http://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dcreativity_day_1&t=Check out The SOS Method!" target="_blank"></a></li>
             <li><a href="https://twitter.com/intent/tweet?text=Check out https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dcreativity_day_1" target="_blank"></a></li>
         </ol>
-        <img src="/creativity_day_1.jpeg" title="Mastery is a never ending process" /></div>
-    <div id="bonus-creativity_day_2">
-        <a href="#close">X</a>
-        <h1>Lazer-like Focus</h1>
+        <img src="/assets/creativity_day_1.jpeg" title="Mastery is a never ending process" /></div>
+    <div *ngIf="(tool$ | async) == 'creativity_day_2'">
         <p>Some tips to help you get started are:</p>
         <ul>
             <li>Set aside special time where you won’t be interrupted</li>
@@ -328,20 +304,22 @@
             <li>Meditate, even for just 5 minutes, to clear the slate, and tap into your higher mind</li>
         </ul>
     </div>
-    <div id="bonus-creativity_day_4">
-        <a href="#close">X</a>
-        <h1>Breakdowns to Breakthrough Tip</h1>
+    <div *ngIf="(tool$ | async) == 'creativity_day_4'">
         <p>While this series was developed to boost our focus and creativity, the intention of all SOS Method programs is to increase mindful awareness.</p>
         <p>What this means is that sometimes we could be having a ‘breakthrough’ while others are experiencing ‘breakdowns’ or that sense of being ‘stuck’.</p>
         <p>If you are in one of those challenging times – use the Request & Envision Tool more frequently. New insights and solutions appear daily that support a wealth of new awareness, health and wellbeing.</p>
         <p>There is a natural flow that cannot be rushed. Learning to go with it, makes a world of difference. We are always growing and learning – and what we discover along the way, is always worth the wait.</p>
     </div>
-    <div id="bonus-creativity_day_5">
-        <a href="#close">X</a>
+    <div *ngIf="(tool$ | async) == 'creativity_day_5'">
         <ol>
             <li>Share</li>
             <li><a href="http://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dcreativity_day_5&t=Check out The SOS Method!" target="_blank"></a></li>
             <li><a href="https://twitter.com/intent/tweet?text=Check out https%3A%2F%2Fsosmethod.herokuapp.com%2F%3Ffb%3Dcreativity_day_5" target="_blank"></a></li>
         </ol>
-        <img src="/creativity_day_5.jpeg" title="True education is learning how to think, not what to think" /></div>
+        <img src="/assets/creativity_day_5.jpeg" title="True education is learning how to think, not what to think" /></div>
 </div>
+</md-dialog-content>
+<md-dialog-actions>
+    <a md-raised-button color="primary" (click)="dialog.closeAll()">Close</a>
+</md-dialog-actions>
+
