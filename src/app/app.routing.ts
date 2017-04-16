@@ -13,13 +13,14 @@ import {DiscoveryComponent} from './components/navigation/discovery/discovery';
 import {MeditationComponent} from './components/navigation/meditation/meditation';
 import {SignupComponent} from './components/signup/signup';
 import {GiftComponent} from './components/gift/gift';
-import {DialogGuard} from "./guards/dialog";
-import {FaqDialogComponent} from "./components/faq/faq";
-import {ContactDialogComponent} from "./components/contact/contact";
-import {SurveyDialogComponent} from "./components/survey/survey";
-import {BeginComponent} from "./components/navigation/begin/begin";
-import {PlayerComponent} from "./components/player/player";
-import {ToolDialogComponent} from "./components/tools/tool";
+import {DialogGuard} from './guards/dialog';
+import {FaqDialogComponent} from './components/faq/faq';
+import {ContactDialogComponent} from './components/contact/contact';
+import {SurveyDialogComponent} from './components/survey/survey';
+import {BeginComponent} from './components/navigation/begin/begin';
+import {PlayerComponent} from './components/player/player';
+import {ToolDialogComponent} from './components/tools/tool';
+import {BonusDialogComponent} from './components/bonus/bonus';
 
 const secureHomeRoutes: Routes = [
     {
@@ -111,6 +112,13 @@ export const routes: Routes = [
         canActivateChild: [AuthGuard, DialogGuard],
         data: {roles: ['anonymous']},
         component: ToolDialogComponent,
+    },
+    {
+        path: 'bonus/:bonus',
+        canActivate: [AuthGuard, DialogGuard],
+        canActivateChild: [AuthGuard, DialogGuard],
+        data: {roles: ['anonymous']},
+        component: BonusDialogComponent,
     },
     {
         path: 'faq',

@@ -10,6 +10,8 @@ import {FaqDialogComponent} from "../faq/faq";
 })
 export class SurveyDialogComponent {
 
+    public score: number;
+
     constructor(public dialog: MdDialog, @Optional() public dialogRef?: MdDialogRef<SurveyDialogComponent>) {}
 
 }

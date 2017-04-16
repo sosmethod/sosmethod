@@ -5,9 +5,9 @@
         <button md-menu-item routerLink="/signup">Sign Up</button>
         <button md-menu-item routerLink="/gift">Gift SOS</button>
         <button md-menu-item (click)="showFAQDialog()">FAQ</button>
-        <a md-menu-item [href]="'https://www.thesosmethod.com/blog/'">Blog</a>
+        <a md-menu-item href="https://www.thesosmethod.com/blog/">Blog</a>
         <button md-menu-item [mdMenuTriggerFor]="share">Share</button>
-        <a md-menu-item [href]="'http://www.sosmethod.org/'">Foundation</a>
+        <a md-menu-item href="http://www.sosmethod.org/">Foundation</a>
         <button md-menu-item routerLink="/signup#testimonials">Testimonials</button>
         <button md-menu-item routerLink="/survey">Take the survey!</button>
         <button md-menu-item (click)="showContactDialog()">Contact Us</button>
@@ -40,10 +40,10 @@
     </div>
 </footer>
 <md-menu #share="mdMenu" class="share">
-    <a md-menu-item [href]="'mailto:?subject=Check out the SOS method!&body=Hi, I found this website and thought you might like it http://sosmethod.herokuapp.com/'">Email</a>
+    <a md-menu-item href="mailto:?subject=Check out the SOS method!&body=Hi, I found this website and thought you might like it http://sosmethod.herokuapp.com/">Email</a>
     <button md-menu-item (click)="showSMS()">SMS</button>
-    <a md-menu-item [href]="'http://www.facebook.com/sharer/sharer.php?u=https://sosmethod.herokuapp.com%3F&t=Check out The SOS Method!'">Facebook</a>
-    <a md-menu-item [href]="'https://twitter.com/intent/tweet?text=Check out https://sosmethod.herokuapp.com%3F'">Twitter</a>
+    <a md-menu-item href="http://www.facebook.com/sharer/sharer.php?u=https://sosmethod.herokuapp.com%3F&t=Check out The SOS Method!">Facebook</a>
+    <a md-menu-item href="https://twitter.com/intent/tweet?text=Check out https://sosmethod.herokuapp.com%3F">Twitter</a>
     <button md-menu-item (click)="showCopy()">Copy Link</button>
 </md-menu>
 

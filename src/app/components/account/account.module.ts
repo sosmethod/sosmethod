@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {MaterialModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
-import {PipesModule} from '../../pipes';
 import {TranslateModule} from '@ngx-translate/core';
 
 import {AccountLoginComponent} from './login/login';
@@ -34,7 +33,6 @@ export const COMPONENTS = [
         ReactiveFormsModule,
         MaterialModule,
         RouterModule,
-        PipesModule,
         TranslateModule,
         FormsModule,
         routing

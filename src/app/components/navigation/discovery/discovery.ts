@@ -1,4 +1,7 @@
-import {Component, Output, EventEmitter, ChangeDetectorRef, OnInit, Input, ViewChild} from '@angular/core';
+import {
+    Component, Output, EventEmitter, ChangeDetectorRef, OnInit, Input, ViewChild,
+    HostListener
+} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {ActivatedRoute} from '@angular/router';
 
@@ -11,22 +14,41 @@ import {ActivatedRoute} from '@angular/router';
 export class DiscoveryComponent implements OnInit {
     @ViewChild('discovery') discovery: any;
     @ViewChild('discoveryLeaf') discoveryLeaf: any;
+
     public series$: Observable<string>;
+    public width: number;
+    private _series: string;
 
     constructor(public route: ActivatedRoute) {
 
     }
 
+    @HostListener('window:resize', ['$event'])
+    onResize(event: any) {
+        const that = this;
+        const isDiscovery = that.constructor === DiscoveryComponent;
+        if ($(that.discoveryLeaf.nativeElement).width() !== that.width) {
+            that.width = $(that.discoveryLeaf.nativeElement).width();
+            that.createMenus(isDiscovery, false);
+            if (that._series) {
+                that.createSubMenus(that._series, isDiscovery, false);
+            }
+        }
+    }
+
     ngOnInit() {
+        const that = this;
+        const isDiscovery = that.constructor === DiscoveryComponent;
         this.series$ = this.route.params.map(params => {
             return params['discovery'];
         });
         this.series$.subscribe(d => {
+            this._series = d;
             setTimeout(() => {
                 if (d && d !== '') {
-                    this.createSubMenus(d, true);
+                    that.createSubMenus(d, isDiscovery);
                 } else {
-                    this.createMenus(true);
+                    that.createMenus(isDiscovery);
                 }
             });
         });
@@ -82,7 +104,7 @@ export class DiscoveryComponent implements OnInit {
         }
     }
 
-    public createSubMenus(d: string, isDiscovery: boolean) {
+    public createSubMenus(d: string, isDiscovery: boolean, animated?: boolean) {
         const that = this;
         const discovery = $(this.discoveryLeaf.nativeElement);
         const firstLevel = $(this.discovery.nativeElement).find('> a');
@@ -94,7 +116,7 @@ export class DiscoveryComponent implements OnInit {
         const parentCircleWidth = link.outerWidth() / 2;
         const lineLength = course.outerWidth() / 2;
         const linkI = firstLevel.index(link);
-        if(!$(this.discovery.nativeElement).is('.open')) {
+        if (!$(this.discovery.nativeElement).is('.open')) {
             that.createMenus(isDiscovery, false);
         }
         $('html,body').stop().animate({
@@ -128,7 +150,7 @@ export class DiscoveryComponent implements OnInit {
             }
             that.sizeNode.apply(this, [degreesI2 + (isDiscovery
                 ? -(i - i2)
-                : (i - i2)) * degrees2 + add, parentCircleWidth]);
+                : (i - i2)) * degrees2 + add, parentCircleWidth, animated]);
         });
     }
 

@@ -54,6 +54,10 @@ ol li {
     width:45px;
 }
 
+._11_day li:not(:last-of-type) a:after {
+    width:45px;
+}
+
 li a {
     position: relative;
     display: block;

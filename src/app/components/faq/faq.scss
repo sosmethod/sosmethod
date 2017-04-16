@@ -42,17 +42,7 @@
         color: #333;
     }
 
-    li a.active ~ div,
-    ul:hover a[href="#faq-how-help"].active ~ div {
-        display: block;
-    }
-
-    ul:hover a[href="#faq-how-help"]:after,
-    ul:hover a[href="#faq-how-help"] ~ div {
-        display: none;
-    }
-
-    a[href="#faq-how-help"] ~ div {
+    li a.active ~ div {
         display: block;
     }
 

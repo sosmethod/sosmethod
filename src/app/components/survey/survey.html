@@ -2,19 +2,12 @@
 <h2 md-dialog-title>Survey</h2>
 <md-dialog-content id="contact" class="modal">
     <label><span>Would you recommend meditation to others?</span></label>
-    <label class="radio"><input type="radio" name="investment-net-promoter" value="1"><i></i><br><span>1</span></label>
-    <label class="radio"><input type="radio" name="investment-net-promoter" value="2"><i></i><br><span>2</span></label>
-    <label class="radio"><input type="radio" name="investment-net-promoter" value="3"><i></i><br><span>3</span></label>
-    <label class="radio"><input type="radio" name="investment-net-promoter" value="4"><i></i><br><span>4</span></label>
-    <label class="radio"><input type="radio" name="investment-net-promoter" value="5"><i></i><br><span>5</span></label>
-    <label class="radio"><input type="radio" name="investment-net-promoter" value="6"><i></i><br><span>6</span></label>
-    <label class="radio"><input type="radio" name="investment-net-promoter" value="7"><i></i><br><span>7</span></label>
-    <label class="radio"><input type="radio" name="investment-net-promoter" value="8"><i></i><br><span>8</span></label>
-    <label class="radio"><input type="radio" name="investment-net-promoter" value="9"><i></i><br><span>9</span></label>
-    <label class="radio"><input type="radio" name="investment-net-promoter" value="10"><i></i><br><span>10</span></label>
-    <label><span>Any suggestions, feedback, or features your would like to see?</span>
-        <textarea name="feedback"></textarea>
-    </label>
+    <md-radio-group [(ngModel)]="score">
+        <md-radio-button *ngFor="let item of [1,2,3,4,5,6,7,8,9,10]" [value]="item">{{item}}</md-radio-button>
+    </md-radio-group>
+    <md-input-container>
+        <textarea mdInput placeholder="Any suggestions, feedback, or features your would like to see?" name="feedback"></textarea>
+    </md-input-container>
     <label class="error">Oops! Please answer both questions and try again.</label>
 </md-dialog-content>
 <md-dialog-actions>
