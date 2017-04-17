@@ -9,8 +9,7 @@ import { AccountRegisterComponent } from './register/register';
 import { AccountConfirmComponent } from './confirm/confirm';
 import { ForgotPassword2Component } from './reset/reset';
 import { ForgotPasswordComponent } from './forgot/forgot';
-import { LogoutComponent } from './logout/logout';
-import {DialogGuard} from "../../guards/dialog";
+import {DialogGuard} from '../../guards/dialog';
 
 
 export const accountRoutes: Routes = [
@@ -20,8 +19,6 @@ export const accountRoutes: Routes = [
         canActivateChild: [AuthGuard, DialogGuard],
         data: {roles: ['anonymous', 'user']},
         children: [
-//            { path: 'about', component: AboutComponent },
-            { path: 'logout', component: LogoutComponent, data: {roles: ['anonymous', 'user']} },
             { path: 'login', component: AccountLoginComponent },
             { path: 'register', component: AccountRegisterComponent },
             { path: 'confirm/:username', component: AccountConfirmComponent },

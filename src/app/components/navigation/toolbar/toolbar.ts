@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {Subject} from "rxjs";
 import {AccountLoginComponent} from "../../account/login/login";
 import {AudioService} from "../../../services/audio";
+import {AngularFire} from "angularfire2";
 
 
 @Component({
@@ -18,6 +19,7 @@ export class ToolbarComponent implements OnInit {
     public route$: Subject<string> = new Subject();
 
     constructor(
+        public af: AngularFire,
         public router: Router,
         private ref: ChangeDetectorRef,
         public dialog: MdDialog,

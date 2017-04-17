@@ -10,9 +10,6 @@
     <md-card>
         <md-card-subtitle>Create a new account.</md-card-subtitle>
         <form method="POST" action="#" role="form">
-            <div *ngIf="errorMessage!=null" class="alert alert-danger">
-                {{ errorMessage }}
-            </div>
             <md-input-container>
                 <input mdInput type="text" maxlength="50" placeholder="First name"
                        [(ngModel)]="registrationUser.name.first" required

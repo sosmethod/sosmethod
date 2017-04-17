@@ -3,9 +3,6 @@
 <md-dialog-content>
   <md-card>
     <md-card-subtitle>Log in to track your progress.</md-card-subtitle>
-      <div *ngIf="errorMessage!=null" class="alert alert-danger">
-        {{ errorMessage }}
-      </div>
       <md-input-container>
         <input mdInput id="signupEmail" required type="email" placeholder="Email" maxlength="100" [(ngModel)]="authUser.name"
                [ngModelOptions]="{standalone: true}">

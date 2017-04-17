@@ -8,7 +8,6 @@ import {LayoutComponent} from './navigation/layout/layout';
 import {NavItemComponent} from './navigation/nav-item/nav-item';
 import {SidenavComponent} from './navigation/sidenav/sidenav';
 import {ToolbarComponent} from './navigation/toolbar/toolbar';
-import {AccountLinksComponent} from './navigation/account-links/account-links';
 import {LanguageMenuComponent} from './navigation/language/language';
 import {FooterComponent} from './navigation/footer/footer';
 
@@ -38,7 +37,6 @@ export const COMPONENTS = [
     ToolbarComponent,
     FooterComponent,
     LanguageMenuComponent,
-    AccountLinksComponent,
     VideoComponent,
     SignupComponent,
     GiftComponent,

@@ -18,6 +18,8 @@ export class AudioService {
     public nextUp: string;
     public AWS = 'https://s3-us-west-2.amazonaws.com/sosmethod/';
 
+    public timeupdate: Observable<string> = this.BindAudioEvent('timeupdate');
+    public metadata: Observable<string> = this.BindAudioEvent('loadedmetadata');
     public ended: Observable<string> = this.BindAudioEvent('ended');
     public progress: Observable<string> = this.BindAudioEvent('progress');
     public abort: Observable<string> = this.BindAudioEvent('abort');
@@ -38,6 +40,8 @@ export class AudioService {
     _analyser: any;
     _audioCtx = new (AudioContext || webkitAudioContext)();
     _svg: any;
+    public duration: number;
+    public currentTime: number;
 
     constructor(private _zone: NgZone) {
         this._createAudio();
@@ -67,6 +71,14 @@ export class AudioService {
         }
     }
 
+    SetTimePercent(percent: number) {
+        if (typeof this._audio.seekable === 'object' && this._audio.seekable.length > 0) {
+            this._audio.currentTime = percent * this._audio.seekable.end(this._audio.seekable.length - 1) / 100;
+        } else if (this._audio.duration > 0 && !isNaN(this._audio.duration)) {
+            this._audio.currentTime = percent * this._audio.duration / 100;
+        }
+    }
+
     AttachEvents() {
         this.ended.subscribe(() => this.state.next('ended'));
         this.abort.subscribe(() => this.state.next('abort'));
@@ -79,6 +91,12 @@ export class AudioService {
         this.seeked.subscribe(() => this.state.next('seeked'));
         this.emptied.subscribe(() => this.state.next('emptied'));
         this.state.subscribe((s) => console.log(s));
+        this.state.subscribe((data) => {
+            this.duration = this._audio.duration;
+        });
+        this.timeupdate.subscribe(() => {
+            this.currentTime = this._audio.currentTime;
+        });
     }
 
     BindAudioEvent<E>(eventName: string): Observable<E> {

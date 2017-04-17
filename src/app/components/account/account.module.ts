@@ -11,14 +11,12 @@ import {AccountConfirmComponent} from './confirm/confirm';
 import {ForgotPassword2Component} from './reset/reset';
 import {ForgotPasswordComponent} from './forgot/forgot';
 import {ResendCodeComponent} from './resend/resend';
-import {LogoutComponent} from './logout/logout';
 
 import { routing } from './account.routing';
 
 
 export const COMPONENTS = [
     AccountLoginComponent,
-    LogoutComponent,
     ResendCodeComponent,
     ForgotPassword2Component,
     ForgotPasswordComponent,

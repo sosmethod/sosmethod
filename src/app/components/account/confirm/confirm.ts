@@ -8,7 +8,6 @@ import {Router, ActivatedRoute} from '@angular/router';
 export class AccountConfirmComponent implements OnInit, OnDestroy {
     confirmationCode: string;
     email: string;
-    errorMessage: string;
     private sub: any;
 
     constructor(public router: Router, public route: ActivatedRoute) {
@@ -19,8 +18,6 @@ export class AccountConfirmComponent implements OnInit, OnDestroy {
             this.email = params['username'];
 
         });
-
-        this.errorMessage = null;
     }
 
     ngOnDestroy() {
@@ -28,7 +25,6 @@ export class AccountConfirmComponent implements OnInit, OnDestroy {
     }
 
     onConfirmRegistration() {
-        this.errorMessage = null;
     }
 }
 
