@@ -2,10 +2,10 @@
 import {MdDialog} from '@angular/material';
 import {ContactDialogComponent} from '../../contact/contact';
 import {Router} from "@angular/router";
-import {Subject} from "rxjs";
+import {Observable, Subject} from "rxjs";
 import {AccountLoginComponent} from "../../account/login/login";
 import {AudioService} from "../../../services/audio";
-import {AngularFire} from "angularfire2";
+import {AngularFire, FirebaseAuthState} from "angularfire2";
 
 
 @Component({
@@ -17,6 +17,8 @@ export class ToolbarComponent implements OnInit {
     @ViewChild('player') player: any;
     @Output() openMenu = new EventEmitter();
     public route$: Subject<string> = new Subject();
+    public auth: FirebaseAuthState;
+    public name: Subject<string> = new Subject();
 
     constructor(
         public af: AngularFire,
@@ -25,7 +27,14 @@ export class ToolbarComponent implements OnInit {
         public dialog: MdDialog,
         public audio: AudioService
     ) {
-
+        this.af.auth.subscribe((a) => {
+            this.auth = a;
+            if (a != null) {
+                this.getUsers().subscribe((u) => {
+                    this.name.next(u.name.first + ' ' + u.name.last);
+                });
+            }
+        });
     }
 
     ngOnInit() {
@@ -45,5 +54,14 @@ export class ToolbarComponent implements OnInit {
 
     showLoginDialog() {
         this.dialog.open(AccountLoginComponent);
+    }
+
+    getUsers(): Observable<any> {
+        return this.af.database.list('/users/' + this.auth.auth.email.toLowerCase()
+                .replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_')
+                .replace('[', '_').replace(']', '_'))
+            .flatMap((u: any) => {
+                return this.af.database.object('/users/' + u[0].$value);
+            });
     }
 }

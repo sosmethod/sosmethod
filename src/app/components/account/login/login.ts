@@ -34,6 +34,7 @@ export class AccountLoginComponent implements OnInit {
                 provider: AuthProviders.Password,
                 method: AuthMethods.Password,
             });
+        this.dialog.closeAll();
     }
 
 }
