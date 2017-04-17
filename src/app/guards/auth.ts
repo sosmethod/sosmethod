@@ -54,7 +54,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
                 .replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_')
                 .replace('[', '_').replace(']', '_'))
             .flatMap((u: any) => {
-                return this.af.database.list('/users/' + u[0].$value);
+                return this.af.database.object('/users/' + u[0].$value);
             });
     }
 
