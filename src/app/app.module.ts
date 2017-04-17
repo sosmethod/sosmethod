@@ -19,7 +19,6 @@ import {NotAuthorizedComponent} from './error/401/not-authorized';
 
 // auth services
 import {LayoutService} from './services/layout';
-import {AuthService} from './services/auth.service';
 
 // translation service
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
@@ -30,16 +29,32 @@ import {AuthGuard} from './guards/auth';
 import {DialogGuard} from './guards/dialog';
 import {routes} from './app.routing';
 import {AudioService} from './services/audio';
+import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
+const myFirebaseConfig = {
+    apiKey: 'AIzaSyCqhdstV83rISzeWGyJy0DDhdeBAByWxtU',
+    authDomain: 'sosmethod-36e55.firebaseapp.com',
+    databaseURL: 'https://sosmethod-36e55.firebaseio.com',
+    projectId: 'sosmethod-36e55',
+    storageBucket: 'sosmethod-36e55.appspot.com',
+    messagingSenderId: '216534622213'
+};
+
+const myFirebaseAuthConfig = {
+    provider: AuthProviders.Google,
+    method: AuthMethods.Redirect
+};
 
 @NgModule({
     imports: [
         FormsModule,
         CommonModule,
         BrowserModule,
+        AngularFireModule.initializeApp(myFirebaseConfig, myFirebaseAuthConfig),
         MaterialModule,
         NguiScrollableModule,
 
@@ -67,8 +82,7 @@ export function HttpLoaderFactory(http: Http) {
         AudioService,
         AuthGuard,
         DialogGuard,
-        LayoutService,
-        AuthService
+        LayoutService
     ],
     bootstrap: [
         AppComponent

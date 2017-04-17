@@ -8,16 +8,13 @@ import {MdDialog, MdDialogRef} from "@angular/material";
 })
 export class ForgotPasswordComponent {
     email: string;
-    errorMessage: string;
 
     constructor(public router: Router,
                 public dialog: MdDialog,
                 @Optional() public dialogRef?: MdDialogRef<ForgotPasswordComponent>) {
-        this.errorMessage = null;
     }
 
     onNext() {
-        this.errorMessage = null;
     }
 
 }

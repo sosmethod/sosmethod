@@ -3,6 +3,7 @@ export class AuthUser {
         public name: string,
         public password: string,
         public database: string,
-        public serverUrl: string) {
+        public serverUrl: string,
+    public roles: string[]) {
     }
 }

@@ -6,6 +6,7 @@ import {LayoutService} from './services/layout';
 import {Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
 import {AudioService} from "./services/audio";
+import {AngularFire} from "angularfire2";
 
 
 @Component({
@@ -21,12 +22,9 @@ export class AppComponent implements OnInit {
     public route: Subject<string> = new Subject();
 
     constructor(
+        public af: AngularFire,
         public layout: LayoutService,
         public router: Router) {
-      /**
-       * Selectors can be applied with the `select` operator which passes the state
-       * tree to the provided selector
-       */
     }
 
     ngOnInit() {

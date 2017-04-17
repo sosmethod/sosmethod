@@ -10,7 +10,6 @@ import {MdDialog, MdDialogRef} from "@angular/material";
 export class ResendCodeComponent {
 
     email: string;
-    errorMessage: string;
 
     constructor(public router: Router,
                 public dialog: MdDialog,

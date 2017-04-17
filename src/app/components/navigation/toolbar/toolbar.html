@@ -6,15 +6,16 @@
     </div>
     <div class="account">
         <a md-raised-button (click)="showLoginDialog()"
-           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup'">login</a>
+           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && !(af.auth | async)?.auth.email">login</a>
         <a md-raised-button routerLink="/account"
-           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup'"></a>
+           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && (af.auth | async)?.auth.email"></a>
         <a md-raised-button (click)="showContactDialog()"
            *ngIf="(route$ | async) == 'gift' || (route$ | async) == 'signup'">contact us</a>
         <img src="/assets/icon_static_user_man.png"
-             *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup'" />
+             *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && (af.auth | async)?.auth.email" />
         <a md-raised-button routerLink="/logout"
-           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup'">logout</a>
+           (click)="af.auth.logout()"
+           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && (af.auth | async)?.auth.email">logout</a>
     </div>
 </md-toolbar>
 <audio #player></audio>

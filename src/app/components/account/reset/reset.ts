@@ -10,7 +10,6 @@ export class ForgotPassword2Component implements OnInit, OnDestroy {
     verificationCode: string;
     email: string;
     password: string;
-    errorMessage: string;
     private sub: any;
 
     constructor(public router: Router, public route: ActivatedRoute) {
@@ -21,7 +20,6 @@ export class ForgotPassword2Component implements OnInit, OnDestroy {
         this.sub = this.route.params.subscribe(params => {
             this.email = params['email'];
         });
-        this.errorMessage = null;
     }
 
     ngOnDestroy() {
@@ -29,7 +27,6 @@ export class ForgotPassword2Component implements OnInit, OnDestroy {
     }
 
     onNext() {
-        this.errorMessage = null;
     }
 
 }
