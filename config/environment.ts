@@ -8,9 +8,18 @@ export const environment = {
 
     tokenUrl: 'http://localhost/identity/connect/token',
     revokeUrl: 'http://localhost/identity/connect/revocation',
-    client_id: "ro.client",
-    client_secret: "secret",
+    client_id: 'ro.client',
+    client_secret: 'secret',
 
     grant_type: 'password',
-    scope: "read write",
+    scope: 'read write',
+
+    firebase: {
+        apiKey: 'AIzaSyCqhdstV83rISzeWGyJy0DDhdeBAByWxtU',
+        authDomain: 'sosmethod-36e55.firebaseapp.com',
+        databaseURL: 'https://sosmethod-36e55.firebaseio.com',
+        projectId: 'sosmethod-36e55',
+        storageBucket: 'sosmethod-36e55.appspot.com',
+        messagingSenderId: '216534622213'
+    }
 };

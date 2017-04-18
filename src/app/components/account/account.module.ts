@@ -8,7 +8,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {AccountLoginComponent} from './login/login';
 import {AccountRegisterComponent} from './register/register';
 import {AccountConfirmComponent} from './confirm/confirm';
-import {ForgotPassword2Component} from './reset/reset';
+import {ResetPasswordComponent} from './reset/reset';
 import {ForgotPasswordComponent} from './forgot/forgot';
 import {ResendCodeComponent} from './resend/resend';
 
@@ -18,7 +18,7 @@ import { routing } from './account.routing';
 export const COMPONENTS = [
     AccountLoginComponent,
     ResendCodeComponent,
-    ForgotPassword2Component,
+    ResetPasswordComponent,
     ForgotPasswordComponent,
     AccountRegisterComponent,
     AccountConfirmComponent

@@ -1,6 +1,7 @@
 ﻿import {Component, Optional} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MdDialog, MdDialogRef} from '@angular/material';
+import {AngularFire} from "angularfire2";
 
 export class RegistrationUser {
     name: {
@@ -29,6 +30,7 @@ export class AccountRegisterComponent {
         public route: ActivatedRoute,
         public router: Router,
         public dialog: MdDialog,
+        public af: AngularFire,
         @Optional() public dialogRef?: MdDialogRef<AccountRegisterComponent>) {
         this.onInit();
     }
@@ -38,6 +40,10 @@ export class AccountRegisterComponent {
     }
 
     onRegister() {
+        this.af.auth.createUser({
+            email: this.registrationUser.email,
+            password: this.registrationUser.password
+        });
     }
 }
 
