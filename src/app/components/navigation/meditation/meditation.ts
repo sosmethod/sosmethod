@@ -1,7 +1,6 @@
 import { Component, Output, EventEmitter, ChangeDetectorRef, OnInit, Input } from '@angular/core';
 import {DiscoveryComponent} from '../discovery/discovery';
 import {ActivatedRoute} from '@angular/router';
-import {Observable} from 'rxjs/Observable';
 
 
 @Component({

@@ -1,6 +1,4 @@
 import {Component, OnInit, Optional, ViewChild} from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
-import {FaqDialogComponent} from '../faq/faq';
 import {Observable} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AudioService} from "../../services/audio";

@@ -1,6 +1,5 @@
 import {Injectable} from "@angular/core";
-import {AccountLoginComponent} from "../components/account/login/login";
-import {ActivatedRoute, ActivatedRouteSnapshot, Router, RouterStateSnapshot} from "@angular/router";
+import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from "@angular/router";
 import {MdDialog} from "@angular/material";
 
 

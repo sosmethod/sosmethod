@@ -1,7 +1,6 @@
 ﻿import {Component, OnInit, OnDestroy, Optional} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {MdDialog, MdDialogRef} from '@angular/material';
-import {environment} from '../../../../../config/environment';
 import * as firebase from 'firebase';
 
 @Component({

@@ -1,5 +1,4 @@
 ﻿import 'rxjs/add/operator/let';
-import { Observable } from 'rxjs/Observable';
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import {LayoutService} from './services/layout';

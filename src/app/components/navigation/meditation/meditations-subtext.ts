@@ -2,9 +2,10 @@ import {
     Component, Output, EventEmitter, ChangeDetectorRef, OnInit, Input, ViewChild, HostBinding,
     ElementRef
 } from '@angular/core';
-import {Observable, Subject} from "rxjs";
-import {ActivatedRoute, Router} from "@angular/router";
-import {AudioService} from "../../../services/audio";
+import {Subject} from 'rxjs/Subject';
+import {Observable} from 'rxjs/Observable';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AudioService} from '../../../services/audio';
 
 
 @Component({

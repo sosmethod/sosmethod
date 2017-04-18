@@ -8,7 +8,6 @@ import { AuthGuard } from './guards/auth';
 
 
 import {MainComponent} from './components/navigation/main/main';
-import {CourseComponent} from './components/navigation/course/course';
 import {DiscoveryComponent} from './components/navigation/discovery/discovery';
 import {MeditationComponent} from './components/navigation/meditation/meditation';
 import {SignupComponent} from './components/signup/signup';
