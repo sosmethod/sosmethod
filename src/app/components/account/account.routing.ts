@@ -7,7 +7,7 @@ import { ResendCodeComponent } from './resend/resend';
 import { AccountLoginComponent } from './login/login';
 import { AccountRegisterComponent } from './register/register';
 import { AccountConfirmComponent } from './confirm/confirm';
-import { ForgotPassword2Component } from './reset/reset';
+import { ResetPasswordComponent } from './reset/reset';
 import { ForgotPasswordComponent } from './forgot/forgot';
 import {DialogGuard} from '../../guards/dialog';
 
@@ -23,7 +23,7 @@ export const accountRoutes: Routes = [
             { path: 'register', component: AccountRegisterComponent },
             { path: 'confirm/:username', component: AccountConfirmComponent },
             { path: 'resend', component: ResendCodeComponent },
-            { path: 'reset/:email', component: ForgotPassword2Component },
+            { path: 'reset/:email', component: ResetPasswordComponent },
             { path: 'forgot', component: ForgotPasswordComponent },
             { path: '', component: AccountLoginComponent }
         ]
