@@ -1,6 +1,5 @@
 ﻿import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {Observable} from 'rxjs/Observable';
 import {AngularFire, AngularFireAuth, FirebaseApp} from 'angularfire2';
 import * as firebase from 'firebase';
 import {environment} from '../../../../../config/environment';
@@ -38,14 +37,13 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
     resetPassword(email: string) {
         const auth = this.firebase.auth();
         // Verify the password reset code is valid.
-        auth.verifyPasswordResetCode(actionCode).then(function(email) {
-            var accountEmail = email;
+        auth.verifyPasswordResetCode(this.verificationCode).then(function(accountEmail) {
 
             // TODO: Show the reset screen with the user's email and ask the user for
             // the new password.
 
             // Save the new password.
-            auth.confirmPasswordReset(actionCode, newPassword).then(function(resp) {
+            auth.confirmPasswordReset(this.verificationCode, this.password).then(function(resp) {
                 // Password reset has been confirmed and new password updated.
 
                 // TODO: Display a link back to the app, or sign-in the user directly

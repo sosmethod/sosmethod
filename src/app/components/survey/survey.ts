@@ -1,6 +1,5 @@
 import {Component, Optional} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
-import {FaqDialogComponent} from "../faq/faq";
 
 
 @Component({

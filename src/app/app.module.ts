@@ -6,7 +6,6 @@ import {RouterModule} from '@angular/router';
 import {HttpModule, Http} from '@angular/http';
 import {MaterialModule} from '@angular/material';
 import {NguiScrollableModule} from '@ngui/scrollable';
-import * as firebase from "firebase";
 
 import {ComponentsModule} from './components';
 import {NavigationModule} from './components/navigation/navigation.module';
@@ -30,7 +29,7 @@ import {AuthGuard} from './guards/auth';
 import {DialogGuard} from './guards/dialog';
 import {routes} from './app.routing';
 import {AudioService} from './services/audio';
-import {AngularFireModule, AuthMethods, AuthProviders, FirebaseApp} from 'angularfire2';
+import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
 import {environment} from "../../config/environment";
 
 export function HttpLoaderFactory(http: Http) {

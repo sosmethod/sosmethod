@@ -1,6 +1,4 @@
 import {Component, OnInit, Optional} from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
-import {FaqDialogComponent} from "../faq/faq";
 import {AudioService} from "../../services/audio";
 
 

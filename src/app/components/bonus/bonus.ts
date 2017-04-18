@@ -1,6 +1,5 @@
 import {Component, OnInit, Optional} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
-import {FaqDialogComponent} from "../faq/faq";
 import {Observable, Subject} from "rxjs";
 import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
 

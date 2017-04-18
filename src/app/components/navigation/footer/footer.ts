@@ -3,7 +3,6 @@ import {LayoutService} from '../../../services/layout';
 import {ContactDialogComponent} from '../../contact/contact';
 import {MdDialog} from '@angular/material';
 import {FaqDialogComponent} from '../../faq/faq';
-import {ToolDialogComponent} from '../../tools/tool';
 
 
 @Component({

@@ -2,7 +2,7 @@
 import {
     Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild
 } from '@angular/router';
-import {AngularFire, AngularFireAuth, FirebaseAuthState, FirebaseListObservable} from 'angularfire2';
+import {AngularFire, FirebaseAuthState} from 'angularfire2';
 import {AuthUser} from '../models/auth-user';
 import {Observable} from "rxjs";
 
