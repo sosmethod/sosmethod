@@ -18,7 +18,7 @@ export class ToolDialogComponent implements OnInit {
 
     ngOnInit() {
         if(this.dialogRef) {
-            this.tool$ = Observable.of((<ActivatedRouteSnapshot>this.dialogRef.config.data).params.tool);
+            this.tool$ = Observable.of((<ActivatedRouteSnapshot>this.dialogRef._containerInstance.dialogConfig.data).params.tool);
         }
         else {
             this.tool$ = this.route.params.map(params => {

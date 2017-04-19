@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter, ChangeDetectorRef, OnInit, Input } from '@angular/core';
 import {DiscoveryComponent} from '../discovery/discovery';
 import {ActivatedRoute} from '@angular/router';
+import {LayoutService} from '../../../services/layout';
 
 
 @Component({
@@ -10,8 +11,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class MeditationComponent extends DiscoveryComponent implements OnInit {
 
-    constructor(public route: ActivatedRoute) {
-        super(route);
+    constructor(public route: ActivatedRoute, public layout: LayoutService) {
+        super(route, layout);
     }
 
     ngOnInit() {

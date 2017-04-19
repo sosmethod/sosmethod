@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MaterialModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
@@ -13,6 +12,8 @@ import {ForgotPasswordComponent} from './forgot/forgot';
 import {ResendCodeComponent} from './resend/resend';
 
 import { routing } from './account.routing';
+import {AccountProfileComponent} from "./profile/profile";
+import {MaterialModule, MdCard, MdIcon} from "@angular/material";
 
 
 export const COMPONENTS = [
@@ -21,7 +22,8 @@ export const COMPONENTS = [
     ResetPasswordComponent,
     ForgotPasswordComponent,
     AccountRegisterComponent,
-    AccountConfirmComponent
+    AccountConfirmComponent,
+    AccountProfileComponent
 ];
 
 
@@ -29,11 +31,11 @@ export const COMPONENTS = [
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        MaterialModule,
         RouterModule,
         TranslateModule,
         FormsModule,
-        routing
+        routing,
+        MaterialModule
     ],
     declarations: COMPONENTS,
     exports: COMPONENTS

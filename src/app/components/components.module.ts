@@ -1,6 +1,5 @@
 ﻿import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MaterialModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 
@@ -28,6 +27,7 @@ import {SurveyDialogComponent} from './survey/survey';
 import {PlayerComponent} from './player/player';
 import {PlayerControlsComponent} from './player/player-controls';
 import {BonusDialogComponent} from "./bonus/bonus";
+import {MaterialModule, MdCard, MdIcon} from "@angular/material";
 
 
 export const COMPONENTS = [
@@ -58,12 +58,11 @@ export const COMPONENTS = [
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        MaterialModule,
         RouterModule,
         TranslateModule,
         FormsModule,
-
-        NavigationModule
+        NavigationModule,
+        MaterialModule
     ],
     declarations: COMPONENTS,
     exports: COMPONENTS

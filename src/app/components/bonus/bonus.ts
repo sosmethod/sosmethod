@@ -17,7 +17,7 @@ export class BonusDialogComponent implements OnInit {
 
     ngOnInit() {
         if (this.dialogRef) {
-            this.tool$ = Observable.of((<ActivatedRouteSnapshot>this.dialogRef.config.data).params.bonus);
+            this.tool$ = Observable.of((<ActivatedRouteSnapshot>this.dialogRef._containerInstance.dialogConfig.data).params.bonus);
         } else {
             this.tool$ = this.route.params.map(params => {
                 return params['bonus'];

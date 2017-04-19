@@ -2,7 +2,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import {LayoutService} from './services/layout';
-import {Router} from '@angular/router';
+import {NavigationStart, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
 import {AudioService} from "./services/audio";
 import {AngularFire} from "angularfire2";
@@ -29,7 +29,9 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         const that = this;
         this.router.events.subscribe((e) => {
-            that.route.next(e.url.split('/')[1] || 'home');
+            if (e instanceof NavigationStart) {
+                that.route.next(e.url.split('/')[1] || 'home');
+            }
         });
     }
 

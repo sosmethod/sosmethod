@@ -4,7 +4,6 @@ import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {HttpModule, Http} from '@angular/http';
-import {MaterialModule} from '@angular/material';
 import {NguiScrollableModule} from '@ngui/scrollable';
 
 import {ComponentsModule} from './components';
@@ -31,6 +30,8 @@ import {routes} from './app.routing';
 import {AudioService} from './services/audio';
 import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
 import {environment} from "../../config/environment";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MaterialModule} from "@angular/material";
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -45,9 +46,10 @@ const myFirebaseAuthConfig = {
     imports: [
         FormsModule,
         CommonModule,
-        BrowserModule,
-        AngularFireModule.initializeApp(environment.firebase, myFirebaseAuthConfig),
         MaterialModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        AngularFireModule.initializeApp(environment.firebase, myFirebaseAuthConfig),
         NguiScrollableModule,
         HttpModule,
         TranslateModule.forRoot({
@@ -74,7 +76,7 @@ const myFirebaseAuthConfig = {
         AuthGuard,
         DialogGuard,
         LayoutService
-],
+    ],
     bootstrap: [
         AppComponent
     ]
