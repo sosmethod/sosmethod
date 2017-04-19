@@ -44,6 +44,7 @@ export class AccountRegisterComponent {
             email: this.registrationUser.email,
             password: this.registrationUser.password
         });
+        this.dialog.closeAll();
     }
 }
 

@@ -10,6 +10,7 @@ import { AccountConfirmComponent } from './confirm/confirm';
 import { ResetPasswordComponent } from './reset/reset';
 import { ForgotPasswordComponent } from './forgot/forgot';
 import {DialogGuard} from '../../guards/dialog';
+import {AccountProfileComponent} from './profile/profile';
 
 
 export const accountRoutes: Routes = [
@@ -23,9 +24,9 @@ export const accountRoutes: Routes = [
             { path: 'register', component: AccountRegisterComponent },
             { path: 'confirm/:username', component: AccountConfirmComponent },
             { path: 'resend', component: ResendCodeComponent },
-            { path: 'reset/:email', component: ResetPasswordComponent },
+            { path: 'reset', component: ResetPasswordComponent },
             { path: 'forgot', component: ForgotPasswordComponent },
-            { path: '', component: AccountLoginComponent }
+            { path: '', component: AccountProfileComponent }
         ]
     }
 ];

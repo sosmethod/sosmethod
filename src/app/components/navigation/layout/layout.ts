@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import {Component, ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {LayoutService} from '../../../services/layout';
 
 
@@ -12,15 +12,25 @@ export class LayoutComponent {
 
   constructor(public layout: LayoutService) {
     this.layout.sidebarOpen$.subscribe((o) => this.sidebarOpen = o);
+    this.layout.focusElement.subscribe(this.onScrollTo);
   }
 
   openSidenav() {
-    if(this.sidebarOpen) {
+    if (this.sidebarOpen) {
       this.layout.sidebarOpen$.next(false);
     }
     else {
       this.layout.sidebarOpen$.next(true);
     }
+  }
+
+  onScrollTo(el: ElementRef) {
+    const discovery = $(el.nativeElement);
+    const wrapper = discovery.parents('.mat-sidenav-content');
+    wrapper.stop().animate({
+      scrollTop: discovery.offset().top + wrapper.scrollTop() - (wrapper.outerHeight() / 2 - discovery.outerHeight(false) / 2),
+      scrollLeft: discovery.offset().left + wrapper.scrollLeft() - (wrapper.outerWidth() / 2 - discovery.outerWidth(false) / 2)
+    }, 350);
   }
 
 }

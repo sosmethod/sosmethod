@@ -1,9 +1,10 @@
 import {
     Component, Output, EventEmitter, ChangeDetectorRef, OnInit, Input, ViewChild,
-    HostListener
+    HostListener, ElementRef
 } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {ActivatedRoute} from '@angular/router';
+import {LayoutService} from '../../../services/layout';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class DiscoveryComponent implements OnInit {
     public width: number;
     private _series: string;
 
-    constructor(public route: ActivatedRoute) {
+    constructor(public route: ActivatedRoute, public layout: LayoutService) {
 
     }
 
@@ -58,6 +59,7 @@ export class DiscoveryComponent implements OnInit {
         const that = this;
         const discovery = $(this.discovery.nativeElement);
         discovery.addClass('open');
+        this.layout.focusElement.next(this.discovery);
         const firstLevel = discovery.find('> a');
         const degrees = 5 / 7 * 360 / firstLevel.length;
         const degreesI = (isDiscovery ? -1.7 : -2.5) * degrees;
@@ -92,7 +94,7 @@ export class DiscoveryComponent implements OnInit {
         if (animated !== false) {
             $(this).find('b').css({
                 width: 50,
-                opacity: 0,
+                opacity: 1,
                 transform: 'rotate(' + Math.round(180 - degrees + 90) + 'deg)'
             }).animate({width: bNaturalWidth, opacity: 1}, 1000, function () {
                 $(this).stop().css({width: '', height: ''});
@@ -100,6 +102,7 @@ export class DiscoveryComponent implements OnInit {
         } else {
             $(this).find('b').stop().css({
                 transform: 'rotate(' + Math.round(180 - degrees + 90) + 'deg)',
+                opacity: 1,
                 width: '', height: ''});
         }
     }
@@ -119,11 +122,8 @@ export class DiscoveryComponent implements OnInit {
         if (!$(this.discovery.nativeElement).is('.open')) {
             that.createMenus(isDiscovery, false);
         }
-        $('html,body').stop().animate({
-            scrollTop: link.offset().top - ($(window).outerHeight() / 2 - link.outerHeight(false) / 2),
-            scrollLeft: link.offset().left - ($(window).outerWidth() / 2 - link.outerWidth(false) / 2)
-        }, 200);
-
+        this.layout.focusElement.next(new ElementRef(link[0]));
+        // reset the border size to determine how long the node should be
         link.find('b').css({
             width: '', height: '', transform: ''
         });

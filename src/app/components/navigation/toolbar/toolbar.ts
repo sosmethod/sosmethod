@@ -1,11 +1,12 @@
 ﻿import {Component, Output, EventEmitter, Input, ChangeDetectorRef, OnInit, ViewChild} from '@angular/core';
 import {MdDialog} from '@angular/material';
 import {ContactDialogComponent} from '../../contact/contact';
-import {Router} from "@angular/router";
-import {Observable, Subject} from "rxjs";
-import {AccountLoginComponent} from "../../account/login/login";
-import {AudioService} from "../../../services/audio";
-import {AngularFire, FirebaseAuthState} from "angularfire2";
+import {NavigationStart, Router} from '@angular/router';
+import {Subject} from 'rxjs/Subject';
+import {Observable} from 'rxjs/Observable';
+import {AccountLoginComponent} from '../../account/login/login';
+import {AudioService} from '../../../services/audio';
+import {AngularFire, FirebaseAuthState} from 'angularfire2';
 
 
 @Component({
@@ -40,7 +41,9 @@ export class ToolbarComponent implements OnInit {
     ngOnInit() {
         const that = this;
         this.router.events.subscribe((e) => {
-            that.route$.next(e.url.split('/')[1] || 'home');
+            if (e instanceof NavigationStart) {
+                that.route$.next(e.url.split('/')[1] || 'home');
+            }
         });
         setTimeout(() => {
             that.audio._audio = this.player.nativeElement;

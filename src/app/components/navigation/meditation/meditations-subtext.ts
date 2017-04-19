@@ -41,8 +41,9 @@ export class MeditationsSubtextComponent implements OnInit {
                     return '';
                 } else {
                     const day = $(that._el.nativeElement).find('[routerLink*="' + params['audio'] + '"]').index();
+                    this.audio.nextUp = this.audio.AWS + encodeURIComponent(params['audio']);
                     setTimeout(() => {
-                        that.audio.playerPositions.next($(that._el.nativeElement).find('a').length);
+                        that.audio.playerPositions.next($(that._el.nativeElement).find('a[href*=".mp3"]').length);
                         that.audio.position.next(day);
                     });
                     return '_day_' + day;
