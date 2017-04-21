@@ -259,11 +259,12 @@ body {
 
 
     a[routerLink*="/bonus/"] {
-        margin: 10px;
+        margin: 10px 10px -13px;
         vertical-align: middle;
-        padding: 64px 0 0;
+        padding: 75px 0 0;
         height: 65px;
         font-size: 18px;
+        position:relative;
     }
 
     a[routerLink*="/bonus/"]:before {

@@ -46,6 +46,9 @@ export class DiscoverySeriesComponent implements OnInit {
                 return '_day_' + parseInt(match[1] || match[2]);
             }
         });
+        setTimeout(() => {
+
+        });
     }
 
     goBackToCourse() {

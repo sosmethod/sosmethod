@@ -20,6 +20,7 @@ import {BeginComponent} from './components/navigation/begin/begin';
 import {PlayerComponent} from './components/player/player';
 import {ToolDialogComponent} from './components/tools/tool';
 import {BonusDialogComponent} from './components/bonus/bonus';
+import {TestimonialPageComponent} from "./components/testimonials/page";
 
 const secureHomeRoutes: Routes = [
     {
@@ -146,6 +147,13 @@ export const routes: Routes = [
         canActivateChild: [AuthGuard],
         data: {roles: ['anonymous', 'user']},
         component: BeginComponent,
+    },
+    {
+        path: 'testimonials',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        data: {roles: ['anonymous', 'user']},
+        component: TestimonialPageComponent,
     },
     {
         path: '_5_day/:discovery',
