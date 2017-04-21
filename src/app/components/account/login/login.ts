@@ -14,7 +14,7 @@ import {AngularFire, AuthProviders, AuthMethods} from "angularfire2";
 export class AccountLoginComponent implements OnInit {
     email: string;
     password: string;
-    authUser = new AuthUser('', '', '', '', []);
+    authUser = new AuthUser({first: '', last: ''}, '', '', '', '', []);
     rememberServer: boolean;
 
     constructor(
@@ -29,7 +29,7 @@ export class AccountLoginComponent implements OnInit {
     }
 
     login() {
-        this.af.auth.login({email: this.authUser.name, password: this.authUser.password},
+        this.af.auth.login({email: this.authUser.email, password: this.authUser.password},
             {
                 provider: AuthProviders.Password,
                 method: AuthMethods.Password,
