@@ -38,6 +38,7 @@
     "@angular/material": "latest",
     "@angular/platform-browser": "latest",
     "@angular/platform-browser-dynamic": "latest",
+    "@angular/animations": "latest",
     "@angular/router": "latest",
     "@ngx-translate/core": "latest",
     "@ngx-translate/http-loader": "latest",
@@ -94,6 +95,8 @@
     "tslint": "latest",
     "tslint-loader": "latest",
     "typescript": "latest",
-    "codelyzer": "latest"
+    "codelyzer": "latest",
+    "npm": "latest",
+    "webpack": "latest"
   }
 }
