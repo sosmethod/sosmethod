@@ -16,27 +16,27 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
     constructor(private router: Router, public af: AngularFire) {
         this.newUser = this.af.auth.flatMap(u => this.af.database.object('/users/' + u.uid).map(s => s.val().userId));
-        this.user = this.af.auth.flatMap(u => !!u ? this.getUsers(u) : null);
+        this.user = this.af.auth
+            .flatMap(u => Observable.of(!!u
+                ? this.af.database.object('/users/' + u.auth.email.toLowerCase()
+                        .replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_')
+                        .replace('[', '_').replace(']', '_'))
+                    .flatMap((u: any) => this.af.database.object('/users/' + u.oldKey))
+                : Observable.of(null)).flatMap(o => o));
     }
 
     canActivate(route: ActivatedRouteSnapshot,
                 state: RouterStateSnapshot): Observable<boolean> {
 
         const roles = <Array<string>>route.data['roles'] || <Array<string>>route.parent.data['roles'];
-        return this.af.auth.withLatestFrom(this.user, (token, user) => ({token, user}))
-            // merge user roles with token status
-            .map(({token, user}) => [token.anonymous ? 'user' : 'anonymous'].concat(token ? user.roles : []))
+        return this.af.auth
+        // merge user roles with token status
+            .flatMap((token: FirebaseAuthState) => {
+                return this.user.map(user => [token && !token.anonymous ? 'user' : 'anonymous']
+                    .concat(token && !token.anonymous ? (user.roles || []) : []));
+            })
             // check if there are any roles that overlap to grant access
             .map(userRoles => roles == null || userRoles.filter((r: string) => roles.indexOf(r) !== -1).length > 0);
-    }
-
-    getUsers(u: FirebaseAuthState): Observable<any> {
-        return this.af.database.object('/users/' + u.auth.email.toLowerCase()
-                .replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_')
-                .replace('[', '_').replace(']', '_'))
-            .flatMap((u: any) => {
-                return this.af.database.object('/users/' + u[0].$value);
-            });
     }
 
     canActivateChild(route: ActivatedRouteSnapshot,

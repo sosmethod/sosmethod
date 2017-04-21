@@ -7,6 +7,8 @@ import {Observable} from 'rxjs/Observable';
 import {AccountLoginComponent} from '../../account/login/login';
 import {AudioService} from '../../../services/audio';
 import {AngularFire, FirebaseAuthState} from 'angularfire2';
+import {AuthGuard} from "../../../guards/auth";
+import {AuthUser} from "../../../models/auth-user";
 
 
 @Component({
@@ -18,24 +20,17 @@ export class ToolbarComponent implements OnInit {
     @ViewChild('player') player: any;
     @Output() openMenu = new EventEmitter();
     public route$: Subject<string> = new Subject();
-    public auth: FirebaseAuthState;
-    public name: Subject<string> = new Subject();
+    public name = this.auth.user
+        .map((user: AuthUser) => user.name.first + ' ' + user.name.last);
 
     constructor(
         public af: AngularFire,
         public router: Router,
         private ref: ChangeDetectorRef,
         public dialog: MdDialog,
-        public audio: AudioService
+        public audio: AudioService,
+        public auth: AuthGuard
     ) {
-        this.af.auth.subscribe((a) => {
-            this.auth = a;
-            if (a != null) {
-                this.getUsers().subscribe((u) => {
-                    this.name.next(u.name.first + ' ' + u.name.last);
-                });
-            }
-        });
     }
 
     ngOnInit() {
@@ -59,12 +54,9 @@ export class ToolbarComponent implements OnInit {
         this.dialog.open(AccountLoginComponent);
     }
 
-    getUsers(): Observable<any> {
-        return this.af.database.list('/users/' + this.auth.auth.email.toLowerCase()
-                .replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_')
-                .replace('[', '_').replace(']', '_'))
-            .flatMap((u: any) => {
-                return this.af.database.object('/users/' + u[0].$value);
-            });
+    logout() {
+        const that = this;
+        this.af.auth.logout();
+        setTimeout(() => that.router.navigate(['/']));
     }
 }

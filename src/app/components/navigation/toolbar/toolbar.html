@@ -13,8 +13,7 @@
            *ngIf="(route$ | async) == 'gift' || (route$ | async) == 'signup'">contact us</a>
         <img src="/assets/icon_static_user_man.png"
              *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && (af.auth | async)?.auth.email" />
-        <a md-raised-button routerLink="/logout"
-           (click)="af.auth.logout()"
+        <a md-raised-button (click)="logout()"
            *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && (af.auth | async)?.auth.email">logout</a>
     </div>
 </md-toolbar>
