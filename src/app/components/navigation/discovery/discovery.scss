@@ -101,6 +101,25 @@
     left: 50px;
 }
 
+#discovery-leaf a > span:last-of-type:after {
+    background: url(/assets/lock_soothing-0cf3ad.png);
+    content: " ";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+}
+
+#discovery-leaf a.completed > span:last-of-type:after {
+    background: none;
+    content: "\2713";
+    font-size: 30px;
+    height: 30px;
+}
+
 @media (max-width: 700px) {
 
     #discovery a b:before, #meditation a b:before {
