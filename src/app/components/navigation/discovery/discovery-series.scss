@@ -57,7 +57,7 @@ ol li {
 }
 
 ._11_day li:not(:last-of-type) a:after {
-    width:45px;
+    width:100%;
 }
 
 li a {
@@ -146,7 +146,7 @@ li:first-of-type a:before {
 li:not(:last-of-type) a:after {
     content: " ";
     height: 1px;
-    right: -28px;
+    left: 50%;
     position: absolute;
     width: 60px;
     background: rgba(255,255,255,0.5);
