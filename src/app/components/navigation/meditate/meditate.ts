@@ -1,6 +1,7 @@
 import {Component, Output, EventEmitter, ChangeDetectorRef, OnInit, Input, ViewChild, ElementRef} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
+import {DiscoverySeriesComponent} from "../discovery/discovery-series";
 
 
 @Component({
@@ -27,7 +28,7 @@ export class MeditateComponent implements OnInit {
                 if (!params['audio'] || params['audio'] === '') {
                     return '';
                 } else {
-                    const match = (/Day_([0-9]+)|_[0-9]+_([0-9]+)/ig).exec(params['audio'].replace(/ |%20/ig, '_'));
+                    const match = DiscoverySeriesComponent.seriesRegex(params['audio']);
                     return '_day_' + parseInt(match[1] || match[2]);
                 }
             });

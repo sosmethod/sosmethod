@@ -26,7 +26,7 @@ export const accountRoutes: Routes = [
             { path: 'resend', component: ResendCodeComponent },
             { path: 'reset', component: ResetPasswordComponent },
             { path: 'forgot', component: ForgotPasswordComponent },
-            { path: '', component: AccountProfileComponent }
+            { path: 'profile', component: AccountProfileComponent }
         ]
     }
 ];

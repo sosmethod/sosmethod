@@ -14,6 +14,9 @@ import {ResendCodeComponent} from './resend/resend';
 import { routing } from './account.routing';
 import {AccountProfileComponent} from "./profile/profile";
 import {MaterialModule, MdCard, MdIcon} from "@angular/material";
+import {SubscriptionComponent} from "./profile/subscription";
+import {DiscoveryTimelineComponent} from "./profile/discovery-timeline";
+import {MeditationTimelineComponent} from "./profile/meditation-timeline";
 
 
 export const COMPONENTS = [
@@ -23,7 +26,10 @@ export const COMPONENTS = [
     ForgotPasswordComponent,
     AccountRegisterComponent,
     AccountConfirmComponent,
-    AccountProfileComponent
+    AccountProfileComponent,
+    SubscriptionComponent,
+    DiscoveryTimelineComponent,
+    MeditationTimelineComponent
 ];
 
 

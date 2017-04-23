@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter, ChangeDetectorRef, OnInit, Input } fro
 import {DiscoveryComponent} from '../discovery/discovery';
 import {ActivatedRoute} from '@angular/router';
 import {LayoutService} from '../../../services/layout';
+import {AuthGuard} from "../../../guards/auth";
 
 
 @Component({
@@ -11,8 +12,8 @@ import {LayoutService} from '../../../services/layout';
 })
 export class MeditationComponent extends DiscoveryComponent implements OnInit {
 
-    constructor(public route: ActivatedRoute, public layout: LayoutService) {
-        super(route, layout);
+    constructor(public route: ActivatedRoute, public layout: LayoutService, public auth: AuthGuard) {
+        super(route, layout, auth);
     }
 
     ngOnInit() {

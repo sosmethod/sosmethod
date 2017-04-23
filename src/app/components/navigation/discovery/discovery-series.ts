@@ -6,6 +6,7 @@ import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AudioService} from '../../../services/audio';
+import {AuthGuard} from "../../../guards/auth";
 
 
 @Component({
@@ -14,15 +15,18 @@ import {AudioService} from '../../../services/audio';
     styleUrls: ['./discovery-series.scss']
 })
 export class DiscoverySeriesComponent implements OnInit {
-    @ViewChild('discovery') discovery: any;
+    @ViewChild('discoverySeries') discoverySeries: any;
     public series$: Observable<string>;
     public day$: Observable<string>;
+
+    static seriesRegex = (s: string) => (/Day_([0-9]+)|[0-9]+_([0-9]+)/ig).exec(s.replace(/ |%20/ig, '_'));
 
     constructor(
         public route: ActivatedRoute,
         public router: Router,
         private _el: ElementRef,
-        public audio: AudioService) {
+        public audio: AudioService,
+        public auth: AuthGuard) {
 
     }
 
@@ -42,12 +46,34 @@ export class DiscoverySeriesComponent implements OnInit {
                 return '';
             } else {
                 this.audio.nextUp = this.audio.AWS + encodeURIComponent(params['audio']);
-                const match = (/Day_([0-9]+)|_[0-9]+_([0-9]+)/ig).exec(params['audio'].replace(/ |%20/ig, '_'));
+                const match = DiscoverySeriesComponent.seriesRegex(params['audio']);
                 return '_day_' + parseInt(match[1] || match[2]);
             }
         });
-        setTimeout(() => {
+        this.series$.subscribe(s => {
+            setTimeout(() => {
+                this.seriesCompleted.apply(that, [s]);
+            });
+        });
+    }
 
+    seriesCompleted(s: string) {
+        this.auth.user.subscribe(u => {
+            const completed = u ? Object.keys(u.completed)
+                .filter(k => u.completed[k].indexOf(s) > -1 && u.completed[k].indexOf(this.router.url.indexOf('_11_day') > -1 ? '_11_day' : '_5_day') > -1)
+                .map(k => {
+                    const match = DiscoverySeriesComponent.seriesRegex(u.completed[k]);
+                    return parseInt(match[1] || match[2]);
+                }) : [];
+            $(this.discoverySeries.nativeElement).find('a[href*=".mp3"]').each((i, elem) => {
+                const match = DiscoverySeriesComponent.seriesRegex($(elem).attr('href'));
+                const day = parseInt(match[1] || match[2]);
+                if (completed.indexOf(day) > -1) {
+                    $(elem).addClass('completed')
+                } else {
+                    $(elem).removeClass('completed')
+                }
+            });
         });
     }
 

@@ -5,6 +5,8 @@ import {
 import {Observable} from 'rxjs/Observable';
 import {ActivatedRoute} from '@angular/router';
 import {LayoutService} from '../../../services/layout';
+import {AuthGuard} from "../../../guards/auth";
+import {DiscoverySeriesComponent} from "./discovery-series";
 
 
 @Component({
@@ -20,7 +22,7 @@ export class DiscoveryComponent implements OnInit {
     public width: number;
     private _series: string;
 
-    constructor(public route: ActivatedRoute, public layout: LayoutService) {
+    constructor(public route: ActivatedRoute, public layout: LayoutService, public auth: AuthGuard) {
 
     }
 
@@ -51,7 +53,27 @@ export class DiscoveryComponent implements OnInit {
                 } else {
                     that.createMenus(isDiscovery);
                 }
+                that.circleStatus.apply(that);
             });
+        });
+    }
+
+    public circleStatus() {
+        this.auth.user.subscribe(u => {
+            $(this.discoveryLeaf.nativeElement).find('a').each((i, elem) => {
+                const link = $(elem).attr('href').replace('#/', '');
+                const urls = u ? Object.keys(u.completed).map(c => u.completed[c])
+                    .filter(c => c.indexOf(link) > -1)
+                    .map(l => {
+                        const match = DiscoverySeriesComponent.seriesRegex(l);
+                        return parseInt(match[1] || match[2]);
+                    }) : [];
+                if(urls.filter((u, i) => urls.indexOf(i + 1) > -1).length === (link.indexOf('_11_day') > -1 ? 11 : 5)) {
+                    $(elem).addClass('completed')
+                } else {
+                    $(elem).removeClass('completed')
+                }
+            })
         });
     }
 
