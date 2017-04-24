@@ -1,6 +1,7 @@
 ﻿import {Component, ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {LayoutService} from '../../../services/layout';
 import {AngularFire} from "angularfire2";
+import {Observable} from "rxjs/Observable";
 
 
 @Component({
@@ -11,9 +12,12 @@ import {AngularFire} from "angularfire2";
 export class LayoutComponent {
   public sidebarOpen: boolean;
 
+  public anonymous: Observable<boolean> = Observable.of(true);
+
   constructor(public layout: LayoutService, public af: AngularFire) {
     this.layout.sidebarOpen$.subscribe((o) => this.sidebarOpen = o);
     this.layout.focusElement.subscribe(this.onScrollTo);
+    this.anonymous = this.af.auth.flatMap(u => {return Observable.of(u == null)});
   }
 
   openSidenav() {
