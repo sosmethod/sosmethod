@@ -35,38 +35,3 @@ a span > span {
     display: inline-block;
 }
 
-a[routerLink*="/tool/"]:before {
-    display: block;
-    content: " ";
-    background: url(/assets/triangle.png) no-repeat 50% 50%;
-    background-size: contain;
-    opacity: 0;
-    position: absolute;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: ease-in-out .25s;
-}
-
-a[routerLink*="/tool/"]:after {
-    display: block;
-    content: " ";
-    background: url(/assets/triangle_small.png) no-repeat 50% 50%;
-    background-size: contain;
-    opacity: 1;
-    position: absolute;
-    z-index: -1;
-    height: 50%;
-    width: 50%;
-    top: 9%;
-    left: 25%;
-    right: 0;
-    bottom: 0;
-    transform-origin: center;
-    transition: ease-in-out .25s;
-}
-

@@ -90,27 +90,61 @@
     margin-top: 25px;
     margin-left: 25px;
 }
+
 #discovery-leaf a, #meditation-leaf a {
     width: 100px;
     height: 100px;
     opacity: 1;
     visibility: visible;
-}
 
-#meditation-leaf a b:before, #discovery-leaf a b:before {
-    left: 50px;
-}
 
-#discovery-leaf a > span:last-of-type:after {
-    background: url(/assets/lock_soothing-0cf3ad.png);
-    content: " ";
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 20px;
-    height: 20px;
-    margin-left: -10px;
+    & b:before {
+        left: 50px;
+    }
+
+    & > span:last-of-type:after {
+        content: " ";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        margin-left: -10px;
+    }
+
+    /deep/ .anonymous & {
+
+        &.sos-circle-green > span:last-of-type:after {
+            background: url(/assets/lock_soothing-0cf3ad.png);
+        }
+
+        &.sos-circle-blue > span:last-of-type:after {
+            background: url(/assets/lock_essentials-0be4e6.png);
+        }
+
+        &.sos-circle-purple > span:last-of-type:after {
+            background: url(/assets/lock_kids-8400ff.png);
+        }
+
+        &.sos-circle-gold > span:last-of-type:after {
+            background: url(/assets/lock_focus-ffd885.png);
+        }
+
+        &.sos-circle-coral > span:last-of-type:after {
+            background: url(/assets/lock_pets-f77272.png);
+        }
+
+        &.sos-circle-ruby > span:last-of-type:after {
+            background: url(/assets/lock_relationships-db5ccc.png);
+        }
+
+        &.popout > span:last-of-type:after {
+            background: url(/assets/lock_white-ffffff.png);
+            opacity: .5;
+        }
+
+    }
 }
 
 #discovery-leaf a.completed > span:last-of-type:after {
@@ -118,6 +152,7 @@
     content: "\2713";
     font-size: 30px;
     height: 30px;
+    font-weight: bold;
 }
 
 @media (max-width: 700px) {

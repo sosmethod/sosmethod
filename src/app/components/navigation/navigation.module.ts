@@ -13,6 +13,7 @@ import {DiscoverySubtextComponent} from "./discovery/discovery-subtext";
 import {MeditationsComponent} from "./meditation/meditations";
 import {MeditateComponent} from "./meditate/meditate";
 import {MeditationsSubtextComponent} from "./meditation/meditations-subtext";
+import {TranslateModule, TranslatePipe} from "@ngx-translate/core";
 
 export const COMPONENTS = [
     MainComponent,
@@ -33,7 +34,8 @@ export const COMPONENTS = [
         CommonModule,
         ReactiveFormsModule,
         RouterModule,
-        FormsModule
+        FormsModule,
+        TranslateModule
     ],
     declarations: COMPONENTS,
     exports: COMPONENTS

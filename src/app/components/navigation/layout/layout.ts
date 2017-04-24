@@ -1,5 +1,6 @@
 ﻿import {Component, ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {LayoutService} from '../../../services/layout';
+import {AngularFire} from "angularfire2";
 
 
 @Component({
@@ -10,7 +11,7 @@ import {LayoutService} from '../../../services/layout';
 export class LayoutComponent {
   public sidebarOpen: boolean;
 
-  constructor(public layout: LayoutService) {
+  constructor(public layout: LayoutService, public af: AngularFire) {
     this.layout.sidebarOpen$.subscribe((o) => this.sidebarOpen = o);
     this.layout.focusElement.subscribe(this.onScrollTo);
   }
