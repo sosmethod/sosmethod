@@ -1,4 +1,6 @@
 
+@import "./options";
+
 h1
 {
     text-align: center;
@@ -88,76 +90,6 @@ h2
     position:relative;
     margin-bottom:50px;
     z-index: 1;
-}
-
-.options
-{
-    list-style: none;
-    padding: 0;
-    max-width: 800px;
-    text-align: center;
-    display: flex;
-    margin: 0 auto 50px;
-    height: 300px;
-    justify-content: center;
-    align-items: center;
-}
-
-.options li
-{
-    display:inline-block;
-    width:30%;
-    margin:0 1.5%;
-    vertical-align: middle;
-    position:relative;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.options li:before
-{
-    content: " ";
-    position:absolute;
-    left:-10px;
-    top:-10px;
-    right:-10px;
-    bottom:-10px;
-    z-index:-1;
-}
-.options li h3 {
-    transition: font-size ease-in-out .25s;
-    font-size: 130%;
-}
-
-.options li:nth-child(2) h3,
-.options li:hover h3,
-.options:hover li:nth-child(2):hover h3
-{
-    font-size:200%;
-}
-
-.options:hover li:nth-child(2) h3
-{
-    font-size:inherit;
-}
-
-.options li a
-{
-    background: rgba(73,151,203,0.8);
-    padding: 2px;
-    border-radius: 1px;
-    display:block;
-    color: #fff;
-}
-
-.options li:first-of-type
-{
-    margin-left:-1.5%;
-}
-
-.options li:last-of-type
-{
-    margin-right:-1.5%;
 }
 
 ol

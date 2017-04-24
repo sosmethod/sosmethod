@@ -19,7 +19,7 @@ export class DiscoverySubtextComponent implements OnInit {
 
     ngOnInit() {
         this.series$ = this.route.params.map(params => {
-            return params['discovery'];
+            return (this.router.url.indexOf('_11_day') > -1 ? '_11_day' : '_5_day') + '_' + params['discovery'];
         });
         this.day$ = this.route.params.map(params => {
             if (params['audio']) {

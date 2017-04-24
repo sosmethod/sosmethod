@@ -53,14 +53,16 @@ export class DiscoveryComponent implements OnInit {
                 } else {
                     that.createMenus(isDiscovery);
                 }
-                that.circleStatus.apply(that);
+                if(isDiscovery) {
+                    that.circleStatus.apply(that);
+                }
             });
         });
     }
 
     public circleStatus() {
         this.auth.user.subscribe(u => {
-            $(this.discoveryLeaf.nativeElement).find('a').each((i, elem) => {
+            $(this.discoveryLeaf.nativeElement).find('a[href]').each((i, elem) => {
                 const link = $(elem).attr('href').replace('#/', '');
                 const urls = u ? Object.keys(u.completed).map(c => u.completed[c])
                     .filter(c => c.indexOf(link) > -1)
@@ -176,6 +178,9 @@ export class DiscoveryComponent implements OnInit {
         });
     }
 
+    doNothing() {
+
+    }
 }
 
 

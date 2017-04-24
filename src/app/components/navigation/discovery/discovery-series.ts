@@ -20,6 +20,14 @@ export class DiscoverySeriesComponent implements OnInit {
     public day$: Observable<string>;
 
     static seriesRegex = (s: string) => (/Day_([0-9]+)|[0-9]+_([0-9]+)/ig).exec(s.replace(/ |%20/ig, '_'));
+    static colorSeries: any = {
+        "essentials": "sos-circle-purple",
+        "soothing_relief": "sos-circle-green",
+        "improving_relationships": "sos-circle-ruby",
+        "focus_and_creativity": "sos-circle-gold",
+        "kids": "sos-circle-blue",
+        "pets": "sos-circle-coral"
+    };
 
     constructor(
         public route: ActivatedRoute,

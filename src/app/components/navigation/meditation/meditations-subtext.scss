@@ -27,6 +27,7 @@ a:first-of-type {
     margin-left:0;
 }
 
+a[routerLink*="affirming_word"]:nth-last-of-type(2),
 .single + * a:first-of-type,
 a:last-of-type {
     margin-right:0;

@@ -23,7 +23,12 @@ export class AppComponent implements OnInit {
     constructor(
         public af: AngularFire,
         public layout: LayoutService,
+        private translate: TranslateService,
         public router: Router) {
+        const that = this;
+        this.translate.addLangs(['en', 'fr', 'tr']);
+        this.translate.setDefaultLang('en');
+        this.translate.use(this.translate.currentLang || 'en');
     }
 
     ngOnInit() {

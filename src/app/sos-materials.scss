@@ -257,6 +257,50 @@ body {
         padding:0;
     }
 
+    a[routerLink*="/tool/"] {
+        margin: 10px 10px -13px;
+        vertical-align: middle;
+        padding: 75px 0 0;
+        height: 65px;
+        font-size: 18px;
+        position: relative;
+        width:65px;
+        background: url(/assets/bonus_triangle.png) no-repeat 50% top transparent;
+        background-size:contain;
+    }
+
+    a[routerLink*="/tool/"]:before {
+        display: block;
+        content: " ";
+        background: url(/assets/triangle.png) no-repeat 50% top;
+        background-size: contain;
+        position: absolute;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: ease-in-out .25s;
+    }
+
+    a[routerLink*="/tool/"]:after {
+        display: block;
+        content: " ";
+        background: url(/assets/triangle_small.png) no-repeat 50% top;
+        background-size: contain;
+        position: absolute;
+        z-index: -1;
+        height: 50%;
+        width: 50%;
+        top: 2px;
+        left: 25%;
+        right: 0;
+        bottom: 0;
+        transform-origin: center;
+        transition: ease-in-out .25s;
+    }
 
     a[routerLink*="/bonus/"] {
         margin: 10px 10px -13px;
@@ -265,6 +309,7 @@ body {
         height: 65px;
         font-size: 18px;
         position:relative;
+        width:65px;
     }
 
     a[routerLink*="/bonus/"]:before {

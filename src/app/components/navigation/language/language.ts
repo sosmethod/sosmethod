@@ -1,5 +1,6 @@
-﻿import { Component, Output, EventEmitter, Input,  } from '@angular/core';
+﻿import {Component, Output, EventEmitter, Input, ChangeDetectorRef,} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import {Subject} from "rxjs/Subject";
 
 
 @Component({
@@ -7,20 +8,24 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './language.html'
 })
 export class LanguageMenuComponent {
-    language: string;
+    language: Subject<string> = new Subject();
     langs: Array<string>;
 
-    constructor(private translate: TranslateService) {
-        this.translate.addLangs(['en', 'fr']);
+    constructor(private ref: ChangeDetectorRef, private translate: TranslateService) {
+        const that = this;
+        this.translate.addLangs(['en', 'fr', 'tr']);
         this.translate.setDefaultLang('en');
         this.langs = this.translate.getLangs();
-        this.language = this.translate.currentLang || 'en';
-
-        this.translate.use(this.language.match(/en|fr/) ? this.language : 'en');
+        this.translate.use(this.translate.currentLang || 'en');
+        setTimeout(() => that.language.next(that.translate.currentLang || 'en'));
     }
 
     changeLanguage(lang: string) {
-        this.translate.use(lang.match(/en|fr/) ? lang : 'en');
+        // TODO: find a way to do this that is less janky
+        const that = this;
+        this.translate.use(lang.match(/en|fr|tr/) ? lang : 'en');
+        setTimeout(() => that.language.next(that.translate.currentLang || 'en'));
+        this.ref.detectChanges();
     }
 
 }

@@ -21,7 +21,7 @@ export class ToolbarComponent implements OnInit {
     @Output() openMenu = new EventEmitter();
     public route$: Subject<string> = new Subject();
     public name = this.auth.user
-        .map((user: AuthUser) => user.name.first + ' ' + user.name.last);
+        .map((user: AuthUser) => user.name.first);
 
     constructor(
         public af: AngularFire,

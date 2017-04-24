@@ -1,5 +1,5 @@
 ﻿<md-toolbar *ngIf="(route$ | async) != '_5_day' && (route$ | async) != '_11_day' && (route$ | async) != 'meditations'">
-    <div id="logo">
+    <div id="logo" mdTooltip="Go Home">
         <a routerLink="/">
             <img src="/assets/SOS-Logo-Tag-2017-all-wht.png" *ngIf="(route$ | async) != 'home' && (route$ | async) != '_5_day' && (route$ | async) != '_11_day' && (route$ | async) != 'meditations'" />
             <img src="/assets/SOS-Method-Logo-2017-White.png"  *ngIf="(route$ | async) == 'home'"/></a>
@@ -7,7 +7,7 @@
     <div class="account">
         <a md-raised-button (click)="showLoginDialog()"
            *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && !(af.auth | async)?.auth.email">login</a>
-        <a md-raised-button routerLink="/account/profile"
+        <a md-raised-button routerLink="/account/profile" mdTooltip="Account / Timeline"
            *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && (af.auth | async)?.auth.email">{{name | async}}</a>
         <a md-raised-button (click)="showContactDialog()"
            *ngIf="(route$ | async) == 'gift' || (route$ | async) == 'signup'">contact us</a>
