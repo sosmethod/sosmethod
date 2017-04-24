@@ -1,5 +1,5 @@
-﻿<div #wrapper [class.anonymous]="(af.auth | async)?.token.anonymous !== false"
-     [class.user]="(af.auth | async)?.token.anonymous === false">
+﻿<div #wrapper [class.anonymous]="anonymous | async"
+     [class.user]="!(anonymous | async)">
 <md-sidenav-container fullscreen #scrollable>
   <ng-content></ng-content>
 </md-sidenav-container>
