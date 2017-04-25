@@ -43,6 +43,19 @@ export class ToolbarComponent implements OnInit {
         setTimeout(() => {
             that.audio._audio = this.player.nativeElement;
             that.audio.AttachEvents();
+            that.audio.ended.subscribe(() => {
+                that.recordCompleted.apply(that);
+            });
+        });
+    }
+
+    recordCompleted() {
+        const audio = this.audio._src;
+        this.af.auth.subscribe((u) => {
+            let dateKey = (new Date).getTime();
+            let updates: any = {};
+            updates[dateKey] = this.router.url;
+            this.af.database.object('/users/' + AuthGuard.escapeEmail(u.auth.email) + '/completed/').set(updates);
         });
     }
 

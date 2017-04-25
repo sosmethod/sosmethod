@@ -37,4 +37,10 @@ export class AccountLoginComponent implements OnInit {
         this.dialog.closeAll();
     }
 
+    loginGoogle() {
+        this.af.auth.login({
+            provider: AuthProviders.Google,
+            method: AuthMethods.Popup,
+        });
+    }
 }

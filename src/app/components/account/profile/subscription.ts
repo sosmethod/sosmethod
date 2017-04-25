@@ -18,5 +18,8 @@ export class SubscriptionComponent {
         this.firebase = firebase.app();
     }
 
+    openCheckout() {
+
+    }
 }
 

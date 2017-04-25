@@ -7,6 +7,8 @@ import {ActivatedRoute} from '@angular/router';
 import {LayoutService} from '../../../services/layout';
 import {AuthGuard} from "../../../guards/auth";
 import {DiscoverySeriesComponent} from "./discovery-series";
+import {FirebaseAuthState} from "angularfire2";
+import {AuthUser} from "../../../models/auth-user";
 
 
 @Component({
@@ -54,29 +56,50 @@ export class DiscoveryComponent implements OnInit {
                     that.createMenus(isDiscovery);
                 }
                 if(isDiscovery) {
-                    that.circleStatus.apply(that);
+                    this.auth.user.subscribe(u => {
+                        that.circleStatus.apply(that, [u]);
+                    });
                 }
             });
         });
     }
 
-    public circleStatus() {
-        this.auth.user.subscribe(u => {
-            $(this.discoveryLeaf.nativeElement).find('a[href]').each((i, elem) => {
-                const link = $(elem).attr('href').replace('#/', '');
-                const urls = u ? Object.keys(u.completed).map(c => u.completed[c])
-                    .filter(c => c.indexOf(link) > -1)
-                    .map(l => {
-                        const match = DiscoverySeriesComponent.seriesRegex(l);
-                        return parseInt(match[1] || match[2]);
-                    }) : [];
-                if(urls.filter((u, i) => urls.indexOf(i + 1) > -1).length === (link.indexOf('_11_day') > -1 ? 11 : 5)) {
-                    $(elem).addClass('completed')
-                } else {
-                    $(elem).removeClass('completed')
-                }
-            })
-        });
+    static isCompleted(u: AuthUser, seriesUri: string) {
+        const urls = u ? Object.keys(u.completed).map(c => u.completed[c])
+            .filter(c => c.indexOf(seriesUri) > -1)
+            .map(l => {
+                const match = DiscoverySeriesComponent.seriesRegex(l);
+                return parseInt(match[1] || match[2]);
+            }) : [];
+        return urls.filter((u, i) => urls.indexOf(i + 1) > -1).length === (seriesUri.indexOf('_11_day') > -1 ? 11 : 5);
+    }
+
+    static isLocked(u: AuthUser, seriesUri: string) {
+        if(seriesUri.indexOf('_5_day') > -1 && seriesUri.indexOf('essentials') > -1) {
+            return false;
+        }
+        if(u && !DiscoveryComponent.isCompleted(u, '_11_day/essentials') &&
+            seriesUri.indexOf('_11_day') > -1 && seriesUri.indexOf('essentials') > -1) {
+            return false;
+        }
+        return !(u && DiscoveryComponent.isCompleted(u, '_11_day/essentials'));
+
+    }
+
+    public circleStatus(u: AuthUser) {
+        $(this.discoveryLeaf.nativeElement).find('a[href]').each((i, elem) => {
+            const link = $(elem).attr('href').replace('#/', '');
+            if(DiscoveryComponent.isLocked(u, link)) {
+                $(elem).addClass('locked');
+            } else {
+                $(elem).removeClass('locked');
+            }
+            if(DiscoveryComponent.isCompleted(u, link)) {
+                $(elem).addClass('completed');
+            } else {
+                $(elem).removeClass('completed');
+            }
+        })
     }
 
     public createMenus(isDiscovery: boolean, animated?: boolean) {

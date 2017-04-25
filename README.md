@@ -25,6 +25,21 @@ yarn
 ng serve
 ```
 
+### Firebase Database Rules
+```
+{
+  "rules": {
+    "users": {
+      "$uid": {
+          ".read": "$uid === auth.uid || auth.token.email.toLowerCase() === data.child('username').val() || $uid === auth.token.email.toLowerCase().replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_').replace('[', '_').replace(']', '_')",
+          ".write": "$uid === auth.uid || auth.token.email.toLowerCase() === data.child('username').val() || $uid === auth.token.email.toLowerCase().replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_').replace('[', '_').replace(']', '_')"
+      }
+    }
+  }
+}
+```
+
+
 Navigate to [http://localhost:4200/](http://localhost:4200/) in your browser
 
 _NOTE:_ The above setup instructions assume you have added local npm bin folders to your path.
