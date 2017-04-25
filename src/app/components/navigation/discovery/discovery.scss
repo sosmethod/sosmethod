@@ -113,37 +113,34 @@
         margin-left: -10px;
     }
 
-    /deep/ .anonymous & {
 
-        &.sos-circle-green > span:last-of-type:after {
-            background: url(/assets/lock_soothing-0cf3ad.png);
-        }
+    &.locked.sos-circle-green > span:last-of-type:after {
+        background: url(/assets/lock_soothing-0cf3ad.png);
+    }
 
-        &.sos-circle-blue > span:last-of-type:after {
-            background: url(/assets/lock_essentials-0be4e6.png);
-        }
+    &.locked.sos-circle-blue > span:last-of-type:after {
+        background: url(/assets/lock_essentials-0be4e6.png);
+    }
 
-        &.sos-circle-purple > span:last-of-type:after {
-            background: url(/assets/lock_kids-8400ff.png);
-        }
+    &.locked.sos-circle-purple > span:last-of-type:after {
+        background: url(/assets/lock_kids-8400ff.png);
+    }
 
-        &.sos-circle-gold > span:last-of-type:after {
-            background: url(/assets/lock_focus-ffd885.png);
-        }
+    &.locked.sos-circle-gold > span:last-of-type:after {
+        background: url(/assets/lock_focus-ffd885.png);
+    }
 
-        &.sos-circle-coral > span:last-of-type:after {
-            background: url(/assets/lock_pets-f77272.png);
-        }
+    &.locked.sos-circle-coral > span:last-of-type:after {
+        background: url(/assets/lock_pets-f77272.png);
+    }
 
-        &.sos-circle-ruby > span:last-of-type:after {
-            background: url(/assets/lock_relationships-db5ccc.png);
-        }
+    &.locked.sos-circle-ruby > span:last-of-type:after {
+        background: url(/assets/lock_relationships-db5ccc.png);
+    }
 
-        &.popout > span:last-of-type:after {
-            background: url(/assets/lock_white-ffffff.png);
-            opacity: .5;
-        }
-
+    &.locked.popout > span:last-of-type:after {
+        background: url(/assets/lock_white-ffffff.png);
+        opacity: .5;
     }
 }
 

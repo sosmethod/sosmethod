@@ -12,17 +12,25 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     redirect: any = null;
     resolver: any = null;
     user: Observable<AuthUser>;
-    newUser: Observable<AuthUser>;
 
     constructor(private router: Router, public af: AngularFire) {
-        this.newUser = this.af.auth.flatMap(u => this.af.database.object('/users/' + u.uid).map(s => s.val().userId));
         this.user = this.af.auth
             .flatMap(u => Observable.of(!!u
-                ? this.af.database.object('/users/' + u.auth.email.toLowerCase()
-                        .replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_')
-                        .replace('[', '_').replace(']', '_'))
-                    .flatMap((u: any) => this.af.database.object('/users/' + u.oldKey))
+                ? this.af.database.object('/users/' + AuthGuard.escapeEmail(u.auth.email))
+                    .flatMap((u: any) => typeof u.oldKey != 'undefined'
+                        ? this.af.database.object('/users/' + u.oldKey).map(oldUser => {
+                            let user = Object.assign({}, u);
+                            user.completed = Object.assign({}, oldUser.completed, user.completed);
+                            return Object.assign({}, oldUser, user);
+                        })
+                        : u)
                 : Observable.of(null)).flatMap(o => o));
+    }
+
+    static escapeEmail(email: string) {
+        return email.toLowerCase()
+            .replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_')
+            .replace('[', '_').replace(']', '_');
     }
 
     canActivate(route: ActivatedRouteSnapshot,

@@ -11,12 +11,15 @@ import {AudioService} from "../../services/audio";
 })
 export class PlayerComponent implements OnInit {
     public isDiscovery$: Observable<boolean>;
+    public value: Observable<number>;
 
     constructor(
         public route: ActivatedRoute,
         public router: Router,
         public audio: AudioService) {
-
+        this.value = this.audio.timeupdate.map(() => {
+            return Math.round(this.audio._audio.currentTime / (this.audio._audio.duration || 1) * 1000) / 10
+        });
     }
 
     ngOnInit() {
