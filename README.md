@@ -37,6 +37,10 @@ ng serve
     }
   }
 }
+
+
+firebase functions:config:set stripe.token="sk_test_..."
+
 ```
 
 

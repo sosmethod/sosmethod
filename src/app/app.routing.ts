@@ -16,7 +16,6 @@ import {DialogGuard} from './guards/dialog';
 import {FaqDialogComponent} from './components/faq/faq';
 import {ContactDialogComponent} from './components/contact/contact';
 import {SurveyDialogComponent} from './components/survey/survey';
-import {BeginComponent} from './components/navigation/begin/begin';
 import {PlayerComponent} from './components/player/player';
 import {ToolDialogComponent} from './components/tools/tool';
 import {BonusDialogComponent} from './components/bonus/bonus';
@@ -146,7 +145,7 @@ export const routes: Routes = [
         canActivate: [AuthGuard],
         canActivateChild: [AuthGuard],
         data: {roles: ['anonymous', 'user']},
-        component: BeginComponent,
+        component: PlayerComponent,
     },
     {
         path: 'testimonials',
