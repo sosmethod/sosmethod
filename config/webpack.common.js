@@ -19,6 +19,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.ts$/,
+                exclude: helpers.root('functions'),
                 loaders: ['ts-loader', 'angular2-template-loader']
             },
             {

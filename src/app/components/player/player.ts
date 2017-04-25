@@ -23,7 +23,7 @@ export class PlayerComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.isDiscovery$ = Observable.of(this.router.url.indexOf('_5_day') > -1 || this.router.url.indexOf('_11_day') > -1);
+        this.isDiscovery$ = Observable.of(this.router.url.indexOf('begin') || this.router.url.indexOf('_5_day') > -1 || this.router.url.indexOf('_11_day') > -1);
     }
 
 }

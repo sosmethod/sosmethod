@@ -1,7 +1,6 @@
 // Raw version of this file: https://raw.githubusercontent.com/auth0/webtask-scripts/master/stripe/stripe_charge.js
 const functions = require('firebase-functions'),
-    admin = require('firebase-admin'),
-    logging = require('@google-cloud/logging')();
+    admin = require('firebase-admin');
 
 admin.initializeApp(functions.config().firebase);
 

@@ -43,13 +43,15 @@ export class DiscoverySeriesComponent implements OnInit {
         this.series$ = this.route.params.map(params => {
             return params['discovery'];
         });
-        this.day$ = this.route.params.withLatestFrom(this.series$, (params, series) => ({params, series}))
-            .map(({params, series}) => {
+        this.day$ = this.route.params.map(params => {
             if (!params['audio'] || params['audio'] === '') {
                 // TODO: get first uncompleted or first
                 setTimeout(() => {
-                    const audio = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]').first().attr('routerLink');
-                    return that.router.navigate([audio]);
+                    let nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + params['discovery'] + '"]:not(.completed)').first();
+                    if (nextLink.length == 0) {
+                        nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + params['discovery'] + '"]').first();
+                    }
+                    return that.router.navigate([nextLink.attr('routerLink')], {replaceUrl:true});
                 });
                 return '';
             } else {
