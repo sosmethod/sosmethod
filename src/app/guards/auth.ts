@@ -12,19 +12,21 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     redirect: any = null;
     resolver: any = null;
     user: Observable<AuthUser>;
+    newUser: Observable<AuthUser>;
 
     constructor(private router: Router, public af: AngularFire) {
-        this.user = this.af.auth
-            .flatMap(u => Observable.of(!!u
-                ? this.af.database.object('/users/' + AuthGuard.escapeEmail(u.auth.email))
-                    .flatMap((u: any) => typeof u.oldKey != 'undefined'
-                        ? this.af.database.object('/users/' + u.oldKey).map(oldUser => {
-                            let user = Object.assign({}, u);
-                            user.completed = Object.assign({}, oldUser.completed, user.completed);
-                            return Object.assign({}, oldUser, user);
-                        })
-                        : u)
-                : Observable.of(null)).flatMap(o => o));
+        this.newUser = this.af.auth
+            .flatMap(state => state
+                ? af.database.object('/users/' + AuthGuard.escapeEmail(state.auth.email))
+                : Observable.of(null));
+        this.user = this.newUser.withLatestFrom(this.af.auth, (user, state) => ({state, user}))
+            .flatMap(({state, user}) => state && user && user.oldKey != 'undefined'
+                ? af.database.object('/users/' + user.oldKey).map(oldUser => {
+                    let origUser = Object.assign({}, user);
+                    origUser.completed = Object.assign({}, oldUser.completed, user.completed);
+                    return Object.assign({}, oldUser, origUser);
+                })
+                : Observable.of(user))
     }
 
     static escapeEmail(email: string) {

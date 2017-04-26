@@ -1,5 +1,5 @@
-<bc-discovery-series *ngIf="isDiscovery$ | async"></bc-discovery-series>
-<bc-meditations *ngIf="(isDiscovery$ | async) == false"></bc-meditations>
+<bc-discovery-series *ngIf="isDiscovery$"></bc-discovery-series>
+<bc-meditations *ngIf="!isDiscovery$"></bc-meditations>
 <div id="player" [class.single]="(audio.playerPositions | async) == 1"
      [class.triple]="(audio.playerPositions | async) == 3"
      [class.first]="(audio.position | async) == 0"

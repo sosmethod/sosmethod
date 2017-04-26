@@ -20,8 +20,6 @@ export class ToolbarComponent implements OnInit {
     @ViewChild('player') player: any;
     @Output() openMenu = new EventEmitter();
     public route$: Subject<string> = new Subject();
-    public name = this.auth.user
-        .map((user: AuthUser) => user.name.first);
 
     constructor(
         public af: AngularFire,
@@ -70,6 +68,7 @@ export class ToolbarComponent implements OnInit {
     logout() {
         const that = this;
         this.af.auth.logout();
-        setTimeout(() => that.router.navigate(['/']));
+        console.log('logout');
+        setTimeout(() => {console.log('reroute'); return that.router.navigate(['/'])});
     }
 }
