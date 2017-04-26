@@ -64,39 +64,37 @@ export class DiscoverySeriesComponent implements OnInit {
     seriesCompleted(series: string) {
         const that = this;
 
-        this.auth.user.subscribe(u => {
-            const keys = (u ? Object.keys(u.completed) : [])
-                .filter(k => u.completed[k].indexOf(series) > -1
-                && u.completed[k].indexOf(this.router.url.indexOf('_11_day') > -1 ? '_11_day' : '_5_day') > -1);
-            keys.sort();
-            if (series == '') {
-                const seriesUri = u.completed[keys.pop()].split('/').slice(0, 3).join('/');
-                this.router.navigate([seriesUri], {replaceUrl: true});
-                return;
+        const keys = (this.auth.user ? Object.keys(this.auth.user.completed) : [])
+            .filter(k => this.auth.user.completed[k].indexOf(series) > -1
+            && this.auth.user.completed[k].indexOf(this.router.url.indexOf('_11_day') > -1 ? '_11_day' : '_5_day') > -1);
+        keys.sort();
+        if (series == '') {
+            const seriesUri = this.auth.user.completed[keys.pop()].split('/').slice(0, 3).join('/');
+            this.router.navigate([seriesUri], {replaceUrl: true});
+            return;
+        }
+        const completed = keys
+            .map(k => {
+                const match = DiscoverySeriesComponent.seriesRegex(this.auth.user.completed[k]);
+                return parseInt(match[1] || match[2]);
+            });
+        $(this.discoverySeries.nativeElement).find('a[href*=".mp3"]').each((i, elem) => {
+            const match = DiscoverySeriesComponent.seriesRegex($(elem).attr('href'));
+            const day = parseInt(match[1] || match[2]);
+            if (completed.indexOf(day) > -1) {
+                $(elem).addClass('completed');
+            } else {
+                $(elem).removeClass('completed');
             }
-            const completed = keys
-                .map(k => {
-                    const match = DiscoverySeriesComponent.seriesRegex(u.completed[k]);
-                    return parseInt(match[1] || match[2]);
-                });
-            $(this.discoverySeries.nativeElement).find('a[href*=".mp3"]').each((i, elem) => {
-                const match = DiscoverySeriesComponent.seriesRegex($(elem).attr('href'));
-                const day = parseInt(match[1] || match[2]);
-                if (completed.indexOf(day) > -1) {
-                    $(elem).addClass('completed');
-                } else {
-                    $(elem).removeClass('completed');
-                }
-            });
+        });
 
-            // get first uncompleted or first
-            setTimeout(() => {
-                let nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]:not(.completed)').first();
-                if (nextLink.length == 0) {
-                    nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]').first();
-                }
-                return that.router.navigate([nextLink.attr('routerLink')], {replaceUrl:true});
-            });
+        // get first uncompleted or first
+        setTimeout(() => {
+            let nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]:not(.completed)').first();
+            if (nextLink.length == 0) {
+                nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]').first();
+            }
+            return that.router.navigate([nextLink.attr('routerLink')], {replaceUrl:true});
         });
 
     }

@@ -22,9 +22,7 @@ export class MeditationComponent extends DiscoveryComponent implements OnInit {
         super.ngOnInit();
         this.series$.subscribe(d => {
             setTimeout(() => {
-                this.auth.user.subscribe(u => {
-                    that.circleStatus.apply(that, [u]);
-                });
+                that.circleStatus.apply(that, [this.auth.user]);
             });
         });
     }
