@@ -14,7 +14,7 @@ import {DiscoverySeriesComponent} from "../../navigation/discovery/discovery-ser
 export class MeditationTimelineComponent {
     email: string;
     private firebase: firebase.app.App;
-    public completed: Observable<{meditation: string, color: string, series: string, day: string, time: Date, url: string}[]>;
+    public completed: {meditation: string, color: string, series: string, time: Date, url: string}[];
     static months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     static colorSeries: any = {
         "classic_calm": "sos-circle-purple",
@@ -29,21 +29,21 @@ export class MeditationTimelineComponent {
                 public auth: AuthGuard,
                 @Optional() public dialogRef?: MdDialogRef<MeditationTimelineComponent>) {
         this.firebase = firebase.app();
-        this.completed = this.auth.user.map(u => Object.keys(u.completed)
-            .filter(c => u.completed[c].indexOf('meditations') > -1)
+        this.completed = Object.keys(this.auth.user.completed)
+            .filter(c => this.auth.user.completed[c].indexOf('meditations') > -1)
             .map(c => {
                 const series = 'MEDITATIONS.TITLE.'
-                    + u.completed[c].split('/')[2];
+                    + this.auth.user.completed[c].split('/')[2];
                 const meditation = 'MEDITATIONS.MEDITATE.'
-                    + u.completed[c].split('/')[3];
+                    + this.auth.user.completed[c].split('/')[3];
                 return {
                     meditation: meditation,
-                    color: 'sos-circle ' + MeditationTimelineComponent.colorSeries[u.completed[c].split('/')[2]],
+                    color: 'sos-circle ' + MeditationTimelineComponent.colorSeries[this.auth.user.completed[c].split('/')[2]],
                     series: series,
                     time: new Date(parseInt(c)),
-                    url: <string>u.completed[c]
+                    url: <string>this.auth.user.completed[c]
                 };
-            }));
+            });
     }
 
     getMonth(k: number) {

@@ -56,16 +56,14 @@ export class DiscoveryComponent implements OnInit {
                     that.createMenus(isDiscovery);
                 }
                 if(isDiscovery) {
-                    this.auth.user.subscribe(u => {
-                        that.circleStatus.apply(that, [u]);
-                    });
+                    that.circleStatus.apply(that, [this.auth.user]);
                 }
             });
         });
     }
 
     static isCompleted(u: AuthUser, seriesUri: string) {
-        const urls = u ? Object.keys(u.completed).map(c => u.completed[c])
+        const urls = u && typeof u.completed != 'undefined' ? Object.keys(u.completed).map(c => u.completed[c])
             .filter(c => c.indexOf(seriesUri) > -1)
             .map(l => {
                 const match = DiscoverySeriesComponent.seriesRegex(l);

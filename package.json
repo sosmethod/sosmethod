@@ -95,8 +95,6 @@
     "tslint": "latest",
     "tslint-loader": "latest",
     "typescript": "latest",
-    "codelyzer": "latest",
-    "npm": "latest",
-    "webpack": "latest"
+    "codelyzer": "latest"
   }
 }

@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { AuthUser } from '../../../models/auth-user';
 import {MdDialog, MdDialogRef} from "@angular/material";
 import {AngularFire, AuthProviders, AuthMethods} from "angularfire2";
+import {AuthGuard} from "../../../guards/auth";
 
 
 @Component({
@@ -14,7 +15,7 @@ import {AngularFire, AuthProviders, AuthMethods} from "angularfire2";
 export class AccountLoginComponent implements OnInit {
     email: string;
     password: string;
-    authUser = new AuthUser({first: '', last: ''}, '', '', '', '', []);
+    authUser = new AuthUser();
     rememberServer: boolean;
 
     constructor(
@@ -22,6 +23,7 @@ export class AccountLoginComponent implements OnInit {
         public router: Router,
         public dialog: MdDialog,
         public af: AngularFire,
+        public auth: AuthGuard,
         @Optional() public dialogRef?: MdDialogRef<AccountLoginComponent>) {
     }
 
