@@ -8,7 +8,7 @@
         <a md-raised-button (click)="showLoginDialog()"
            *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && !(af.auth | async)?.auth.email">login</a>
         <a md-raised-button routerLink="/account/profile" mdTooltip="Account / Timeline"
-           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && (af.auth | async)?.auth.email">{{name | async}}</a>
+           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && (af.auth | async)?.auth.email">{{(auth.user | async)?.name?.first}}</a>
         <a md-raised-button (click)="showContactDialog()"
            *ngIf="(route$ | async) == 'gift' || (route$ | async) == 'signup'">contact us</a>
         <img src="/assets/icon_static_user_man.png"

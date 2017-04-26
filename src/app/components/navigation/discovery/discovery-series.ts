@@ -41,18 +41,12 @@ export class DiscoverySeriesComponent implements OnInit {
     ngOnInit() {
         const that = this;
         this.series$ = this.route.params.map(params => {
-            return params['discovery'];
+            return typeof params.discovery != 'undefined' ? params['discovery'] : '';
         });
         this.day$ = this.route.params.map(params => {
-            if (!params['audio'] || params['audio'] === '') {
-                // TODO: get first uncompleted or first
-                setTimeout(() => {
-                    let nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + params['discovery'] + '"]:not(.completed)').first();
-                    if (nextLink.length == 0) {
-                        nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + params['discovery'] + '"]').first();
-                    }
-                    return that.router.navigate([nextLink.attr('routerLink')], {replaceUrl:true});
-                });
+            if(typeof params.audio == 'undefined') {
+                return '';
+            } else if (!params['audio'] || params['audio'] === '') {
                 return '';
             } else {
                 this.audio.nextUp = this.audio.AWS + encodeURIComponent(params['audio']);
@@ -60,31 +54,51 @@ export class DiscoverySeriesComponent implements OnInit {
                 return '_day_' + parseInt(match[1] || match[2]);
             }
         });
-        this.series$.subscribe(s => {
+        this.series$.subscribe(series => {
             setTimeout(() => {
-                this.seriesCompleted.apply(that, [s]);
+                this.seriesCompleted.apply(that, [series]);
             });
         });
     }
 
-    seriesCompleted(s: string) {
+    seriesCompleted(series: string) {
+        const that = this;
+
         this.auth.user.subscribe(u => {
-            const completed = u ? Object.keys(u.completed)
-                .filter(k => u.completed[k].indexOf(s) > -1 && u.completed[k].indexOf(this.router.url.indexOf('_11_day') > -1 ? '_11_day' : '_5_day') > -1)
+            const keys = (u ? Object.keys(u.completed) : [])
+                .filter(k => u.completed[k].indexOf(series) > -1
+                && u.completed[k].indexOf(this.router.url.indexOf('_11_day') > -1 ? '_11_day' : '_5_day') > -1);
+            keys.sort();
+            if (series == '') {
+                const seriesUri = u.completed[keys.pop()].split('/').slice(0, 3).join('/');
+                this.router.navigate([seriesUri], {replaceUrl: true});
+                return;
+            }
+            const completed = keys
                 .map(k => {
                     const match = DiscoverySeriesComponent.seriesRegex(u.completed[k]);
                     return parseInt(match[1] || match[2]);
-                }) : [];
+                });
             $(this.discoverySeries.nativeElement).find('a[href*=".mp3"]').each((i, elem) => {
                 const match = DiscoverySeriesComponent.seriesRegex($(elem).attr('href'));
                 const day = parseInt(match[1] || match[2]);
                 if (completed.indexOf(day) > -1) {
-                    $(elem).addClass('completed')
+                    $(elem).addClass('completed');
                 } else {
-                    $(elem).removeClass('completed')
+                    $(elem).removeClass('completed');
                 }
             });
+
+            // get first uncompleted or first
+            setTimeout(() => {
+                let nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]:not(.completed)').first();
+                if (nextLink.length == 0) {
+                    nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]').first();
+                }
+                return that.router.navigate([nextLink.attr('routerLink')], {replaceUrl:true});
+            });
         });
+
     }
 
     goBackToCourse() {

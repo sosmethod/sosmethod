@@ -1,6 +1,6 @@
 import {Component, OnInit, Optional, ViewChild} from '@angular/core';
 import {Observable} from 'rxjs';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, NavigationStart, Router} from '@angular/router';
 import {AudioService} from "../../services/audio";
 
 
@@ -10,7 +10,7 @@ import {AudioService} from "../../services/audio";
     styleUrls: ['./player.scss']
 })
 export class PlayerComponent implements OnInit {
-    public isDiscovery$: Observable<boolean>;
+    public isDiscovery$: boolean;
     public value: Observable<number>;
 
     constructor(
@@ -23,7 +23,8 @@ export class PlayerComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.isDiscovery$ = Observable.of(this.router.url.indexOf('begin') || this.router.url.indexOf('_5_day') > -1 || this.router.url.indexOf('_11_day') > -1);
+        this.isDiscovery$ = this.router.url.indexOf('begin') > -1 || this.router.url.indexOf('_5_day') > -1
+            || this.router.url.indexOf('_11_day') > -1;
     }
 
 }
