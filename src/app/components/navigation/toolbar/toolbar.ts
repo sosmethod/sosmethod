@@ -20,6 +20,7 @@ export class ToolbarComponent implements OnInit {
     @ViewChild('player') player: any;
     @Output() openMenu = new EventEmitter();
     public route$: Subject<string> = new Subject();
+    public user: FirebaseAuthState;
 
     constructor(
         public af: AngularFire,
@@ -29,6 +30,7 @@ export class ToolbarComponent implements OnInit {
         public audio: AudioService,
         public auth: AuthGuard
     ) {
+        this.af.auth.subscribe((u) => this.user = u);
     }
 
     ngOnInit() {
@@ -48,13 +50,13 @@ export class ToolbarComponent implements OnInit {
     }
 
     recordCompleted() {
-        const audio = this.audio._src;
-        this.af.auth.subscribe((u) => {
-            let dateKey = (new Date).getTime();
-            let updates: any = {};
-            updates[dateKey] = this.router.url;
-            this.af.database.object('/users/' + AuthGuard.escapeEmail(u.auth.email) + '/completed/').set(updates);
-        });
+        if (this.user == null) {
+            return;
+        }
+        let dateKey = (new Date).getTime();
+        let updates: any = {};
+        updates[dateKey] = this.router.url;
+        this.af.database.object('/users/' + AuthGuard.escapeEmail(this.user.auth.email) + '/completed/').set(updates);
     }
 
     showContactDialog() {
@@ -68,7 +70,6 @@ export class ToolbarComponent implements OnInit {
     logout() {
         const that = this;
         this.af.auth.logout();
-        console.log('logout');
-        setTimeout(() => {console.log('reroute'); return that.router.navigate(['/'])});
+        setTimeout(() => that.router.navigate(['/']));
     }
 }

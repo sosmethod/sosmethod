@@ -20,6 +20,7 @@ import {PlayerComponent} from './components/player/player';
 import {ToolDialogComponent} from './components/tools/tool';
 import {BonusDialogComponent} from './components/bonus/bonus';
 import {TestimonialPageComponent} from "./components/testimonials/page";
+import {ContentGuard} from "./guards/content";
 
 const secureHomeRoutes: Routes = [
     {
@@ -156,42 +157,34 @@ export const routes: Routes = [
     },
     {
         path: '_5_day/:discovery',
-        canActivate: [AuthGuard],
-        canActivateChild: [AuthGuard],
+        canActivate: [AuthGuard, ContentGuard],
+        canActivateChild: [AuthGuard, ContentGuard],
         data: {roles: ['anonymous', 'user']},
         children: [
             {
                 path: ':audio',
-                canActivate: [AuthGuard],
-                canActivateChild: [AuthGuard],
                 data: {roles: ['anonymous', 'user']},
                 component: PlayerComponent,
             },
             {
                 path: '',
-                canActivate: [AuthGuard],
-                canActivateChild: [AuthGuard],
                 data: {roles: ['anonymous', 'user']},
                 component: PlayerComponent,
             }]
     },
     {
         path: '_11_day/:discovery',
-        canActivate: [AuthGuard],
-        canActivateChild: [AuthGuard],
+        canActivate: [AuthGuard, ContentGuard],
+        canActivateChild: [AuthGuard, ContentGuard],
         data: {roles: ['anonymous', 'user']},
         children: [
             {
                 path: ':audio',
-                canActivate: [AuthGuard],
-                canActivateChild: [AuthGuard],
                 data: {roles: ['anonymous', 'user']},
                 component: PlayerComponent,
             },
             {
                 path: '',
-                canActivate: [AuthGuard],
-                canActivateChild: [AuthGuard],
                 data: {roles: ['anonymous', 'user']},
                 component: PlayerComponent,
             }
@@ -199,21 +192,17 @@ export const routes: Routes = [
     },
     {
         path: 'meditations/:discovery/:meditation',
-        canActivate: [AuthGuard],
-        canActivateChild: [AuthGuard],
+        canActivate: [AuthGuard, ContentGuard],
+        canActivateChild: [AuthGuard, ContentGuard],
         data: {roles: ['anonymous', 'user']},
         children: [
             {
                 path: ':audio',
-                canActivate: [AuthGuard],
-                canActivateChild: [AuthGuard],
                 data: {roles: ['anonymous', 'user']},
                 component: PlayerComponent,
             },
             {
                 path: '',
-                canActivate: [AuthGuard],
-                canActivateChild: [AuthGuard],
                 data: {roles: ['anonymous', 'user']},
                 component: PlayerComponent,
             }

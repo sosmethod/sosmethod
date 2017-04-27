@@ -32,6 +32,7 @@ import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
 import {environment} from "../../config/environment";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MaterialModule} from "@angular/material";
+import {ContentGuard} from "./guards/content";
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -75,6 +76,7 @@ const myFirebaseAuthConfig = {
         AudioService,
         AuthGuard,
         DialogGuard,
+        ContentGuard,
         LayoutService
     ],
     bootstrap: [

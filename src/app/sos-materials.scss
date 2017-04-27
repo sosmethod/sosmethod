@@ -1,4 +1,11 @@
 
+@import './sos-color';
+
+@font-face {
+    font-family: "Century Gothic";
+    src: url("/assets/CenturyGothicStd.otf") format("opentype");
+}
+
 
 
 body {
@@ -9,7 +16,7 @@ html, body {
     padding: 0;
     margin: 0;
     font-family: "Open Sans", sans-serif;
-    color: white;
+    color: $textColor;
     font-weight: 400;
     user-select: none;
     text-rendering: geometricPrecision;
@@ -40,7 +47,7 @@ body {
     }
 
     a {
-        color: white;
+        color: $textColor;
         text-decoration: none;
         outline: none;
     }
@@ -70,12 +77,13 @@ body {
 
     h1, h2, h3, h4, h5, h6, .mat-dialog-title {
         font-weight: normal;
+        color: $textColor;
     }
 
     .mat-button, .mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button {
         font-family: "Open Sans", sans-serif;
         font-size: 16px;
-        color:white;
+        color:$textColor;
         min-width: 0;
     }
 
@@ -91,6 +99,7 @@ body {
 
     a {
         outline: none;
+        color: $textColor;
     }
 
     .hr {
@@ -153,7 +162,7 @@ body {
         -webkit-border-image: -webkit-linear-gradient(right, #07e7e8 0%, #da2bff 100%) !important;
         border-image: linear-gradient(to right, #07e7e8 0%, #da2bff 100%) !important;
         border-image-slice: 1 !important;
-        color: white;
+        color: $textColor;
         border-radius: 2px;
     }
 
@@ -164,12 +173,11 @@ body {
     .mat-card-subtitle,
     .mat-card,
     .mat-input-placeholder {
-        color: white;
+        color: $textColor;
     }
 
     .mat-dialog-container {
         background: rgba(73, 151, 203, 0.8);
-        color: white;
     }
 
     #bonus hr,
@@ -351,7 +359,7 @@ body {
     }
 
     .mat-menu-item {
-        color: white;
+        color: $textColor;
     }
 
     .mat-menu-content > *:after {

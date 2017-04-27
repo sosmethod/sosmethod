@@ -40,8 +40,6 @@ export class PlayerControlsComponent implements OnInit {
 
     rewind() {
         const progress = this.audio.currentTime / this.audio.duration * 100 - 15 / this.audio.duration * 100;
-        console.log(this.audio.currentTime);
-        console.log(progress);
         this.audio.SetTimePercent(progress);
     }
 

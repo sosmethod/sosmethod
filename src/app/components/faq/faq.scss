@@ -1,3 +1,4 @@
+@import '../../sos-color';
 
 :host {
 
@@ -6,7 +7,7 @@
         padding-top: 50px;
         padding-bottom: 50px;
         text-align: center;
-        color: #333;
+        color: $inverseTextColor;
     }
 
     .faq {
@@ -39,7 +40,7 @@
         position: relative;
         display: block;
         padding: 20px;
-        color: #333;
+        color: $inverseTextColor;
     }
 
     li a.active ~ div {

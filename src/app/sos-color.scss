@@ -1,0 +1,10 @@
+
+@import '~@angular/material/_theming';
+
+$textColor: white;
+$inverseTextColor: white;
+
+$primary: mat-palette($mat-grey, 50);
+$accent: mat-palette($mat-blue, 600);
+
+$theme: mat-light-theme($primary, $accent);
