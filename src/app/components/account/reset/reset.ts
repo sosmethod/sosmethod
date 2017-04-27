@@ -20,7 +20,6 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
         public router: Router,
         public route: ActivatedRoute,
         public af: AngularFire) {
-        console.log('email from the url: ' + this.email);
         this.firebase = firebase.initializeApp(environment.firebase);
     }
 

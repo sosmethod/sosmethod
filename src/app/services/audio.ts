@@ -18,19 +18,19 @@ export class AudioService {
     public nextUp: string;
     public AWS = 'https://s3-us-west-2.amazonaws.com/sosmethod/';
 
-    public timeupdate: Observable<string> = this.BindAudioEvent('timeupdate');
-    public metadata: Observable<string> = this.BindAudioEvent('loadedmetadata');
-    public ended: Observable<string> = this.BindAudioEvent('ended');
-    public progress: Observable<string> = this.BindAudioEvent('progress');
-    public abort: Observable<string> = this.BindAudioEvent('abort');
-    public play: Observable<string> = this.BindAudioEvent('play');
-    public pause: Observable<string> = this.BindAudioEvent('pause');
-    public stalled: Observable<string> = this.BindAudioEvent('stalled');
-    public waiting: Observable<string> = this.BindAudioEvent('waiting');
-    public playing: Observable<string> = this.BindAudioEvent('playing');
-    public seeking: Observable<string> = this.BindAudioEvent('seeking');
-    public seeked: Observable<string> = this.BindAudioEvent('seeked');
-    public emptied: Observable<string> = this.BindAudioEvent('emptied');
+    public timeupdate: Observable<number>;
+    public metadata: Observable<any>;
+    public ended: Observable<string>;
+    public progress: Observable<string>;
+    public abort: Observable<string>;
+    public play: Observable<string>;
+    public pause: Observable<string>;
+    public stalled: Observable<string>;
+    public waiting: Observable<string>;
+    public playing: Observable<string>;
+    public seeking: Observable<string>;
+    public seeked: Observable<string>;
+    public emptied: Observable<string>;
 
     public state: Subject<string> = new Subject();
 
@@ -79,7 +79,26 @@ export class AudioService {
         }
     }
 
+    BindEvents() {
+
+        this.timeupdate = this.BindAudioEvent('timeupdate');
+        this.metadata = this.BindAudioEvent('loadedmetadata');
+        this.ended = this.BindAudioEvent('ended');
+        this.progress = this.BindAudioEvent('progress');
+        this.abort = this.BindAudioEvent('abort');
+        this.play = this.BindAudioEvent('play');
+        this.pause = this.BindAudioEvent('pause');
+        this.stalled = this.BindAudioEvent('stalled');
+        this.waiting = this.BindAudioEvent('waiting');
+        this.playing = this.BindAudioEvent('playing');
+        this.seeking = this.BindAudioEvent('seeking');
+        this.seeked = this.BindAudioEvent('seeked');
+        this.emptied = this.BindAudioEvent('emptied');
+
+    }
+
     AttachEvents() {
+        this.BindEvents();
         this.ended.subscribe(() => this.state.next('ended'));
         this.abort.subscribe(() => this.state.next('abort'));
         this.play.subscribe(() => this.state.next('play'));
@@ -90,8 +109,7 @@ export class AudioService {
         this.seeking.subscribe(() => this.state.next('seeking'));
         this.seeked.subscribe(() => this.state.next('seeked'));
         this.emptied.subscribe(() => this.state.next('emptied'));
-        this.state.subscribe((s) => console.log(s));
-        this.state.subscribe((data) => {
+        this.state.subscribe(() => {
             this.duration = this._audio.duration;
         });
         this.timeupdate.subscribe(() => {
@@ -109,15 +127,15 @@ export class AudioService {
     }
 
     _createAudio(): void {
-        if (!this._audio) {
+
+        if(!this._audio) {
             this._audio = new Audio();
-            this._audio.autoplay = false;
-            this._audio.preload = 'auto';
-            this._audio.autobuffer = true;
-            this.AttachEvents();
         }
 
         if (!this._audioSrc) {
+            this._audio.autoplay = false;
+            this._audio.preload = 'auto';
+            this._audio.autobuffer = true;
             this._audioSrc = this._audioCtx.createMediaElementSource(this._audio);
         }
 

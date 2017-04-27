@@ -69,7 +69,9 @@ export class DiscoverySeriesComponent implements OnInit {
             && this.auth.user.completed[k].indexOf(this.router.url.indexOf('_11_day') > -1 ? '_11_day' : '_5_day') > -1);
         keys.sort();
         if (series == '') {
-            const seriesUri = this.auth.user.completed[keys.pop()].split('/').slice(0, 3).join('/');
+            const seriesUri = this.auth.user
+                ? this.auth.user.completed[keys.pop()].split('/').slice(0, 3).join('/')
+                : '/_5_day/essentials';
             this.router.navigate([seriesUri], {replaceUrl: true});
             return;
         }

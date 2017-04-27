@@ -17,4 +17,4 @@
            *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && (af.auth | async)?.auth.email">logout</a>
     </div>
 </md-toolbar>
-<audio #player></audio>
+<audio #player preload="metadata" autobuffer="true"></audio>

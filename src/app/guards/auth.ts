@@ -35,7 +35,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
                             })
                             : Observable.of(user)
                     })
-                    .subscribe(u => { console.log('hituser'); return subj.next(u)});
+                    .subscribe(u => subj.next(u));
             }
         });
         subj.subscribe(u => this.user = u);

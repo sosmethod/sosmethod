@@ -44,5 +44,6 @@ export class AccountLoginComponent implements OnInit {
             provider: AuthProviders.Google,
             method: AuthMethods.Popup,
         });
+        this.dialog.closeAll();
     }
 }

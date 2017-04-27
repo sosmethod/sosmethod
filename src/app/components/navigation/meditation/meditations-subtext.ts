@@ -36,7 +36,7 @@ export class MeditationsSubtextComponent implements OnInit {
                     // TODO: get first uncompleted or first
                     setTimeout(() => {
                         const audio = $(that._el.nativeElement).find('[routerLink*="' + series + '"]').first().attr('routerLink');
-                        return that.router.navigate([audio]);
+                        return that.router.navigate([audio], {replaceUrl: true});
                     });
                     return '';
                 } else {

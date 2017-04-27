@@ -4,7 +4,6 @@
 h1
 {
     text-align: center;
-    color:#fff;
     font-style: normal;
     padding-top:0;
     margin-top:0;
@@ -32,7 +31,6 @@ h2
     display:block;
     margin:auto;
     font-size:18px;
-    color:#fff;
 }
 
 .discovery h2,
@@ -60,7 +58,6 @@ h2
     display:inline-block;
     vertical-align: middle;
     padding:60px;
-    color: #fff;
 }
 
 .discovery .description
@@ -142,6 +139,10 @@ ol li:hover > span
     max-height:200px;
 }
 
+ol li:hover > span span {
+    color:inherit;
+}
+
 ol li > span strong
 {
     margin-left:-10px;
@@ -150,7 +151,6 @@ ol li > span strong
 
 ol li:hover > span span
 {
-    color: white;
 }
 
 @media all and (max-width: 700px) {
