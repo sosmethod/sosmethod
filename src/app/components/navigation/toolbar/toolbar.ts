@@ -1,7 +1,7 @@
 ﻿import {Component, Output, EventEmitter, Input, ChangeDetectorRef, OnInit, ViewChild} from '@angular/core';
 import {MdDialog} from '@angular/material';
 import {ContactDialogComponent} from '../../contact/contact';
-import {NavigationStart, Router} from '@angular/router';
+import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
 import {AccountLoginComponent} from '../../account/login/login';
@@ -41,7 +41,7 @@ export class ToolbarComponent implements OnInit {
             this.recordCompleted.apply(this);
         });
         this.router.events.subscribe((e) => {
-            if (e instanceof NavigationStart) {
+            if (e instanceof NavigationEnd) {
                 this.route$.next(e.url.split('/')[1] || 'home');
             }
         });
