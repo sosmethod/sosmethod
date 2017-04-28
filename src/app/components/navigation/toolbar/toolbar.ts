@@ -30,22 +30,20 @@ export class ToolbarComponent implements OnInit {
         public audio: AudioService,
         public auth: AuthGuard
     ) {
-        this.af.auth.subscribe((u) => this.user = u);
+
     }
 
     ngOnInit() {
-        const that = this;
+        this.af.auth.subscribe((u) => this.user = u);
+        this.audio._audio = this.player.nativeElement;
+        this.audio.AttachEvents();
+        this.audio.ended.subscribe(() => {
+            this.recordCompleted.apply(this);
+        });
         this.router.events.subscribe((e) => {
             if (e instanceof NavigationStart) {
-                that.route$.next(e.url.split('/')[1] || 'home');
+                this.route$.next(e.url.split('/')[1] || 'home');
             }
-        });
-        setTimeout(() => {
-            that.audio._audio = this.player.nativeElement;
-            that.audio.AttachEvents();
-            that.audio.ended.subscribe(() => {
-                that.recordCompleted.apply(that);
-            });
         });
     }
 

@@ -14,8 +14,8 @@ import {AudioService} from '../../../services/audio';
     styleUrls: ['./meditations-subtext.scss']
 })
 export class MeditationsSubtextComponent implements OnInit {
-    series$: Observable<string>;
-    public day$: Observable<string>;
+    series$: string;
+    public day$: string;
 
     constructor(
         public router: Router,
@@ -27,28 +27,27 @@ export class MeditationsSubtextComponent implements OnInit {
 
     ngOnInit() {
         const that = this;
-        this.series$ = this.route.params.map(params => {
-            return params['meditation'];
+        this.route.params.subscribe(params => {
+            this.series$ =  params['meditation'];
+
+            if (!params['audio'] || params['audio'] === '') {
+                // TODO: get first uncompleted or first
+                setTimeout(() => {
+                    const audio = $(that._el.nativeElement).find('[routerLink*="' + this.series$ + '"]').first().attr('routerLink');
+                    return that.router.navigate([audio], {replaceUrl: true});
+                });
+                this.day$ = '';
+            } else {
+                const day = $(that._el.nativeElement).find('[routerLink*="' + params['audio'] + '"]').index();
+                this.audio.nextUp = this.audio.AWS + encodeURIComponent(params['audio']);
+                this.audio.Play();
+                setTimeout(() => {
+                    that.audio.playerPositions.next($(that._el.nativeElement).find('a[href*=".mp3"]').length);
+                    that.audio.position.next(day);
+                });
+                this.day$ = '_day_' + day;
+            }
         });
-        this.day$ = this.route.params.withLatestFrom(this.series$, (params, series) => ({params, series}))
-            .map(({params, series}) => {
-                if (!params['audio'] || params['audio'] === '') {
-                    // TODO: get first uncompleted or first
-                    setTimeout(() => {
-                        const audio = $(that._el.nativeElement).find('[routerLink*="' + series + '"]').first().attr('routerLink');
-                        return that.router.navigate([audio], {replaceUrl: true});
-                    });
-                    return '';
-                } else {
-                    const day = $(that._el.nativeElement).find('[routerLink*="' + params['audio'] + '"]').index();
-                    this.audio.nextUp = this.audio.AWS + encodeURIComponent(params['audio']);
-                    setTimeout(() => {
-                        that.audio.playerPositions.next($(that._el.nativeElement).find('a[href*=".mp3"]').length);
-                        that.audio.position.next(day);
-                    });
-                    return '_day_' + day;
-                }
-            });
     }
 }
 

@@ -1,5 +1,5 @@
 <div [class]="day$ | async" [class.single]="(audio.playerPositions | async) == 1"></div>
-<div *ngIf="(series$ | async) == 'calm_strength' && router.url.indexOf('classic_calm') > -1"
+<div *ngIf="series$ == 'calm_strength' && router.url.indexOf('classic_calm') > -1"
      class="meditations_classic_calm_calm_strength">
     <a md-button class="sos-circle sos-circle-mini sos-circle-purple" routerLink="/meditations/classic_calm/calm_strength/CALM &amp; STRENGTH 5.mp3">
         <span></span><span></span><span></span><span><span>5 min</span></span></a>
@@ -7,7 +7,7 @@
         <span></span><span></span><span></span><span><span>11 min</span></span></a>
     <h3>calm &amp; strength</h3>
 </div>
-<div *ngIf="(series$ | async) == 'ease_comfort' && router.url.indexOf('classic_calm') > -1"
+<div *ngIf="series$ == 'ease_comfort' && router.url.indexOf('classic_calm') > -1"
      class="meditations_classic_calm_ease_comfort">
     <a md-button class="sos-circle sos-circle-mini sos-circle-purple" routerLink="/meditations/classic_calm/ease_comfort/EASE &amp; COMFORT 5.mp3">
         <span></span><span></span><span></span><span><span>5 min</span></span></a>
@@ -15,7 +15,7 @@
         <span></span><span></span><span></span><span><span>11 min</span></span></a>
     <h3>ease &amp; comfort</h3>
 </div>
-<div *ngIf="(series$ | async) == 'breathe' && router.url.indexOf('classic_calm') > -1"
+<div *ngIf="series$ == 'breathe' && router.url.indexOf('classic_calm') > -1"
      class="meditations_classic_calm_breathe">
     <a md-button class="sos-circle sos-circle-mini sos-circle-purple" routerLink="/meditations/classic_calm/breathe/Breathe Just Breathe 5.mp3">
         <span></span><span></span><span></span><span><span>5 min</span></span></a>
@@ -23,7 +23,7 @@
         <span></span><span></span><span></span><span><span>11 min</span></span></a>
     <h3>breathe, just breathe</h3>
 </div>
-<div *ngIf="(series$ | async) == 'into_silence' && router.url.indexOf('classic_calm') > -1"
+<div *ngIf="series$ == 'into_silence' && router.url.indexOf('classic_calm') > -1"
      class="meditations_classic_calm_into_silence">
     <a md-button class="sos-circle sos-circle-mini sos-circle-purple" routerLink="/meditations/classic_calm/into_silence/Into The Silence 5.mp3">
         <span></span><span></span><span></span><span><span>5 min</span></span></a>
@@ -31,7 +31,7 @@
         <span></span><span></span><span></span><span><span>11 min</span></span></a>
     <h3>into the silence</h3>
 </div>
-<div *ngIf="(series$ | async) == 'sweet_spot' && router.url.indexOf('classic_calm') > -1"
+<div *ngIf="series$ == 'sweet_spot' && router.url.indexOf('classic_calm') > -1"
      class="meditations_classic_calm_sweet_spot">
     <a md-button class="sos-circle sos-circle-mini sos-circle-purple" routerLink="/meditations/classic_calm/sweet_spot/THE SWEET SPOT 5.mp3">
         <span></span><span></span><span></span><span><span>5 min</span></span></a>
@@ -39,7 +39,7 @@
         <span></span><span></span><span></span><span><span>11 min</span></span></a>
     <h3>the sweet spot</h3>
 </div>
-<div *ngIf="(series$ | async) == 'easy_breath' && router.url.indexOf('classic_calm') > -1"
+<div *ngIf="series$ == 'easy_breath' && router.url.indexOf('classic_calm') > -1"
      class="meditations_classic_calm_easy_breath">
     <a md-button class="sos-circle sos-circle-mini sos-circle-purple" routerLink="/meditations/classic_calm/easy_breath/Easy Breath 5.mp3">
         <span></span><span></span><span></span><span><span>5 min</span></span></a>
@@ -48,25 +48,25 @@
     <h3>easy breath</h3>
 </div>
 
-<div *ngIf="(series$ | async) == 'light_on' && router.url.indexOf('relax') > -1"
+<div *ngIf="series$ == 'light_on' && router.url.indexOf('relax') > -1"
      class="meditations_relax_light_on single">
     <a md-button class="sos-circle sos-circle-mini sos-circle-green" routerLink="/meditations/relax/light_on/Turn On The Light 11.mp3">
         <span></span><span></span><span></span><span><span>11 min</span></span></a>
     <h3>turn on the light</h3>
 </div>
-<div *ngIf="(series$ | async) == 'body_stars' && router.url.indexOf('relax') > -1"
+<div *ngIf="series$ == 'body_stars' && router.url.indexOf('relax') > -1"
      class="meditations_relax_body_stars single">
     <a md-button class="sos-circle sos-circle-mini sos-circle-green" routerLink="/meditations/relax/body_stars/Body Of Stars 11.mp3">
         <span></span><span></span><span></span><span><span>11 min</span></span></a>
     <h3>body of stars</h3>
 </div>
-<div *ngIf="(series$ | async) == 'connect' && router.url.indexOf('relax') > -1"
+<div *ngIf="series$ == 'connect' && router.url.indexOf('relax') > -1"
      class="meditations_relax_connect single">
     <a md-button class="sos-circle sos-circle-mini sos-circle-green" routerLink="/meditations/relax/connect/Connected 11.mp3">
         <span></span><span></span><span></span><span><span>11 min</span></span></a>
     <h3>connect</h3>
 </div>
-<div *ngIf="(series$ | async) == 'play_all_relax' && router.url.indexOf('relax') > -1"
+<div *ngIf="series$ == 'play_all_relax' && router.url.indexOf('relax') > -1"
      class="meditations_relax_play_all_relax triple">
     <a md-button class="sos-circle sos-circle-mini sos-circle-green" routerLink="/meditations/relax/play_all_relax/Turn On The Light 11.mp3">
         <span></span><span></span><span></span><span><span>11 min</span></span></a>
@@ -79,25 +79,25 @@
     <h3>body of stars</h3>
     <h3>connect</h3>
 </div>
-<div *ngIf="(series$ | async) == 'serenity' && router.url.indexOf('relax') > -1"
+<div *ngIf="series$ == 'serenity' && router.url.indexOf('relax') > -1"
      class="meditations_relax_serenity single">
     <a md-button class="sos-circle sos-circle-mini sos-circle-green" routerLink="/meditations/relax/serenity/SERENITY 11.mp3">
         <span></span><span></span><span></span><span><span>11 min</span></span></a>
     <h3>serenity</h3>
 </div>
-<div *ngIf="(series$ | async) == 'tranquility' && router.url.indexOf('relax') > -1"
+<div *ngIf="series$ == 'tranquility' && router.url.indexOf('relax') > -1"
      class="meditations_relax_tranquility single">
     <a md-button class="sos-circle sos-circle-mini sos-circle-green" routerLink="/meditations/relax/tranquility/Tranquility Sleep Meditation V3.mp3">
         <span></span><span></span><span></span><span><span>11 min</span></span></a>
     <h3>tranquility</h3>
 </div>
-<div *ngIf="(series$ | async) == 'soothe' && router.url.indexOf('relax') > -1"
+<div *ngIf="series$ == 'soothe' && router.url.indexOf('relax') > -1"
      class="meditations_relax_soothe single">
     <a md-button class="sos-circle sos-circle-mini sos-circle-green" routerLink="/meditations/relax/soothe/SOOTHE 11.mp3">
         <span></span><span></span><span></span><span><span>11 min</span></span></a>
     <h3>soothe</h3>
 </div>
-<div *ngIf="(series$ | async) == 'play_all_sleep' && router.url.indexOf('relax') > -1"
+<div *ngIf="series$ == 'play_all_sleep' && router.url.indexOf('relax') > -1"
      class="meditations_relax_play_all_sleep triple">
     <a md-button class="sos-circle sos-circle-mini sos-circle-green" routerLink="/meditations/relax/play_all_sleep/SERENITY 11.mp3">
         <span></span><span></span><span></span><span><span>11 min</span></span></a>
@@ -111,31 +111,31 @@
     <h3>soothe</h3>
 </div>
 
-<div *ngIf="(series$ | async) == 'believe' && router.url.indexOf('elevate') > -1"
+<div *ngIf="series$ == 'believe' && router.url.indexOf('elevate') > -1"
      class="meditations_elevate_believe single">
     <a md-button class="sos-circle sos-circle-mini sos-circle-gold" routerLink="/meditations/elevate/believe/I BELIEVE 7.mp3">
         <span></span><span></span><span></span><span><span>7 min</span></span></a>
     <h3>I believe</h3>
 </div>
-<div *ngIf="(series$ | async) == 'say_yes' && router.url.indexOf('elevate') > -1"
+<div *ngIf="series$ == 'say_yes' && router.url.indexOf('elevate') > -1"
      class="meditations_elevate_say_yes single">
     <a md-button class="sos-circle sos-circle-mini sos-circle-gold" routerLink="/meditations/elevate/say_yes/Say Yes 7.mp3">
         <span></span><span></span><span></span><span><span>7 min</span></span></a>
     <h3>say yes</h3>
 </div>
-<div *ngIf="(series$ | async) == 'music_heart' && router.url.indexOf('elevate') > -1"
+<div *ngIf="series$ == 'music_heart' && router.url.indexOf('elevate') > -1"
      class="meditations_elevate_music_heart single">
     <a md-button class="sos-circle sos-circle-mini sos-circle-gold" routerLink="/meditations/elevate/music_heart/MUSIC IN MY HEART 5.mp3">
         <span></span><span></span><span></span><span><span>5 min</span></span></a>
     <h3>music in my heart</h3>
 </div>
-<div *ngIf="(series$ | async) == 'paint_life' && router.url.indexOf('elevate') > -1"
+<div *ngIf="series$ == 'paint_life' && router.url.indexOf('elevate') > -1"
      class="meditations_elevate_paint_life single">
     <a md-button class="sos-circle sos-circle-mini sos-circle-gold" routerLink="/meditations/elevate/paint_life/PAINTING LIFE'S CANVAS 7.mp3">
         <span></span><span></span><span></span><span><span>7 min</span></span></a>
     <h3>paint life's canvas</h3>
 </div>
-<div *ngIf="(series$ | async) == 'happy_reason' && router.url.indexOf('elevate') > -1"
+<div *ngIf="series$ == 'happy_reason' && router.url.indexOf('elevate') > -1"
      class="meditations_elevate_happy_reason">
     <a md-button class="sos-circle sos-circle-mini sos-circle-gold" routerLink="/meditations/elevate/happy_reason/Happy For No Reason V4 FINAL 5 min.mp3">
         <span></span><span></span><span></span><span><span>5 min</span></span></a>
@@ -143,7 +143,7 @@
         <span></span><span></span><span></span><span><span>11 min</span></span></a>
     <h3>happy for no reason</h3>
 </div>
-<div *ngIf="(series$ | async) == 'this_moment' && router.url.indexOf('elevate') > -1"
+<div *ngIf="series$ == 'this_moment' && router.url.indexOf('elevate') > -1"
      class="meditations_elevate_this_moment">
     <a md-button class="sos-circle sos-circle-mini sos-circle-gold" routerLink="/meditations/elevate/this_moment/In This Moment 5.mp3">
         <span></span><span></span><span></span><span><span>5 min</span></span></a>
@@ -152,14 +152,14 @@
     <h3>in this moment</h3>
 </div>
 
-<div *ngIf="(series$ | async) == 'grateful' && router.url.indexOf('affirming_word') > -1"
+<div *ngIf="series$ == 'grateful' && router.url.indexOf('affirming_word') > -1"
      class="meditations_affirming_word_grateful">
     <a md-button class="sos-circle sos-circle-mini sos-circle-ruby" routerLink="/meditations/affirming_word/grateful/I Am Grateful 5.mp3">
         <span></span><span></span><span></span><span><span>5 min</span></span></a>
     <a md-button routerLink="/bonus/grateful">bonus</a>
     <h3>grateful</h3>
 </div>
-<div *ngIf="(series$ | async) == 'moon_rising' && router.url.indexOf('affirming_word') > -1"
+<div *ngIf="series$ == 'moon_rising' && router.url.indexOf('affirming_word') > -1"
      class="meditations_affirming_word_moon_rising">
     <a md-button class="sos-circle sos-circle-mini sos-circle-ruby" routerLink="/meditations/affirming_word/moon_rising/Moon Rising 7.mp3">
         <span></span><span></span><span></span><span><span>7 min</span></span></a>
@@ -168,7 +168,7 @@
     <a md-button routerLink="/bonus/moon_rising">bonus</a>
     <h3>moon rising</h3>
 </div>
-<div *ngIf="(series$ | async) == 'divine_love' && router.url.indexOf('affirming_word') > -1"
+<div *ngIf="series$ == 'divine_love' && router.url.indexOf('affirming_word') > -1"
      class="meditations_affirming_word_divine_love single">
     <a md-button class="sos-circle sos-circle-mini sos-circle-ruby" routerLink="/meditations/affirming_word/divine_love/DIVINE LOVE 7.mp3">
         <span></span><span></span><span></span><span><span>7 min</span></span></a>
@@ -177,7 +177,7 @@
     <a md-button routerLink="/bonus/divine_love">bonus</a>
     <h3>divine love</h3>
 </div>
-<div *ngIf="(series$ | async) == 'bless_day' && router.url.indexOf('affirming_word') > -1"
+<div *ngIf="series$ == 'bless_day' && router.url.indexOf('affirming_word') > -1"
      class="meditations_affirming_word_bless_day">
     <a md-button class="sos-circle sos-circle-mini sos-circle-ruby" routerLink="/meditations/affirming_word/bless_day/I Bless This Day 7.mp3">
         <span></span><span></span><span></span><span><span>7 min</span></span></a>
@@ -186,7 +186,7 @@
     <a md-button routerLink="/bonus/bless_day">bonus</a>
     <h3>bless this day</h3>
 </div>
-<div *ngIf="(series$ | async) == 'francis' && router.url.indexOf('affirming_word') > -1"
+<div *ngIf="series$ == 'francis' && router.url.indexOf('affirming_word') > -1"
      class="meditations_affirming_word_francis">
     <a md-button class="sos-circle sos-circle-mini sos-circle-ruby" routerLink="/meditations/affirming_word/francis/Prayer of St Francis 5.mp3">
         <span></span><span></span><span></span><span><span>5 min</span></span></a>
@@ -196,7 +196,7 @@
     <h3>st. francis prayer</h3>
 </div>
 
-<div *ngIf="(series$ | async) == 'love_you' && router.url.indexOf('love_forgiveness') > -1"
+<div *ngIf="series$ == 'love_you' && router.url.indexOf('love_forgiveness') > -1"
      class="meditations_love_forgiveness_love_you">
     <a md-button class="sos-circle sos-circle-mini sos-circle-blue" routerLink="/meditations/love_forgiveness/love_you/CONNECT 5.mp3">
         <span></span><span></span><span></span><span><span>5 min</span></span></a>
@@ -204,7 +204,7 @@
         <span></span><span></span><span></span><span><span>11 min</span></span></a>
     <h3>the love in you</h3>
 </div>
-<div *ngIf="(series$ | async) == 'forgiveness' && router.url.indexOf('love_forgiveness') > -1"
+<div *ngIf="series$ == 'forgiveness' && router.url.indexOf('love_forgiveness') > -1"
      class="meditations_love_forgiveness_forgiveness">
     <a md-button class="sos-circle sos-circle-mini sos-circle-blue" routerLink="/meditations/love_forgiveness/forgiveness/THIS IS LOVE FORGIVEN 5.mp3">
         <span></span><span></span><span></span><span><span>5 min</span></span></a>
@@ -212,7 +212,7 @@
         <span></span><span></span><span></span><span><span>11 min</span></span></a>
     <h3>this is love... forgiven</h3>
 </div>
-<div *ngIf="(series$ | async) == 'thank_you' && router.url.indexOf('love_forgiveness') > -1"
+<div *ngIf="series$ == 'thank_you' && router.url.indexOf('love_forgiveness') > -1"
      class="meditations_love_forgiveness_thank_you">
     <a md-button class="sos-circle sos-circle-mini sos-circle-blue" routerLink="/meditations/love_forgiveness/thank_you/Thank You, I Love You 5.mp3">
         <span></span><span></span><span></span><span><span>5 min</span></span></a>
@@ -221,7 +221,7 @@
     <h3>thank you... I love you</h3>
 </div>
 
-<div *ngIf="(series$ | async) == 'breath' && router.url.indexOf('emergency') > -1"
+<div *ngIf="series$ == 'breath' && router.url.indexOf('emergency') > -1"
      class="meditations_emergency_breath">
     <a md-button class="sos-circle sos-circle-mini sos-circle-coral" routerLink="/meditations/emergency/breath/Three Breath Awareness 5.mp3">
         <span></span><span></span><span></span><span><span>5 min</span></span></a>

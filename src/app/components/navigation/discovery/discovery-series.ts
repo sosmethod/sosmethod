@@ -16,8 +16,8 @@ import {AuthGuard} from "../../../guards/auth";
 })
 export class DiscoverySeriesComponent implements OnInit {
     @ViewChild('discoverySeries') discoverySeries: any;
-    public series$: Observable<string>;
-    public day$: Observable<string>;
+    public series$: string;
+    public day$: string;
 
     static seriesRegex = (s: string) => (/Day_([0-9]+)|[0-9]+_([0-9]+)/ig).exec(s.replace(/ |%20/ig, '_'));
     static colorSeries: any = {
@@ -40,28 +40,25 @@ export class DiscoverySeriesComponent implements OnInit {
 
     ngOnInit() {
         const that = this;
-        this.series$ = this.route.params.map(params => {
-            return typeof params.discovery != 'undefined' ? params['discovery'] : '';
-        });
-        this.day$ = this.route.params.map(params => {
+        this.route.params.subscribe(params => {
+            this.series$ = typeof params.discovery != 'undefined' ? params['discovery'] : '';
             if(typeof params.audio == 'undefined') {
-                return '';
+                this.day$ = '';
             } else if (!params['audio'] || params['audio'] === '') {
-                return '';
+                this.day$ = '';
             } else {
                 this.audio.nextUp = this.audio.AWS + encodeURIComponent(params['audio']);
+                this.audio.Play();
                 const match = DiscoverySeriesComponent.seriesRegex(params['audio']);
-                return '_day_' + parseInt(match[1] || match[2]);
+                this.day$ = '_day_' + parseInt(match[1] || match[2]);
             }
-        });
-        this.series$.subscribe(series => {
             setTimeout(() => {
-                this.seriesCompleted.apply(that, [series]);
+                this.seriesCompleted.apply(that, [this.series$, this.day$]);
             });
         });
     }
 
-    seriesCompleted(series: string) {
+    seriesCompleted(series: string, day: string) {
         const that = this;
 
         const keys = (this.auth.user ? Object.keys(this.auth.user.completed) : [])
@@ -91,18 +88,19 @@ export class DiscoverySeriesComponent implements OnInit {
         });
 
         // get first uncompleted or first
-        setTimeout(() => {
-            let nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]:not(.completed)').first();
-            if (nextLink.length == 0) {
-                nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]').first();
-            }
-            return that.router.navigate([nextLink.attr('routerLink')], {replaceUrl:true});
-        });
-
+        if(day == '') {
+            setTimeout(() => {
+                let nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]:not(.completed)').first();
+                if (nextLink.length == 0) {
+                    nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]').first();
+                }
+                return that.router.navigate([nextLink.attr('routerLink')], {replaceUrl: true});
+            });
+        }
     }
 
     goBackToCourse() {
-        this.series$.subscribe((series) => this.router.navigate(['/discovery/' + series]));
+        this.router.navigate(['/discovery/' + this.series$]);
     }
 }
 

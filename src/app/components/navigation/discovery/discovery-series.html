@@ -1,8 +1,8 @@
 <div #discoverySeries>
 <a md-button class="back" (click)="goBackToCourse()"> </a>
-<div [class]="day$ | async"></div>
+<div [class]="day$"></div>
 <bc-discovery-subtext></bc-discovery-subtext>
-<div *ngIf="(series$ | async) == 'essentials' && router.url.indexOf('_5_day') > -1"
+<div *ngIf="series$ == 'essentials' && router.url.indexOf('_5_day') > -1"
      class="_11_day_essentials _5_day">
     <a md-button routerLink="/discovery/essentials"> </a>
     <h1>{{"DISCOVERY.TITLE._5_day_essentials" | translate}}</h1>
@@ -15,7 +15,7 @@
         <li><a md-button routerLink="/_5_day/essentials/Day 5 - ESS 5day Excellence NEW FINAL 2017 copy.mp3"><span></span></a></li>
     </ol>
 </div>
-<div *ngIf="(series$ | async) == 'essentials' && router.url.indexOf('_11_day') > -1"
+<div *ngIf="series$ == 'essentials' && router.url.indexOf('_11_day') > -1"
      class="_11_day_essentials _11_day">
     <a md-button routerLink="/discovery/essentials"> </a>
     <h1>{{"DISCOVERY.TITLE._11_day_essentials" | translate}}</h1>
@@ -34,7 +34,7 @@
         <li><a md-button routerLink="/_11_day/essentials/11 11 - 11 Day Ess Feeding the Mind Body.mp3"><span></span></a></li>
     </ol>
 </div>
-<div  *ngIf="(series$ | async) == 'focus_and_creativity' && router.url.indexOf('_11_day') > -1"
+<div  *ngIf="series$ == 'focus_and_creativity' && router.url.indexOf('_11_day') > -1"
       class="_11_day_focus_and_creativity _11_day">
     <a md-button routerLink="/discovery/focus_and_creativity"> </a>
     <h1>{{"DISCOVERY.TITLE._11_day_focus_and_creativity" | translate}}</h1>
@@ -53,7 +53,7 @@
         <li><a md-button routerLink="/_11_day/focus_and_creativity/Day 11 FC 11 day Future V2 FINAL.mp3"><span></span></a></li>
     </ol>
 </div>
-<div  *ngIf="(series$ | async) == 'soothing_relief' && router.url.indexOf('_11_day') > -1"
+<div  *ngIf="series$ == 'soothing_relief' && router.url.indexOf('_11_day') > -1"
       class="_11_day_soothing_relief _11_day">
     <a md-button routerLink="/discovery/soothing_relief"> </a>
     <h1>{{"DISCOVERY.TITLE._11_day_soothing_relief" | translate}}</h1>
@@ -72,7 +72,7 @@
         <li><a md-button routerLink="/_11_day/soothing_relief/Day 11 11 Day SR Freedom FINAL.mp3"><span></span></a></li>
     </ol>
 </div>
-<div  *ngIf="(series$ | async) == 'soothing_relief' && router.url.indexOf('_5_day') > -1"
+<div  *ngIf="series$ == 'soothing_relief' && router.url.indexOf('_5_day') > -1"
       class="_5_day_soothing_relief _5_day">
     <a md-button routerLink="/discovery/soothing_relief"> </a>
     <h1>{{"DISCOVERY.TITLE._5_day_soothing_relief" | translate}}</h1>
@@ -85,7 +85,7 @@
         <li><a md-button routerLink="/_5_day/soothing_relief/Day 5 - 5 DAY Soothing Relief - Perception.mp3"><span></span></a></li>
     </ol>
 </div>
-<div  *ngIf="(series$ | async) == 'focus_and_creativity' && router.url.indexOf('_5_day') > -1"
+<div  *ngIf="series$ == 'focus_and_creativity' && router.url.indexOf('_5_day') > -1"
       class="_5_day_focus_and_creativity _5_day">
     <a md-button routerLink="/discovery/focus_and_creativity"> </a>
     <h1>{{"DISCOVERY.TITLE._5_day_focus_and_creativity" | translate}}</h1>
@@ -98,7 +98,7 @@
         <li><a md-button routerLink="/_5_day/focus_and_creativity/Day 5 - 5 DAY Focus & Creativity - Value of Time.mp3"><span></span></a></li>
     </ol>
 </div>
-<div  *ngIf="(series$ | async) == 'improving_relationships' && router.url.indexOf('_5_day') > -1"
+<div  *ngIf="series$ == 'improving_relationships' && router.url.indexOf('_5_day') > -1"
       class="_5_day_improving_relationships _5_day">
     <a md-button routerLink="/discovery/improving_relationships"> </a>
     <h1>{{"DISCOVERY.TITLE._5_day_improving_relationships" | translate}}</h1>

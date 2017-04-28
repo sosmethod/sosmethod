@@ -6,6 +6,7 @@ import {NavigationStart, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
 import {AudioService} from "./services/audio";
 import {AngularFire} from "angularfire2";
+import {AuthGuard} from "./guards/auth";
 
 
 @Component({
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit {
         public af: AngularFire,
         public layout: LayoutService,
         private translate: TranslateService,
+        public auth: AuthGuard,
         public router: Router) {
         const that = this;
         this.translate.addLangs(['en', 'fr', 'tr']);
