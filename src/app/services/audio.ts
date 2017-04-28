@@ -49,7 +49,7 @@ export class AudioService {
 
     Play() {
         this.Load(this.nextUp);
-        this._audio.play(); // then play
+        this._audio.play();
         // Comment visuliziation out for now.
         // this.Visualize();
     }
@@ -63,11 +63,14 @@ export class AudioService {
     }
 
     Load(url: string) {
-        if (!this._audio || url !== this._src) {
-            this._createAudio();
-            this._audio.pause();
-            this._audio.src = this._src = url;
-            this._audio.load();
+        try {
+            if (!this._audio || url !== this._src) {
+                this._createAudio();
+                this._audio.src = this._src = url;
+                this._audio.load();
+            }
+        }
+        catch (e) {
         }
     }
 

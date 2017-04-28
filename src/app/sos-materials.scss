@@ -78,6 +78,7 @@ body {
     h1, h2, h3, h4, h5, h6, .mat-dialog-title {
         font-weight: normal;
         color: $textColor;
+        font-family: "Century Gothic", sans-serif;
     }
 
     .mat-button, .mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button {
@@ -198,6 +199,7 @@ body {
         height: 100%;
     }
 
+    .mat-dialog-container h1,
     #bonus h1,
     #tools h1 {
         margin-top: 0;
@@ -209,10 +211,12 @@ body {
         margin: 0;
     }
 
+    .mat-dialog-container h1,
     #bonus h1,
     #bonus a,
     #bonus strong,
     #tools h1,
+    #tools a,
     #tools strong {
         color: rgba(255, 216, 133, 1);
     }
@@ -353,6 +357,10 @@ body {
 
 
 .tools, .secondary, .share {
+
+    &.mat-menu-panel {
+        min-width:200px;
+    }
 
     .mat-menu-content {
         background: rgba(73, 151, 203, 0.8);

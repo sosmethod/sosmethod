@@ -7,6 +7,7 @@ import {AuthUser} from '../models/auth-user';
 import {Observable} from "rxjs";
 import {Subject} from "rxjs/Subject";
 import {Subscription} from "rxjs/Subscription";
+import {ReplaySubject} from "rxjs/ReplaySubject";
 
 
 @Injectable()
@@ -15,14 +16,14 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     resolver: any = null;
     public user: AuthUser;
     sub: Subscription;
+    subj: Subject<AuthUser>;
 
     constructor(private router: Router, public af: AngularFire) {
-        let subj: Subject<AuthUser> = new Subject();
-        subj.next(new AuthUser());
+        this.subj = new ReplaySubject();
         this.af.auth.subscribe(state => {
             if(!state) {
                 if (this.sub) this.sub.unsubscribe();
-                subj.next(null);
+                this.subj.next(null);
             }
             else {
                 this.sub = af.database.object('/users/' + AuthGuard.escapeEmail(state.auth.email))
@@ -35,10 +36,10 @@ export class AuthGuard implements CanActivate, CanActivateChild {
                             })
                             : Observable.of(user)
                     })
-                    .subscribe(u => subj.next(u));
+                    .subscribe(u => this.subj.next(u));
             }
         });
-        subj.subscribe(u => this.user = u);
+        this.subj.subscribe(u => this.user = u);
     }
 
     static escapeEmail(email: string) {
@@ -48,12 +49,12 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     }
 
     canActivate(route: ActivatedRouteSnapshot,
-                state: RouterStateSnapshot): boolean {
+                state: RouterStateSnapshot): Observable<boolean> {
         const roles = <Array<string>>route.data['roles'] || <Array<string>>route.parent.data['roles'];
-        return roles == null || (this.user
-                ? ['user'].concat(this.user.roles || [])
-                : ['anonymous'])
-                .filter((r: string) => roles.indexOf(r) !== -1).length > 0
+        return this.subj.map(() => roles == null || (this.user
+            ? ['user'].concat(this.user.roles || [])
+            : ['anonymous'])
+            .filter((r: string) => roles.indexOf(r) !== -1).length > 0);
     }
 
     canActivateChild(route: ActivatedRouteSnapshot,
