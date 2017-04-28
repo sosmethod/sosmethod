@@ -36,10 +36,11 @@ export class ContentGuard {
         }
         if(!pass) {
             const that = this;
-            setTimeout(() => that.router.navigate(['/signup']));
-            // thou shall not
-            return pass;
+            if(!this.auth.user) {
+                setTimeout(() => that.router.navigate(['/signup']));
+            }
         }
+        // thou shall not
         return pass;
     }
 }
