@@ -29,10 +29,10 @@ import {DialogGuard} from './guards/dialog';
 import {routes} from './app.routing';
 import {AudioService} from './services/audio';
 import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
-import {environment} from "../../config/environment";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MaterialModule} from "@angular/material";
-import {ContentGuard} from "./guards/content";
+import {environment} from '../../config/environment';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MaterialModule} from '@angular/material';
+import {ContentGuard} from './guards/content';
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');

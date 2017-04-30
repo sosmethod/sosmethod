@@ -59,7 +59,7 @@ export const routes: Routes = [
         canActivate: [AuthGuard],
         canActivateChild: [AuthGuard],
         data: {roles: ['anonymous', 'user']},
-        redirectTo: '/discovery',
+        redirectTo: '/discovery/essentials',
         pathMatch: 'full'
     },
     {
@@ -108,8 +108,8 @@ export const routes: Routes = [
     },
     {
         path: 'tool/:tool',
-        canActivate: [AuthGuard, DialogGuard],
-        canActivateChild: [AuthGuard, DialogGuard],
+        canActivate: [AuthGuard, ContentGuard, DialogGuard],
+        canActivateChild: [AuthGuard, ContentGuard, DialogGuard],
         data: {roles: ['anonymous', 'user']},
         component: ToolDialogComponent,
     },

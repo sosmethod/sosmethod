@@ -18,7 +18,7 @@ export class LayoutComponent {
         this.layout.sidebarOpen$.subscribe((o) => this.sidebarOpen = o);
         this.layout.focusElement.subscribe(this.onScrollTo);
         this.anonymous = this.af.auth.flatMap(u => {
-            return Observable.of(u == null)
+            return Observable.of(u == null);
         });
     }
 
