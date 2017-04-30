@@ -1,8 +1,10 @@
-import { Component, Output, EventEmitter, Input, ChangeDetectorRef } from '@angular/core';
+import {Component, Output, EventEmitter, Input, ChangeDetectorRef, ViewChild} from '@angular/core';
 import {LayoutService} from '../../../services/layout';
 import {ContactDialogComponent} from '../../contact/contact';
 import {MdDialog} from '@angular/material';
 import {FaqDialogComponent} from '../../faq/faq';
+import {AuthUser} from '../../../models/auth-user';
+import {AuthGuard} from '../../../guards/auth';
 
 
 @Component({
@@ -11,11 +13,16 @@ import {FaqDialogComponent} from '../../faq/faq';
     styleUrls: ['./footer.scss']
 })
 export class FooterComponent {
+    @ViewChild('share') share: any;
 
-    public isOpen: boolean;
+    static isLocked(u: AuthUser, seriesUri: string) {
+        if (seriesUri.indexOf('stop_drop') > -1) {
+            return false;
+        }
+        return !u;
+    }
 
-    constructor(public layout: LayoutService, public dialog: MdDialog) {
-        this.layout.sidebarOpen$.subscribe(o => this.isOpen = o);
+    constructor(public layout: LayoutService, public dialog: MdDialog, public auth: AuthGuard) {
     }
 
     showFAQDialog() {
@@ -26,8 +33,17 @@ export class FooterComponent {
         this.dialog.open(ContactDialogComponent);
     }
 
-    toggleSidenav() {
-        this.layout.sidebarOpen$.next(!this.isOpen);
+    getLocked(seriesUri: string) {
+        return FooterComponent.isLocked(this.auth.user, seriesUri);
     }
 
+    showSMS() {
+    }
+
+    showCopy(evt: MouseEvent) {
+        if (window.document) {
+            $(evt.srcElement).closest('button').find('input').val(window.location.toString()).select();
+            window.document.execCommand('copy');
+        }
+    }
 }

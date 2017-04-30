@@ -410,7 +410,7 @@ body {
 .tools {
 
     .mat-menu-item {
-        height: 64px;
+        height: initial;
     }
 
     &.mat-menu-panel {
@@ -425,6 +425,7 @@ body {
         display: flex;
         flex-direction: column;
         white-space: normal;
+        min-height: 64px;
     }
 
     .mat-menu-content > *:after {
@@ -452,10 +453,6 @@ body {
     .mat-menu-content > *:last-child:after {
         display: none;
     }
-}
-
-.tools .mat-menu-content > * {
-    min-height: 64px;
 }
 
 

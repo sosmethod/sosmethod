@@ -1,4 +1,6 @@
-﻿<bc-sidenav [open]="layout.sidebarOpen$ | async"></bc-sidenav>
+﻿<bc-sidenav [open]="layout.sidebarOpen$ | async"
+  [class.playing]="(audio.state | async) === 'playing'"
+  [class.inactive]="(inactive | async)"></bc-sidenav>
 <bc-toolbar (openMenu)="openSidenav()">
   {{ 'HOME.TITLE' | translate }}
 </bc-toolbar>
@@ -6,4 +8,7 @@
   <router-outlet></router-outlet>
 </bc-layout>
 <bc-footer *ngIf="router.url === '/'"></bc-footer>
+<div class="stretch-right">
+  <button md-raised-button title="Choose a background" [class.active]="layout.sidebarOpen$ | async" (click)="toggleSidenav()"> </button>
+</div>
 <bc-video></bc-video>

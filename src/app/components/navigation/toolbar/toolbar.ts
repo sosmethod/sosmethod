@@ -21,6 +21,7 @@ export class ToolbarComponent implements OnInit {
     @Output() openMenu = new EventEmitter();
     public route$: Subject<string> = new Subject();
     public user: FirebaseAuthState;
+    public playing: boolean;
 
     constructor(
         public af: AngularFire,
@@ -37,12 +38,19 @@ export class ToolbarComponent implements OnInit {
         this.af.auth.subscribe((u) => this.user = u);
         this.audio._audio = this.player.nativeElement;
         this.audio.AttachEvents();
+        this.audio.state.subscribe(s => this.playing = s === 'playing');
         this.audio.ended.subscribe(() => {
             this.recordCompleted.apply(this);
         });
         this.router.events.subscribe((e) => {
             if (e instanceof NavigationEnd) {
-                this.route$.next(e.url.split('/')[1] || 'home');
+                const route = e.url.split('/')[1] || 'home';
+                this.route$.next(route);
+                // TODO: query router config for not PlayerComponent paths?
+                if (route.indexOf('_5_day') === -1 && route.indexOf('_11_day') === -1
+                    && route.indexOf('meditations') === -1 && this.playing) {
+                    this.audio.Pause();
+                }
             }
         });
     }

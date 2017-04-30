@@ -24,6 +24,28 @@ export class DiscoveryComponent implements OnInit {
     public width: number;
     private _series: string;
 
+    static isCompleted(user: AuthUser, seriesUri: string) {
+        const urls = user && typeof user.completed != 'undefined' ? Object.keys(user.completed).map(c => user.completed[c])
+            .filter(c => c.indexOf(seriesUri) > -1)
+            .map(l => {
+                const match = DiscoverySeriesComponent.seriesRegex(l);
+                return parseInt(match[1] || match[2]);
+            }) : [];
+        return urls.filter((u, i) => urls.indexOf(i + 1) > -1).length === (seriesUri.indexOf('_11_day') > -1 ? 11 : 5);
+    }
+
+    static isLocked(u: AuthUser, seriesUri: string) {
+        if (seriesUri.indexOf('_5_day') > -1 && seriesUri.indexOf('essentials') > -1) {
+            return false;
+        }
+        if (u && !DiscoveryComponent.isCompleted(u, '_11_day/essentials') &&
+            seriesUri.indexOf('_11_day') > -1 && seriesUri.indexOf('essentials') > -1) {
+            return false;
+        }
+        return !(u && DiscoveryComponent.isCompleted(u, '_11_day/essentials'));
+
+    }
+
     constructor(public route: ActivatedRoute, public layout: LayoutService, public auth: AuthGuard) {
 
     }
@@ -62,32 +84,11 @@ export class DiscoveryComponent implements OnInit {
         });
     }
 
-    static isCompleted(u: AuthUser, seriesUri: string) {
-        const urls = u && typeof u.completed != 'undefined' ? Object.keys(u.completed).map(c => u.completed[c])
-            .filter(c => c.indexOf(seriesUri) > -1)
-            .map(l => {
-                const match = DiscoverySeriesComponent.seriesRegex(l);
-                return parseInt(match[1] || match[2]);
-            }) : [];
-        return urls.filter((u, i) => urls.indexOf(i + 1) > -1).length === (seriesUri.indexOf('_11_day') > -1 ? 11 : 5);
-    }
-
-    static isLocked(u: AuthUser, seriesUri: string) {
-        if(seriesUri.indexOf('_5_day') > -1 && seriesUri.indexOf('essentials') > -1) {
-            return false;
-        }
-        if(u && !DiscoveryComponent.isCompleted(u, '_11_day/essentials') &&
-            seriesUri.indexOf('_11_day') > -1 && seriesUri.indexOf('essentials') > -1) {
-            return false;
-        }
-        return !(u && DiscoveryComponent.isCompleted(u, '_11_day/essentials'));
-
-    }
 
     public circleStatus(u: AuthUser) {
         $(this.discoveryLeaf.nativeElement).find('a[href]').each((i, elem) => {
             const link = $(elem).attr('href').replace('#/', '');
-            if(DiscoveryComponent.isLocked(u, link)) {
+            if (DiscoveryComponent.isLocked(u, link)) {
                 $(elem).addClass('locked');
             } else {
                 $(elem).removeClass('locked');
