@@ -34,7 +34,7 @@
 
 #player .preview-inner {
     position:relative;
-    transition: margin ease-in-out .25s;
+    transition: margin ease-in-out .25s, opacity ease-in-out 1s;
 }
 
 #player .preview-play {
@@ -120,3 +120,11 @@
     display:block;
 }
 
+.activate {
+    z-index: 0;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    position:absolute;
+}

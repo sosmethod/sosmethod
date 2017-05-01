@@ -22,11 +22,18 @@ export class PlayerComponent implements OnInit {
     ngOnInit() {
         this.audio.timeupdate.subscribe(() => {
             const newVal = Math.round(this.audio._audio.currentTime / (this.audio._audio.duration || 1) * 1000) / 10;
-            if(newVal != this.value)
+            if (newVal !== this.value) {
                 this.value = newVal;
+            }
         });
         this.isDiscovery$ = this.router.url.indexOf('begin') > -1 || this.router.url.indexOf('_5_day') > -1
             || this.router.url.indexOf('_11_day') > -1;
+    }
+
+    activate() {
+        if (window.document) {
+            $(window.document).trigger('mousemove');
+        }
     }
 
 }

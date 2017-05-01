@@ -57,3 +57,29 @@
 {
     background-image:url(/assets/icon_active_bk-tray-close.png);
 }
+
+bc-sidenav, bc-sidenav ~ .stretch-right, .preview-inner, .meditate, bc-discovery-series, bc-player-controls {
+    transition: opacity ease-in-out 1s;
+}
+
+bc-sidenav.playing.inactive, bc-sidenav.playing.inactive ~ .stretch-right {
+    opacity: 0;
+    z-index:0;
+}
+
+.playing.inactive ~ * {
+
+    .activate {
+        opacity: 1;
+        z-index:1000;
+    }
+
+    .preview-inner, .meditate, bc-discovery-series, bc-player-controls {
+        opacity: 0;
+        z-index:0;
+    }
+
+}
+
+
+
