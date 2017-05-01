@@ -29,8 +29,7 @@ exports.processPayment = functions.https.onRequest((req, res) => {
             // If the result is seccessful, write it back to the database
             return admin.database().ref(`/users/${emailKey}/payments${(new Date).getTime()}`).set(response);
         }, error => {
-            const up = new Error(error);
-            throw up;
+            throw new Error(error);
         }
     );
 });
