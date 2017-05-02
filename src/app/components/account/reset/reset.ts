@@ -1,8 +1,9 @@
-﻿import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import {AngularFire, AngularFireAuth, FirebaseApp} from 'angularfire2';
+﻿import {Component, OnInit, OnDestroy, Optional} from '@angular/core';
+import { Router, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import {AngularFire, _getFirebase} from 'angularfire2';
 import * as firebase from 'firebase';
 import {environment} from '../../../../../config/environment';
+import {MdDialog, MdDialogRef} from "@angular/material";
 
 @Component({
     selector: 'bc-reset',
@@ -13,50 +14,51 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
     actionCode: string;
     email: string;
     password: string;
-    private sub: any;
     private firebase: firebase.app.App;
 
     constructor(
         public router: Router,
         public route: ActivatedRoute,
-        public af: AngularFire) {
-        this.firebase = firebase.initializeApp(environment.firebase);
+        public af: AngularFire,
+        public dialog: MdDialog,
+        @Optional() public dialogRef?: MdDialogRef<ResetPasswordComponent>) {
+        this.firebase = _getFirebase(environment.firebase);
     }
 
     ngOnInit() {
-        this.sub = this.route.queryParams.subscribe(params => {
-            this.actionCode = params['oobCode'];
-            switch (params['mode']) {
-                case 'resetPassword':
-                    // Display reset password handler and UI.
-                    this.handleResetPassword();
-                    break;
-                case 'recoverEmail':
-                    // Display email recovery handler and UI.
-                    this.handleRecoverEmail();
-                    break;
-                case 'verifyEmail':
-                    // Display email verification handler and UI.
-                    this.handleVerifyEmail();
-                    break;
-                default:
-                // Error: invalid mode.
-            }
-        });
+        const params = (<ActivatedRouteSnapshot>this.dialogRef._containerInstance.dialogConfig.data);
+        console.log(params);
+        this.actionCode = params.queryParams['oobCode'];
+        switch (params.queryParams['mode']) {
+            case 'resetPassword':
+                // Display reset password handler and UI.
+                this.handleResetPassword();
+                break;
+            case 'recoverEmail':
+                // Display email recovery handler and UI.
+                this.handleRecoverEmail();
+                break;
+            case 'verifyEmail':
+                // Display email verification handler and UI.
+                this.handleVerifyEmail();
+                break;
+            default:
+            // Error: invalid mode.
+        }
     }
 
     ngOnDestroy() {
-        this.sub.unsubscribe();
     }
 
     resetPassword() {
         const auth = this.firebase.auth();
         auth.confirmPasswordReset(this.actionCode, this.password).then(function(resp) {
             // Password reset has been confirmed and new password updated.
-
+            this.dialog.closeAll();
             // TODO: Display a link back to the app, or sign-in the user directly
             // if the page belongs to the same domain as the app:
             // auth.signInWithEmailAndPassword(accountEmail, newPassword);
+
         });
     }
 
