@@ -1,7 +1,7 @@
 <bc-course></bc-course>
 <div id="discovery" #discovery>
     <div id="discovery-leaf" #discoveryLeaf>
-        <a md-button routerLink="/_5_day/essentials" mdTooltip="Release stress &amp; expand peace of mind"
+        <a md-button routerLink="/_5_day/essentials" mdTooltip="Release stress &amp; gain peace of mind"
            class=" sos-circle sos-circle-purple"
             *ngIf="(series$ | async) === 'essentials'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 5 day</span></span></a>
@@ -34,19 +34,19 @@
            class=" sos-circle sos-circle-gold"
            *ngIf="(series$ | async) === 'focus_and_creativity'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 11 day</span></span></a>
-        <a md-button (click)="doNothing()" mdTooltip="Coming Soon"
+        <a md-button (click)="doNothing()" mdTooltip="Teens chill out & power up fast"
            class=" sos-circle sos-circle-blue locked"
            *ngIf="(series$ | async) === 'kids'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 5 day</span></span></a>
-        <a md-button (click)="doNothing()" mdTooltip="Coming Soon"
+        <a md-button (click)="doNothing()" mdTooltip="Help your child be happier, healthier & smarter"
            class=" sos-circle sos-circle-blue locked"
            *ngIf="(series$ | async) === 'kids'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 11 day</span></span></a>
-        <a md-button (click)="doNothing()" mdTooltip="Coming Soon"
+        <a md-button (click)="doNothing()" mdTooltip="Release stress &amp; gain a bright mind"
            class=" sos-circle sos-circle-coral locked"
            *ngIf="(series$ | async) === 'pets'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 5 day</span></span></a>
-        <a md-button (click)="doNothing()" mdTooltip="Coming Soon"
+        <a md-button (click)="doNothing()" mdTooltip="Advance positivity &amp; mindful awareness"
            class=" sos-circle sos-circle-coral locked"
            *ngIf="(series$ | async) === 'pets'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 11 day</span></span></a>
