@@ -27,7 +27,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {AuthGuard} from './guards/auth';
 import {DialogGuard} from './guards/dialog';
 import {routes} from './app.routing';
-import {AudioService} from './services/audio';
+import {AudioService} from './services/audio.service';
 import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
 import {environment} from '../../config/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';

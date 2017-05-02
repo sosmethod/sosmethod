@@ -11,7 +11,7 @@
         <button md-raised-button color="" (click)="loginTwitter()">Password</button><br />
         <md-input-container>
             <input mdInput id="signupEmail" required type="email" placeholder="Email" maxlength="100"
-                   [(ngModel)]="authUser.email"
+                   [(ngModel)]="authUser.username"
                    [ngModelOptions]="{standalone: true}">
         </md-input-container>
 
@@ -19,6 +19,7 @@
             <input mdInput id="signupPassword" required type="password" maxlength="25" placeholder="Password"
                    length="40" [(ngModel)]="authUser.password" [ngModelOptions]="{standalone: true}">
         </md-input-container>
+        <label *ngIf="error" class="error">invalid username or password</label>
     </md-card>
     <md-card>
         <md-card-subtitle>New user? Register here</md-card-subtitle>
@@ -30,5 +31,4 @@
         Login
     </button>
     <a md-raised-button [routerLink]="['/account/forgot']"> <i></i> Forgot Password?</a>
-    <a md-raised-button [routerLink]="['/account/resend']"> <i></i> Resend Confirmation Code</a>
 </md-dialog-actions>

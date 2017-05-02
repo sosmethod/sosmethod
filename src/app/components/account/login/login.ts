@@ -17,6 +17,7 @@ export class AccountLoginComponent implements OnInit {
     password: string;
     authUser = new AuthUser();
     rememberServer: boolean;
+    error: boolean;
 
     constructor(
         public route: ActivatedRoute,
@@ -31,12 +32,18 @@ export class AccountLoginComponent implements OnInit {
     }
 
     login() {
-        this.af.auth.login({email: this.authUser.email, password: this.authUser.password},
-            {
-                provider: AuthProviders.Password,
-                method: AuthMethods.Password,
-            });
-        this.dialog.closeAll();
+        this.error = false;
+        try {
+            this.af.auth.login({email: this.authUser.username, password: this.authUser.password},
+                {
+                    provider: AuthProviders.Password,
+                    method: AuthMethods.Password,
+                })
+                .then(() => this.dialog.closeAll())
+                .catch(e => this.error = true);
+        } catch (e) {
+            this.error = true;
+        }
     }
 
     loginGoogle() {

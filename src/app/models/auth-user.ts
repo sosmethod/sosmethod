@@ -11,7 +11,7 @@ export class AuthUser {
     public completed_5_day_essentials: Boolean;
     public completed_11_day_essentials: Boolean;
     public oldKey: string;
-    public email: string;
+    public username: string;
     public password: string;
     public database: string;
     public serverUrl: string;

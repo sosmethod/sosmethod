@@ -14,3 +14,22 @@ md-card-title {
 md-dialog-actions div {
   width:50%;
 }
+
+@media all and (max-width: 1000px) {
+  md-dialog-content {
+    flex-direction: column;
+  }
+
+  md-card {
+    width:100%;
+  }
+
+  md-card-title span {
+    width:100%;
+  }
+
+  md-card-title span:first-of-type {
+    display:none;
+  }
+}
+

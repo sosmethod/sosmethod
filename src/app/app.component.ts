@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {LayoutService} from './services/layout';
 import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
-import {AudioService} from './services/audio';
+import {AudioService} from './services/audio.service';
 import {AngularFire} from 'angularfire2';
 import {AuthGuard} from './guards/auth';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
