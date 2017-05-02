@@ -5,10 +5,10 @@ import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
 import {AccountLoginComponent} from '../../account/login/login';
-import {AudioService} from '../../../services/audio';
+import {AudioService} from '../../../services/audio.service';
 import {AngularFire, FirebaseAuthState} from 'angularfire2';
-import {AuthGuard} from "../../../guards/auth";
-import {AuthUser} from "../../../models/auth-user";
+import {AuthGuard} from '../../../guards/auth';
+import {AuthUser} from '../../../models/auth-user';
 
 
 @Component({
@@ -59,8 +59,8 @@ export class ToolbarComponent implements OnInit {
         if (this.user == null) {
             return;
         }
-        let dateKey = (new Date).getTime();
-        let updates: any = {};
+        const dateKey = (new Date).getTime();
+        const updates: any = {};
         updates[dateKey] = this.router.url;
         this.af.database.object('/users/' + AuthGuard.escapeEmail(this.user.auth.email) + '/completed/').set(updates);
     }

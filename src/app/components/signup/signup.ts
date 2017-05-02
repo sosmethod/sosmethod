@@ -1,4 +1,8 @@
 import { Component, Output, EventEmitter, ChangeDetectorRef, OnInit, Input } from '@angular/core';
+import {environment} from '../../../../config/environment';
+import {AuthGuard} from '../../guards/auth';
+import {AngularFire} from 'angularfire2';
+import {Http} from '@angular/http';
 
 @Component({
     selector: 'bc-signup',
@@ -8,7 +12,10 @@ import { Component, Output, EventEmitter, ChangeDetectorRef, OnInit, Input } fro
 export class SignupComponent implements OnInit {
 
 
-    constructor() {
+    constructor(
+        public af: AngularFire,
+        public http: Http,
+        public auth: AuthGuard) {
 
     }
 
@@ -25,6 +32,11 @@ export class SignupComponent implements OnInit {
             token: function (token: any) {
                 // You can access the token ID with `token.id`.
                 // Get the token ID to your server-side code for use.
+                this.http.post(environment.paymentUrl, {
+                    token: token,
+                    plan: description,
+                    email: this.user.email
+                }).subscribe();
             }
         });
 

@@ -5,7 +5,7 @@ import {
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AudioService} from '../../../services/audio';
+import {AudioService} from '../../../services/audio.service';
 
 
 @Component({

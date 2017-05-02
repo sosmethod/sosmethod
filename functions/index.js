@@ -1,3 +1,8 @@
+const functions = require('firebase-functions'),
+    admin = require('firebase-admin');
 
-module.exports = require('./stripe_checkout.js');
+admin.initializeApp(functions.config().firebase);
+
+module.exports.processPayment = require('./stripe_checkout.js').processPayment;
+module.exports.sendgridEmail = require('./sendgrid.js').sendgridEmail;
 

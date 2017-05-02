@@ -1,7 +1,7 @@
 import {Component, OnInit, Optional, ViewChild} from '@angular/core';
 import {Observable} from 'rxjs';
 import {ActivatedRoute, NavigationStart, Router} from '@angular/router';
-import {AudioService} from "../../services/audio";
+import {AudioService} from '../../services/audio.service';
 
 
 @Component({

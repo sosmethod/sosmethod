@@ -1,6 +1,8 @@
 import {Component, Optional} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {FaqDialogComponent} from '../faq/faq';
+import {Http} from '@angular/http';
+import {environment} from '../../../../config/environment';
 
 
 @Component({
@@ -14,7 +16,10 @@ export class ContactDialogComponent {
     public name = '';
     public message = '';
 
-    constructor(public dialog: MdDialog, @Optional() public dialogRef?: MdDialogRef<ContactDialogComponent>) {}
+    constructor(
+        public http: Http,
+        public dialog: MdDialog,
+        @Optional() public dialogRef?: MdDialogRef<ContactDialogComponent>) {}
 
     showFaqDialog() {
         this.dialog.closeAll();
@@ -26,6 +31,11 @@ export class ContactDialogComponent {
             this.error = true;
             return;
         }
+
+        this.http.post(environment.sendgridUrl, {
+            to: this.email,
+            body: this.name + ' writes: \n' + this.message
+        }).subscribe();
     }
 }
 

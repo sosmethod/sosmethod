@@ -3,13 +3,11 @@
  * @description
  * Wrapper for HTML5 audio.
  */
+
 import {Observer} from 'rxjs/Observer';
 import {Observable} from 'rxjs/Observable';
 import {Injectable, NgZone} from '@angular/core';
-import {Subject} from "rxjs/Subject";
-
-declare var AudioContext: any;
-declare var webkitAudioContext: any;
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class AudioService {
@@ -38,7 +36,7 @@ export class AudioService {
     _audio: any;
     _audioSrc: any;
     _analyser: any;
-    _audioCtx = new (AudioContext || webkitAudioContext)();
+    _audioCtx = new ((<any>window).AudioContext || (<any>window).webkitAudioContext)();
     _svg: any;
     public duration: number;
     public currentTime: number;
@@ -69,9 +67,7 @@ export class AudioService {
                 this._audio.src = this._src = url;
                 this._audio.load();
             }
-        }
-        catch (e) {
-        }
+        } catch (e) { }
     }
 
     SetTimePercent(percent: number) {
@@ -131,7 +127,7 @@ export class AudioService {
 
     _createAudio(): void {
 
-        if(!this._audio) {
+        if (!this._audio) {
             this._audio = new Audio();
         }
 
@@ -143,11 +139,6 @@ export class AudioService {
         }
 
         if (!this._analyser && this._audioSrc.connect) {
-            // Bind our analyser to the media element source.
-            // TODO: add wave surfer
-            //this._analyser = this._audioCtx.createAnalyser();
-            //this._audioSrc.connect( this._analyser );
-            //this._audioSrc.connect( this._audioCtx.destination );
         }
     }
 

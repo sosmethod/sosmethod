@@ -5,8 +5,8 @@ import {
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AudioService} from '../../../services/audio';
-import {AuthGuard} from "../../../guards/auth";
+import {AudioService} from '../../../services/audio.service';
+import {AuthGuard} from '../../../guards/auth';
 
 
 @Component({
@@ -21,12 +21,12 @@ export class DiscoverySeriesComponent implements OnInit {
 
     static seriesRegex = (s: string) => (/Day_([0-9]+)|[0-9]+_([0-9]+)/ig).exec(s.replace(/ |%20/ig, '_'));
     static colorSeries: any = {
-        "essentials": "sos-circle-purple",
-        "soothing_relief": "sos-circle-green",
-        "improving_relationships": "sos-circle-ruby",
-        "focus_and_creativity": "sos-circle-gold",
-        "kids": "sos-circle-blue",
-        "pets": "sos-circle-coral"
+        'essentials': 'sos-circle-purple',
+        'soothing_relief': 'sos-circle-green',
+        'improving_relationships': 'sos-circle-ruby',
+        'focus_and_creativity': 'sos-circle-gold',
+        'kids': 'sos-circle-blue',
+        'pets': 'sos-circle-coral'
     };
 
     constructor(
@@ -42,7 +42,7 @@ export class DiscoverySeriesComponent implements OnInit {
         const that = this;
         this.route.params.subscribe(params => {
             this.series$ = typeof params.discovery != 'undefined' ? params['discovery'] : '';
-            if(typeof params.audio == 'undefined') {
+            if (typeof params.audio == 'undefined') {
                 this.day$ = '';
             } else if (!params['audio'] || params['audio'] === '') {
                 this.day$ = '';
@@ -88,7 +88,7 @@ export class DiscoverySeriesComponent implements OnInit {
         });
 
         // get first uncompleted or first
-        if(day == '') {
+        if (day == '') {
             setTimeout(() => {
                 let nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]:not(.completed)').first();
                 if (nextLink.length == 0) {

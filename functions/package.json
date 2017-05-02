@@ -10,6 +10,8 @@
   "dependencies": {
     "stripe": "latest",
     "firebase-admin": "latest",
-    "firebase-functions": "latest"
+    "firebase-functions": "latest",
+    "sendgrid": "latest",
+    "uuid": "latest"
   }
 }
