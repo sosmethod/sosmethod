@@ -12,6 +12,7 @@ import {environment} from '../../../../config/environment';
 })
 export class ContactDialogComponent {
     public error = false;
+    public done = false;
     public email = '';
     public name = '';
     public message = '';
@@ -19,7 +20,8 @@ export class ContactDialogComponent {
     constructor(
         public http: Http,
         public dialog: MdDialog,
-        @Optional() public dialogRef?: MdDialogRef<ContactDialogComponent>) {}
+        @Optional() public dialogRef?: MdDialogRef<ContactDialogComponent>) {
+    }
 
     showFaqDialog() {
         this.dialog.closeAll();
@@ -31,11 +33,12 @@ export class ContactDialogComponent {
             this.error = true;
             return;
         }
-
-        this.http.post(environment.sendgridUrl, {
-            to: this.email,
-            body: this.name + ' writes: \n' + this.message
-        }).subscribe();
+        const data = new URLSearchParams();
+        data.append('to', this.email);
+        data.append('body', this.name + ' writes: \n' + this.message);
+        this.http.post(environment.sendgridUrl, data.toString()).subscribe(() => {
+            this.done = true;
+        });
     }
 }
 

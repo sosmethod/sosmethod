@@ -60,9 +60,7 @@ export class ToolbarComponent implements OnInit {
             return;
         }
         const dateKey = (new Date).getTime();
-        const updates: any = {};
-        updates[dateKey] = this.router.url;
-        this.af.database.object('/users/' + AuthGuard.escapeEmail(this.user.auth.email) + '/completed/').set(updates);
+        this.af.database.object('/users/' + AuthGuard.escapeEmail(this.user.auth.email) + '/completed/' + dateKey).set(this.router.url);
     }
 
     showContactDialog() {

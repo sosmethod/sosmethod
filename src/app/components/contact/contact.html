@@ -11,7 +11,7 @@
         <textarea mdInput name="message" placeholder="Message" [(ngModel)]="message"></textarea>
     </md-input-container>
     <label *ngIf="error" class="error">Oops! Looks like some information is missing from the form. Please make sure all areas are completed. Thank you!</label>
-    <label class="done">Thank you for contacting us. We’ll get back to you as soon as possible.<br />
+    <label *ngIf="done" class="done">Thank you for contacting us. We’ll get back to you as soon as possible.<br />
         <br />
         If you do not see the email in your inbox, please check your junk or spam folder and add “info@thesosmethod.com” to your Contacts.<br />
         <br />
