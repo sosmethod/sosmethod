@@ -67,6 +67,7 @@ exports.sendgridEmail = functions.https.onRequest((req, res) => {
             if (response.statusCode < 200 || response.statusCode >= 400) {
                 const error = Error(response.body);
                 error.code = response.statusCode;
+                error.description = response.body.toString();
                 throw error;
             }
 
