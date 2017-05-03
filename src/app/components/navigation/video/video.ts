@@ -1,5 +1,7 @@
-import {Component, Output, EventEmitter, Input, ChangeDetectorRef, ViewChild} from '@angular/core';
-import {LayoutService} from "../../../services/layout";
+import {Component, Output, EventEmitter, Input, ChangeDetectorRef, ViewChild, NgZone} from '@angular/core';
+import {LayoutService} from '../../../services/layout';
+import {Observable} from 'rxjs/Observable';
+import {Observer} from 'rxjs/Observer';
 
 
 @Component({
@@ -9,8 +11,13 @@ import {LayoutService} from "../../../services/layout";
 })
 export class VideoComponent {
     @ViewChild('videoPlayer') videoPlayer: any;
+    private mousedown: Observable<any>;
+    private playingEvent: Observable<any>;
+    private pausedEvent: Observable<any>;
+    private playing = false;
 
-    constructor(public layout: LayoutService) {
+    constructor(private _zone: NgZone,
+                public layout: LayoutService) {
         layout.video$.subscribe(v => {
             $(this.videoPlayer.nativeElement).find('source').remove();
 
@@ -33,8 +40,21 @@ export class VideoComponent {
             }
         });
         layout.background.subscribe(b => {
-            $(this.videoPlayer.nativeElement).css('background-image', b);
+            $(this.videoPlayer.nativeElement).parent().css('background-image', 'url(' + b + ')');
         });
+        if (window.document) {
+            const self = this;
+            this.mousedown = Observable.create((observer: Observer<any>) => {
+                window.document.addEventListener('mousedown', (args: any) => {
+                    self._zone.run(() => observer.next(args));
+                });
+            });
+            this.mousedown.subscribe(e => {
+                if (this.videoPlayer.nativeElement.paused) {
+                    this.videoPlayer.nativeElement.play();
+                }
+            });
+        }
     }
 
 }
