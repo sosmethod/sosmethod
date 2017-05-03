@@ -4,12 +4,14 @@
             <img src="/assets/SOS-Logo-Tag-2017lowallwhite.png" *ngIf="(route$ | async) != 'home' && (route$ | async) != '_5_day' && (route$ | async) != '_11_day' && (route$ | async) != 'meditations'" />
             <img src="/assets/SOS-Method-Logo-2017-White.png"  *ngIf="(route$ | async) == 'home'"/></a>
     </div>
+    <span>&nbsp;</span>
     <div class="account">
         <a md-raised-button (click)="showLoginDialog()"
            *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && !(af.auth | async)?.auth.email">login</a>
-        <a md-raised-button routerLink="/account/profile" mdTooltip="Account / Timeline"
-           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && (af.auth | async)?.auth.email">{{auth.user?.name?.first}}
-            <img [src]="(af.auth | async)?.google?.photoURL || '/assets/icon_static_user_man.png'" /></a>
+        <a md-raised-button routerLink="/account/profile" mdTooltip="Account / Timeline" class="profile"
+           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && (af.auth | async)?.auth.email">
+            <span class="name-wrapper">{{auth.user?.name?.first}} &nbsp; &nbsp; </span>
+            <span class="image-wrapper"><img [src]="(af.auth | async)?.google?.photoURL || '/assets/icon_static_user_man.png'" /></span></a>
         <a md-raised-button (click)="showContactDialog()"
            *ngIf="(route$ | async) == 'gift' || (route$ | async) == 'signup'">contact us</a>
         <a md-raised-button (click)="logout()"

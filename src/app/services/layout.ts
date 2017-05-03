@@ -7,6 +7,7 @@ export class LayoutService {
 
   sidebarOpen$: Subject<boolean> = new Subject();
   video$: Subject<string> = new Subject();
+  background: Subject<string> = new Subject();
   focusElement: Subject<ElementRef> = new Subject();
 
   constructor() {

@@ -8,7 +8,8 @@ const stripe = require('stripe')(functions.config().stripe.token),
 exports.processPayment = functions.https.onRequest((req, res) => {
     // This onWrite will trigger whenever anything is written to the path, so
     // Look up the Stripe customer id written in createStripeCustomer
-    const emailKey = req.body.email.toLowerCase()
+    var data = JSON.parse(req.body);
+    const emailKey = data.email.toLowerCase()
         .replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_')
         .replace('[', '_').replace(']', '_');
     return admin.database().ref(`/users/${emailKey}/payments`).once('value').then(snapshot => {
@@ -16,7 +17,7 @@ exports.processPayment = functions.https.onRequest((req, res) => {
     }).then(customer => {
         // Create a charge using the pushId as the idempotency key, protecting against double charges
         let amount = 0;
-        switch(req.body.plan) {
+        switch(data.plan) {
             case 'Monthly (Trial)':
                 amount = 1299;
                 break;
@@ -29,7 +30,7 @@ exports.processPayment = functions.https.onRequest((req, res) => {
             default:
                 throw new Error('plan not recognized');
         }
-        let charge = {amount, currency, customer, source: req.body.token};
+        let charge = {amount, currency, customer, source: data.token};
         return stripe.charges.create(charge);
     }).then(response => {
         // If the result is seccessful, write it back to the database

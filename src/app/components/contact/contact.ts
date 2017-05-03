@@ -1,7 +1,7 @@
 import {Component, Optional} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {FaqDialogComponent} from '../faq/faq';
-import {Http} from '@angular/http';
+import {Http, Headers, Request} from '@angular/http';
 import {environment} from '../../../../config/environment';
 
 
@@ -33,12 +33,25 @@ export class ContactDialogComponent {
             this.error = true;
             return;
         }
-        const data = new URLSearchParams();
-        data.append('to', this.email);
-        data.append('body', this.name + ' writes: \n' + this.message);
-        this.http.post(environment.sendgridUrl, data.toString()).subscribe(() => {
-            this.done = true;
+        const data = {
+            to: 'admin@sosmethod.com',
+            subject: 'Contact Us from ' + this.name,
+            from: this.email,
+            body: this.name + ' writes, \n' + this.message
+        };
+        const headers = new Headers();
+        headers.append('Content-Type', 'text/plain');
+        const req = new Request({
+            method: 'POST',
+            url: environment.sendgridUrl,
+            headers: headers,
+            body: JSON.stringify(data)
         });
+
+        this.http.request(req)
+            .subscribe(() => {
+                this.done = true;
+            });
     }
 }
 

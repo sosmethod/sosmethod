@@ -52,22 +52,22 @@ exports.sendgridEmail = functions.https.onRequest((req, res) => {
             // Get a SendGrid client
             const client = getClient(functions.config().sendgrid.key);
 
+            data = JSON.parse(req.body);
             // Build the SendGrid request to send email
             const request = client.emptyRequest({
                 method: 'POST',
                 path: '/v3/mail/send',
-                body: getPayload(req.body)
+                body: getPayload(data)
             });
 
             // Make the request to SendGrid's API
-            console.log(`Sending email to: ${req.body.to}`);
+            console.log(`Sending email to: ${data.to}`);
             return client.API(request);
         })
         .then((response) => {
             if (response.statusCode < 200 || response.statusCode >= 400) {
                 const error = Error(response.body);
                 error.code = response.statusCode;
-                error.description = response.body.toString();
                 throw error;
             }
 
@@ -127,23 +127,14 @@ function getPayload (requestBody) {
         throw error;
     }
     var filters = {
-        "filters": {
-            "templates": {
-                "settings": {
-                    "enable": 1,
-                    "template_id": requestBody.template || "07c50daf-e0c0-4fcc-bd34-57914373a6dc"
-                }
-            }
-        }
+        "template_id": requestBody.template || "07c50daf-e0c0-4fcc-bd34-57914373a6dc"
     };
     if(requestBody.name) {
-        filters["sub"] = {
-            ":name": [
-                requestBody.name + ''
-            ]
+        filters["substitutions"] = {
+            ":name": requestBody.name + ''
         };
     }
-    return Object.extend(filters, {
+    return Object.assign(filters, {
         personalizations: [
             {
                 to: [

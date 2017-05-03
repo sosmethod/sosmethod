@@ -32,11 +32,11 @@ export class SignupComponent implements OnInit {
             token: function (token: any) {
                 // You can access the token ID with `token.id`.
                 // Get the token ID to your server-side code for use.
-                this.http.post(environment.paymentUrl, {
+                this.http.post(environment.paymentUrl, JSON.stringify({
                     token: token,
                     plan: description,
                     email: this.user.email
-                }).subscribe();
+                })).subscribe();
             }
         });
 

@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
         this.subj = new ReplaySubject();
         this.af.auth.subscribe(state => {
             if(!state) {
-                if (this.sub) this.sub.unsubscribe();
+                if (this.sub) { this.sub.unsubscribe(); }
                 this.subj.next(null);
             }
             else {
@@ -30,7 +30,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
                     .flatMap(user => {
                         return state && user && user.oldKey != 'undefined'
                             ? af.database.object('/users/' + user.oldKey).map(oldUser => {
-                                let origUser = Object.assign({}, user);
+                                const origUser = Object.assign({}, user);
                                 origUser.completed = Object.assign({}, oldUser.completed, user.completed);
                                 return Object.assign({}, oldUser, origUser);
                             })
