@@ -15,6 +15,7 @@ form h1
     padding: 40px 10px;
     max-width: 1050px;
     margin: auto;
+    text-shadow: 0 1px 2px rgba(0,0,0,1);
 }
 
 form
@@ -153,15 +154,33 @@ ol li:hover > span span
 {
 }
 
+@media all and (max-width: 1000px) {
+    .description {
+        width:80%;
+    }
+
+    .discovery .description {
+        margin-left:20%;
+    }
+}
+
 @media all and (max-width: 700px) {
+
+    .description > div {
+        padding:15px;
+    }
 
     .options li h3, .options li h4, .options li h5 {
         margin:5px 0;
         font-size:120%;
     }
 
+    ol li > span {
+        padding-left:80px;
+    }
+
     h1 {
-        padding: 40px 10px 20px;
+        padding: 20px 10px 20px;
         font-size: 20px;
     }
 

@@ -9,6 +9,6 @@
 </bc-layout>
 <bc-footer *ngIf="router.url === '/'"></bc-footer>
 <div class="stretch-right">
-  <button md-raised-button title="Choose a background" [class.active]="layout.sidebarOpen$ | async" (click)="toggleSidenav()"> </button>
+  <button md-raised-button *ngIf="router.url.indexOf('/signup') == -1 && router.url.indexOf('/gift') == -1" title="Choose a background" [class.active]="layout.sidebarOpen$ | async" (click)="toggleSidenav()"> </button>
 </div>
 <bc-video></bc-video>

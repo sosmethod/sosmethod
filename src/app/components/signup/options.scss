@@ -1,6 +1,5 @@
 
-.options
-{
+.options {
     list-style: none;
     padding: 0;
     max-width: 800px;
@@ -11,27 +10,24 @@
     justify-content: center;
     align-items: center;
 
-
-    li
-    {
-        display:inline-block;
-        width:30%;
-        margin:0 1.5%;
+    li {
+        display: inline-block;
+        width: 30%;
+        margin: 0 1.5%;
         vertical-align: middle;
-        position:relative;
+        position: relative;
         cursor: pointer;
         z-index: 1;
     }
 
-    li:before
-    {
+    li:before {
         content: " ";
-        position:absolute;
-        left:-10px;
-        top:-10px;
-        right:-10px;
-        bottom:-10px;
-        z-index:-1;
+        position: absolute;
+        left: -10px;
+        top: -10px;
+        right: -10px;
+        bottom: -10px;
+        z-index: -1;
     }
     li h3 {
         transition: font-size ease-in-out .25s;
@@ -40,33 +36,44 @@
 
     li:nth-child(2) h3,
     li:hover h3,
-    .options:hover li:nth-child(2):hover h3
-    {
-        font-size:200%;
+    &:hover li:nth-child(2):hover h3 {
+        font-size: 200%;
     }
 
-    .options:hover li:nth-child(2) h3
-    {
-        font-size:inherit;
+    .options:hover li:nth-child(2) h3 {
+        font-size: inherit;
     }
 
-    li a
-    {
-        background: rgba(73,151,203,0.8);
+    li a {
+        background: rgba(73, 151, 203, 0.8);
         padding: 2px;
         border-radius: 1px;
-        display:block;
-        margin:5px;
+        display: block;
+        margin: 5px;
+        white-space: normal;
     }
 
-    li:first-of-type
-    {
-        margin-left:-1.5%;
+    li:first-of-type {
+        margin-left: -1.5%;
     }
 
-    li:last-of-type
-    {
-        margin-right:-1.5%;
+    li:last-of-type {
+        margin-right: -1.5%;
     }
 }
 
+@media all and (max-width: 700px) {
+    .options li a,
+    .options li a /deep/ h3,
+    .options li a /deep/ h4,
+    .options li a /deep/ h5 {
+        font-size:12px;
+        line-height: 20px;
+    }
+
+    .options li:nth-child(2) h3,
+    .options li:hover h3,
+    .options:hover li:nth-child(2):hover h3 {
+        font-size: 130%;
+    }
+}
