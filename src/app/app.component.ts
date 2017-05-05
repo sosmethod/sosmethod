@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
 
     public route: Subject<string> = new Subject();
     public isOpen: boolean;
-    public inactive: Subject<boolean> = new Subject();
+    public inactive: ReplaySubject<boolean> = new ReplaySubject();
     private mousemove: Observable<any>;
     private timeout: any;
 

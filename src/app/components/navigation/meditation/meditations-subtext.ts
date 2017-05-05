@@ -34,18 +34,18 @@ export class MeditationsSubtextComponent implements OnInit {
                 // TODO: get first uncompleted or first
                 setTimeout(() => {
                     const audio = $(that._el.nativeElement).find('[routerLink*="' + this.series$ + '"]').first().attr('routerLink');
-                    return that.router.navigate([audio], {replaceUrl: true});
+                    that.router.navigate([audio], {replaceUrl: true});
                 });
                 this.day$ = '';
             } else {
-                const day = $(that._el.nativeElement).find('[routerLink*="' + params['audio'] + '"]').index();
                 this.audio.nextUp = this.audio.AWS + encodeURIComponent(params['audio']);
                 this.audio.Play();
                 setTimeout(() => {
+                    const day = $(that._el.nativeElement).find('[routerLink*="' + params['audio'] + '"]').index();
                     that.audio.playerPositions.next($(that._el.nativeElement).find('a[href*=".mp3"]').length);
                     that.audio.position.next(day);
+                    this.day$ = '_day_' + day;
                 });
-                this.day$ = '_day_' + day;
             }
         });
     }

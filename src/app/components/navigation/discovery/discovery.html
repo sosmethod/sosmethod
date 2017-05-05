@@ -42,8 +42,8 @@
            class=" sos-circle sos-circle-blue locked"
            *ngIf="(series$ | async) === 'kids'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 11 day</span></span></a>
-        <a md-button (click)="doNothing()" mdTooltip="Release stress &amp; gain a bright mind"
-           class=" sos-circle sos-circle-coral locked"
+        <a md-button routerLink="/_5_day/pets" mdTooltip="Release stress &amp; gain a bright mind"
+           class=" sos-circle sos-circle-coral"
            *ngIf="(series$ | async) === 'pets'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 5 day</span></span></a>
         <a md-button (click)="doNothing()" mdTooltip="Advance positivity &amp; mindful awareness"

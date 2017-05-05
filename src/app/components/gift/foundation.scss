@@ -11,6 +11,9 @@
     background:url(/assets/shutterstock_313783940_small.jpg);
     background-size: cover;
     padding:50px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #foundation p:first-of-type
@@ -31,20 +34,8 @@
     vertical-align: middle;
 }
 
-#foundation > div,
-#how-it-works,
-#signup .description > div
-{
-    padding:40px;
-    background:rgba(73,151,203,0.8);
-    position:relative;
-    margin-bottom:50px;
-    z-index: 1;
-}
-
 #foundation > div
 {
-    margin-left:-6px;
     width:50%;
     display:inline-block;
     vertical-align: middle;
@@ -55,9 +46,18 @@
         padding: 20px;
     }
 
-    #foundation > div,
-    #how-it-works,
-    #signup .description > div {
-        padding: 15px;
+    #foundation > div {
+        width:100%;
+        padding-bottom:150px;
+    }
+
+    #foundation img {
+        position:absolute;
+        bottom:0;
+        z-index: 2;
+        padding:0;
+        max-width: 150px;
+        max-height: 150px;
+        margin-bottom:20px;
     }
 }

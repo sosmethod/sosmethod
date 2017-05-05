@@ -12,11 +12,12 @@ import {ForgotPasswordComponent} from './forgot/forgot';
 import {ResendCodeComponent} from './resend/resend';
 
 import { routing } from './account.routing';
-import {AccountProfileComponent} from "./profile/profile";
-import {MaterialModule, MdCard, MdIcon} from "@angular/material";
-import {SubscriptionComponent} from "./profile/subscription";
-import {DiscoveryTimelineComponent} from "./profile/discovery-timeline";
-import {MeditationTimelineComponent} from "./profile/meditation-timeline";
+import {AccountProfileComponent} from './profile/profile';
+import {MaterialModule, MdCard, MdIcon} from '@angular/material';
+import {SubscriptionComponent} from './profile/subscription';
+import {DiscoveryTimelineComponent} from './profile/discovery-timeline';
+import {MeditationTimelineComponent} from './profile/meditation-timeline';
+import {COMMON_MODULES} from '../../shared/common.module';
 
 
 export const COMPONENTS = [
@@ -35,13 +36,8 @@ export const COMPONENTS = [
 
 @NgModule({
     imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        RouterModule,
-        TranslateModule,
-        FormsModule,
+        ...COMMON_MODULES,
         routing,
-        MaterialModule
     ],
     declarations: COMPONENTS,
     exports: COMPONENTS

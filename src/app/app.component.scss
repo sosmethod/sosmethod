@@ -58,7 +58,7 @@
     background-image:url(/assets/icon_active_bk-tray-close.png);
 }
 
-bc-sidenav, bc-sidenav ~ .stretch-right, .preview-inner, .meditate, bc-discovery-series, bc-player-controls {
+bc-sidenav, bc-sidenav ~ .stretch-right, .preview-inner, .meditate, bc-discovery-series, bc-player-controls, bc-meditations {
     transition: opacity ease-in-out 1s;
 }
 
@@ -71,10 +71,10 @@ bc-sidenav.playing.inactive, bc-sidenav.playing.inactive ~ .stretch-right {
 
     .activate {
         opacity: 1;
-        z-index:1000;
+        z-index:10000;
     }
 
-    .preview-inner, .meditate, bc-discovery-series, bc-player-controls {
+    .preview-inner, .meditate, bc-discovery-series, bc-player-controls, bc-meditations {
         opacity: 0;
         z-index:0;
     }

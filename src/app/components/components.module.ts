@@ -26,9 +26,9 @@ import {ToolDialogComponent} from './tools/tool';
 import {SurveyDialogComponent} from './survey/survey';
 import {PlayerComponent} from './player/player';
 import {PlayerControlsComponent} from './player/player-controls';
-import {BonusDialogComponent} from "./bonus/bonus";
-import {MaterialModule, MdCard, MdIcon} from "@angular/material";
-import {TestimonialPageComponent} from "./testimonials/page";
+import {BonusDialogComponent} from './bonus/bonus';
+import {MaterialModule, MdCard, MdIcon} from '@angular/material';
+import {TestimonialPageComponent} from './testimonials/page';
 
 
 export const COMPONENTS = [

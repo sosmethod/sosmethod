@@ -98,6 +98,19 @@
         <li><a md-button routerLink="/_5_day/focus_and_creativity/Day 5 - 5 DAY Focus & Creativity - Value of Time.mp3"><span></span></a></li>
     </ol>
 </div>
+<div  *ngIf="series$ == 'pets' && router.url.indexOf('_5_day') > -1"
+      class="_5_day_pets _5_day">
+    <a md-button routerLink="/discovery/pets"> </a>
+    <h1>{{"DISCOVERY.TITLE._5_day_pets" | translate}}</h1>
+    <h2>{{"DISCOVERY.SUBTITLE._5_day_pets" | translate}}</h2>
+    <ol>
+        <li><a md-button routerLink="/_5_day/pets/01 1 HD 5 day ESS Meditation Reinvented FINAL.mp3"><span></span></a></li>
+        <li><a md-button routerLink="/_5_day/pets/01 2 HD 5day ESS Genetics V2 FINAL.mp3"><span></span></a></li>
+        <li><a md-button routerLink="/_5_day/pets/01 3 HD 5 day ESS Halo FINAL.mp3"><span></span></a></li>
+        <li><a md-button routerLink="/_5_day/pets/01 4 HD 5day ESS SDR Tool FINAL.mp3"><span></span></a></li>
+        <li><a md-button routerLink="/_5_day/pets/01 5 HD 5day ESS Excellent Adventures FINAL.mp3"><span></span></a></li>
+    </ol>
+</div>
 <div  *ngIf="series$ == 'improving_relationships' && router.url.indexOf('_5_day') > -1"
       class="_5_day_improving_relationships _5_day">
     <a md-button routerLink="/discovery/improving_relationships"> </a>

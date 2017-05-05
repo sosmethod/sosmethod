@@ -1,4 +1,4 @@
-<div [class]="day$ | async" [class.single]="(audio.playerPositions | async) == 1"></div>
+<div [class]="day$" [class.single]="(audio.playerPositions | async) == 1"></div>
 <div *ngIf="series$ == 'calm_strength' && router.url.indexOf('classic_calm') > -1"
      class="meditations_classic_calm_calm_strength">
     <a md-button class="sos-circle sos-circle-mini sos-circle-purple" routerLink="/meditations/classic_calm/calm_strength/CALM &amp; STRENGTH 5.mp3">

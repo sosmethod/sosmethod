@@ -63,16 +63,18 @@
             "_11_day_focus_and_creativity": "11 Day Focus & Creativity",
             "_5_day_soothing_relief": "5 Day Soothing Relief",
             "_11_day_soothing_relief": "11 Day Soothing Relief",
-            "_5_day_improving_relationships": "5 Day Improving Relationships"
+            "_5_day_improving_relationships": "5 Day Improving Relationships",
+            "_5_day_pets": "5 Day Happy Dogs"
         },
         "SUBTITLE": {
             "_5_day_essentials": "release stress and gain peace of mind",
-            "_11_day_essentials": "release stress and gain peace of mind",
+            "_11_day_essentials": "advance positivity & mindful awareness",
             "_5_day_focus_and_creativity": "release stress and expand peace of mind",
             "_11_day_focus_and_creativity": "increase performance & fulfillment",
             "_5_day_soothing_relief": "overcome patterns, gain vitality & joy",
             "_11_day_soothing_relief": "release stress and expand peace of mind",
-            "_5_day_improving_relationships": "open communication & acceptance"
+            "_5_day_improving_relationships": "open communication & acceptance",
+            "_5_day_pets": "release stress & gain a bright mind"
         },
         "SERIES": {
             "_5_day_essentials": {
@@ -103,6 +105,13 @@
                 "_day_3": "day 3 - the most important thing - 6 min",
                 "_day_4": "day 4 - stop drop & roll tool - 6 min",
                 "_day_5": "day 5 - excellence - 6 min"
+            },
+            "_5_day_pets": {
+                "_day_1": "day 1 - meditation reinvented - 6 min",
+                "_day_2": "day 2 - genetics - 7 min",
+                "_day_3": "day 3 - halo - 7 min",
+                "_day_4": "day 4 - stop drop & roll tool - 7 min",
+                "_day_5": "day 5 - excellent adventures - 7 min"
             },
             "_11_day_essentials": {
                 "_day_1": "day 1 - overcome stumbling blocks reinvented - 5 min",

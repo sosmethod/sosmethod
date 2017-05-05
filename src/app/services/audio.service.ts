@@ -8,11 +8,12 @@ import {Observer} from 'rxjs/Observer';
 import {Observable} from 'rxjs/Observable';
 import {Injectable, NgZone} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
+import {ReplaySubject} from 'rxjs/ReplaySubject';
 
 @Injectable()
 export class AudioService {
-    public playerPositions: Subject<number> = new Subject();
-    public position: Subject<number> = new Subject();
+    public playerPositions: ReplaySubject<number> = new ReplaySubject();
+    public position: ReplaySubject<number> = new ReplaySubject();
     public nextUp: string;
     public AWS = 'https://s3-us-west-2.amazonaws.com/sosmethod/';
 
