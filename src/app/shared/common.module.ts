@@ -5,22 +5,17 @@ import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 import {NgModule} from '@angular/core';
-import {BrowserModule} from "@angular/platform-browser";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
-
-export const COMPONENTS: any[] = [
-];
+export const COMPONENTS: any[] = [];
 
 @NgModule({
     declarations: COMPONENTS,
     exports: COMPONENTS
 })
-export class SharedModule {}
+export class SharedModule {
+}
 
 export const COMMON_MODULES = [
-    BrowserModule,
-    BrowserAnimationsModule,
     CommonModule,
     ReactiveFormsModule,
     MaterialModule,

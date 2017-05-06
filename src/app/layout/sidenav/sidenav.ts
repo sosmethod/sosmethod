@@ -1,5 +1,5 @@
 ﻿import {Component, Input} from '@angular/core';
-import {LayoutService} from "../../services/layout";
+import {LayoutService} from '../../services/layout';
 
 @Component({
     selector: 'bc-sidenav',
@@ -10,7 +10,6 @@ export class SidenavComponent {
     @Input() open = false;
 
     constructor(public layout: LayoutService) {
-
     }
 
     setVideoSource(v: string, b: string) {

@@ -1,0 +1,23 @@
+md-sidenav {
+    max-width: 140px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/deep/ .tools div.locked span:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    background: url(/assets/lock_white-ffffff.png);
+    bottom: auto;
+    top: 5px;
+    right: 10px;
+    left: auto;
+}
+
+

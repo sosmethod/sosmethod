@@ -11,17 +11,19 @@
 
 .signup, .gift {
     .mat-sidenav-container[fullscreen] {
-        position:static;
+        position: static;
     }
 }
 
+.return-to-top,
 .stretch-right {
-    position:absolute;
-    bottom:10px;
-    right:10px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
     z-index: 1001;
 }
 
+.return-to-top button,
 .stretch-right > button {
     height: 36px;
     width: 36px;
@@ -30,61 +32,79 @@
     background-position: 50% 50%;
     margin: 8px 12px;
     padding: 0;
-    min-width:0;
-    display:inline-block;
+    min-width: 0;
+    display: inline-block;
     border-radius: 100%;
-    overflow:hidden;
+    overflow: hidden;
 }
 
-.stretch-right button
-{
+.return-to-top button,
+.return-to-top button:hover,
+.stretch-right button {
     transition: margin-right .15s ease-in-out;
-    background-image:url(/assets/icon_static_bk-tray.png);
+    background-image: url(/assets/icon_static_bk-tray.png);
 }
 
-.stretch-right button:hover
-{
-    background-image:url(/assets/icon_active_bk-tray.png);
+.return-to-top button,
+.stretch-right button:hover {
+    background-image: url(/assets/icon_active_bk-tray.png);
 }
 
-.stretch-right button.active
-{
-    margin-right:150px;
-    background-image:url(/assets/icon_static_bk-tray-close.png);
+.return-to-top {
+    transform: rotate(90deg);
 }
 
-.stretch-right button.active:hover
-{
-    background-image:url(/assets/icon_active_bk-tray-close.png);
+.stretch-right button.active {
+    margin-right: 150px;
+    background-image: url(/assets/icon_static_bk-tray-close.png);
 }
 
-bc-sidenav, bc-sidenav ~ .stretch-right, .preview-inner, .meditate, bc-discovery-series, bc-player-controls, bc-meditations {
+.stretch-right button.active:hover {
+    background-image: url(/assets/icon_active_bk-tray-close.png);
+}
+
+.preview-inner, .meditate, bc-discovery-series, bc-player-controls, bc-meditations {
     transition: opacity ease-in-out 1s;
 }
 
-bc-sidenav.playing.inactive, bc-sidenav.playing.inactive ~ .stretch-right {
+bc-app .activate {
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+}
+
+.playing.inactive, .playing.inactive ~ .stretch-right {
     opacity: 0;
-    z-index:0;
+    z-index: 0;
+}
+
+.playing.inactive ~ .activate {
+    opacity: 1;
+    z-index: 10000;
 }
 
 .playing.inactive ~ * {
 
-    .activate {
-        opacity: 1;
-        z-index:10000;
-    }
-
     .preview-inner, .meditate, bc-discovery-series, bc-player-controls, bc-meditations {
         opacity: 0;
-        z-index:0;
+        z-index: 0;
     }
 
 }
 
-bc-sidenav[ng-reflect-open="true"] ~ * {
-    .preview-inner, .meditate, bc-discovery-series, bc-player-controls, bc-meditations {
+[ng-reflect-open="true"] ~ .activate {
+    opacity: 1;
+    z-index: 900;
+}
+
+[ng-reflect-open="true"] ~ *, [ng-reflect-open="true"] {
+
+    .preview-inner, .meditate, & ~ bc-toolbar, bc-discovery, bc-mediation, bc-course, bc-main-menu, bc-discovery-series, bc-player-controls, bc-meditations, footer {
         opacity: .3;
-        z-index:0;
+        z-index: 0 !important;
     }
 }
 

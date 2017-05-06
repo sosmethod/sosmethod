@@ -1,0 +1,36 @@
+<md-sidenav [opened]="open" align="start">
+    <md-nav-list>
+        <aside id="select-template">
+            <div [class.locked]="auth.user == null">
+                <span>Mindful Tools</span>
+                <small>Smart processes that develop habits to be responsive and adaptive to everyday life</small>
+            </div>
+            <button md-raised-button [class.locked]="getLocked('/tool/positivity')" routerLink="/tool/positivity">
+                <span>Positivity</span>
+                <small>Uplifting start to the day</small>
+            </button>
+            <button md-raised-button [class.locked]="getLocked('/tool/possibility_5')" routerLink="/tool/possibility_5">
+                <span>Positivity</span>
+                <small>Uplifting start to the day</small>
+            </button>
+            <button md-raised-button [class.locked]="getLocked('/tool/envision')" routerLink="/tool/envision">
+                <span>Request &amp; Envision</span>
+                <small>Ask for guidance &amp; imagine the future</small>
+            </button>
+            <button md-raised-button [class.locked]="getLocked('/tool/stop_drop')" routerLink="/tool/stop_drop">
+                <span>Stop Drop &amp; Roll</span>
+                <small>Emergency release of emotion</small>
+            </button>
+            <button md-raised-button [class.locked]="getLocked('/tool/communication')" routerLink="/tool/communication">
+                <span>Conscious Communication</span>
+                <small>Empowering thoughts &amp; words</small>
+            </button>
+            <button md-raised-button [class.locked]="getLocked('/tool/rewind')" routerLink="/tool/rewind">
+                <span>Rewind</span>
+                <small>Let go of past hurt &amp; upset</small>
+            </button>
+            <!--<button md-raised-button routerLink="/tool/morning">
+                <span>Morning After</span><small>What worked, what didn't, what's better</small></button>-->
+        </aside>
+    </md-nav-list>
+</md-sidenav>

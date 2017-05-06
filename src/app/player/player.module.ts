@@ -8,7 +8,7 @@ import {DiscoverySubtextComponent} from './discovery/discovery-subtext';
 import {MeditationsComponent} from './meditation/meditations';
 import {MeditateComponent} from './meditate/meditate';
 import {MeditationsSubtextComponent} from './meditation/meditations-subtext';
-import {PlayerComponent} from './player';
+import {PlayerComponent} from './player.component';
 import {PlayerControlsComponent} from './player-controls';
 import {COMMON_MODULES} from '../shared/common.module';
 import {routing} from "./player.routing";

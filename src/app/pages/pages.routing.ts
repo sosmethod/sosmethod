@@ -1,34 +1,21 @@
 import {RouterModule, Routes} from '@angular/router';
-import {ModuleWithProviders} from '@angular/core';
-import {AuthGuard} from '../dialogs/auth/auth-guard';
-import {SignupComponent} from './signup/signup';
-import {GiftComponent} from './gift/gift';
-import {TestimonialPageComponent} from './testimonials/page';
 
-export const pageRoutes: Routes = [
+import {ModuleWithProviders} from '@angular/core';
+
+export const pagesRoutes: Routes = [
     {
         path: 'signup',
-        canActivate: [AuthGuard],
-        canActivateChild: [AuthGuard],
-        data: {roles: ['anonymous', 'user']},
-        component: SignupComponent,
+        loadChildren: './signup/signup.module#SignupModule'
     },
     {
         path: 'gift',
-        canActivate: [AuthGuard],
-        canActivateChild: [AuthGuard],
-        data: {roles: ['anonymous', 'user']},
-        component: GiftComponent,
+        loadChildren: './gift/gift.module#GiftModule'
     },
     {
         path: 'testimonials',
-        canActivate: [AuthGuard],
-        canActivateChild: [AuthGuard],
-        data: {roles: ['anonymous', 'user']},
-        component: TestimonialPageComponent,
-    }
+        loadChildren: './testimonials/testimonials.module#TestimonialsModule'
+    },
 ];
 
-
-export const routing: ModuleWithProviders = RouterModule.forChild(pageRoutes);
+export const routing: ModuleWithProviders = RouterModule.forChild(pagesRoutes);
 

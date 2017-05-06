@@ -7,17 +7,18 @@ import {MeditationComponent} from "./meditation/meditation";
 import {FooterComponent} from "../layout/footer/footer";
 import {AngularFire} from "angularfire2";
 import {Observable} from "rxjs/Observable";
+import {ToolsMenuComponent} from "../layout/sidenav/tools";
 
 
 @Injectable()
 export class ContentGuard {
 
-    constructor(
-        public auth: AuthGuard,
-        public af: AngularFire,
-        public dialog: MdDialog,
-        public router: Router) {
+    constructor(public auth: AuthGuard,
+                public af: AngularFire,
+                public dialog: MdDialog,
+                public router: Router) {
     }
+
     canActivate(route: ActivatedRouteSnapshot,
                 state: RouterStateSnapshot): Observable<boolean> {
         return this.redirectDialog(route);
@@ -38,7 +39,7 @@ export class ContentGuard {
                 pass = !MeditationComponent.isLocked(this.auth.user, route.url.toString());
             }
             if (route.url.toString().indexOf('tool') > -1) {
-                pass = !FooterComponent.isLocked(this.auth.user, route.url.toString());
+                pass = !ToolsMenuComponent.isLocked(this.auth.user, route.url.toString());
             }
             if (!pass) {
                 const that = this;

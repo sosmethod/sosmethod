@@ -1,29 +1,26 @@
 #player {
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    min-height:100%;
-    display:flex;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    min-height: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
-#player h3
-{
-    position:absolute;
-    bottom:-10px;
-    width:100%;
-    left:0;
-    top:auto;
+#player h3 {
+    position: absolute;
+    bottom: -10px;
+    width: 100%;
+    left: 0;
+    top: auto;
 }
 
 #player .preview-progress,
 #player .preview-play .pause,
-#player .preview-play .play
-{
-    display:block;
+#player .preview-play .play {
+    display: block;
     height: 65px;
     width: 65px;
     border: 0;
@@ -33,45 +30,45 @@
 }
 
 #player .preview-inner {
-    position:relative;
+    position: relative;
     transition: margin ease-in-out .25s, opacity ease-in-out 1s;
 }
 
 #player .preview-play {
-    position:absolute;
-    top:0;
+    position: absolute;
+    top: 0;
     z-index: 100;
 }
 
 #player .preview-play .play {
     background: url(/assets/play.png) no-repeat 50% 50%;
-    background-size:auto 30px;
+    background-size: auto 30px;
 }
 
 #player .preview-play .pause {
     display: none;
     background: url(/assets/pause.png) no-repeat 50% 50%;
-    background-size:auto 30px;
+    background-size: auto 30px;
 }
 
 #player .preview-progress {
-    background:none transparent;
+    background: none transparent;
 }
 
 #player .preview-progress:before {
     content: " ";
-    position:absolute;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     border: 2px solid rgba(255, 255, 255, .5);
     border-radius: 100%;
 }
 
 .preview-progress md-progress-spinner {
-    height:65px;
-    width:65px;
+    height: 65px;
+    width: 65px;
 }
 
 .preview-progress md-progress-spinner /deep/ svg {
@@ -89,15 +86,15 @@
 }
 
 .first .preview-inner {
-    margin-left:-90px;
+    margin-left: -90px;
 }
 
 .second .preview-inner {
-    margin-left:89px;
+    margin-left: 89px;
 }
 
 .single .preview-inner {
-    margin-left:-1px;
+    margin-left: -1px;
 }
 
 .triple.first .preview-inner {
@@ -113,18 +110,9 @@
 }
 
 #player.playing .preview-play .play {
-    display:none;
+    display: none;
 }
 
 #player.playing .preview-play .pause {
-    display:block;
-}
-
-.activate {
-    z-index: 0;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    position:absolute;
+    display: block;
 }

@@ -20,7 +20,7 @@ module.exports = {
             {
                 test: /\.ts$/,
                 exclude: helpers.root('functions'),
-                loaders: ['ts-loader', 'angular2-template-loader']
+                loaders: ['ts-loader', 'angular2-template-loader', 'angular-router-loader']
             },
             {
                 test: /\.html$/,
@@ -33,12 +33,12 @@ module.exports = {
             {
                 test: /\.css$/,
                 exclude: helpers.root('src', 'app'),
-                loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?sourceMap' })
+                loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?sourceMap'})
             },
             {
                 test: /\.less$/,
                 exclude: helpers.root('src', 'app'),
-                loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?sourceMap!sass-loader'})
+                loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?sourceMap!sass-loader'})
             },
             {
                 test: /\.css$/,
@@ -51,8 +51,8 @@ module.exports = {
                 loader: 'raw-loader!less-loader'
             },
             {
-              test: /\.scss$/,
-              loaders: ['css-to-string-loader','css-loader','sass-loader']
+                test: /\.scss$/,
+                loaders: ['css-to-string-loader', 'css-loader', 'sass-loader']
             }
         ]
     },
@@ -73,7 +73,7 @@ module.exports = {
         }),
 
         new CopyWebpackPlugin([
-            { from: 'src/assets', to: 'assets'},
+            {from: 'src/assets', to: 'assets'},
         ])
     ],
 

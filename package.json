@@ -62,9 +62,12 @@
         "@angular/compiler-cli": "latest",
         "@types/hammerjs": "latest",
         "@types/jasmine": "latest",
-        "@types/node": "latest",
         "@types/jquery": "latest",
+        "@types/node": "latest",
+        "@types/systemjs": "^0.20.2",
+        "angular-router-loader": "latest",
         "angular2-template-loader": "latest",
+        "codelyzer": "latest",
         "concurrently": "latest",
         "copy-webpack-plugin": "latest",
         "css-loader": "latest",
@@ -93,7 +96,6 @@
         "ts-node": "latest",
         "tslint": "latest",
         "tslint-loader": "latest",
-        "typescript": "latest",
-        "codelyzer": "latest"
+        "typescript": "latest"
     }
 }

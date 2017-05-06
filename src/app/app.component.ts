@@ -1,6 +1,6 @@
 ﻿import 'rxjs/add/operator/let';
-import { Component, ViewEncapsulation, OnInit, NgZone } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import {Component, ViewEncapsulation, OnInit, NgZone} from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 import {LayoutService} from './services/layout';
 import {NavigationEnd, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
@@ -13,11 +13,11 @@ import {Observer} from 'rxjs/Observer';
 
 
 @Component({
-  selector: 'bc-app',
-  providers: [TranslateService, AudioService],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'bc-app',
+    providers: [TranslateService, AudioService],
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 
 export class AppComponent implements OnInit {
@@ -28,14 +28,13 @@ export class AppComponent implements OnInit {
     private mousemove: Observable<any>;
     private timeout: any;
 
-    constructor(
-        private _zone: NgZone,
-        public af: AngularFire,
-        public layout: LayoutService,
-        private translate: TranslateService,
-        public auth: AuthGuard,
-        public audio: AudioService,
-        public router: Router) {
+    constructor(private _zone: NgZone,
+                public af: AngularFire,
+                public layout: LayoutService,
+                private translate: TranslateService,
+                public auth: AuthGuard,
+                public audio: AudioService,
+                public router: Router) {
         const that = this;
         this.translate.addLangs(['en', 'fr', 'tr']);
         this.translate.setDefaultLang('en');
@@ -70,18 +69,27 @@ export class AppComponent implements OnInit {
             clearTimeout(this.timeout);
             this.inactive.next(false);
         }
-        this.timeout = setTimeout(() => { that.inactive.next(true); }, 5000);
+        this.timeout = setTimeout(() => {
+            that.inactive.next(true);
+        }, 5000);
     }
 
     closeSidenav() {
-      this.layout.sidebarOpen$.next(false);
+        this.layout.sidebarOpen$.next(false);
     }
 
     openSidenav() {
-      this.layout.sidebarOpen$.next(true);
+        this.layout.sidebarOpen$.next(true);
     }
 
     toggleSidenav() {
         this.layout.sidebarOpen$.next(!this.isOpen);
+    }
+
+    activate() {
+        if (this.isOpen) {
+            this.closeSidenav();
+        }
+        this.onMouseMove();
     }
 }

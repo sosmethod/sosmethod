@@ -1,7 +1,7 @@
 import {RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {AuthGuard} from '../dialogs/auth/auth-guard';
-import {PlayerComponent} from './player';
+import {PlayerComponent} from './player.component';
 import {ContentGuard} from '../menus/content-guard';
 
 export const playerRoutes: Routes = [

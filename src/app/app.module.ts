@@ -26,15 +26,17 @@ import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
 import {environment} from '../../config/environment';
 import {ContentGuard} from './menus/content-guard';
 import {COMMON_MODULES} from './shared/common.module';
-import {AsyncPipe} from '@angular/common';
-import {SignupModule} from "./pages/signup.module";
-import {GiftModule} from "./pages/gift.module";
-import {DialogModule} from "./dialogs/dialogs.module";
-import {MenusModule} from "./menus/menus.module";
-import {PlayerModule} from "./player/player.module";
-import {ToolsModule} from "./dialogs/tools.module";
-import {SurveyModule} from "./dialogs/survey.module";
-import {BonusModule} from "./dialogs/bonus.module";
+import {GiftModule} from './pages/gift/gift.module';
+import {DialogModule} from './dialogs/dialogs.module';
+import {MenusModule} from './menus/menus.module';
+import {PlayerModule} from './player/player.module';
+import {ToolsModule} from './dialogs/tools.module';
+import {SurveyModule} from './dialogs/survey.module';
+import {BonusModule} from './dialogs/bonus.module';
+import {RouterModule} from '@angular/router';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserModule} from '@angular/platform-browser';
+import {PagesModule} from "./pages/pages.module";
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -47,6 +49,8 @@ const myFirebaseAuthConfig = {
 
 @NgModule({
     imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
         ...COMMON_MODULES,
 
         AngularFireModule.initializeApp(environment.firebase, myFirebaseAuthConfig),
@@ -59,17 +63,18 @@ const myFirebaseAuthConfig = {
         }),
         routing,
 
-        AuthModule,
+        PagesModule,
+
         LayoutModule,
-        SignupModule,
-        GiftModule,
         DialogModule,
         MenusModule,
         PlayerModule,
+        AuthModule,
         ToolsModule,
         SurveyModule,
         BonusModule
     ],
+    exports: [RouterModule],
     declarations: [
         AppComponent,
         NotFoundComponent,

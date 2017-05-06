@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import 'slick-carousel';
-import {TestimonialsComponent} from './testimonials';
+import {TestimonialsComponent} from '../shared/testimonials';
 
 
 @Component({

@@ -1,8 +1,9 @@
 import {NgModule} from '@angular/core';
-import {COMMON_MODULES} from '../shared/common.module';
-import {GiftTestimonialsComponent} from './testimonials/gift-testimonials';
-import {GiftComponent} from './gift/gift';
-import {FoundationComponent} from './gift/foundation';
+import {COMMON_MODULES} from '../../shared/common.module';
+import {GiftTestimonialsComponent} from '../testimonials/gift-testimonials';
+import {GiftComponent} from './gift';
+import {FoundationComponent} from './foundation';
+import {routing} from './gift.routing';
 export const COMPONENTS = [
     GiftComponent,
     GiftTestimonialsComponent,
@@ -13,6 +14,7 @@ export const COMPONENTS = [
 @NgModule({
     imports: [
         ...COMMON_MODULES,
+        routing
     ],
     declarations: COMPONENTS,
     exports: COMPONENTS

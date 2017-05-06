@@ -1,14 +1,15 @@
 import {ElementRef, Injectable} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
+import {ReplaySubject} from 'rxjs/ReplaySubject';
 
 
 @Injectable()
 export class LayoutService {
 
-    sidebarOpen$: Subject<boolean> = new Subject();
-    video$: Subject<string> = new Subject();
-    background: Subject<string> = new Subject();
-    focusElement: Subject<ElementRef> = new Subject();
+    sidebarOpen$: ReplaySubject<boolean> = new ReplaySubject();
+    toolsOpen: ReplaySubject<boolean> = new ReplaySubject();
+    video$: ReplaySubject<string> = new ReplaySubject();
+    background: ReplaySubject<string> = new ReplaySubject();
+    focusElement: ReplaySubject<ElementRef | null> = new ReplaySubject();
 
     constructor() {
     }
