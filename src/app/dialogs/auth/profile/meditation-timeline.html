@@ -1,0 +1,23 @@
+<md-dialog-content>
+    <table>
+        <thead>
+        <tr>
+            <th>Meditation</th>
+            <th>Completed</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let comp of completed">
+            <td><a [routerLink]="comp.url"><i [class]="comp.color"><span></span></i>
+                <strong>{{comp.series | translate}}</strong><br/>
+                <small>{{comp.meditation | translate}}</small>
+            </a></td>
+            <td>{{comp.time.getDate() + ' ' + getMonth(comp.time.getMonth()) + ' ' + (comp.time.getFullYear() +
+                '').substr(2)}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</md-dialog-content>
+
+

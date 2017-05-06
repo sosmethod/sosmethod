@@ -1,14 +1,8 @@
 ﻿import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {CommonModule} from '@angular/common';
-import {BrowserModule} from '@angular/platform-browser';
-import {RouterModule} from '@angular/router';
-import {HttpModule, Http} from '@angular/http';
-import {NguiScrollableModule} from '@ngui/scrollable';
+import {Http} from '@angular/http';
 
-import {ComponentsModule} from './components';
-import {NavigationModule} from './components/navigation/navigation.module';
-import {AccountModule} from './components/account/account.module';
+import {LayoutModule} from './layout/layout.module';
+import {AuthModule} from './dialogs/auth/auth.module';
 
 import {AppComponent} from './app.component';
 
@@ -24,15 +18,23 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateService} from '@ngx-translate/core';
 
-import {AuthGuard} from './guards/auth';
-import {DialogGuard} from './guards/dialog';
-import {routes} from './app.routing';
+import {AuthGuard} from './dialogs/auth/auth-guard';
+import {DialogGuard} from './dialogs/dialog-guard';
+import {routing} from './app.routing';
 import {AudioService} from './services/audio.service';
 import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
 import {environment} from '../../config/environment';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialModule} from '@angular/material';
-import {ContentGuard} from './guards/content';
+import {ContentGuard} from './menus/content-guard';
+import {COMMON_MODULES} from './shared/common.module';
+import {AsyncPipe} from '@angular/common';
+import {SignupModule} from "./pages/signup.module";
+import {GiftModule} from "./pages/gift.module";
+import {DialogModule} from "./dialogs/dialogs.module";
+import {MenusModule} from "./menus/menus.module";
+import {PlayerModule} from "./player/player.module";
+import {ToolsModule} from "./dialogs/tools.module";
+import {SurveyModule} from "./dialogs/survey.module";
+import {BonusModule} from "./dialogs/bonus.module";
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -45,14 +47,9 @@ const myFirebaseAuthConfig = {
 
 @NgModule({
     imports: [
-        FormsModule,
-        CommonModule,
-        MaterialModule,
-        BrowserModule,
-        BrowserAnimationsModule,
+        ...COMMON_MODULES,
+
         AngularFireModule.initializeApp(environment.firebase, myFirebaseAuthConfig),
-        NguiScrollableModule,
-        HttpModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -60,11 +57,18 @@ const myFirebaseAuthConfig = {
                 deps: [Http]
             }
         }),
-        RouterModule.forRoot(routes, {useHash: true}),
+        routing,
 
-        AccountModule,
-        ComponentsModule,
-        NavigationModule
+        AuthModule,
+        LayoutModule,
+        SignupModule,
+        GiftModule,
+        DialogModule,
+        MenusModule,
+        PlayerModule,
+        ToolsModule,
+        SurveyModule,
+        BonusModule
     ],
     declarations: [
         AppComponent,

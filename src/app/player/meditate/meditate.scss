@@ -1,0 +1,56 @@
+.meditate {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    transition: ease-in-out .8s;
+    z-index: 200;
+}
+
+.meditate > div {
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    margin: 10px;
+    vertical-align: middle;
+    padding: 64px 0 0;
+    height: 65px;
+    font-size: 18px;
+    display: flex;
+    width: auto;
+    flex: 0 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a span > span {
+    margin: 40px 0 0;
+    display: inline-block;
+}
+
+@media all and (max-width: 500px) {
+    .meditate > div {
+        justify-content: flex-start;
+    }
+}
+
+@media all and (max-height:400px), all and (max-width: 500px) {
+
+    .meditate {
+        bottom:5px;
+    }
+
+    .meditate > div {
+        transform: scale(.75);
+        justify-content: flex-start;
+        position: relative;
+        left:-10%;
+    }
+}

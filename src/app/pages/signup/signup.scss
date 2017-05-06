@@ -1,0 +1,198 @@
+
+@import "options";
+
+h1
+{
+    text-align: center;
+    font-style: normal;
+    padding-top:0;
+    margin-top:0;
+}
+
+form h1
+{
+    text-transform: none;
+    padding: 40px 10px;
+    max-width: 1050px;
+    margin: auto;
+    text-shadow: 0 1px 2px rgba(0,0,0,1);
+}
+
+form
+{
+    padding:60px 10px 150px;
+    background: url(/assets/shutterstock_316023563_small.jpg) 50%;
+    background-size: cover;
+}
+
+h2
+{
+    text-align: center;
+    max-width: 500px;
+    display:block;
+    margin:auto;
+    font-size:18px;
+}
+
+.discovery h2,
+.meditation h2
+{
+    padding:20px 0;
+}
+
+.discovery
+{
+    background: url(/assets/shutterstock_515170852_small.jpg) 50%;
+    background-size: cover;
+}
+
+.meditation
+{
+    background: url(/assets/shutterstock_524175043_small.jpg) 90% 50%;
+    background-size: cover;
+}
+
+.description
+{
+    width:60%;
+    margin-right:-3px;
+    display:inline-block;
+    vertical-align: middle;
+    padding:60px;
+}
+
+.discovery .description
+{
+    margin-left:40%;
+}
+
+.description p:last-of-type
+{
+    text-align: center;
+}
+
+.description img
+{
+    max-width: 50%;
+}
+
+.description h3
+{
+    text-align: center;
+}
+
+.description > div
+{
+    padding:40px;
+    background:rgba(73,151,203,0.8);
+    position:relative;
+    margin-bottom:50px;
+    z-index: 1;
+}
+
+ol
+{
+    margin: 0;
+    padding:0;
+    vertical-align: middle;
+    list-style: none;
+}
+
+ol i {
+    position:absolute;
+}
+
+ol li
+{
+    margin-bottom:20px;
+    height:65px;
+    overflow:visible;
+    cursor: pointer;
+}
+
+ol li > span
+{
+    display:inline-block;
+    vertical-align: middle;
+    padding-left: 100px;
+    width: 100%;
+    transition: ease-in-out .25s;
+    max-height: 1em;
+    margin-left: -6px;
+}
+
+ol li:before
+{
+    content: " ";
+    display:inline-block;
+    height:65px;
+    vertical-align: middle;
+}
+
+ol li > span span
+{
+    color:transparent;
+    transition: ease-in-out .25s;
+}
+
+ol li:hover > span
+{
+    max-height:200px;
+}
+
+ol li:hover > span span {
+    color:inherit;
+}
+
+ol li > span strong
+{
+    margin-left:-10px;
+    font-family:"Century Gothic", sans-serif;
+}
+
+ol li:hover > span span
+{
+}
+
+@media all and (max-width: 1000px) {
+    .description {
+        width:80%;
+    }
+
+    .discovery .description {
+        margin-left:20%;
+    }
+}
+
+@media all and (max-width: 700px) {
+
+    .description > div {
+        padding:15px;
+    }
+
+    .options li h3, .options li h4, .options li h5 {
+        margin:5px 0;
+        font-size:120%;
+    }
+
+    ol li > span {
+        padding-left:80px;
+    }
+
+    h1 {
+        padding: 20px 10px 20px;
+        font-size: 20px;
+    }
+
+    .meditation .description,
+    .discovery .description
+    {
+        margin-left:0;
+        padding:20px;
+    }
+
+    .description {
+        width:100%
+    }
+
+}

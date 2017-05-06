@@ -1,0 +1,24 @@
+﻿<md-card>
+    <md-card-title>Confirm</md-card-title>
+    <md-card-subtitle>Check your email to confirm your account.</md-card-subtitle>
+    <form method="POST" action="#" role="form">
+        <md-input-container>
+            <input mdInput type="email" maxlength="50" placeholder="Email"
+                   [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+        </md-input-container>
+        <br/>
+        <md-input-container>
+            <input mdInput type="text" maxlength="50" placeholder="Confirmation Code"
+                   [(ngModel)]="confirmationCode" [ngModelOptions]="{standalone: true}">
+        </md-input-container>
+        <div class="form-group">
+            <button md-raised-button color="primary" (click)="onConfirmRegistration($event)" id="confirmRegistration"
+                    type="submit">Confirm
+            </button>
+        </div>
+        <md-card-actions>
+            <a md-raised-button routerLink="/account/register">Register</a>
+            <a md-raised-button routerLink="/account/login">Login</a>
+        </md-card-actions>
+    </form>
+</md-card>

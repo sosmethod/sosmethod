@@ -2,11 +2,11 @@
 import { Component, ViewEncapsulation, OnInit, NgZone } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import {LayoutService} from './services/layout';
-import {NavigationEnd, NavigationStart, Router} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
 import {AudioService} from './services/audio.service';
 import {AngularFire} from 'angularfire2';
-import {AuthGuard} from './guards/auth';
+import {AuthGuard} from './dialogs/auth/auth-guard';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {Observable} from 'rxjs/Observable';
 import {Observer} from 'rxjs/Observer';
