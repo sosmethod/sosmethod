@@ -81,5 +81,11 @@ bc-sidenav.playing.inactive, bc-sidenav.playing.inactive ~ .stretch-right {
 
 }
 
+bc-sidenav[ng-reflect-open="true"] ~ * {
+    .preview-inner, .meditate, bc-discovery-series, bc-player-controls, bc-meditations {
+        opacity: .3;
+        z-index:0;
+    }
+}
 
 
