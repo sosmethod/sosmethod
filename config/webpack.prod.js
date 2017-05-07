@@ -18,7 +18,10 @@ module.exports = webpackMerge(commonConfig, {
 
     plugins: [
         new webpack.NoErrorsPlugin(),
-        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: false,
+            sourceMap: false
+        }),
         new ExtractTextPlugin('[name].[hash].css'),
         new webpack.DefinePlugin({
             'process.env': {

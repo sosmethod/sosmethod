@@ -1,8 +1,16 @@
 ﻿import {NgModule} from '@angular/core';
 import {Http} from '@angular/http';
+import {RouterModule} from '@angular/router';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserModule} from '@angular/platform-browser';
+import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
 
+// sos modules
 import {LayoutModule} from './layout/layout.module';
-import {AuthModule} from './dialogs/auth/auth.module';
+import {DialogModule} from './dialogs/dialogs.module';
+import {MenusModule} from './menus/menus.module';
+import {PlayerModule} from './player/player.module';
+import {PagesModule} from './pages/pages.module';
 
 import {AppComponent} from './app.component';
 
@@ -12,30 +20,21 @@ import {NotAuthorizedComponent} from './error/401/not-authorized';
 
 // auth services
 import {LayoutService} from './services/layout';
+import {AudioService} from './services/audio.service';
 
 // translation service
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateService} from '@ngx-translate/core';
 
-import {AuthGuard} from './dialogs/auth/auth-guard';
-import {DialogGuard} from './dialogs/dialog-guard';
-import {routing} from './app.routing';
-import {AudioService} from './services/audio.service';
-import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
-import {environment} from '../../config/environment';
+// guards
 import {ContentGuard} from './menus/content-guard';
+import {AuthGuard} from './dialogs/+auth/auth-guard';
+import {DialogGuard} from './dialogs/dialog-guard';
+
+import {routing} from './app.routing';
+import {environment} from '../../config/environment';
 import {COMMON_MODULES} from './shared/common.module';
-import {DialogModule} from './dialogs/dialogs.module';
-import {MenusModule} from './menus/menus.module';
-import {PlayerModule} from './player/player.module';
-import {ToolsModule} from './dialogs/tools/tools.module';
-import {SurveyModule} from './dialogs/survey/survey.module';
-import {BonusModule} from './dialogs/bonus/bonus.module';
-import {RouterModule} from '@angular/router';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {BrowserModule} from '@angular/platform-browser';
-import {PagesModule} from './pages/pages.module';
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -67,8 +66,7 @@ const myFirebaseAuthConfig = {
 
         LayoutModule,
         MenusModule,
-        PlayerModule,
-        AuthModule,
+        PlayerModule
     ],
     exports: [RouterModule],
     declarations: [

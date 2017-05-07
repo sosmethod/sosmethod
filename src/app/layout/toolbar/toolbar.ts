@@ -3,10 +3,10 @@ import {MdDialog} from '@angular/material';
 import {ContactDialogComponent} from '../../dialogs/contact/contact';
 import {NavigationEnd, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
-import {AccountLoginComponent} from '../../dialogs/auth/login/login';
+import {AccountLoginComponent} from '../../dialogs/+auth/login/login';
 import {AudioService} from '../../services/audio.service';
 import {AngularFire, FirebaseAuthState} from 'angularfire2';
-import {AuthGuard} from '../../dialogs/auth/auth-guard';
+import {AuthGuard} from '../../dialogs/+auth/auth-guard';
 import {AsyncPipe} from '@angular/common';
 
 

@@ -1,6 +1,6 @@
 import {RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {AuthGuard} from '../auth/auth-guard';
+import {AuthGuard} from '../+auth/auth-guard';
 
 import {DialogGuard} from '../dialog-guard';
 import {SurveyDialogComponent} from './survey';

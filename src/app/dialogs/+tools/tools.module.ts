@@ -1,16 +1,17 @@
 import {NgModule} from '@angular/core';
 
-import {SurveyDialogComponent} from './survey';
+import {ToolDialogComponent} from './tool';
 
 import {COMMON_MODULES} from '../../shared/common.module';
-import {routing} from './survey.routing';
-import {AuthGuard} from '../auth/auth-guard';
+import {routing} from './tools.routing';
 import {DialogGuard} from '../dialog-guard';
+import {AuthGuard} from '../+auth/auth-guard';
 
 
 export const COMPONENTS = [
-    SurveyDialogComponent,
+    ToolDialogComponent,
 ];
+
 
 @NgModule({
     imports: [
@@ -21,5 +22,5 @@ export const COMPONENTS = [
     declarations: COMPONENTS,
     exports: COMPONENTS
 })
-export class SurveyModule {
+export class ToolsModule {
 }

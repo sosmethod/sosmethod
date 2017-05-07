@@ -1,6 +1,6 @@
 import {RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {AuthGuard} from '../dialogs/auth/auth-guard';
+import {AuthGuard} from '../dialogs/+auth/auth-guard';
 
 import {DiscoveryComponent} from './discovery/discovery';
 import {MeditationComponent} from './meditation/meditation';

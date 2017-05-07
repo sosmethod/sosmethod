@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {COMMON_MODULES} from '../../shared/common.module';
-import {GiftTestimonialsComponent} from '../testimonials/gift-testimonials';
+import {GiftTestimonialsComponent} from '../+testimonials/gift-testimonials';
 import {GiftComponent} from './gift';
 import {FoundationComponent} from './foundation';
 import {routing} from './gift.routing';
-import {PagesModule} from '../pages.module';
+import {SharedPagesModule} from '../shared/shared-pages.module';
 export const COMPONENTS = [
     GiftComponent,
     GiftTestimonialsComponent,
@@ -15,7 +15,7 @@ export const COMPONENTS = [
 @NgModule({
     imports: [
         ...COMMON_MODULES,
-        PagesModule,
+        SharedPagesModule,
         routing
     ],
     declarations: COMPONENTS,

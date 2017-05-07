@@ -1,7 +1,4 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
 
 import {DiscoverySeriesComponent} from './discovery/discovery-series';
 import {DiscoverySubtextComponent} from './discovery/discovery-subtext';
@@ -11,7 +8,7 @@ import {MeditationsSubtextComponent} from './meditation/meditations-subtext';
 import {PlayerComponent} from './player.component';
 import {PlayerControlsComponent} from './player-controls';
 import {COMMON_MODULES} from '../shared/common.module';
-import {routing} from "./player.routing";
+import {routing} from './player.routing';
 
 export const COMPONENTS = [
     PlayerComponent,

@@ -65,7 +65,7 @@
         "@types/jquery": "latest",
         "@types/node": "latest",
         "@types/systemjs": "^0.20.2",
-        "angular-router-loader": "latest",
+        "angular2-router-loader": "latest",
         "angular2-template-loader": "latest",
         "codelyzer": "latest",
         "concurrently": "latest",

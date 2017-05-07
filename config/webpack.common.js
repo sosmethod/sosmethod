@@ -20,7 +20,7 @@ module.exports = {
             {
                 test: /\.ts$/,
                 exclude: helpers.root('functions'),
-                loaders: ['ts-loader', 'angular2-template-loader', 'angular-router-loader']
+                loaders: ['ts-loader', 'angular2-template-loader', 'angular2-router-loader']
             },
             {
                 test: /\.html$/,

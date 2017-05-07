@@ -1,6 +1,6 @@
 import {RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {AuthGuard} from './auth/auth-guard';
+import {AuthGuard} from './+auth/auth-guard';
 
 import {DialogGuard} from './dialog-guard';
 import {FaqDialogComponent} from './faq/faq';
@@ -9,11 +9,11 @@ import {ContactDialogComponent} from './contact/contact';
 export const dialogRoutes: Routes = [
     {
         path: 'tool',
-        loadChildren: './tools/tools.module#ToolsModule'
+        loadChildren: './+tools/tools.module#ToolsModule'
     },
     {
         path: 'bonus',
-        loadChildren: './bonus/bonus.module#BonusModule'
+        loadChildren: './+bonus/bonus.module#BonusModule'
     },
     {
         path: 'faq',
@@ -31,7 +31,11 @@ export const dialogRoutes: Routes = [
     },
     {
         path: 'survey',
-        loadChildren: './survey/survey.module#SurveyModule'
+        loadChildren: './+survey/survey.module#SurveyModule'
+    },
+    {
+        path: 'account',
+        loadChildren: './+auth/auth.module#AuthModule'
     }
 ];
 

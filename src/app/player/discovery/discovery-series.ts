@@ -6,7 +6,7 @@ import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AudioService} from '../../services/audio.service';
-import {AuthGuard} from '../../dialogs/auth/auth-guard';
+import {AuthGuard} from '../../dialogs/+auth/auth-guard';
 
 
 @Component({

@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from "@angular/router";
 import {MdDialog} from "@angular/material";
-import {AuthGuard} from "../dialogs/auth/auth-guard";
+import {AuthGuard} from "../dialogs/+auth/auth-guard";
 import {DiscoveryComponent} from "./discovery/discovery";
 import {MeditationComponent} from "./meditation/meditation";
 import {FooterComponent} from "../layout/footer/footer";

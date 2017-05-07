@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {LayoutService} from '../../services/layout';
 import {MdDialog} from '@angular/material';
-import {AuthGuard} from '../../dialogs/auth/auth-guard';
+import {AuthGuard} from '../../dialogs/+auth/auth-guard';
 import {FaqDialogComponent} from '../../dialogs/faq/faq';
 import {ContactDialogComponent} from '../../dialogs/contact/contact';
 

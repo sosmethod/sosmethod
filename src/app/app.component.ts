@@ -6,7 +6,7 @@ import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
 import {AudioService} from './services/audio.service';
 import {AngularFire} from 'angularfire2';
-import {AuthGuard} from './dialogs/auth/auth-guard';
+import {AuthGuard} from './dialogs/+auth/auth-guard';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {Observable} from 'rxjs/Observable';
 import {Observer} from 'rxjs/Observer';

@@ -1,21 +1,21 @@
 import {NgModule} from '@angular/core';
 import {COMMON_MODULES} from '../../shared/common.module';
-import {SignupComponent} from './signup';
-import {routing} from './signup.routing';
-import {PagesModule} from "../pages.module";
+import {TestimonialPageComponent} from './page';
+import {routing} from './testimonials.routing';
+import {SharedPagesModule} from '../shared/shared-pages.module';
 export const COMPONENTS = [
-    SignupComponent,
+    TestimonialPageComponent,
 ];
 
 
 @NgModule({
     imports: [
         ...COMMON_MODULES,
-        PagesModule,
+        SharedPagesModule,
         routing
     ],
     declarations: COMPONENTS,
     exports: COMPONENTS
 })
-export class SignupModule {
+export class TestimonialsModule {
 }

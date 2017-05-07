@@ -1,8 +1,4 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
-import {TranslateModule} from '@ngx-translate/core';
 
 import {AccountLoginComponent} from './login/login';
 import {AccountRegisterComponent} from './register/register';
@@ -12,11 +8,12 @@ import {ForgotPasswordComponent} from './forgot/forgot';
 
 import {routing} from './auth.routing';
 import {AccountProfileComponent} from './profile/profile';
-import {MaterialModule, MdCard, MdIcon} from '@angular/material';
 import {SubscriptionComponent} from './profile/subscription';
 import {DiscoveryTimelineComponent} from './profile/discovery-timeline';
 import {MeditationTimelineComponent} from './profile/meditation-timeline';
 import {COMMON_MODULES} from '../../shared/common.module';
+import {AuthGuard} from './auth-guard';
+import {DialogGuard} from '../dialog-guard';
 
 
 export const COMPONENTS = [
@@ -37,6 +34,7 @@ export const COMPONENTS = [
         ...COMMON_MODULES,
         routing,
     ],
+    providers: [AuthGuard, DialogGuard],
     declarations: COMPONENTS,
     exports: COMPONENTS
 })

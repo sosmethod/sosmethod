@@ -2,9 +2,9 @@ import {Component, OnInit, ViewChild, HostListener, ElementRef} from '@angular/c
 import {Observable} from 'rxjs/Observable';
 import {ActivatedRoute} from '@angular/router';
 import {LayoutService} from '../../services/layout';
-import {AuthGuard} from '../../dialogs/auth/auth-guard';
+import {AuthGuard} from '../../dialogs/+auth/auth-guard';
 import {DiscoverySeriesComponent} from '../../player/discovery/discovery-series';
-import {AuthUser} from '../../dialogs/auth/auth-user';
+import {AuthUser} from '../../dialogs/+auth/auth-user';
 
 
 @Component({

@@ -38,5 +38,9 @@
     "buildOnSave": false,
     "atom": {
         "rewriteTsconfig": false
+    },
+    "angularCompilerOptions": {
+        "genDir": "aot",
+        "skipMetadataEmit": true
     }
 }
