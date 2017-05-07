@@ -1,6 +1,6 @@
 .meditate {
     position: absolute;
-    bottom: 20px;
+    bottom: 30px;
     left: 0;
     right: 0;
     width: 100%;
@@ -10,8 +10,8 @@
 }
 
 .meditate > div {
-    display:flex;
-    flex-direction:row;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
@@ -31,7 +31,7 @@ a {
 }
 
 a span > span {
-    margin: 40px 0 0;
+    margin: 55px 0 0;
     display: inline-block;
 }
 
@@ -41,16 +41,16 @@ a span > span {
     }
 }
 
-@media all and (max-height:400px), all and (max-width: 500px) {
+@media all and (max-height: 400px), all and (max-width: 500px) {
 
     .meditate {
-        bottom:5px;
+        bottom: 5px;
     }
 
     .meditate > div {
         transform: scale(.75);
         justify-content: flex-start;
         position: relative;
-        left:-10%;
+        left: -10%;
     }
 }

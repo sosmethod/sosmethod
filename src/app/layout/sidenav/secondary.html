@@ -1,0 +1,12 @@
+<md-sidenav [opened]="open">
+    <md-nav-list>
+        <a md-raised-button routerLink="/signup">Sign Up</a>
+        <a md-raised-button routerLink="/gift">Gift SOS</a>
+        <a md-raised-button (click)="showFAQDialog()">FAQ</a>
+        <a md-raised-button href="https://www.thesosmethod.com/blog/">Blog</a>
+        <a md-raised-button (click)="showShare()">Share</a>
+        <a md-raised-button href="http://www.sosmethod.org/">Foundation</a>
+        <a md-raised-button routerLink="/testimonials">Testimonials</a>
+        <a md-raised-button (click)="showContactDialog()">Contact Us</a>
+    </md-nav-list>
+</md-sidenav>

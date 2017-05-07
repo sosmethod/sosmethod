@@ -5,32 +5,32 @@
            class=" sos-circle sos-circle-purple"
             *ngIf="(series$ | async) === 'essentials'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 5 day</span></span></a>
-        <a md-button routerLink="/_11_day/essentials" title="Advance positivity &amp; mindful awareness"
+        <a md-button routerLink="/_11_day/essentials" mdTooltip="Advance positivity &amp; mindful awareness"
            class=" sos-circle sos-circle-purple"
            *ngIf="(series$ | async) === 'essentials'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 11 day</span></span></a>
-        <a md-button routerLink="/_5_day/soothing_relief" title="Reduce anxiety, depression &amp; trauma"
+        <a md-button routerLink="/_5_day/soothing_relief" mdTooltip="Reduce anxiety, depression &amp; trauma"
            class=" sos-circle sos-circle-green"
            *ngIf="(series$ | async) === 'soothing_relief'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 5 day</span></span></a>
-        <a md-button routerLink="/_11_day/soothing_relief" title="Overcome patterns, gain vitality &amp; joy"
+        <a md-button routerLink="/_11_day/soothing_relief" mdTooltip="Overcome patterns, gain vitality &amp; joy"
            class=" sos-circle sos-circle-green"
            *ngIf="(series$ | async) === 'soothing_relief'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 11 day</span></span></a>
-        <a md-button routerLink="/_5_day/improving_relationships" title="Open communication &amp; acceptance"
+        <a md-button routerLink="/_5_day/improving_relationships" mdTooltip="Open communication &amp; acceptance"
            class=" sos-circle sos-circle-ruby"
            *ngIf="(series$ | async) === 'improving_relationships'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 5 day</span></span></a>
         <a md-button (click)="doNothing()" mdTooltip="Coming Soon"
-           title="Forgive &amp; appreciate yourself &amp; others"
+           mdTooltip="Forgive &amp; appreciate yourself &amp; others"
            class=" sos-circle sos-circle-ruby locked"
            *ngIf="(series$ | async) === 'improving_relationships'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 11 day</span></span></a>
-        <a md-button routerLink="/_5_day/focus_and_creativity" title="Boost courage, confidence &amp; Inspiration"
+        <a md-button routerLink="/_5_day/focus_and_creativity" mdTooltip="Boost courage, confidence &amp; Inspiration"
            class=" sos-circle sos-circle-gold"
            *ngIf="(series$ | async) === 'focus_and_creativity'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 5 day</span></span></a>
-        <a md-button routerLink="/_11_day/focus_and_creativity" title="Increase performance &amp; fulfillment"
+        <a md-button routerLink="/_11_day/focus_and_creativity" mdTooltip="Increase performance &amp; fulfillment"
            class=" sos-circle sos-circle-gold"
            *ngIf="(series$ | async) === 'focus_and_creativity'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 11 day</span></span></a>

@@ -10,24 +10,13 @@ import {Observable} from 'rxjs/Observable';
     styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent {
-    public sidebarOpen: boolean;
-
     public anonymous: Observable<boolean> = Observable.of(true);
 
     constructor(public layout: LayoutService, public af: AngularFire) {
-        this.layout.sidebarOpen$.subscribe((o) => this.sidebarOpen = o);
         this.layout.focusElement.subscribe(f => this.onScrollTo(f));
         this.anonymous = this.af.auth.flatMap(u => {
             return Observable.of(u == null);
         });
-    }
-
-    openSidenav() {
-        if (this.sidebarOpen) {
-            this.layout.sidebarOpen$.next(false);
-        } else {
-            this.layout.sidebarOpen$.next(true);
-        }
     }
 
     onScrollTo(el: ElementRef) {

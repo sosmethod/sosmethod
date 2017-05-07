@@ -24,6 +24,9 @@ export class AppComponent implements OnInit {
 
     public route: Subject<string> = new Subject();
     public isOpen: boolean;
+    public isShare: boolean;
+    public isSecondary: boolean;
+    public isTools: boolean;
     public inactive: ReplaySubject<boolean> = new ReplaySubject();
     private mousemove: Observable<any>;
     private timeout: any;
@@ -40,6 +43,9 @@ export class AppComponent implements OnInit {
         this.translate.setDefaultLang('en');
         this.translate.use(this.translate.currentLang || 'en');
         this.layout.sidebarOpen$.subscribe(o => this.isOpen = o);
+        this.layout.shareOpen.subscribe(o => this.isShare = o);
+        this.layout.secondaryOpen.subscribe(o => this.isSecondary = o);
+        this.layout.toolsOpen.subscribe(o => this.isTools = o);
     }
 
     ngOnInit() {
@@ -83,12 +89,30 @@ export class AppComponent implements OnInit {
     }
 
     toggleSidenav() {
+        if (this.isShare) {
+            this.layout.shareOpen.next(false);
+        }
+        if (this.isSecondary) {
+            this.layout.secondaryOpen.next(false);
+        }
+        if (this.isTools) {
+            this.layout.toolsOpen.next(false);
+        }
         this.layout.sidebarOpen$.next(!this.isOpen);
     }
 
     activate() {
+        if (this.isShare) {
+            this.layout.shareOpen.next(false);
+        }
+        if (this.isSecondary) {
+            this.layout.secondaryOpen.next(false);
+        }
         if (this.isOpen) {
             this.closeSidenav();
+        }
+        if (this.isTools) {
+            this.layout.toolsOpen.next(false);
         }
         this.onMouseMove();
     }

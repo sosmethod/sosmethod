@@ -1,29 +1,9 @@
 <footer>
     <h2>Mindfulness tools for stress relief, <br/> focus and calm in minutes. Power Up!</h2>
-    <button md-raised-button mdTooltip="Menu / Tools" class="menu-icon" [mdMenuTriggerFor]="secondary"></button>
-    <md-menu #secondary="mdMenu" class="secondary">
-        <button md-menu-item routerLink="/signup">Sign Up</button>
-        <button md-menu-item routerLink="/gift">Gift SOS</button>
-        <button md-menu-item (click)="showFAQDialog()">FAQ</button>
-        <a md-menu-item href="https://www.thesosmethod.com/blog/">Blog</a>
-        <button md-menu-item [mdMenuTriggerFor]="share">Share</button>
-        <a md-menu-item href="http://www.sosmethod.org/">Foundation</a>
-        <button md-menu-item routerLink="/testimonials">Testimonials</button>
-        <button md-menu-item (click)="showContactDialog()">Contact Us</button>
-    </md-menu>
+    <button md-raised-button mdTooltip="Menu / Tools" class="menu-icon" (click)="toggleSecondary()"></button>
     <button md-raised-button class="tools-icon" (click)="toggleTools()"></button>
     <a md-raised-button href="https://www.facebook.com/thesosmethod/?fref=ts"> </a>
     <a md-raised-button href="https://twitter.com/thesosmethod"> </a>
     <a md-raised-button href="https://www.instagram.com/thesosmethod/"> </a>
 </footer>
-<md-menu #share="mdMenu" class="share">
-    <a md-menu-item
-       href="mailto:?subject=Check out the SOS method!&body=Hi, I found this website and thought you might like it http://sosmethod.herokuapp.com/">Email</a>
-    <button md-menu-item (click)="showSMS()">SMS</button>
-    <a md-menu-item
-       href="http://www.facebook.com/sharer/sharer.php?u=https://sosmethod.herokuapp.com%3F&t=Check out The SOS Method!">Facebook</a>
-    <a md-menu-item
-       href="https://twitter.com/intent/tweet?text=Check out https://sosmethod.herokuapp.com%3F">Twitter</a>
-    <button md-menu-item (click)="showCopy($event)">Copy Link <input type="text"/></button>
-</md-menu>
 

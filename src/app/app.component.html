@@ -2,6 +2,8 @@
             [class.playing]="(audio.state | async) === 'playing'"
             [class.inactive]="(inactive | async)"></bc-sidenav>
 <bc-tools-menu [open]="layout.toolsOpen | async"></bc-tools-menu>
+<bc-share-menu [open]="layout.shareOpen | async"></bc-share-menu>
+<bc-secondary-menu [open]="layout.secondaryOpen | async"></bc-secondary-menu>
 <bc-toolbar (openMenu)="openSidenav()">
     {{ 'HOME.TITLE' | translate }}
 </bc-toolbar>
@@ -12,7 +14,8 @@
 <div class="stretch-right">
     <button md-raised-button
             *ngIf="router.url.indexOf('/signup') == -1 && router.url.indexOf('/gift') == -1 && router.url.indexOf('/testimonials') == -1"
-            title="Choose a background" [class.active]="layout.sidebarOpen$ | async" (click)="toggleSidenav()"></button>
+            mdTooltip="Choose a background" [class.active]="layout.sidebarOpen$ | async"
+            (click)="toggleSidenav()"></button>
 </div>
 <bc-video></bc-video>
 <a class="activate" md-button (click)="activate()"></a>

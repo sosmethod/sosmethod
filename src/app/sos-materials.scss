@@ -267,7 +267,7 @@ body {
         padding: 0;
     }
 
-    a[routerLink*="/tool/"] {
+    bc-player a[routerLink*="/tool/"] {
         margin: 10px 10px -13px;
         vertical-align: middle;
         padding: 75px 0 0;
@@ -279,7 +279,7 @@ body {
         background-size: contain;
     }
 
-    a[routerLink*="/tool/"]:before {
+    bc-player a[routerLink*="/tool/"]:before {
         display: block;
         content: " ";
         background: url(/assets/triangle.png) no-repeat 50% top;
@@ -295,7 +295,7 @@ body {
         transition: ease-in-out .25s;
     }
 
-    a[routerLink*="/tool/"]:after {
+    bc-player a[routerLink*="/tool/"]:after {
         display: block;
         content: " ";
         background: url(/assets/triangle_small.png) no-repeat 50% top;
@@ -312,7 +312,7 @@ body {
         transition: ease-in-out .25s;
     }
 
-    a[routerLink*="/bonus/"] {
+    bc-player a[routerLink*="/bonus/"] {
         margin: 10px 10px -13px;
         vertical-align: middle;
         padding: 75px 0 0;
@@ -322,7 +322,7 @@ body {
         width: 65px;
     }
 
-    a[routerLink*="/bonus/"]:before {
+    bc-player a[routerLink*="/bonus/"]:before {
         box-shadow: inset 0 0 10px rgba(219, 92, 204, 0.7), inset 0 0 20px rgba(219, 92, 204, 0.5), inset 0 0 20px rgba(219, 92, 204, 0);
         content: " ";
         position: absolute;
@@ -336,7 +336,7 @@ body {
         transition: ease-in-out .25s;
     }
 
-    a[routerLink*="/bonus/"]:after {
+    bc-player a[routerLink*="/bonus/"]:after {
         content: " ";
         position: absolute;
         width: 36px;
@@ -353,22 +353,32 @@ body {
 
 }
 
-.tools, .secondary, .share {
+body bc-tools-menu, body bc-secondary-menu, body bc-share-menu {
 
-    &.mat-menu-panel {
-        min-width: 200px;
+    md-sidenav.mat-sidenav {
+        min-width: 250px;
+        max-width: 250px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 65px;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: auto;
     }
 
-    .mat-menu-content {
-        background: rgba(73, 151, 203, 0.8);
-        max-height: 100%;
-    }
-
-    .mat-menu-item {
+    md-nav-list.mat-nav-list {
         color: $textColor;
+        padding-top: 0;
+        flex: 0 1 auto;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
-    .mat-menu-content > *:after {
+    md-nav-list > *:after {
         content: " ";
         display: block;
         position: absolute;
@@ -386,71 +396,46 @@ body {
         transition: ease-in-out .25s;
     }
 
-    .mat-menu-content > *:last-child {
+    md-nav-list > *:last-child {
         padding-bottom: 10px;
     }
 
-    .mat-menu-content > *:last-child:after {
+    md-nav-list > *:last-child:after {
         display: none;
     }
 
-    .mat-menu-content > * {
+    md-nav-list > *, md-nav-list > .mat-raised-button {
         height: auto;
         font-weight: normal;
         font-family: inherit;
         padding-top: 10px;
         padding-bottom: 15px;
-        line-height: inherit;
+        background: rgba(73, 151, 203, 0.8);
+        line-height: initial;
+        text-align: left;
+    }
+
+    md-nav-list > *, md-nav-list .mat-button, md-nav-list .mat-button-wrapper {
+        white-space: normal;
+        line-height: initial;
+        text-align: left;
     }
 
 }
 
-.tools {
+bc-tools-menu {
 
-    .mat-menu-item {
-        height: initial;
-    }
-
-    &.mat-menu-panel {
-        max-height: calc(100vh + 64px);
-    }
-
-    .mat-menu-content > *:first-child {
+    md-nav-list > *:first-child {
         text-align: center;
+        position: relative;
     }
 
-    .mat-menu-content > * {
+    md-nav-list .mat-button-wrapper, md-nav-list > div {
         display: flex;
         flex-direction: column;
-        white-space: normal;
-        min-height: 64px;
+        flex-shrink: 0;
     }
 
-    .mat-menu-content > *:after {
-        content: " ";
-        display: block;
-        position: absolute;
-        top: 100%;
-        margin-top: -6px;
-        height: 2px;
-        background: rgba(255, 255, 255, .7);
-        background: linear-gradient(to left, transparent, transparent, white, white, white, white, transparent, transparent);
-        border-radius: 100%;
-        width: 100%;
-        box-shadow: inset 0 0 2px rgba(255, 255, 255, .7), 0 0 5px rgba(255, 255, 255, .7);
-        left: 0;
-        opacity: 1;
-        transition-delay: 0s;
-        transition: ease-in-out .25s;
-    }
-
-    .mat-menu-content > *:last-child {
-        padding-bottom: 10px;
-    }
-
-    .mat-menu-content > *:last-child:after {
-        display: none;
-    }
 }
 
 @media all and (max-width: 700px) {

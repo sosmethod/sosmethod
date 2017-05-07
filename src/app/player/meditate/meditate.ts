@@ -1,7 +1,8 @@
-import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import {DiscoverySeriesComponent} from '../discovery/discovery-series';
+import {AudioService} from '../../services/audio.service';
 
 
 @Component({
@@ -16,7 +17,13 @@ export class MeditateComponent implements OnInit {
 
     constructor(public route: ActivatedRoute,
                 public router: Router,
-                private _el: ElementRef) {
+                public audio: AudioService) {
+        this.audio.ended.subscribe(() => {
+            const meditation = $(this.discovery.nativeElement).find('a[routerLink*="/meditations/"]');
+            if (meditation.length > 0) {
+                this.router.navigate([meditation.first().attr('routerLink')]);
+            }
+        });
     }
 
     ngOnInit() {
@@ -32,6 +39,7 @@ export class MeditateComponent implements OnInit {
                     return '_day_' + parseInt(match[1] || match[2]);
                 }
             });
+
     }
 
 }

@@ -9,11 +9,15 @@ import {VideoComponent} from './video/video';
 
 import {COMMON_MODULES} from '../shared/common.module';
 import {ToolsMenuComponent} from './sidenav/tools';
+import {SecondaryMenuComponent} from './sidenav/secondary';
+import {ShareMenuComponent} from './sidenav/share';
 
 export const COMPONENTS = [
     LayoutComponent,
     SidenavComponent,
     ToolsMenuComponent,
+    SecondaryMenuComponent,
+    ShareMenuComponent,
     ToolbarComponent,
     FooterComponent,
     LanguageMenuComponent,
