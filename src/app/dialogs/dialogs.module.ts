@@ -4,7 +4,7 @@ import {ContactDialogComponent} from './contact/contact';
 import {FaqDialogComponent} from './faq/faq';
 
 import {COMMON_MODULES} from '../shared/common.module';
-import {routing} from "./dialogs.routing";
+import {routing} from './dialogs.routing';
 
 
 export const COMPONENTS = [

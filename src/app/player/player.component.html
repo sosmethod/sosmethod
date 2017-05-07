@@ -2,9 +2,9 @@
 <bc-meditations *ngIf="!isDiscovery$"></bc-meditations>
 <div id="player" [class.single]="(audio.playerPositions | async) == 1"
      [class.triple]="(audio.playerPositions | async) == 3"
-     [class.first]="(audio.position | async) == 0"
-     [class.second]="(audio.position | async) == 1"
-     [class.third]="(audio.position | async) == 2"
+     [class.first]="!isDiscovery$ && (audio.position | async) == 0"
+     [class.second]="!isDiscovery$ && (audio.position | async) == 1"
+     [class.third]="!isDiscovery$ && (audio.position | async) == 2"
      [class.playing]="(audio.state | async) == 'playing'"
      [class.stopped]="(audio.state | async) != 'playing'">
     <div class="preview-inner">
