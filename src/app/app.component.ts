@@ -2,7 +2,7 @@
 import {Component, ViewEncapsulation, OnInit, NgZone} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {LayoutService} from './services/layout';
-import {NavigationEnd, Router} from '@angular/router';
+import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
 import {AudioService} from './services/audio.service';
 import {AngularFire} from 'angularfire2';
@@ -38,7 +38,6 @@ export class AppComponent implements OnInit {
                 public auth: AuthGuard,
                 public audio: AudioService,
                 public router: Router) {
-        const that = this;
         this.translate.addLangs(['en', 'fr', 'tr']);
         this.translate.setDefaultLang('en');
         this.translate.use(this.translate.currentLang || 'en');
@@ -46,6 +45,8 @@ export class AppComponent implements OnInit {
         this.layout.shareOpen.subscribe(o => this.isShare = o);
         this.layout.secondaryOpen.subscribe(o => this.isSecondary = o);
         this.layout.toolsOpen.subscribe(o => this.isTools = o);
+        this.router.events.filter(e => e instanceof NavigationStart)
+            .subscribe(e => this.activate());
     }
 
     ngOnInit() {

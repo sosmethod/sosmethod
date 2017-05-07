@@ -1,7 +1,7 @@
 import {Component, OnInit, Optional} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
-import {Observable, Subject} from "rxjs";
-import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
+import {Observable} from 'rxjs/Observable';
+import {ActivatedRoute, ActivatedRouteSnapshot} from '@angular/router';
 
 
 @Component({
@@ -10,9 +10,11 @@ import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
     styleUrls: ['./bonus.scss']
 })
 export class BonusDialogComponent implements OnInit {
-    public tool$: Observable<string> = new Subject;
+    public tool$: Observable<string>;
 
-    constructor(public route: ActivatedRoute, public dialog: MdDialog, @Optional() public dialogRef?: MdDialogRef<BonusDialogComponent>) {
+    constructor(public route: ActivatedRoute,
+                public dialog: MdDialog,
+                @Optional() public dialogRef?: MdDialogRef<BonusDialogComponent>) {
     }
 
     ngOnInit() {

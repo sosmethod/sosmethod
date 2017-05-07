@@ -58,9 +58,6 @@ export class ToolbarComponent implements OnInit {
         this.af.database.object('/users/' + AuthGuard.escapeEmail(this.user.auth.email) + '/completed/' + dateKey).set(this.router.url);
     }
 
-    showContactDialog() {
-        this.dialog.open(ContactDialogComponent);
-    }
 
     showLoginDialog() {
         this.dialog.open(AccountLoginComponent);

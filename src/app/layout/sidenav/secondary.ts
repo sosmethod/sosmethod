@@ -25,12 +25,4 @@ export class SecondaryMenuComponent {
         this.layout.shareOpen.next(!this.isShare);
     }
 
-    showFAQDialog() {
-        this.dialog.open(FaqDialogComponent);
-    }
-
-    showContactDialog() {
-        this.dialog.open(ContactDialogComponent);
-    }
-
 }

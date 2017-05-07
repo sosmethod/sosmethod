@@ -23,11 +23,6 @@ export class ContactDialogComponent {
         @Optional() public dialogRef?: MdDialogRef<ContactDialogComponent>) {
     }
 
-    showFaqDialog() {
-        this.dialog.closeAll();
-        this.dialog.open(FaqDialogComponent);
-    }
-
     send() {
         if (this.email === '' || this.message === '' || this.name === '') {
             this.error = true;

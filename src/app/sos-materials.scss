@@ -26,6 +26,10 @@ html, body {
 
 body {
 
+    .mat-tooltip {
+        font-size: inherit !important;
+    }
+
     .mat-button-focus-overlay {
         display: none;
     }

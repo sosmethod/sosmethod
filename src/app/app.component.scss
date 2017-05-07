@@ -9,7 +9,7 @@
 
 @include angular-material-theme($theme);
 
-.signup, .gift {
+.signup, .gift, .testimonials {
     .mat-sidenav-container[fullscreen] {
         position: static;
     }
@@ -23,8 +23,8 @@
     z-index: 1001;
 }
 
-.return-to-top button,
-.stretch-right > button {
+.return-to-top a,
+.stretch-right > a {
     height: 36px;
     width: 36px;
     vertical-align: middle;
@@ -38,15 +38,15 @@
     overflow: hidden;
 }
 
-.return-to-top button,
-.return-to-top button:hover,
-.stretch-right button {
+.return-to-top a,
+.return-to-top a:hover,
+.stretch-right a {
     transition: margin-right .15s ease-in-out;
     background-image: url(/assets/icon_static_bk-tray.png);
 }
 
-.return-to-top button,
-.stretch-right button:hover {
+.return-to-top a,
+.stretch-right a:hover {
     background-image: url(/assets/icon_active_bk-tray.png);
 }
 
@@ -54,7 +54,7 @@
     transform: rotate(90deg);
 }
 
-.stretch-right button.active {
+.stretch-right a.active {
     margin-right: 150px;
     background-image: url(/assets/icon_static_bk-tray-close.png);
 }

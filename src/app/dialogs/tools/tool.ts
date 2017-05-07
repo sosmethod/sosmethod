@@ -27,7 +27,4 @@ export class ToolDialogComponent implements OnInit {
         }
     }
 
-    showFaqDialog() {
-        this.dialog.open(FaqDialogComponent);
-    }
 }

@@ -28,7 +28,7 @@ export class LayoutComponent {
                 scrollLeft: discovery.offset().left + wrapper.scrollLeft() - (wrapper.outerWidth() / 2 - discovery.outerWidth(false) / 2)
             }, 350);
         } else {
-            $(window.document).find('.mat-sidenav-content').stop().animate({
+            $(window.document.body).stop().animate({
                 scrollTop: 0,
                 scrollLeft: 0
             }, 350);
