@@ -20,6 +20,7 @@
             "styles": [
             ],
             "scripts": [
+                "../node_modules/jquery/dist/jquery.js"
             ],
             "environmentSource": "../config/environment.ts",
             "environments": {

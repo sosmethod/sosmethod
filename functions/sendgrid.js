@@ -9,7 +9,7 @@ const functions = require('firebase-functions'),
  * @param {string} key Your SendGrid API key.
  * @returns {object} SendGrid client.
  */
-function getClient (key) {
+function getClient(key) {
     if (!key) {
         const error = new Error('SendGrid API key not provided. Make sure you have a "sg_key" property in your request querystring');
         error.code = 401;
@@ -96,7 +96,6 @@ exports.sendgridEmail = functions.https.onRequest((req, res) => {
 });
 
 
-
 // [START functions_get_payload]
 /**
  * Constructs the SendGrid email request from the HTTP request body.
@@ -108,7 +107,7 @@ exports.sendgridEmail = functions.https.onRequest((req, res) => {
  * @param {string} data.body Body of the email subject line.
  * @returns {object} Payload object.
  */
-function getPayload (requestBody) {
+function getPayload(requestBody) {
     if (!requestBody.to) {
         const error = new Error('To email address not provided. Make sure you have a "to" property in your request');
         error.code = 400;
@@ -126,13 +125,15 @@ function getPayload (requestBody) {
         error.code = 400;
         throw error;
     }
-    var filters = {
+    let filters = {
         "template_id": requestBody.template || "07c50daf-e0c0-4fcc-bd34-57914373a6dc"
     };
-    if(requestBody.name) {
-        filters["substitutions"] = {
-            ":name": requestBody.name + ''
-        };
+    filters["substitutions"] = {};
+    if (requestBody.name) {
+        filters["substitutions"][":name"] = requestBody.name + '';
+    }
+    if (requestBody.return_url) {
+        filters["substitutions"][":return_url"] = requestBody.return_url + '';
     }
     return Object.assign(filters, {
         personalizations: [

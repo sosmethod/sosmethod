@@ -76,21 +76,21 @@ bc-app .activate {
     position: absolute;
 }
 
-.playing.inactive, .playing.inactive ~ .stretch-right {
+.playing.inactive.notopen, .playing.inactive.notopen ~ .stretch-right {
     opacity: 0;
     z-index: 0;
 }
 
-.playing.inactive ~ .activate {
+.playing.inactive.notopen ~ .activate {
     opacity: 1;
     z-index: 10000;
 }
 
-.playing.inactive ~ * {
+.playing.inactive.notopen ~ * {
 
     .preview-inner, .meditate, bc-discovery-series, bc-player-controls, bc-meditations {
         opacity: 0;
-        z-index: 0;
+        z-index: -1 !important;
     }
 
 }
@@ -104,7 +104,7 @@ bc-app .activate {
 
     .preview-inner, .meditate, & ~ bc-toolbar, bc-discovery, bc-mediation, bc-course, bc-main-menu, bc-discovery-series, bc-player-controls, bc-meditations, footer {
         opacity: .3;
-        z-index: 0 !important;
+        z-index: -1 !important;
     }
 }
 

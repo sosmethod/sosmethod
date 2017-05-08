@@ -1,6 +1,7 @@
 ﻿<bc-sidenav [open]="layout.sidebarOpen$ | async"
             [class.playing]="(audio.state | async) === 'playing'"
-            [class.inactive]="(inactive | async)"></bc-sidenav>
+            [class.inactive]="(inactive | async)"
+            [class.notopen]="!openDialog"></bc-sidenav>
 <bc-tools-menu [open]="layout.toolsOpen | async"></bc-tools-menu>
 <bc-share-menu [open]="layout.shareOpen | async"></bc-share-menu>
 <bc-secondary-menu [open]="layout.secondaryOpen | async"></bc-secondary-menu>
@@ -18,5 +19,5 @@
        (click)="toggleSidenav()"></a>
 </div>
 <bc-video></bc-video>
-<a class="activate" md-button (click)="activate()"></a>
+<a class="activate" md-button (click)="activate($event)"></a>
 

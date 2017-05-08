@@ -1,13 +1,13 @@
 ﻿import {Component, Output, EventEmitter, OnInit, ViewChild} from '@angular/core';
 import {MdDialog} from '@angular/material';
-import {ContactDialogComponent} from '../../dialogs/contact/contact';
 import {NavigationEnd, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
-import {AccountLoginComponent} from '../../dialogs/+auth/login/login';
 import {AudioService} from '../../services/audio.service';
 import {AngularFire, FirebaseAuthState} from 'angularfire2';
 import {AuthGuard} from '../../dialogs/+auth/auth-guard';
-import {AsyncPipe} from '@angular/common';
+import {environment} from '../../../../config/environment';
+import {Http, Headers, Request} from '@angular/http';
+import {DiscoverySeriesComponent} from '../../player/discovery/discovery-series';
 
 
 @Component({
@@ -25,6 +25,7 @@ export class ToolbarComponent implements OnInit {
     constructor(public af: AngularFire,
                 public router: Router,
                 public dialog: MdDialog,
+                public http: Http,
                 public audio: AudioService,
                 public auth: AuthGuard) {
     }
@@ -55,12 +56,39 @@ export class ToolbarComponent implements OnInit {
             return;
         }
         const dateKey = (new Date).getTime();
-        this.af.database.object('/users/' + AuthGuard.escapeEmail(this.user.auth.email) + '/completed/' + dateKey).set(this.router.url);
+        this.af.database.object('/users/' + AuthGuard.escapeEmail(this.user.auth.email)
+            + '/completed/' + dateKey).set(this.router.url);
+        const segments = this.router.url.split('/');
+        if (segments[1] === '_5_day' && segments[2] === 'essentials') {
+            const match = DiscoverySeriesComponent.seriesRegex(segments[3]);
+            const day = parseInt(match[1] || match[2]);
+            if (day === 5) {
+                this.send5DayEmail();
+            }
+        }
     }
 
-
-    showLoginDialog() {
-        this.dialog.open(AccountLoginComponent);
+    send5DayEmail() {
+        const data = {
+            to: 'admin@sosmethod.com',
+            from: this.user.auth.email,
+            name: this.auth.user && this.auth.user.name ? this.auth.user.name.first : null,
+            body: 'This is a body',
+            subject: 'The most important thing',
+            return_url: window.location.origin,
+            template: 'd4f3577d-4b17-4a86-8bd3-4861c6bc45c7'
+        };
+        const headers = new Headers();
+        headers.append('Content-Type', 'text/plain');
+        const req = new Request({
+            method: 'POST',
+            url: environment.sendgridUrl,
+            headers: headers,
+            body: JSON.stringify(data)
+        });
+        this.http.request(req)
+            .subscribe(() => {
+            });
     }
 
     logout() {

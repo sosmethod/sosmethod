@@ -3,6 +3,7 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 import {FaqDialogComponent} from '../faq/faq';
 import {Http, Headers, Request} from '@angular/http';
 import {environment} from '../../../../config/environment';
+import {AuthGuard} from "../+auth/auth-guard";
 
 
 @Component({
@@ -17,10 +18,13 @@ export class ContactDialogComponent {
     public name = '';
     public message = '';
 
-    constructor(
-        public http: Http,
-        public dialog: MdDialog,
-        @Optional() public dialogRef?: MdDialogRef<ContactDialogComponent>) {
+    constructor(public http: Http,
+                public dialog: MdDialog,
+                public auth: AuthGuard,
+                @Optional() public dialogRef?: MdDialogRef<ContactDialogComponent>) {
+        if (this.auth.user && this.auth.user.name) {
+            this.name = this.auth.user.name.first + ' ' + this.auth.user.name.last;
+        }
     }
 
     send() {
@@ -42,7 +46,6 @@ export class ContactDialogComponent {
             headers: headers,
             body: JSON.stringify(data)
         });
-
         this.http.request(req)
             .subscribe(() => {
                 this.done = true;

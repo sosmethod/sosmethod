@@ -10,6 +10,7 @@ import {AuthGuard} from './dialogs/+auth/auth-guard';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {Observable} from 'rxjs/Observable';
 import {Observer} from 'rxjs/Observer';
+import {MdDialog} from '@angular/material';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class AppComponent implements OnInit {
     public isShare: boolean;
     public isSecondary: boolean;
     public isTools: boolean;
+    public openDialog: boolean;
     public inactive: ReplaySubject<boolean> = new ReplaySubject();
     private mousemove: Observable<any>;
     private timeout: any;
@@ -36,6 +38,7 @@ export class AppComponent implements OnInit {
                 public layout: LayoutService,
                 private translate: TranslateService,
                 public auth: AuthGuard,
+                public dialog: MdDialog,
                 public audio: AudioService,
                 public router: Router) {
         this.translate.addLangs(['en', 'fr', 'tr']);
@@ -46,7 +49,9 @@ export class AppComponent implements OnInit {
         this.layout.secondaryOpen.subscribe(o => this.isSecondary = o);
         this.layout.toolsOpen.subscribe(o => this.isTools = o);
         this.router.events.filter(e => e instanceof NavigationStart)
-            .subscribe(e => this.activate());
+            .subscribe(e => this.activate(null));
+        this.dialog.afterOpen.subscribe(() => this.openDialog = true);
+        this.dialog.afterAllClosed.subscribe(() => this.openDialog = false);
     }
 
     ngOnInit() {
@@ -102,7 +107,10 @@ export class AppComponent implements OnInit {
         this.layout.sidebarOpen$.next(!this.isOpen);
     }
 
-    activate() {
+    activate(event: any) {
+        if (event) {
+            event.stopPropagation();
+        }
         if (this.isShare) {
             this.layout.shareOpen.next(false);
         }
