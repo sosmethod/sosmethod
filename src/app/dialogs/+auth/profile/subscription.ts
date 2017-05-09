@@ -28,7 +28,7 @@ export class SubscriptionComponent {
         this.af.auth.subscribe((u) => this.user = u);
     }
 
-    openCheckout() {
+    openCheckout(title: string, amount: number) {
 
     }
 

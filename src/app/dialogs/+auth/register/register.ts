@@ -1,7 +1,7 @@
 ﻿import {Component, Optional} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MdDialog, MdDialogRef} from '@angular/material';
-import {AngularFire} from "angularfire2";
+import {AngularFire} from 'angularfire2';
 
 export class RegistrationUser {
     name: {
@@ -13,6 +13,8 @@ export class RegistrationUser {
     };
     email: string;
     password: string;
+    company: string;
+    phone: string;
 }
 /**
  * This component is responsible for displaying and controlling
@@ -26,12 +28,11 @@ export class RegistrationUser {
 export class AccountRegisterComponent {
     registrationUser: RegistrationUser;
 
-    constructor(
-        public route: ActivatedRoute,
-        public router: Router,
-        public dialog: MdDialog,
-        public af: AngularFire,
-        @Optional() public dialogRef?: MdDialogRef<AccountRegisterComponent>) {
+    constructor(public route: ActivatedRoute,
+                public router: Router,
+                public dialog: MdDialog,
+                public af: AngularFire,
+                @Optional() public dialogRef?: MdDialogRef<AccountRegisterComponent>) {
         this.onInit();
     }
 

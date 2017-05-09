@@ -4,6 +4,7 @@ import {AngularFire, _getFirebase} from 'angularfire2';
 import * as firebase from 'firebase';
 import {environment} from '../../../../../config/environment';
 import {MdDialog, MdDialogRef} from "@angular/material";
+import {FirebaseConfig} from "../../../app.module";
 
 @Component({
     selector: 'bc-reset',
@@ -22,7 +23,7 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
         public af: AngularFire,
         public dialog: MdDialog,
         @Optional() public dialogRef?: MdDialogRef<ResetPasswordComponent>) {
-        this.firebase = _getFirebase(environment.firebase);
+        this.firebase = _getFirebase(FirebaseConfig);
     }
 
     ngOnInit() {

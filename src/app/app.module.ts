@@ -3,7 +3,7 @@ import {Http} from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
-import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
+import {AngularFireModule, AuthMethods, AuthProviders, FirebaseAppConfig} from 'angularfire2';
 
 // sos modules
 import {LayoutModule} from './layout/layout.module';
@@ -45,13 +45,21 @@ const myFirebaseAuthConfig = {
     method: AuthMethods.Redirect
 };
 
+export const FirebaseConfig: FirebaseAppConfig = {
+    apiKey: 'AIzaSyCqhdstV83rISzeWGyJy0DDhdeBAByWxtU',
+    authDomain: 'sosmethod-36e55.firebaseapp.com',
+    databaseURL: 'https://sosmethod-36e55.firebaseio.com',
+    storageBucket: 'sosmethod-36e55.appspot.com',
+    messagingSenderId: '216534622213'
+};
+
 @NgModule({
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         ...COMMON_MODULES,
 
-        AngularFireModule.initializeApp(environment.firebase, myFirebaseAuthConfig),
+        AngularFireModule.initializeApp(FirebaseConfig, myFirebaseAuthConfig),
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

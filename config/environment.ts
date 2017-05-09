@@ -3,7 +3,9 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `angular-cli.json`.
 
-export const environment = {
+import {Environment} from './environment.i';
+
+export const environment: Environment = {
     production: false,
 
     paymentUrl: 'https://us-central1-sosmethod-36e55.cloudfunctions.net/processPayment',
@@ -14,14 +16,7 @@ export const environment = {
     client_secret: 'secret',
 
     grant_type: 'password',
-    scope: 'read write',
-
-    firebase: {
-        apiKey: 'AIzaSyCqhdstV83rISzeWGyJy0DDhdeBAByWxtU',
-        authDomain: 'sosmethod-36e55.firebaseapp.com',
-        databaseURL: 'https://sosmethod-36e55.firebaseio.com',
-        projectId: 'sosmethod-36e55',
-        storageBucket: 'sosmethod-36e55.appspot.com',
-        messagingSenderId: '216534622213'
-    }
+    scope: 'read write'
 };
+
+
