@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import {DiscoverySeriesComponent} from '../discovery/discovery-series';
 import {AudioService} from '../../services/audio.service';
+import 'rxjs/add/operator/withLatestFrom';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class MeditateComponent implements OnInit {
                 public router: Router,
                 public audio: AudioService) {
         this.audio.ended.subscribe(() => {
-            const meditation = $(this.discovery.nativeElement).find('a[routerLink*="/meditations/"]');
+            const meditation = $(this.discovery.nativeElement).find('a[routerLink*="/meditations/"]:visible');
             if (meditation.length > 0) {
                 this.router.navigate([meditation.first().attr('routerLink')]);
             }

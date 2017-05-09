@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {environment} from '../../../../config/environment';
-import {AngularFire} from 'angularfire2';
 import {Http} from '@angular/http';
+import {AngularFireAuth} from 'angularfire2/auth';
 
 @Component({
     selector: 'bc-signup',
@@ -11,7 +11,7 @@ import {Http} from '@angular/http';
 export class SignupComponent implements OnInit {
 
 
-    constructor(public af: AngularFire,
+    constructor(public user: AngularFireAuth,
                 public http: Http) {
 
     }
@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
                 this.http.post(environment.paymentUrl, JSON.stringify({
                     token: token,
                     plan: description,
-                    email: this.user.email
+                    email: this.user.auth.currentUser.email
                 })).subscribe();
             }
         });

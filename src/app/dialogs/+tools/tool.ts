@@ -1,8 +1,8 @@
 import {Component, OnInit, Optional} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
-import {FaqDialogComponent} from "../faq/faq";
-import {Observable, Subject} from "rxjs";
-import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
+import {Subject} from 'rxjs/Subject';
+import {Observable} from 'rxjs/Observable';
+import {ActivatedRoute, ActivatedRouteSnapshot} from '@angular/router';
 
 
 @Component({
@@ -13,14 +13,15 @@ import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
 export class ToolDialogComponent implements OnInit {
     public tool$: Observable<string> = new Subject;
 
-    constructor(public route: ActivatedRoute, public dialog: MdDialog, @Optional() public dialogRef?: MdDialogRef<ToolDialogComponent>) {
+    constructor(public route: ActivatedRoute,
+                public dialog: MdDialog,
+                @Optional() public dialogRef?: MdDialogRef<ToolDialogComponent>) {
     }
 
     ngOnInit() {
-        if(this.dialogRef) {
+        if (this.dialogRef) {
             this.tool$ = Observable.of((<ActivatedRouteSnapshot>this.dialogRef._containerInstance.dialogConfig.data).params.tool);
-        }
-        else {
+        } else {
             this.tool$ = this.route.params.map(params => {
                 return params['tool'];
             });
@@ -28,3 +29,5 @@ export class ToolDialogComponent implements OnInit {
     }
 
 }
+
+

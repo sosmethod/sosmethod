@@ -1,7 +1,6 @@
 ﻿import {Component, ElementRef} from '@angular/core';
 import {LayoutService} from '../services/layout';
-import {AngularFire} from 'angularfire2';
-import {Observable} from 'rxjs/Observable';
+import {AngularFireAuth} from 'angularfire2/auth';
 
 
 @Component({
@@ -10,13 +9,11 @@ import {Observable} from 'rxjs/Observable';
     styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent {
-    public anonymous: Observable<boolean> = Observable.of(true);
+    public anonymous: boolean;
 
-    constructor(public layout: LayoutService, public af: AngularFire) {
+    constructor(public layout: LayoutService, public af: AngularFireAuth) {
         this.layout.focusElement.subscribe(f => this.onScrollTo(f));
-        this.anonymous = this.af.auth.flatMap(u => {
-            return Observable.of(u == null);
-        });
+        this.anonymous = !this.af.auth.currentUser;
     }
 
     onScrollTo(el: ElementRef) {

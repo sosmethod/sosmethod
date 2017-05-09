@@ -1,5 +1,3 @@
-import {FirebaseAppConfig} from 'angularfire2';
-
 export interface Environment {
     production: boolean;
     paymentUrl: string;

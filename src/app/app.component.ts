@@ -5,7 +5,6 @@ import {LayoutService} from './services/layout';
 import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
 import {AudioService} from './services/audio.service';
-import {AngularFire} from 'angularfire2';
 import {AuthGuard} from './dialogs/+auth/auth-guard';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {Observable} from 'rxjs/Observable';
@@ -34,7 +33,6 @@ export class AppComponent implements OnInit {
     private timeout: any;
 
     constructor(private _zone: NgZone,
-                public af: AngularFire,
                 public layout: LayoutService,
                 private translate: TranslateService,
                 public auth: AuthGuard,
@@ -68,7 +66,7 @@ export class AppComponent implements OnInit {
                     self._zone.run(() => observer.next(args));
                 });
             });
-            this.mousemove.subscribe(e => {
+            this.mousemove.subscribe(() => {
                 this.onMouseMove();
             });
             this.onMouseMove();

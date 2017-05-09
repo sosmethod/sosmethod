@@ -1,10 +1,7 @@
 ﻿import {Component, OnInit, OnDestroy, Optional} from '@angular/core';
-import { Router, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
-import {AngularFire, _getFirebase} from 'angularfire2';
-import * as firebase from 'firebase';
-import {environment} from '../../../../../config/environment';
-import {MdDialog, MdDialogRef} from "@angular/material";
-import {FirebaseConfig} from "../../../app.module";
+import {Router, ActivatedRoute, ActivatedRouteSnapshot} from '@angular/router';
+import {MdDialog, MdDialogRef} from '@angular/material';
+import {AngularFireAuth} from 'angularfire2/auth';
 
 @Component({
     selector: 'bc-reset',
@@ -15,15 +12,12 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
     actionCode: string;
     email: string;
     password: string;
-    private firebase: firebase.app.App;
 
-    constructor(
-        public router: Router,
-        public route: ActivatedRoute,
-        public af: AngularFire,
-        public dialog: MdDialog,
-        @Optional() public dialogRef?: MdDialogRef<ResetPasswordComponent>) {
-        this.firebase = _getFirebase(FirebaseConfig);
+    constructor(public fireAuth: AngularFireAuth,
+                public router: Router,
+                public route: ActivatedRoute,
+                public dialog: MdDialog,
+                @Optional() public dialogRef?: MdDialogRef<ResetPasswordComponent>) {
     }
 
     ngOnInit() {
@@ -52,8 +46,7 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
     }
 
     resetPassword() {
-        const auth = this.firebase.auth();
-        auth.confirmPasswordReset(this.actionCode, this.password).then(function(resp) {
+        this.fireAuth.auth.confirmPasswordReset(this.actionCode, this.password).then(function (resp) {
             // Password reset has been confirmed and new password updated.
             this.dialog.closeAll();
             // TODO: Display a link back to the app, or sign-in the user directly
@@ -64,37 +57,34 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
     }
 
     handleResetPassword() {
-        const auth = this.firebase.auth();
         // Verify the password reset code is valid.
-        auth.verifyPasswordResetCode(this.actionCode).then(function(accountEmail) {
+        this.fireAuth.auth.verifyPasswordResetCode(this.actionCode).then(function (accountEmail) {
             this.email = accountEmail;
 
             // TODO: Show the reset screen with the user's email and ask the user for
             // the new password.
 
             // Save the new password.
-        }).catch(function(error) {
+        }).catch(function (error) {
             // Invalid or expired action code. Ask user to try to reset the password
             // again.
         });
     }
 
     handleRecoverEmail() {
-        const auth = this.firebase.auth();
         // Confirm the action code is valid.
-        auth.checkActionCode(this.actionCode).then(function (info: any) {
+        this.fireAuth.auth.checkActionCode(this.actionCode).then(function (info: any) {
             // Get the restored email address.
             this.email = info['data']['email'];
 
             // Revert to the old email.
-            return auth.applyActionCode(this.actionCode);
+            return this.fireAuth.auth.applyActionCode(this.actionCode);
         });
     }
 
     handleVerifyEmail() {
-        const auth = this.firebase.auth();
         // Try to apply the email verification code.
-        auth.applyActionCode(this.actionCode).then(function (resp) {
+        this.fireAuth.auth.applyActionCode(this.actionCode).then(function (resp) {
             // Email address has been verified.
 
             // TODO: Display a confirmation message to the user.

@@ -3,7 +3,9 @@ import {Http} from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
-import {AngularFireModule, AuthMethods, AuthProviders, FirebaseAppConfig} from 'angularfire2';
+import {AngularFireModule, FirebaseAppConfig} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {AngularFireAuthModule} from 'angularfire2/auth';
 
 // sos modules
 import {LayoutModule} from './layout/layout.module';
@@ -33,17 +35,11 @@ import {AuthGuard} from './dialogs/+auth/auth-guard';
 import {DialogGuard} from './dialogs/dialog-guard';
 
 import {routing} from './app.routing';
-import {environment} from '../../config/environment';
 import {COMMON_MODULES} from './shared/common.module';
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
-const myFirebaseAuthConfig = {
-    provider: AuthProviders.Google,
-    method: AuthMethods.Redirect
-};
 
 export const FirebaseConfig: FirebaseAppConfig = {
     apiKey: 'AIzaSyCqhdstV83rISzeWGyJy0DDhdeBAByWxtU',
@@ -59,7 +55,9 @@ export const FirebaseConfig: FirebaseAppConfig = {
         BrowserAnimationsModule,
         ...COMMON_MODULES,
 
-        AngularFireModule.initializeApp(FirebaseConfig, myFirebaseAuthConfig),
+        AngularFireModule.initializeApp(FirebaseConfig),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

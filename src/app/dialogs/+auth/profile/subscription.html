@@ -1,23 +1,23 @@
-<md-dialog-content>
+<md-dialog-content (formGroup)="form">
     <div>
         <md-input-container>
-            <input mdInput name="first" type="text" placeholder="First name" [(ngModel)]="auth.user.name.first" />
+            <input mdInput name="first" type="text" placeholder="First name" formControlName="first"/>
         </md-input-container>
         <md-input-container>
-            <input mdInput name="last" type="text" placeholder="Last name" [(ngModel)]="auth.user.name.last" />
+            <input mdInput name="last" type="text" placeholder="Last name" formControlName="last"/>
         </md-input-container>
     </div>
     <div>
         <md-input-container>
-            <input mdInput name="email" type="text" placeholder="Email" [(ngModel)]="auth.user.username" />
+            <input mdInput name="email" type="text" placeholder="Email" formControlName="email"/>
         </md-input-container>
     </div>
     <div>
         <md-input-container>
-            <input mdInput name="passwd" type="password" placeholder="Password" [(ngModel)]="password" />
+            <input mdInput name="passwd" type="password" placeholder="Password" formControlName="password"/>
         </md-input-container>
         <md-input-container>
-            <input mdInput name="new-passwd" type="password" placeholder="New Password" [(ngModel)]="newPassword" />
+            <input mdInput name="new-passwd" type="password" placeholder="New Password" formControlName="newPassword"/>
         </md-input-container>
     </div>
 

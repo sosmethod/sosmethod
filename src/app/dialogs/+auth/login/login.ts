@@ -3,7 +3,7 @@ import {OnInit, Component, Optional} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthUser} from '../auth-user';
 import {MdDialog, MdDialogRef} from '@angular/material';
-import {AngularFire, AuthProviders, AuthMethods} from 'angularfire2';
+import {AngularFireAuth} from 'angularfire2/auth';
 
 
 @Component({
@@ -20,7 +20,7 @@ export class AccountLoginComponent implements OnInit {
     constructor(public route: ActivatedRoute,
                 public router: Router,
                 public dialog: MdDialog,
-                public af: AngularFire,
+                public fireAuth: AngularFireAuth,
                 @Optional() public dialogRef?: MdDialogRef<AccountLoginComponent>) {
     }
 
@@ -30,11 +30,7 @@ export class AccountLoginComponent implements OnInit {
     login() {
         this.error = false;
         try {
-            this.af.auth.login({email: this.authUser.username, password: this.authUser.password},
-                {
-                    provider: AuthProviders.Password,
-                    method: AuthMethods.Password,
-                })
+            this.fireAuth.auth.signInWithEmailAndPassword(this.authUser.username, this.authUser.password)
                 .then(() => this.dialog.closeAll())
                 .catch(e => this.error = true);
         } catch (e) {
@@ -43,26 +39,17 @@ export class AccountLoginComponent implements OnInit {
     }
 
     loginGoogle() {
-        this.af.auth.login({
-            provider: AuthProviders.Google,
-            method: AuthMethods.Popup,
-        });
+        this.fireAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
         this.dialog.closeAll();
     }
 
     loginTwitter() {
-        this.af.auth.login({
-            provider: AuthProviders.Twitter,
-            method: AuthMethods.Popup,
-        });
+        this.fireAuth.auth.signInWithRedirect(new firebase.auth.TwitterAuthProvider());
         this.dialog.closeAll();
     }
 
     loginFacebook() {
-        this.af.auth.login({
-            provider: AuthProviders.Facebook,
-            method: AuthMethods.Popup,
-        });
+        this.fireAuth.auth.signInWithRedirect(new firebase.auth.FacebookAuthProvider());
         this.dialog.closeAll();
     }
 }

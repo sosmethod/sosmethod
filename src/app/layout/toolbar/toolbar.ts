@@ -3,11 +3,12 @@ import {MdDialog} from '@angular/material';
 import {NavigationEnd, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
 import {AudioService} from '../../services/audio.service';
-import {AngularFire, FirebaseAuthState} from 'angularfire2';
 import {AuthGuard} from '../../dialogs/+auth/auth-guard';
 import {environment} from '../../../../config/environment';
 import {Http, Headers, Request} from '@angular/http';
 import {DiscoverySeriesComponent} from '../../player/discovery/discovery-series';
+import {AngularFireDatabase} from 'angularfire2/database';
+import {AngularFireAuth} from 'angularfire2/auth';
 
 
 @Component({
@@ -19,10 +20,11 @@ export class ToolbarComponent implements OnInit {
     @ViewChild('player') player: any;
     @Output() openMenu = new EventEmitter();
     public route$: Subject<string> = new Subject();
-    public user: FirebaseAuthState;
+    public user: firebase.User;
     public playing: boolean;
 
-    constructor(public af: AngularFire,
+    constructor(public database: AngularFireDatabase,
+                public fireAuth: AngularFireAuth,
                 public router: Router,
                 public dialog: MdDialog,
                 public http: Http,
@@ -31,7 +33,7 @@ export class ToolbarComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.af.auth.subscribe((u) => this.user = u);
+        this.user = this.fireAuth.auth.currentUser;
         this.audio._audio = this.player.nativeElement;
         this.audio.AttachEvents();
         this.audio.state.subscribe(s => this.playing = s === 'playing');
@@ -56,7 +58,7 @@ export class ToolbarComponent implements OnInit {
             return;
         }
         const dateKey = (new Date).getTime();
-        this.af.database.object('/users/' + AuthGuard.escapeEmail(this.user.auth.email)
+        this.database.object('/users/' + AuthGuard.escapeEmail(this.user.email)
             + '/completed/' + dateKey).set(this.router.url);
         const segments = this.router.url.split('/');
         if (segments[1] === '_5_day' && segments[2] === 'essentials') {
@@ -71,7 +73,7 @@ export class ToolbarComponent implements OnInit {
     send5DayEmail() {
         const data = {
             to: 'admin@sosmethod.com',
-            from: this.user.auth.email,
+            from: this.user.email,
             name: this.auth.user && this.auth.user.name ? this.auth.user.name.first : null,
             body: 'This is a body',
             subject: 'The most important thing',
@@ -93,7 +95,7 @@ export class ToolbarComponent implements OnInit {
 
     logout() {
         const that = this;
-        this.af.auth.logout();
+        this.fireAuth.auth.signOut();
         setTimeout(() => that.router.navigate(['/']));
     }
 }

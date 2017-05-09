@@ -1,20 +1,17 @@
-import {Injectable} from "@angular/core";
-import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from "@angular/router";
-import {MdDialog} from "@angular/material";
-import {AuthGuard} from "../dialogs/+auth/auth-guard";
-import {DiscoveryComponent} from "./discovery/discovery";
-import {MeditationComponent} from "./meditation/meditation";
-import {FooterComponent} from "../layout/footer/footer";
-import {AngularFire} from "angularfire2";
-import {Observable} from "rxjs/Observable";
-import {ToolsMenuComponent} from "../layout/sidenav/tools";
+import {Injectable} from '@angular/core';
+import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
+import {MdDialog} from '@angular/material';
+import {AuthGuard} from '../dialogs/+auth/auth-guard';
+import {DiscoveryComponent} from './discovery/discovery';
+import {MeditationComponent} from './meditation/meditation';
+import {Observable} from 'rxjs/Observable';
+import {ToolsMenuComponent} from '../layout/sidenav/tools';
 
 
 @Injectable()
 export class ContentGuard {
 
     constructor(public auth: AuthGuard,
-                public af: AngularFire,
                 public dialog: MdDialog,
                 public router: Router) {
     }
