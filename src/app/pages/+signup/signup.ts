@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {environment} from '../../../../config/environment';
 import {Http} from '@angular/http';
 import {AngularFireAuth} from 'angularfire2/auth';
+import {Environment} from '../../../../config/environment.i';
 
 @Component({
     selector: 'bc-signup',
@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
             token: function (token: any) {
                 // You can access the token ID with `token.id`.
                 // Get the token ID to your server-side code for use.
-                this.http.post(environment.paymentUrl, JSON.stringify({
+                this.http.post(Environment.env.paymentUrl, JSON.stringify({
                     token: token,
                     plan: description,
                     email: this.user.auth.currentUser.email

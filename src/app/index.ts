@@ -1,3 +1,2 @@
-﻿export { environment } from '../../config/environment';
-export * from './app.module';
-export * from './app.component';
+﻿export {AppModule} from './app.module';
+export {AppComponent} from './app.component';

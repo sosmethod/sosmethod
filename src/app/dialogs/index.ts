@@ -1,4 +1,4 @@
-export * from './dialogs.module';
+export {DialogModule} from './dialogs.module';
 
 
 

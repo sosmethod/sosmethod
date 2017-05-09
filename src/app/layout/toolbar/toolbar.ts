@@ -1,14 +1,14 @@
-﻿import {Component, Output, EventEmitter, OnInit, ViewChild, ChangeDetectorRef} from '@angular/core';
+﻿import {Component, Output, EventEmitter, OnInit, ViewChild} from '@angular/core';
 import {MdDialog} from '@angular/material';
 import {NavigationEnd, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
 import {AudioService} from '../../services/audio.service';
 import {AuthGuard} from '../../dialogs/+auth/auth-guard';
-import {environment} from '../../../../config/environment';
 import {Http, Headers, Request} from '@angular/http';
 import {DiscoverySeriesComponent} from '../../player/discovery/discovery-series';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {AngularFireAuth} from 'angularfire2/auth';
+import {Environment} from '../../../../config/environment.i';
 
 
 @Component({
@@ -84,7 +84,7 @@ export class ToolbarComponent implements OnInit {
         headers.append('Content-Type', 'text/plain');
         const req = new Request({
             method: 'POST',
-            url: environment.sendgridUrl,
+            url: Environment.env.sendgridUrl,
             headers: headers,
             body: JSON.stringify(data)
         });

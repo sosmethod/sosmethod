@@ -1,4 +1,4 @@
-export interface Environment {
+export interface IEnvironment {
     production: boolean;
     paymentUrl: string;
     sendgridUrl: string;
@@ -9,3 +9,18 @@ export interface Environment {
     grant_type: string;
     scope: string;
 }
+
+export abstract class Environment implements IEnvironment {
+    production: boolean;
+    paymentUrl: string;
+    sendgridUrl: string;
+    tokenUrl: string;
+    revokeUrl: string;
+    client_id: string;
+    client_secret: string;
+    grant_type: string;
+    scope: string;
+    static env: Environment;
+}
+
+

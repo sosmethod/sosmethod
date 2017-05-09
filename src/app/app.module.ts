@@ -26,6 +26,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import {routing} from './app.routing';
 import {COMMON_MODULES, SharedModule} from './shared/common.module';
+import {AuthGuard} from "./dialogs/+auth/auth-guard";
+import {DialogGuard} from "./dialogs/dialog-guard";
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -65,7 +67,7 @@ export const FirebaseConfig: FirebaseAppConfig = {
         MenusModule,
         PlayerModule
     ],
-    exports: [RouterModule],
+    exports: [RouterModule, SharedModule, AppComponent],
     declarations: [
         AppComponent,
         NotFoundComponent,

@@ -1,4 +1,4 @@
-export * from './pages.module';
+export {PagesModule} from './pages.module';
 
 
 

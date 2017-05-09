@@ -1,9 +1,8 @@
 import {Component, Optional} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
-import {FaqDialogComponent} from '../faq/faq';
 import {Http, Headers, Request} from '@angular/http';
-import {environment} from '../../../../config/environment';
-import {AuthGuard} from "../+auth/auth-guard";
+import {AuthGuard} from '../+auth/auth-guard';
+import {Environment} from '../../../../config/environment.i';
 
 
 @Component({
@@ -42,7 +41,7 @@ export class ContactDialogComponent {
         headers.append('Content-Type', 'text/plain');
         const req = new Request({
             method: 'POST',
-            url: environment.sendgridUrl,
+            url: Environment.env.sendgridUrl,
             headers: headers,
             body: JSON.stringify(data)
         });
