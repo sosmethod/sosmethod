@@ -1,4 +1,4 @@
-<md-dialog-content (formGroup)="form">
+<md-dialog-content [formGroup]="form">
     <div>
         <md-input-container>
             <input mdInput name="first" type="text" placeholder="First name" formControlName="first"/>
@@ -14,10 +14,10 @@
     </div>
     <div>
         <md-input-container>
-            <input mdInput name="passwd" type="password" placeholder="Password" formControlName="password"/>
+            <input mdInput name="password" type="password" placeholder="Password" formControlName="password"/>
         </md-input-container>
         <md-input-container>
-            <input mdInput name="new-passwd" type="password" placeholder="New Password" formControlName="newPassword"/>
+            <input mdInput name="newPassword" type="password" placeholder="New Password" formControlName="newPassword"/>
         </md-input-container>
     </div>
 

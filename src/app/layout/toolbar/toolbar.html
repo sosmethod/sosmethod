@@ -8,16 +8,16 @@
     <span>&nbsp;</span>
     <div class="account">
         <a md-raised-button routerLink="/account/login"
-           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && !(fireAuth.auth.currentUser | async)?.auth.email">login</a>
+           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && !user?.email">login</a>
         <a md-raised-button routerLink="/account/profile" mdTooltip="Account / Timeline" class="profile"
-           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && (fireAuth.auth.currentUser | async)?.auth.email">
+           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && user?.email">
             <span class="name-wrapper">{{auth.user?.name?.first}} &nbsp; &nbsp; </span>
             <span class="image-wrapper"><img
-                    [src]="(fireAuth.auth.currentUser | async)?.google?.photoURL || '/assets/icon_static_user_man.png'"/></span></a>
+                    [src]="user?.photoURL || '/assets/icon_static_user_man.png'"/></span></a>
         <a md-raised-button routerLink="/contact"
            *ngIf="(route$ | async) == 'gift' || (route$ | async) == 'signup'">contact us</a>
         <a md-raised-button (click)="logout()"
-           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && (fireAuth.auth.currentUser | async)?.auth.email">logout</a>
+           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && user?.email">logout</a>
     </div>
 </md-toolbar>
 <audio #player preload="metadata" autobuffer="true"></audio>

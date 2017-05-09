@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {AuthUser} from '../auth-user';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {AngularFireAuth} from 'angularfire2/auth';
-
+import * as firebase from 'firebase';
 
 @Component({
     selector: 'bc-login-page',

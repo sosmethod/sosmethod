@@ -1,6 +1,6 @@
 ﻿<div #wrapper [class.anonymous]="anonymous | async"
      [class.user]="!(anonymous | async)">
-<md-sidenav-container fullscreen #scrollable>
-  <ng-content></ng-content>
-</md-sidenav-container>
+    <md-sidenav-container fullscreen #scrollable>
+        <ng-content></ng-content>
+    </md-sidenav-container>
 </div>

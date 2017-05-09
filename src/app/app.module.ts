@@ -20,22 +20,12 @@ import {AppComponent} from './app.component';
 import {NotFoundComponent} from './error/404/not-found';
 import {NotAuthorizedComponent} from './error/401/not-authorized';
 
-// auth services
-import {LayoutService} from './services/layout';
-import {AudioService} from './services/audio.service';
-
 // translation service
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {TranslateService} from '@ngx-translate/core';
-
-// guards
-import {ContentGuard} from './menus/content-guard';
-import {AuthGuard} from './dialogs/+auth/auth-guard';
-import {DialogGuard} from './dialogs/dialog-guard';
 
 import {routing} from './app.routing';
-import {COMMON_MODULES} from './shared/common.module';
+import {COMMON_MODULES, SharedModule} from './shared/common.module';
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -53,6 +43,7 @@ export const FirebaseConfig: FirebaseAppConfig = {
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        SharedModule.forRoot(),
         ...COMMON_MODULES,
 
         AngularFireModule.initializeApp(FirebaseConfig),
@@ -79,14 +70,6 @@ export const FirebaseConfig: FirebaseAppConfig = {
         AppComponent,
         NotFoundComponent,
         NotAuthorizedComponent,
-    ],
-    providers: [
-        TranslateService,
-        AudioService,
-        AuthGuard,
-        DialogGuard,
-        ContentGuard,
-        LayoutService
     ],
     bootstrap: [AppComponent]
 })

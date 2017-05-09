@@ -1,4 +1,4 @@
-﻿import {Component, Output, EventEmitter, OnInit, ViewChild} from '@angular/core';
+﻿import {Component, Output, EventEmitter, OnInit, ViewChild, ChangeDetectorRef} from '@angular/core';
 import {MdDialog} from '@angular/material';
 import {NavigationEnd, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
@@ -33,7 +33,7 @@ export class ToolbarComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.user = this.fireAuth.auth.currentUser;
+        this.fireAuth.auth.onAuthStateChanged((u: firebase.User | null) => this.user = u);
         this.audio._audio = this.player.nativeElement;
         this.audio.AttachEvents();
         this.audio.state.subscribe(s => this.playing = s === 'playing');

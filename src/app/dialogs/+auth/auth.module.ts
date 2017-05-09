@@ -12,9 +12,8 @@ import {SubscriptionComponent} from './profile/subscription';
 import {DiscoveryTimelineComponent} from './profile/discovery-timeline';
 import {MeditationTimelineComponent} from './profile/meditation-timeline';
 import {COMMON_MODULES} from '../../shared/common.module';
-import {AuthGuard} from './auth-guard';
 import {DialogGuard} from '../dialog-guard';
-
+import {AuthGuard} from './auth-guard';
 
 export const COMPONENTS = [
     AccountLoginComponent,
@@ -34,9 +33,9 @@ export const COMPONENTS = [
         ...COMMON_MODULES,
         routing,
     ],
-    providers: [AuthGuard, DialogGuard],
     declarations: COMPONENTS,
-    exports: COMPONENTS
+    exports: COMPONENTS,
+    providers: [DialogGuard]
 })
 export class AuthModule {
 }

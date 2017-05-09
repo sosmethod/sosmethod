@@ -18,13 +18,7 @@ export class MeditationComponent extends DiscoveryComponent implements OnInit {
     }
 
     ngOnInit() {
-        const that = this;
         super.ngOnInit();
-        this.series$.subscribe(d => {
-            setTimeout(() => {
-                that.circleStatus.apply(that, [this.auth.user]);
-            });
-        });
     }
 
     static isLocked(u: AuthUser, seriesUri: string) {

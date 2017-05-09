@@ -14,7 +14,7 @@ import {MdDialog} from '@angular/material';
 
 @Component({
     selector: 'bc-app',
-    providers: [TranslateService, AudioService],
+    providers: [TranslateService, AudioService, LayoutService],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     encapsulation: ViewEncapsulation.None

@@ -22,7 +22,6 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         const params = (<ActivatedRouteSnapshot>this.dialogRef._containerInstance.dialogConfig.data);
-        console.log(params);
         this.actionCode = params.queryParams['oobCode'];
         switch (params.queryParams['mode']) {
             case 'resetPassword':

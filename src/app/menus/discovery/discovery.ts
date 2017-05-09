@@ -5,7 +5,7 @@ import {LayoutService} from '../../services/layout';
 import {AuthGuard} from '../../dialogs/+auth/auth-guard';
 import {DiscoverySeriesComponent} from '../../player/discovery/discovery-series';
 import {AuthUser} from '../../dialogs/+auth/auth-user';
-
+import 'rxjs/add/operator/withLatestFrom';
 
 @Component({
     selector: 'bc-discovery',
@@ -21,7 +21,7 @@ export class DiscoveryComponent implements OnInit {
     private _series: string;
 
     static isCompleted(user: AuthUser, seriesUri: string) {
-        const urls = user && typeof user.completed != 'undefined' ? Object.keys(user.completed).map(c => user.completed[c])
+        const urls = user && typeof user.completed !== 'undefined' ? Object.keys(user.completed).map(c => user.completed[c])
             .filter(c => c.indexOf(seriesUri) > -1)
             .map(l => {
                 const match = DiscoverySeriesComponent.seriesRegex(l);
@@ -39,11 +39,9 @@ export class DiscoveryComponent implements OnInit {
             return false;
         }
         return !(u && DiscoveryComponent.isCompleted(u, '_11_day/essentials'));
-
     }
 
     constructor(public route: ActivatedRoute, public layout: LayoutService, public auth: AuthGuard) {
-
     }
 
     @HostListener('window:resize', ['$event'])
@@ -73,15 +71,20 @@ export class DiscoveryComponent implements OnInit {
                 } else {
                     that.createMenus(isDiscovery);
                 }
-                if (isDiscovery) {
-                    that.circleStatus.apply(that, [this.auth.user]);
-                }
+            });
+            setTimeout(() => {
+                that.circleStatus.apply(that, [this.auth.user]);
+            });
+        });
+        this.auth.subj.subscribe(user => {
+            setTimeout(() => {
+                that.circleStatus.apply(that, [user]);
             });
         });
     }
 
 
-    public circleStatus(u: AuthUser) {
+    public circleStatus(u: AuthUser | null) {
         $(this.discoveryLeaf.nativeElement).find('a[href]').each((i, elem) => {
             const link = $(elem).attr('href').replace('#/', '');
             if (DiscoveryComponent.isLocked(u, link)) {

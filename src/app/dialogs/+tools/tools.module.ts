@@ -1,11 +1,8 @@
 import {NgModule} from '@angular/core';
-
 import {ToolDialogComponent} from './tool';
-
 import {COMMON_MODULES} from '../../shared/common.module';
 import {routing} from './tools.routing';
 import {DialogGuard} from '../dialog-guard';
-import {AuthGuard} from '../+auth/auth-guard';
 
 
 export const COMPONENTS = [
@@ -18,7 +15,7 @@ export const COMPONENTS = [
         ...COMMON_MODULES,
         routing
     ],
-    providers: [AuthGuard, DialogGuard],
+    providers: [DialogGuard],
     declarations: COMPONENTS,
     exports: COMPONENTS
 })

@@ -17,7 +17,7 @@ export const COMPONENTS = [
         ...COMMON_MODULES,
         routing
     ],
-    providers: [AuthGuard, DialogGuard],
+    providers: [DialogGuard],
     declarations: COMPONENTS,
     exports: COMPONENTS
 })

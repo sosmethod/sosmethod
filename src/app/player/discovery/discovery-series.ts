@@ -47,7 +47,9 @@ export class DiscoverySeriesComponent implements OnInit {
                 const match = DiscoverySeriesComponent.seriesRegex(params['audio']);
                 this.day$ = '_day_' + parseInt(match[1] || match[2]);
             }
-            this.seriesCompleted.apply(that, [this.series$, this.day$]);
+            setTimeout(() => {
+                that.seriesCompleted.apply(that, [this.series$, this.day$]);
+            });
         });
     }
 

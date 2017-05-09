@@ -2,6 +2,9 @@
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild} from '@angular/router';
 import {AuthUser} from './auth-user';
 import {Observable} from 'rxjs/Observable';
+import {Subject} from 'rxjs/Subject';
+import {Subscription} from 'rxjs/Subscription';
+import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {AngularFireDatabase} from 'angularfire2/database';
 import 'rxjs/add/operator/mergeMap';
@@ -10,7 +13,8 @@ import 'rxjs/add/operator/mergeMap';
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild {
     public user: AuthUser;
-    subj: Observable<AuthUser>;
+    sub: Subscription;
+    subj: Subject<AuthUser>;
 
     static escapeEmail(email: string) {
         return email.toLowerCase()
@@ -19,21 +23,30 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     }
 
     constructor(public fireAuth: AngularFireAuth, public database: AngularFireDatabase) {
-        const state = this.fireAuth.auth.currentUser;
-        if (!state) {
-            this.subj = Observable.of(null);
-        } else {
-            this.subj = database.object('/users/' + AuthGuard.escapeEmail(state.email))
-                .flatMap(user => {
-                    return state && user && typeof user.oldKey !== 'undefined'
-                        ? database.object('/users/' + user.oldKey).map(oldUser => {
-                            const origUser = Object.assign({}, user);
-                            origUser.completed = Object.assign({}, oldUser.completed, user.completed);
-                            return Object.assign({}, oldUser, origUser);
-                        })
-                        : Observable.of(user);
-                });
-        }
+        this.subj = new ReplaySubject();
+        this.fireAuth.auth.onAuthStateChanged((state: firebase.User | null) => {
+            if (!state) {
+                if (this.sub) {
+                    this.sub.unsubscribe();
+                }
+                this.subj.next(null);
+            } else {
+                this.sub = database.object('/users/' + AuthGuard.escapeEmail(state.email))
+                    .flatMap(user => {
+                        return state && user && typeof user.oldKey !== 'undefined'
+                            ? database.object('/users/' + user.oldKey).map(oldUser => {
+                                const origUser = Object.assign({}, user);
+                                origUser.completed = Object.assign({}, oldUser.completed, user.completed);
+                                return Object.assign({}, oldUser, origUser);
+                            })
+                            : Observable.of(user);
+                    })
+                    .subscribe(u => this.subj.next(u));
+            }
+        });
+        this.subj.subscribe(u => {
+            this.user = u;
+        });
     }
 
     canActivate(route: ActivatedRouteSnapshot,
