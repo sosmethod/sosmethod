@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {LayoutService} from '../../services/layout';
+import {LayoutService} from '../../layout/layout-service';
 
 
 @Component({

@@ -1,6 +1,6 @@
 import {Component, OnInit, ElementRef} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AudioService} from '../../services/audio.service';
+import {AudioService} from '../../layout/audio.service';
 
 
 @Component({

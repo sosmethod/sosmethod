@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild, HostListener, ElementRef} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {ActivatedRoute} from '@angular/router';
-import {LayoutService} from '../../services/layout';
+import {LayoutService} from '../../layout/layout-service';
 import {AuthGuard} from '../../dialogs/+auth/auth-guard';
 import {DiscoverySeriesComponent} from '../../player/discovery/discovery-series';
 import {AuthUser} from '../../dialogs/+auth/auth-user';

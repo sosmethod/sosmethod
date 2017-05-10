@@ -17,7 +17,7 @@ exports.processPayment = functions.https.onRequest((req, res) => {
     }).then(customer => {
         // Create a charge using the pushId as the idempotency key, protecting against double charges
         let amount = 0;
-        switch(data.plan) {
+        switch (data.plan) {
             case 'Monthly (Trial)':
                 amount = 1299;
                 break;
@@ -36,9 +36,12 @@ exports.processPayment = functions.https.onRequest((req, res) => {
         // If the result is seccessful, write it back to the database
         return admin.database().ref(`/users/${emailKey}/payments${(new Date).getTime()}`).set(response);
     }).then(() => {
+        if (data.return_url) {
+            res.headers.append('Access-Control-Allow-Origin', data.return_url);
+        }
         res.status(200);
         res.send(' ');
     }).catch(error => {
-            throw new Error(error);
-        });
+        throw new Error(error);
+    });
 });

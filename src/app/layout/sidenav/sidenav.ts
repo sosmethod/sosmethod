@@ -1,5 +1,5 @@
 ﻿import {Component, Input} from '@angular/core';
-import {LayoutService} from '../../services/layout';
+import {LayoutService} from '../layout-service';
 
 @Component({
     selector: 'bc-sidenav',

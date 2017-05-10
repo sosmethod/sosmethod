@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DiscoveryComponent} from '../discovery/discovery';
 import {ActivatedRoute} from '@angular/router';
-import {LayoutService} from '../../services/layout';
+import {LayoutService} from '../../layout/layout-service';
 import {AuthGuard} from '../../dialogs/+auth/auth-guard';
 import {AuthUser} from '../../dialogs/+auth/auth-user';
 

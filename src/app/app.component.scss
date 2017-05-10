@@ -95,16 +95,16 @@ bc-app .activate {
 
 }
 
-[ng-reflect-open="true"] ~ .activate {
+.menuOpen ~ .activate {
     opacity: 1;
     z-index: 900;
 }
 
-[ng-reflect-open="true"] ~ *, [ng-reflect-open="true"] {
+.menuOpen ~ *, .menuOpen {
 
     .preview-inner, .meditate, & ~ bc-toolbar, bc-discovery, bc-mediation, bc-course, bc-main-menu, bc-discovery-series, bc-player-controls, bc-meditations, footer {
         opacity: .3;
-        z-index: -1 !important;
+        z-index: 0 !important;
     }
 }
 

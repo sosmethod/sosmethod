@@ -8,6 +8,8 @@ import {NgModule, ModuleWithProviders} from '@angular/core';
 import {ContentGuard} from '../menus/content-guard';
 import {DialogGuard} from '../dialogs/dialog-guard';
 import {AuthGuard} from '../dialogs/+auth/auth-guard';
+import {LayoutService} from '../layout/layout-service';
+import {AudioService} from '../layout/audio.service';
 
 export const COMPONENTS: any[] = [];
 
@@ -19,7 +21,9 @@ export class SharedModule {
             providers: [
                 AuthGuard,
                 DialogGuard,
-                ContentGuard
+                ContentGuard,
+                AudioService,
+                LayoutService
             ]
         };
     }

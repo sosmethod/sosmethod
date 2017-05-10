@@ -1,10 +1,14 @@
 ﻿<bc-sidenav [open]="layout.sidebarOpen$ | async"
+            [class.menuOpen]="layout.sidebarOpen$ | async"
             [class.playing]="(audio.state | async) === 'playing'"
             [class.inactive]="(inactive | async)"
             [class.notopen]="!openDialog"></bc-sidenav>
-<bc-tools-menu [open]="layout.toolsOpen | async"></bc-tools-menu>
-<bc-share-menu [open]="layout.shareOpen | async"></bc-share-menu>
-<bc-secondary-menu [open]="layout.secondaryOpen | async"></bc-secondary-menu>
+<bc-tools-menu [open]="layout.toolsOpen | async"
+               [class.menuOpen]="layout.toolsOpen | async"></bc-tools-menu>
+<bc-share-menu [open]="layout.shareOpen | async"
+               [class.menuOpen]="layout.shareOpen | async"></bc-share-menu>
+<bc-secondary-menu [open]="layout.secondaryOpen | async"
+                   [class.menuOpen]="layout.secondaryOpen | async"></bc-secondary-menu>
 <bc-toolbar (openMenu)="openSidenav()">
     {{ 'HOME.TITLE' | translate }}
 </bc-toolbar>

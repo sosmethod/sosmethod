@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import {DiscoverySeriesComponent} from '../discovery/discovery-series';
-import {AudioService} from '../../services/audio.service';
+import {AudioService} from '../../layout/audio.service';
 import 'rxjs/add/operator/withLatestFrom';
 
 

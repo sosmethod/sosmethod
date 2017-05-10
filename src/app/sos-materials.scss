@@ -87,6 +87,7 @@ body {
         font-size: 16px;
         color: $textColor;
         min-width: 0;
+        border-radius: 0;
     }
 
     .mat-fab, .mat-mini-fab, .mat-raised-button,
@@ -423,6 +424,7 @@ body bc-tools-menu, body bc-secondary-menu, body bc-share-menu {
         white-space: normal;
         line-height: initial;
         text-align: left;
+        border-radius: 0;
     }
 
 }

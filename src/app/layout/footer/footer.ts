@@ -1,8 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
-import {LayoutService} from '../../services/layout';
-import {ContactDialogComponent} from '../../dialogs/contact/contact';
+import {LayoutService} from '../layout-service';
 import {MdDialog} from '@angular/material';
-import {FaqDialogComponent} from '../../dialogs/faq/faq';
 import {AuthGuard} from '../../dialogs/+auth/auth-guard';
 
 

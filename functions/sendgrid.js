@@ -41,6 +41,7 @@ function getClient(key) {
  * @param {object} res Cloud Function response context.
  */
 exports.sendgridEmail = functions.https.onRequest((req, res) => {
+    let data;
     return Promise.resolve()
         .then(() => {
             if (req.method !== 'POST') {
@@ -53,6 +54,9 @@ exports.sendgridEmail = functions.https.onRequest((req, res) => {
             const client = getClient(functions.config().sendgrid.key);
 
             data = JSON.parse(req.body);
+            if (data.return_url) {
+                res.headers.append('Access-Control-Allow-Origin', data.return_url);
+            }
             // Build the SendGrid request to send email
             const request = client.emptyRequest({
                 method: 'POST',
@@ -71,7 +75,7 @@ exports.sendgridEmail = functions.https.onRequest((req, res) => {
                 throw error;
             }
 
-            console.log(`Email sent to: ${req.body.to}`);
+            console.log(`Email sent to: ${data.to}`);
 
             // Forward the response back to the requester
             res.status(response.statusCode);
@@ -135,7 +139,8 @@ function getPayload(requestBody) {
     if (requestBody.return_url) {
         filters["substitutions"][":return_url"] = requestBody.return_url + '';
     }
-    return Object.assign(filters, {
+
+    let result = Object.assign(filters, {
         personalizations: [
             {
                 to: [
@@ -151,10 +156,14 @@ function getPayload(requestBody) {
         },
         content: [
             {
-                type: 'text/plain',
+                type: 'text/html',
                 value: requestBody.body
             }
         ]
     });
+    if (requestBody.send_at) {
+        result["personalizations"]["sent_at"] = requestBody.send_at;
+    }
+    return result;
 }
 // [END functions_get_payload]

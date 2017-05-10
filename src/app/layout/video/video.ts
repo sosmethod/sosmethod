@@ -1,5 +1,5 @@
 import {Component, ViewChild, NgZone} from '@angular/core';
-import {LayoutService} from '../../services/layout';
+import {LayoutService} from '../layout-service';
 import {Observable} from 'rxjs/Observable';
 import {Observer} from 'rxjs/Observer';
 

@@ -1,5 +1,5 @@
 ﻿import {Component, ElementRef} from '@angular/core';
-import {LayoutService} from '../services/layout';
+import {LayoutService} from './layout-service';
 import {AuthGuard} from '../dialogs/+auth/auth-guard';
 import {Observable} from 'rxjs/Observable';
 

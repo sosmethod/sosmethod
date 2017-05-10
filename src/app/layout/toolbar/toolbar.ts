@@ -2,7 +2,7 @@
 import {MdDialog} from '@angular/material';
 import {NavigationEnd, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
-import {AudioService} from '../../services/audio.service';
+import {AudioService} from '../audio.service';
 import {AuthGuard} from '../../dialogs/+auth/auth-guard';
 import {Http, Headers, Request} from '@angular/http';
 import {DiscoverySeriesComponent} from '../../player/discovery/discovery-series';
@@ -65,20 +65,80 @@ export class ToolbarComponent implements OnInit {
             const match = DiscoverySeriesComponent.seriesRegex(segments[3]);
             const day = parseInt(match[1] || match[2]);
             if (day === 5) {
+                this.send1DayEmail();
                 this.send5DayEmail();
+                this.send12DayEmail();
             }
         }
     }
 
-    send5DayEmail() {
+    send1DayEmail() {
+        const OneDay = new Date;
+        OneDay.setHours(8);
+        OneDay.setDate(OneDay.getDate() + 1);
         const data = {
-            to: 'admin@sosmethod.com',
-            from: this.user.email,
+            to: this.user.email,
+            from: 'hello@thesosmethod.com',
             name: this.auth.user && this.auth.user.name ? this.auth.user.name.first : null,
             body: 'This is a body',
             subject: 'The most important thing',
             return_url: window.location.origin,
-            template: 'd4f3577d-4b17-4a86-8bd3-4861c6bc45c7'
+            template: 'd4f3577d-4b17-4a86-8bd3-4861c6bc45c7',
+            send_at: OneDay.getTime() / 1000
+        };
+        const headers = new Headers();
+        headers.append('Content-Type', 'text/plain');
+        const req = new Request({
+            method: 'POST',
+            url: Environment.env.sendgridUrl,
+            headers: headers,
+            body: JSON.stringify(data)
+        });
+        this.http.request(req)
+            .subscribe(() => {
+            });
+    }
+
+    send5DayEmail() {
+        const OneDay = new Date;
+        OneDay.setHours(8);
+        OneDay.setDate(OneDay.getDate() + 5);
+        const data = {
+            to: this.user.email,
+            from: 'hello@thesosmethod.com',
+            name: this.auth.user && this.auth.user.name ? this.auth.user.name.first : null,
+            body: 'This is a body',
+            subject: 'We are so impressed!',
+            return_url: window.location.origin,
+            template: '250347ad-f8d3-4e8a-a93b-9b8a4b461375',
+            send_at: OneDay.getTime() / 1000
+        };
+        const headers = new Headers();
+        headers.append('Content-Type', 'text/plain');
+        const req = new Request({
+            method: 'POST',
+            url: Environment.env.sendgridUrl,
+            headers: headers,
+            body: JSON.stringify(data)
+        });
+        this.http.request(req)
+            .subscribe(() => {
+            });
+    }
+
+    send12DayEmail() {
+        const OneDay = new Date;
+        OneDay.setHours(8);
+        OneDay.setDate(OneDay.getDate() + 12);
+        const data = {
+            to: this.user.email,
+            from: 'hello@thesosmethod.com',
+            name: this.auth.user && this.auth.user.name ? this.auth.user.name.first : null,
+            body: 'This is a body',
+            subject: '5 is the magic number',
+            return_url: window.location.origin,
+            template: '2cc77cb5-27c0-4f3e-8012-5b0b3ad54015',
+            send_at: OneDay.getTime() / 1000
         };
         const headers = new Headers();
         headers.append('Content-Type', 'text/plain');

@@ -1,20 +1,21 @@
 ﻿import 'rxjs/add/operator/let';
 import {Component, ViewEncapsulation, OnInit, NgZone} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
-import {LayoutService} from './services/layout';
+import {LayoutService} from './layout/layout-service';
 import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
-import {AudioService} from './services/audio.service';
+import {AudioService} from './layout/audio.service';
 import {AuthGuard} from './dialogs/+auth/auth-guard';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {Observable} from 'rxjs/Observable';
 import {Observer} from 'rxjs/Observer';
 import {MdDialog} from '@angular/material';
+import {AsyncPipe} from '@angular/common';
 
 
 @Component({
     selector: 'bc-app',
-    providers: [TranslateService, AudioService, LayoutService],
+    providers: [TranslateService, AsyncPipe],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     encapsulation: ViewEncapsulation.None

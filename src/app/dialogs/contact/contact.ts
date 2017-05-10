@@ -32,7 +32,7 @@ export class ContactDialogComponent {
             return;
         }
         const data = {
-            to: 'admin@sosmethod.com',
+            to: 'hello@thesosmethod.com',
             subject: 'Contact Us from ' + this.name,
             from: this.email,
             body: this.name + ' writes, \n' + this.message
@@ -49,6 +49,7 @@ export class ContactDialogComponent {
             .subscribe(() => {
                 this.done = true;
             });
+        this.dialog.closeAll();
     }
 }
 
