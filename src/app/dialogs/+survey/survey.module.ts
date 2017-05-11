@@ -4,12 +4,15 @@ import {SurveyDialogComponent} from './survey';
 
 import {COMMON_MODULES} from '../../shared/common.module';
 import {routing} from './survey.routing';
-import {AuthGuard} from '../+auth/auth-guard';
+import {SurveySeriesComponent} from './survey-series';
+import {SurveyProfileComponent} from './survey-profile';
 import {DialogGuard} from '../dialog-guard';
 
 
 export const COMPONENTS = [
     SurveyDialogComponent,
+    SurveySeriesComponent,
+    SurveyProfileComponent
 ];
 
 @NgModule({

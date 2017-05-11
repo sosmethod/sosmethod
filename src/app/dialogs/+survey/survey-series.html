@@ -1,0 +1,32 @@
+<a md-button md-dialog-close (click)="dialog.closeAll()" tabindex="-1">
+    <md-icon>cancel</md-icon>
+</a>
+<h2 md-dialog-title>Welcome to </h2>
+<md-dialog-content id="contact" class="modal">
+    <p>This survey was set up so you can see the rapid results SOS Method brings to your life. Ready?
+        Let&#39;s begin:</p>
+    <label>In the last week, how often have you felt stressed, nervous, or overwhelmed?
+        Scale 1-5:</label>
+    <br/>
+    <md-slider class="example-margin"
+               [max]="5"
+               [min]="1"
+               [step]="1"
+               [thumb-label]="true"
+               [tick-interval]="1"
+               [value]="value"
+               [vertical]="true">
+    </md-slider>
+    <ol>
+        <li>1 Never</li>
+        <li>2 Rarely</li>
+        <li>3 Sometimes</li>
+        <li>4 Often</li>
+        <li>5 Always</li>
+    </ol>
+    <br/>
+    <label class="error">Oops! Please answer both questions and try again.</label>
+</md-dialog-content>
+<md-dialog-actions>
+    <button md-raised-button color="primary" type="submit">Send</button>
+</md-dialog-actions>

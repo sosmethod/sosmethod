@@ -33,10 +33,6 @@ export const dialogRoutes: Routes = [
         path: 'survey',
         loadChildren: './+survey/survey.module#SurveyModule'
     },
-    {
-        path: 'account',
-        loadChildren: './+auth/auth.module#AuthModule'
-    }
 ];
 
 

@@ -1,4 +1,6 @@
-<a md-button md-dialog-close (click)="dialog.closeAll()" tabindex="-1"><md-icon>cancel</md-icon></a>
+<a md-button md-dialog-close (click)="dialog.closeAll()" tabindex="-1">
+    <md-icon>cancel</md-icon>
+</a>
 <h2 md-dialog-title>Survey</h2>
 <md-dialog-content id="contact" class="modal">
     <label><span>Would you recommend meditation to others?</span></label>
@@ -6,7 +8,8 @@
         <md-radio-button *ngFor="let item of [1,2,3,4,5,6,7,8,9,10]" [value]="item">{{item}}</md-radio-button>
     </md-radio-group>
     <md-input-container>
-        <textarea mdInput placeholder="Any suggestions, feedback, or features your would like to see?" name="feedback"></textarea>
+        <textarea mdInput placeholder="Any suggestions, feedback, or features your would like to see?"
+                  name="feedback"></textarea>
     </md-input-container>
     <label class="error">Oops! Please answer both questions and try again.</label>
 </md-dialog-content>
@@ -14,62 +17,4 @@
     <button md-raised-button color="primary" type="submit">Send</button>
 </md-dialog-actions>
 
-Hi! Nice to meet you.
 
-This survey was set up as a way for us to get to know you better. Ready to customize you
-
-experience? Let&#39;s begin:
-
-Where are you from?
-
-Asia
-
-Africa
-
-Europe
-
-Australia
-
-North America
-
-South America
-
-What age group are you in?
-
-21 &amp; under
-
-22 to 37
-
-38 to 53
-
-54 to 69
-
-70+
-
-What is your single biggest challenge?
-
-(fill in the blank)
-
-What concerns you the most?
-
-Health
-
-Career
-
-Finances
-
-Life Purpose
-
-Work Relationships
-
-Personal Relationships
-
-How did you find SOS?
-
-Internet Search
-
-Social Media
-
-Blog
-
-Other: (fill in the blank)

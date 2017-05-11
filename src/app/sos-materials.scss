@@ -76,6 +76,19 @@ body {
         padding: 15px 0;
     }
 
+    .mat-select-content {
+        background: rgba(73, 151, 203, 0.8);
+    }
+
+    .mat-select-value,
+    .mat-select-arrow,
+    .mat-select-trigger {
+        color: white;
+    }
+    .mat-select-underline {
+        background: white;
+    }
+
     h1, h2, h3, h4, h5, h6, .mat-dialog-title {
         font-weight: normal;
         color: $textColor;
