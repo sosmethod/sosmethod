@@ -14,7 +14,6 @@ import {ReplaySubject} from 'rxjs/ReplaySubject';
 export class AudioService {
     public playerPositions: ReplaySubject<number> = new ReplaySubject();
     public position: ReplaySubject<number> = new ReplaySubject();
-    public nextUp: string;
     public AWS = 'https://s3-us-west-2.amazonaws.com/sosmethod/';
 
     public timeupdate: Observable<number>;
@@ -46,8 +45,10 @@ export class AudioService {
         this._createAudio();
     }
 
-    Play() {
-        this.Load(this.nextUp);
+    Play(nextUp: string = null) {
+        if (nextUp) {
+            this.Load(this.AWS + nextUp);
+        }
         this._audio.play();
         // Comment visuliziation out for now.
         // this.Visualize();
@@ -68,7 +69,8 @@ export class AudioService {
                 this._audio.src = this._src = url;
                 this._audio.load();
             }
-        } catch (e) { }
+        } catch (e) {
+        }
     }
 
     SetTimePercent(percent: number) {

@@ -19,7 +19,7 @@ import {Environment} from '../../../../config/environment.i';
 export class ToolbarComponent implements OnInit {
     @ViewChild('player') player: any;
     @Output() openMenu = new EventEmitter();
-    public route$: Subject<string> = new Subject();
+    public route: Subject<string> = new Subject();
     public user: firebase.User;
     public playing: boolean;
 
@@ -43,7 +43,7 @@ export class ToolbarComponent implements OnInit {
         this.router.events.subscribe((e) => {
             if (e instanceof NavigationEnd) {
                 const route = e.url.split('/')[1] || 'home';
-                this.route$.next(route);
+                this.route.next(route);
                 // TODO: query router config for not PlayerComponent paths?
                 if (route.indexOf('_5_day') === -1 && route.indexOf('_11_day') === -1
                     && route.indexOf('meditations') === -1 && this.playing) {

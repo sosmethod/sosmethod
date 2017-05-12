@@ -10,7 +10,7 @@ import 'rxjs/add/operator/withLatestFrom';
     styleUrls: ['./meditations.scss']
 })
 export class MeditationsComponent implements OnInit {
-    public series$: Observable<string>;
+    public series: Observable<string>;
     public discovery: Observable<string>;
 
     constructor(public route: ActivatedRoute,
@@ -18,7 +18,7 @@ export class MeditationsComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.series$ = this.route.params.map(params => {
+        this.series = this.route.params.map(params => {
             return params['meditation'];
         });
         this.discovery = this.route.params.map(params => {
@@ -27,7 +27,7 @@ export class MeditationsComponent implements OnInit {
     }
 
     goBackToCourse() {
-        this.series$.withLatestFrom(this.discovery, (series, discovery) => ({series, discovery}))
+        this.series.withLatestFrom(this.discovery, (series, discovery) => ({series, discovery}))
             .subscribe(({series, discovery}) => this.router.navigate(['/meditation/' + discovery]));
     }
 }

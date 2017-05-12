@@ -387,6 +387,10 @@ body bc-tools-menu, body bc-secondary-menu, body bc-share-menu {
         height: auto;
     }
 
+    md-sidenav.mat-sidenav.mat-sidenav-opening:not(.mat-sidenav-side) {
+        box-shadow: none;
+    }
+
     md-nav-list.mat-nav-list {
         color: $textColor;
         padding-top: 0;
@@ -428,9 +432,9 @@ body bc-tools-menu, body bc-secondary-menu, body bc-share-menu {
         font-family: inherit;
         padding-top: 10px;
         padding-bottom: 15px;
-        background: rgba(73, 151, 203, 0.8);
         line-height: initial;
         text-align: left;
+        background: rgba(73, 151, 203, 0.8);
     }
 
     md-nav-list > *, md-nav-list .mat-button, md-nav-list .mat-button-wrapper {

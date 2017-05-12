@@ -13,7 +13,7 @@ export class SidenavComponent {
     }
 
     setVideoSource(v: string, b: string) {
-        this.layout.video$.next(v);
+        this.layout.video.next(v);
         this.layout.background.next(b);
     }
 

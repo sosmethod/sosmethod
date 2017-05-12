@@ -18,7 +18,7 @@ export class VideoComponent {
 
     constructor(private _zone: NgZone,
                 public layout: LayoutService) {
-        layout.video$.subscribe(v => {
+        layout.video.subscribe(v => {
             $(this.videoPlayer.nativeElement).find('source').remove();
 
             const source = document.createElement('source');

@@ -16,7 +16,7 @@ export class DiscoveryComponent implements OnInit {
     @ViewChild('discovery') discovery: any;
     @ViewChild('discoveryLeaf') discoveryLeaf: any;
 
-    public series$: Observable<string>;
+    public series: Observable<string>;
     public width: number;
     private _series: string;
 
@@ -60,10 +60,10 @@ export class DiscoveryComponent implements OnInit {
     ngOnInit() {
         const that = this;
         const isDiscovery = that.constructor === DiscoveryComponent;
-        this.series$ = this.route.params.map(params => {
+        this.series = this.route.params.map(params => {
             return params['discovery'];
         });
-        this.series$.subscribe(d => {
+        this.series.subscribe(d => {
             this._series = d;
             setTimeout(() => {
                 if (d && d !== '') {

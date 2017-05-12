@@ -1,13 +1,13 @@
 <a md-button md-dialog-close (click)="dialog.closeAll()" tabindex="-1"><md-icon>cancel</md-icon></a>
-<h1 md-dialog-title *ngIf="(tool$ | async) == 'stop_drop'">Stop, Drop &amp; Roll</h1>
-<h1 md-dialog-title *ngIf="(tool$ | async) == 'envision'">REQUEST &amp; ENVISION</h1>
-<h1 md-dialog-title *ngIf="(tool$ | async) == 'positivity'">Positivity Tool</h1>
-<h1 md-dialog-title *ngIf="(tool$ | async) == 'rewind'">Rewind</h1>
-<h1 md-dialog-title *ngIf="(tool$ | async) == 'possibility_5'">Possibility of 5</h1>
-<h1 md-dialog-title *ngIf="(tool$ | async) == 'communication'">Conscious Communication</h1>
+<h1 md-dialog-title *ngIf="(tool | async) == 'stop_drop'">Stop, Drop &amp; Roll</h1>
+<h1 md-dialog-title *ngIf="(tool | async) == 'envision'">REQUEST &amp; ENVISION</h1>
+<h1 md-dialog-title *ngIf="(tool | async) == 'positivity'">Positivity Tool</h1>
+<h1 md-dialog-title *ngIf="(tool | async) == 'rewind'">Rewind</h1>
+<h1 md-dialog-title *ngIf="(tool | async) == 'possibility_5'">Possibility of 5</h1>
+<h1 md-dialog-title *ngIf="(tool | async) == 'communication'">Conscious Communication</h1>
 <md-dialog-content>
 <div id="tools">
-    <div *ngIf="(tool$ | async) == 'stop_drop'">
+    <div *ngIf="(tool | async) == 'stop_drop'">
         <p>Don’t wait till you’re in a panic to check it out. Try <strong>Stop, Drop &amp; Roll</strong> the next time you get an upsetting phone call, feel road rage, or someone pushes your buttons.<br /></p>
         <blockquote>
             <strong>STOP</strong>, and become aware of what’s happening.<br/>
@@ -24,7 +24,7 @@
         <p>Once you have shifted out of the intensity of a downward spiral, then – <strong>Choose one of the meditations</strong> that help you <strong>Roll</strong> with an inspired response. We suggestion using any you feel drawn to in the moment.</p>
         <p><strong>Stop, Drop &amp; Roll</strong> really helps to calm the flames so you make better choices and get back into a state of mind that supports the life you want.</p>
     </div>
-    <div *ngIf="(tool$ | async) == 'envision'">
+    <div *ngIf="(tool | async) == 'envision'">
         <p>It's wonderful to have deductive reasoning skills – but consider how many of our best ideas happen in the shower. Is it because our mind is at rest?<br />
             <strong>Request &amp; Envision</strong> accesses solutions you can’t find from the linear mind. When we attune to higher mind intelligence, we are connecting with a remarkable creative flow.</p>
         <p>The renowned author, Dr. Ernest F. Pecci, says that “In a highly creative individual the brain must be trained to create new thinking channels.” When we set a heart/mind vision, we are changing brain function so that it assists us to create a new environment. We can generate a new future by shifting the thoughts that set positive actions and circumstances in motion.</p>
@@ -52,7 +52,7 @@
         <p><strong>Request &amp; Envision</strong> can be woven into life to develop clarity, overcome challenges, or just to gain insight on new projects and adventures. Repeat often, as insights you get are just the next step; they’re usually not an ultimate answer.</p>
         <p>Be sure to <strong>Journal</strong> your ideas and what happens – as it gives you confidence in your ability to always find solutions. We’re on a journey, and each step is one that assists us to grow, to become more mindful, and aware of our strengths and capabilities.</p>
     </div>
-    <div *ngIf="(tool$ | async) == 'positivity'">
+    <div *ngIf="(tool | async) == 'positivity'">
         <p>With the <strong>Positivity</strong> Tool you move up the emotional scale, from negative to positive, in incremental steps. This way your mind doesn’t have to take too big a leap. When we’re worried or upset - by refocusing on what we’re “thankful for”, or “what would make this week special?” – it helps us move up that spiral of emotion gradually.</p>
         <p>If your answer to “What would make this week special” is to “win the lottery” – your mind could resist that big of a leap - so it could actually have the opposite effect. When the mind doesn’t believe something’s possible, you subconsciously reject the idea, and feel even worse.</p>
         <p>When your focus is on thoughts that make you smile, it helps set the stage for your day, life, and future to be all that you want it to be.</p>
@@ -92,7 +92,7 @@
         <p><strong>3. ENGAGE:</strong> Take action on what you’ve written, and any insights you get - now and in the coming days.</p>
         <p>You can apply the Positivity Tool anytime you wake up with worry or upset. OR several times a week. It helps to switch gears and develop a positive environment in your mind, body, and in your day.</p>
     </div>
-    <div *ngIf="(tool$ | async) == 'rewind'">
+    <div *ngIf="(tool | async) == 'rewind'">
         <p>Applying the <strong>Rewind Tool</strong> helps to decrease the effects of genetic inheritance and increase empowerment. Having a mindful awareness of what isn’t working, is as important as directing our attention to what is. The <strong>Rewind Tool</strong> assists us by exploring both areas.</p>
         <h2>1. EXPLORE:</h2>
         <p><strong>What habits do you have that could have been generationally passed down?</strong> Like: constant worry, over reacting, overeating, hyperactive, obsessive, or any addictive tendencies.</p>
@@ -110,7 +110,7 @@
         <p><strong>3. ENGAGE:</strong> Stay open to the insight you get. Become aware of what wants to change. Then take action - now and in the coming days.</p>
         <p>Each day builds on the next. It's not a race, it's the unfolding of a life you grow to enjoy more and more each day.</p>
     </div>
-    <div *ngIf="(tool$ | async) == 'possibility_5'">
+    <div *ngIf="(tool | async) == 'possibility_5'">
         <p>The Possibility of 5 Tool shows you how to get your power back, how to get a mindset of so much possibility, you don’t only feel better right away – you’re truly inspired and ready to set a new course of action.  The Possibility of 5 opens a data base of inspired solutions.</p>
         <p>We don’t have to be victims of our circumstances; we can tap into the intelligence and remarkable potential we have - and discover limitless possibilities to prosper and thrive. So, let’s get started:</p>
         <p><strong>1. EXPLORE:</strong> - Begin by focusing on 3 questions:</p>
@@ -157,7 +157,7 @@
         <p><strong>The Possibility of 5</strong> can be used throughout life. There will always be storms, but we won’t have to worry when they show up, if we just remember this Tool. It can also be used to spark new ideas that are out of the box – and filled with possibility.</p>
         <p>If you didn’t finish writing, do that now, before beginning your meditation. Remember, every day is a new day! Life can be GREAT!</p>
     </div>
-    <div *ngIf="(tool$ | async) == 'communication'">
+    <div *ngIf="(tool | async) == 'communication'">
         <p>You are always broadcasting, 24/7 to everyone around you, including the intelligent cells in your body. Your emotional state is affected by your thoughts, and how you feel about what others say.</p>
         <p>When someone is happy or content they broadcast energy waves of joy and optimism. - Whoever has the strongest emotional state, whether positive or negative, causes the people they are with to match that state – similar to a tuning fork.</p>
         <p>So, let’s look at how to shift communication that has those negative traits - and build long lasting habits that improve all the relationships in our lives. Here’s how to begin applying the <strong>Conscious Communication Tool:</strong></p>

@@ -1,0 +1,20 @@
+<div class="answer">
+    <md-slider class="example-margin"
+               [invert]="true"
+               [max]="5"
+               [min]="1"
+               [step]="1"
+               [thumb-label]="true"
+               [tick-interval]="1"
+               [value]="value"
+               [vertical]="true">
+    </md-slider>
+    <ol>
+        <li><a (click)="value = 1;">1 Never</a></li>
+        <li><a (click)="value = 2;">2 Rarely</a></li>
+        <li><a (click)="value = 3;">3 Sometimes</a></li>
+        <li><a (click)="value = 4;">4 Often</a></li>
+        <li><a (click)="value = 5;">5 Always</a></li>
+    </ol>
+</div>
+

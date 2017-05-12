@@ -10,7 +10,7 @@ import {ActivatedRoute, ActivatedRouteSnapshot} from '@angular/router';
     styleUrls: ['./bonus.scss']
 })
 export class BonusDialogComponent implements OnInit {
-    public tool$: Observable<string>;
+    public tool: Observable<string>;
 
     constructor(public route: ActivatedRoute,
                 public dialog: MdDialog,
@@ -19,9 +19,9 @@ export class BonusDialogComponent implements OnInit {
 
     ngOnInit() {
         if (this.dialogRef) {
-            this.tool$ = Observable.of((<ActivatedRouteSnapshot>this.dialogRef._containerInstance.dialogConfig.data).params.bonus);
+            this.tool = Observable.of((<ActivatedRouteSnapshot>this.dialogRef._containerInstance.dialogConfig.data).params.bonus);
         } else {
-            this.tool$ = this.route.params.map(params => {
+            this.tool = this.route.params.map(params => {
                 return params['bonus'];
             });
         }

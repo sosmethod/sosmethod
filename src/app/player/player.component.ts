@@ -9,7 +9,7 @@ import {AudioService} from '../layout/audio.service';
     styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent implements OnInit {
-    public isDiscovery$: boolean;
+    public isDiscovery: boolean;
     public value: number;
 
     constructor(
@@ -25,7 +25,7 @@ export class PlayerComponent implements OnInit {
                 this.value = newVal;
             }
         });
-        this.isDiscovery$ = this.router.url.indexOf('begin') > -1 || this.router.url.indexOf('_5_day') > -1
+        this.isDiscovery = this.router.url.indexOf('begin') > -1 || this.router.url.indexOf('_5_day') > -1
             || this.router.url.indexOf('_11_day') > -1;
     }
 

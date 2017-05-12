@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
         this.translate.addLangs(['en', 'fr', 'tr']);
         this.translate.setDefaultLang('en');
         this.translate.use(this.translate.currentLang || 'en');
-        this.layout.sidebarOpen$.subscribe(o => this.isOpen = o);
+        this.layout.sidebarOpen.subscribe(o => this.isOpen = o);
         this.layout.shareOpen.subscribe(o => this.isShare = o);
         this.layout.secondaryOpen.subscribe(o => this.isSecondary = o);
         this.layout.toolsOpen.subscribe(o => this.isTools = o);
@@ -86,11 +86,11 @@ export class AppComponent implements OnInit {
     }
 
     closeSidenav() {
-        this.layout.sidebarOpen$.next(false);
+        this.layout.sidebarOpen.next(false);
     }
 
     openSidenav() {
-        this.layout.sidebarOpen$.next(true);
+        this.layout.sidebarOpen.next(true);
     }
 
     toggleSidenav() {
@@ -103,7 +103,7 @@ export class AppComponent implements OnInit {
         if (this.isTools) {
             this.layout.toolsOpen.next(false);
         }
-        this.layout.sidebarOpen$.next(!this.isOpen);
+        this.layout.sidebarOpen.next(!this.isOpen);
     }
 
     activate(event: any) {

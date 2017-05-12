@@ -11,7 +11,7 @@ import {ActivatedRoute, ActivatedRouteSnapshot} from '@angular/router';
     styleUrls: ['./tool.scss']
 })
 export class ToolDialogComponent implements OnInit {
-    public tool$: Observable<string> = new Subject;
+    public tool: Observable<string> = new Subject;
 
     constructor(public route: ActivatedRoute,
                 public dialog: MdDialog,
@@ -20,9 +20,9 @@ export class ToolDialogComponent implements OnInit {
 
     ngOnInit() {
         if (this.dialogRef) {
-            this.tool$ = Observable.of((<ActivatedRouteSnapshot>this.dialogRef._containerInstance.dialogConfig.data).params.tool);
+            this.tool = Observable.of((<ActivatedRouteSnapshot>this.dialogRef._containerInstance.dialogConfig.data).params.tool);
         } else {
-            this.tool$ = this.route.params.map(params => {
+            this.tool = this.route.params.map(params => {
                 return params['tool'];
             });
         }

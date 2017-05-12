@@ -8,6 +8,7 @@ import {MdDialog, MdDialogRef} from '@angular/material';
     styleUrls: ['./survey-series.scss']
 })
 export class SurveySeriesComponent {
+
     constructor(public dialog: MdDialog, @Optional() public dialogRef?: MdDialogRef<SurveySeriesComponent>) {}
 
 }

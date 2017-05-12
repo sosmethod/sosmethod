@@ -10,18 +10,18 @@ import {DiscoverySeriesComponent} from './discovery-series';
     styleUrls: ['./discovery-subtext.scss']
 })
 export class DiscoverySubtextComponent implements OnInit {
-    public series$: Observable<string>;
-    public day$: Observable<string>;
+    public series: Observable<string>;
+    public day: Observable<string>;
 
     constructor(public route: ActivatedRoute, public router: Router) {
 
     }
 
     ngOnInit() {
-        this.series$ = this.route.params.map(params => {
+        this.series = this.route.params.map(params => {
             return (this.router.url.indexOf('_11_day') > -1 ? '_11_day' : '_5_day') + '_' + params['discovery'];
         });
-        this.day$ = this.route.params.map(params => {
+        this.day = this.route.params.map(params => {
             if (params['audio']) {
                 const match = DiscoverySeriesComponent.seriesRegex(params['audio']);
                 return '_day_' + parseInt(match[1] || match[2]);

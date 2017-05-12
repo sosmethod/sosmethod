@@ -13,8 +13,8 @@ import 'rxjs/add/operator/withLatestFrom';
 })
 export class MeditateComponent implements OnInit {
     @ViewChild('discovery') discovery: any;
-    public series$: Observable<string>;
-    public day$: Observable<string>;
+    public series: Observable<string>;
+    public day: Observable<string>;
 
     constructor(public route: ActivatedRoute,
                 public router: Router,
@@ -28,10 +28,10 @@ export class MeditateComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.series$ = this.route.params.map(params => {
+        this.series = this.route.params.map(params => {
             return params['discovery'];
         });
-        this.day$ = this.route.params.withLatestFrom(this.series$, (params, series) => ({params, series}))
+        this.day = this.route.params.withLatestFrom(this.series, (params, series) => ({params, series}))
             .map(({params, series}) => {
                 if (!params['audio'] || params['audio'] === '') {
                     return '';

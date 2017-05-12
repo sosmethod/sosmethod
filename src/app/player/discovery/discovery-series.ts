@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AudioService} from '../../layout/audio.service';
 import {AuthGuard} from '../../dialogs/+auth/auth-guard';
@@ -9,7 +9,7 @@ import {AuthGuard} from '../../dialogs/+auth/auth-guard';
     templateUrl: './discovery-series.html',
     styleUrls: ['./discovery-series.scss']
 })
-export class DiscoverySeriesComponent implements OnInit {
+export class DiscoverySeriesComponent implements OnInit, AfterViewInit {
     static colorSeries: any = {
         'essentials': 'sos-circle-purple',
         'soothing_relief': 'sos-circle-green',
@@ -20,8 +20,9 @@ export class DiscoverySeriesComponent implements OnInit {
     };
 
     @ViewChild('discoverySeries') discoverySeries: any;
-    public series$: string;
-    public day$: string;
+    public series: string;
+    public day: string;
+    public audioFile: string;
 
     static seriesRegex = (s: string) => (/Day_([0-9]+)|[0-9]+_([0-9]+)/ig).exec(s.replace(/ |%20/ig, '_'));
 
@@ -34,23 +35,28 @@ export class DiscoverySeriesComponent implements OnInit {
     }
 
     ngOnInit() {
-        const that = this;
         this.route.params.subscribe(params => {
-            this.series$ = typeof params.discovery !== 'undefined' ? params['discovery'] : '';
+            this.series = typeof params.discovery !== 'undefined' ? params['discovery'] : '';
             if (typeof params.audio === 'undefined') {
-                this.day$ = '';
+                this.day = '';
             } else if (!params['audio'] || params['audio'] === '') {
-                this.day$ = '';
+                this.day = '';
             } else {
-                this.audio.nextUp = this.audio.AWS + encodeURIComponent(params['audio']);
-                this.audio.Play();
                 const match = DiscoverySeriesComponent.seriesRegex(params['audio']);
-                this.day$ = '_day_' + parseInt(match[1] || match[2]);
+                const day = parseInt(match[1] || match[2]);
+                this.day = '_day_' + day;
+                this.audioFile = params['audio'];
             }
-            setTimeout(() => {
-                that.seriesCompleted.apply(that, [this.series$, this.day$]);
-            });
         });
+    }
+
+    ngAfterViewInit() {
+        this.seriesCompleted(this.series, this.day);
+        if (this.day === '_day_1' ||
+            $(this.discoverySeries.nativeElement).find('a[href*=".mp3"]')
+                .eq(parseInt(this.day.replace('_day_', '')) - 1).is('.completed')) {
+            this.audio.Play(encodeURIComponent(this.audioFile));
+        }
     }
 
     seriesCompleted(series: string, day: string) {
@@ -59,7 +65,7 @@ export class DiscoverySeriesComponent implements OnInit {
         const keys = (this.auth.user ? Object.keys(this.auth.user.completed) : [])
             .filter(k => this.auth.user.completed[k].indexOf(series) > -1
             && this.auth.user.completed[k].indexOf(this.router.url.indexOf('_11_day') > -1 ? '_11_day' : '_5_day') > -1);
-        keys.sort();
+        keys.sort((a, b) => parseInt(b) - parseInt(a));
         if (series === '') {
             const seriesUri = this.auth.user
                 ? this.auth.user.completed[keys.pop()].split('/').slice(0, 3).join('/')
@@ -84,18 +90,16 @@ export class DiscoverySeriesComponent implements OnInit {
 
         // get first uncompleted or first
         if (day === '') {
-            setTimeout(() => {
-                let nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]:not(.completed)').first();
-                if (nextLink.length === 0) {
-                    nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]').first();
-                }
-                return that.router.navigate([nextLink.attr('routerLink')], {replaceUrl: true});
-            });
+            let nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]:not(.completed)').first();
+            if (nextLink.length === 0) {
+                nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]').first();
+            }
+            that.router.navigate([nextLink.attr('routerLink')], {replaceUrl: true});
         }
     }
 
     goBackToCourse() {
-        this.router.navigate(['/discovery/' + this.series$]);
+        this.router.navigate(['/discovery/' + this.series]);
     }
 }
 

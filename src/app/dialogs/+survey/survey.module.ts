@@ -7,12 +7,14 @@ import {routing} from './survey.routing';
 import {SurveySeriesComponent} from './survey-series';
 import {SurveyProfileComponent} from './survey-profile';
 import {DialogGuard} from '../dialog-guard';
+import {AnswerComponent} from './answer';
 
 
 export const COMPONENTS = [
     SurveyDialogComponent,
     SurveySeriesComponent,
-    SurveyProfileComponent
+    SurveyProfileComponent,
+    AnswerComponent
 ];
 
 @NgModule({
