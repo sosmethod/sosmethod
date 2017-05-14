@@ -1,5 +1,5 @@
 ﻿import 'rxjs/add/operator/let';
-import {Component, ViewEncapsulation, OnInit, NgZone} from '@angular/core';
+import {Component, ViewEncapsulation, OnInit, NgZone, Inject} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {LayoutService} from './layout/layout-service';
 import {NavigationEnd, NavigationStart, Router} from '@angular/router';
@@ -11,11 +11,13 @@ import {Observable} from 'rxjs/Observable';
 import {Observer} from 'rxjs/Observer';
 import {MdDialog} from '@angular/material';
 import {AsyncPipe} from '@angular/common';
+import {DOCUMENT} from '@angular/platform-browser';
+import {MetaService} from './shared/meta-service';
 
 
 @Component({
     selector: 'bc-app',
-    providers: [TranslateService, AsyncPipe],
+    providers: [TranslateService, AsyncPipe, MetaService],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     encapsulation: ViewEncapsulation.None
@@ -39,7 +41,9 @@ export class AppComponent implements OnInit {
                 public auth: AuthGuard,
                 public dialog: MdDialog,
                 public audio: AudioService,
-                public router: Router) {
+                public meta: MetaService,
+                public router: Router,
+                @Inject(DOCUMENT) private document: any) {
         this.translate.addLangs(['en', 'fr', 'tr']);
         this.translate.setDefaultLang('en');
         this.translate.use(this.translate.currentLang || 'en');
@@ -57,13 +61,13 @@ export class AppComponent implements OnInit {
         const that = this;
         this.router.events.subscribe((e) => {
             if (e instanceof NavigationEnd) {
-                that.route.next(e.url.split('/')[1] || 'home');
+                that.route.next(e.url.split(/[\/?]/ig)[1] || 'home');
             }
         });
-        if (window.document) {
+        if (this.document) {
             const self = this;
             this.mousemove = Observable.create((observer: Observer<any>) => {
-                window.document.addEventListener('mousemove', (args: any) => {
+                this.document.addEventListener('mousemove', (args: any) => {
                     self._zone.run(() => observer.next(args));
                 });
             });

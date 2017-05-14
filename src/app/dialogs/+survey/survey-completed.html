@@ -1,7 +1,7 @@
 <a md-button md-dialog-close (click)="dialog.closeAll()" tabindex="-1">
     <md-icon>cancel</md-icon>
 </a>
-<h2 md-dialog-title>Welcome to {{'DISCOVERY.TITLE.' + (tool | async) | translate}}</h2>
+<h2 md-dialog-title>Congratulations on {{'DISCOVERY.TITLE.' + (tool | async) | translate}}</h2>
 <md-dialog-content id="contact" class="modal">
     <p>This survey was set up so you can see the rapid results SOS Method brings to your life. Ready?
         Let&#39;s begin:</p>
@@ -28,6 +28,22 @@
     <br/>
     <bc-answer></bc-answer>
     <br/>
+    <br/>
+
+    <label>What one specific way did this Discovery Series help you?</label>
+    <br/>
+    <md-input-container>
+        <textarea mdInput placeholder="(fill in the blank)"
+                  name="feedback"></textarea>
+    </md-input-container>
+    <br/>
+
+    <label>How would you describe your SOS Method experience to others?</label>
+    <br/>
+    <md-input-container>
+        <textarea mdInput placeholder="(fill in the blank)"
+                  name="feedback"></textarea>
+    </md-input-container>
     <br/>
 
     <label class="error">Oops! Please answer both questions and try again.</label>

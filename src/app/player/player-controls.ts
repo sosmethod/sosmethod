@@ -1,5 +1,6 @@
-import {Component, OnInit, Optional} from '@angular/core';
+import {Component, OnInit, Optional, Inject} from '@angular/core';
 import {AudioService} from '../layout/audio.service';
+import {DOCUMENT} from "@angular/platform-browser";
 
 
 @Component({
@@ -9,7 +10,8 @@ import {AudioService} from '../layout/audio.service';
 })
 export class PlayerControlsComponent implements OnInit {
 
-    constructor(public audio: AudioService) {
+    constructor(public audio: AudioService,
+                @Inject(DOCUMENT) private document: any) {
 
     }
 
@@ -17,23 +19,22 @@ export class PlayerControlsComponent implements OnInit {
     }
 
     fullscreen() {
-        const document: any = window.document;
-        if (document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement) {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-                document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
+        if (this.document.fullscreenElement || this.document.mozFullScreenElement || this.document.webkitFullscreenElement) {
+            if (this.document.exitFullscreen) {
+                this.document.exitFullscreen();
+            } else if (this.document.mozCancelFullScreen) {
+                this.document.mozCancelFullScreen();
+            } else if (this.document.webkitExitFullscreen) {
+                this.document.webkitExitFullscreen();
             }
-        } else if (document.body.requestFullscreen) {
-            document.body.requestFullscreen();
-        } else if (document.documentElement.mozRequestFullScreen) {
-            document.documentElement.mozRequestFullScreen();
-        } else if (document.documentElement.webkitRequestFullscreen) {
-            document.documentElement.webkitRequestFullscreen();
-        } else if (document.documentElement.msRequestFullscreen) {
-            document.documentElement.msRequestFullscreen();
+        } else if (this.document.body.requestFullscreen) {
+            this.document.body.requestFullscreen();
+        } else if (this.document.documentElement.mozRequestFullScreen) {
+            this.document.documentElement.mozRequestFullScreen();
+        } else if (this.document.documentElement.webkitRequestFullscreen) {
+            this.document.documentElement.webkitRequestFullscreen();
+        } else if (this.document.documentElement.msRequestFullscreen) {
+            this.document.documentElement.msRequestFullscreen();
         }
 
     }
@@ -46,9 +47,7 @@ export class PlayerControlsComponent implements OnInit {
 }
 
 
-
-
 /*
-    */
+ */
 
 

@@ -2,7 +2,6 @@
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild} from '@angular/router';
 import {AuthUser} from './auth-user';
 import {Observable} from 'rxjs/Observable';
-import {Subject} from 'rxjs/Subject';
 import {Subscription} from 'rxjs/Subscription';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {AngularFireAuth} from 'angularfire2/auth';
@@ -14,7 +13,7 @@ import 'rxjs/add/operator/mergeMap';
 export class AuthGuard implements CanActivate, CanActivateChild {
     public user: AuthUser;
     sub: Subscription;
-    subj: Subject<AuthUser>;
+    subj: ReplaySubject<AuthUser>;
 
     static escapeEmail(email: string) {
         return email.toLowerCase()

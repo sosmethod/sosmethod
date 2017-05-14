@@ -1,5 +1,4 @@
-import {Component, Optional} from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {Component} from '@angular/core';
 
 
 @Component({
@@ -11,7 +10,7 @@ export class AnswerComponent {
 
     value = 0;
 
-    constructor(public dialog: MdDialog, @Optional() public dialogRef?: MdDialogRef<AnswerComponent>) {
+    constructor() {
     }
 
 }

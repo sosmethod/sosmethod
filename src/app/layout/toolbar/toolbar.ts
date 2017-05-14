@@ -58,13 +58,14 @@ export class ToolbarComponent implements OnInit {
             return;
         }
         const dateKey = (new Date).getTime();
-        const isNew = this.auth.user.completed.indexOf(this.router.url) === -1;
+        const completed = Object.keys(this.auth.user.completed).map(k => this.auth.user.completed[k]);
         this.database.object('/users/' + AuthGuard.escapeEmail(this.user.email)
             + '/completed/' + dateKey).set(this.router.url);
         const segments = this.router.url.split('/');
         if (segments[1] === '_5_day' && segments[2] === 'essentials') {
             const match = DiscoverySeriesComponent.seriesRegex(segments[3]);
             const day = parseInt(match[1] || match[2]);
+            const isNew = completed.indexOf(this.router.url) === -1;
             if (day === 5 && isNew) {
                 this.send1DayEmail();
                 this.send5DayEmail();

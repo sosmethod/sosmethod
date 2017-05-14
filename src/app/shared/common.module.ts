@@ -10,6 +10,7 @@ import {DialogGuard} from '../dialogs/dialog-guard';
 import {AuthGuard} from '../dialogs/+auth/auth-guard';
 import {LayoutService} from '../layout/layout-service';
 import {AudioService} from '../layout/audio.service';
+import {MetaService} from './meta-service';
 
 export const COMPONENTS: any[] = [];
 
@@ -23,7 +24,8 @@ export class SharedModule {
                 DialogGuard,
                 ContentGuard,
                 AudioService,
-                LayoutService
+                LayoutService,
+                MetaService
             ]
         };
     }

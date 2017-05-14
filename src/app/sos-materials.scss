@@ -195,6 +195,7 @@ body {
 
     .mat-dialog-container {
         background: rgba(73, 151, 203, 0.8);
+        padding: 24px 0;
     }
 
     #bonus hr,
@@ -465,6 +466,11 @@ bc-tools-menu {
     html, body {
         font-size: 14.5px;
     }
+}
+
+body .mat-dialog-content {
+    padding: 10px;
+    margin: 0;
 }
 
 

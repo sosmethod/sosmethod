@@ -2,6 +2,7 @@ import {Component, OnInit, Optional} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {Observable} from 'rxjs/Observable';
 import {ActivatedRoute, ActivatedRouteSnapshot} from '@angular/router';
+import {Environment} from '../../../../config/environment.i';
 
 
 @Component({
@@ -11,6 +12,8 @@ import {ActivatedRoute, ActivatedRouteSnapshot} from '@angular/router';
 })
 export class BonusDialogComponent implements OnInit {
     public tool: Observable<string>;
+    public fb = Environment.env.fbUrl;
+    public tw = Environment.env.twUrl;
 
     constructor(public route: ActivatedRoute,
                 public dialog: MdDialog,

@@ -1,4 +1,4 @@
-import {Component, Optional} from '@angular/core';
+import {Component, OnInit, Optional} from '@angular/core';
 import {Router} from '@angular/router';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {AuthGuard} from '../auth-guard';
@@ -8,7 +8,7 @@ import {AuthGuard} from '../auth-guard';
     templateUrl: './meditation-timeline.html',
     styleUrls: ['./timeline.scss']
 })
-export class MeditationTimelineComponent {
+export class MeditationTimelineComponent implements OnInit {
     static months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     static colorSeries: any = {
         'classic_calm': 'sos-circle-purple',
@@ -26,6 +26,9 @@ export class MeditationTimelineComponent {
                 public dialog: MdDialog,
                 public auth: AuthGuard,
                 @Optional() public dialogRef?: MdDialogRef<MeditationTimelineComponent>) {
+    }
+
+    ngOnInit() {
         this.completed = Object.keys(this.auth.user.completed)
             .filter(c => this.auth.user.completed[c].indexOf('meditations') > -1)
             .map(c => {

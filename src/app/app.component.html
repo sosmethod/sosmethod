@@ -1,5 +1,5 @@
-﻿<bc-sidenav [open]="layout.sidebarOpen$ | async"
-            [class.menuOpen]="layout.sidebarOpen$ | async"
+﻿<bc-sidenav [open]="layout.sidebarOpen | async"
+            [class.menuOpen]="layout.sidebarOpen | async"
             [class.playing]="(audio.state | async) === 'playing'"
             [class.inactive]="(inactive | async)"
             [class.notopen]="!openDialog"></bc-sidenav>
@@ -19,7 +19,7 @@
 <div class="stretch-right">
     <a md-raised-button mdTooltipPosition="above"
        *ngIf="router.url.indexOf('/signup') == -1 && router.url.indexOf('/gift') == -1 && router.url.indexOf('/testimonials') == -1"
-       mdTooltip="Choose a background" [class.active]="layout.sidebarOpen$ | async"
+       mdTooltip="Choose a background" [class.active]="layout.sidebarOpen | async"
        (click)="toggleSidenav()"></a>
 </div>
 <bc-video></bc-video>

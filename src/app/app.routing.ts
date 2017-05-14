@@ -1,17 +1,11 @@
 ﻿import {RouterModule, Routes} from '@angular/router';
-
-import {NotFoundComponent} from './error/404/not-found';
-import {NotAuthorizedComponent} from './error/401/not-authorized';
 import {ModuleWithProviders} from '@angular/core';
+import {MainComponent} from './menus/main/main';
 
 export const appRoutes: Routes = [
     {
-        path: '**error400',
-        component: NotAuthorizedComponent
-    },
-    {
         path: '**',
-        component: NotFoundComponent
+        component: MainComponent
     },
 
 ];

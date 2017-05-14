@@ -5,16 +5,16 @@ import {ActivatedRoute, ActivatedRouteSnapshot} from '@angular/router';
 
 
 @Component({
-    selector: 'bc-survey-series',
-    templateUrl: './survey-series.html',
-    styleUrls: ['./survey-series.scss']
+    selector: 'bc-survey-meditation',
+    templateUrl: './survey-meditation.html',
+    styleUrls: ['./survey-meditation.scss']
 })
-export class SurveySeriesComponent {
+export class SurveyMeditationComponent {
     public tool: Observable<string>;
 
     constructor(public dialog: MdDialog,
                 public route: ActivatedRoute,
-                @Optional() public dialogRef?: MdDialogRef<SurveySeriesComponent>) {
+                @Optional() public dialogRef?: MdDialogRef<SurveyMeditationComponent>) {
         if (this.dialogRef) {
             this.tool = Observable
                 .of((<ActivatedRouteSnapshot>this.dialogRef._containerInstance.dialogConfig.data).params.series);

@@ -1,0 +1,20 @@
+<div class="answer">
+    <md-slider class="example-margin"
+               [invert]="true"
+               [max]="5"
+               [min]="1"
+               [step]="1"
+               [thumb-label]="true"
+               [tick-interval]="1"
+               [value]="value"
+               [vertical]="true">
+    </md-slider>
+    <ol>
+        <li><a (click)="value = 1;">1 Very Unlikely</a></li>
+        <li><a (click)="value = 2;">2 Somewhat Unlikely</a></li>
+        <li><a (click)="value = 3;">3 Neither Likely or Unlikely</a></li>
+        <li><a (click)="value = 4;">4 Somewhat Likely</a></li>
+        <li><a (click)="value = 5;">5 Very Likely</a></li>
+    </ol>
+</div>
+

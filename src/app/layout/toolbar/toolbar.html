@@ -1,23 +1,23 @@
-﻿<md-toolbar *ngIf="(route$ | async) != '_5_day' && (route$ | async) != '_11_day' && (route$ | async) != 'meditations'">
+﻿<md-toolbar *ngIf="(route | async) != '_5_day' && (route | async) != '_11_day' && (route | async) != 'meditations'">
     <div id="logo" mdTooltip="Go Home">
         <a routerLink="/">
             <img src="/assets/SOS-Logo-Tag-2017lowallwhite.png"
-                 *ngIf="(route$ | async) != 'home' && (route$ | async) != '_5_day' && (route$ | async) != '_11_day' && (route$ | async) != 'meditations'"/>
-            <img src="/assets/SOS-Method-Logo-2017-White.png" *ngIf="(route$ | async) == 'home'"/></a>
+                 *ngIf="(route | async) != 'home' && (route | async) != '_5_day' && (route | async) != '_11_day' && (route | async) != 'meditations'"/>
+            <img src="/assets/SOS-Method-Logo-2017-White.png" *ngIf="(route | async) == 'home'"/></a>
     </div>
     <span>&nbsp;</span>
     <div class="account">
         <a md-raised-button routerLink="/account/login"
-           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && !user?.email">login</a>
+           *ngIf="(route | async) != 'gift' && (route | async) != 'signup' && !user?.email">login</a>
         <a md-raised-button routerLink="/account/profile" mdTooltip="Account / Timeline" class="profile"
-           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && user?.email">
+           *ngIf="(route | async) != 'gift' && (route | async) != 'signup' && user?.email">
             <span class="name-wrapper">{{auth.user?.name?.first}} &nbsp; &nbsp; </span>
             <span class="image-wrapper"><img
                     [src]="user?.photoURL || '/assets/icon_static_user_man.png'"/></span></a>
         <a md-raised-button routerLink="/contact"
-           *ngIf="(route$ | async) == 'gift' || (route$ | async) == 'signup'">contact us</a>
+           *ngIf="(route | async) == 'gift' || (route | async) == 'signup'">contact us</a>
         <a md-raised-button (click)="logout()"
-           *ngIf="(route$ | async) != 'gift' && (route$ | async) != 'signup' && user?.email">logout</a>
+           *ngIf="(route | async) != 'gift' && (route | async) != 'signup' && user?.email">logout</a>
     </div>
 </md-toolbar>
 <audio #player preload="metadata" autobuffer="true"></audio>

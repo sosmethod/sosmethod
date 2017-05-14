@@ -4,13 +4,8 @@
     "description": "The SOS Method",
     "main": "index.ts",
     "scripts": {
-        "ng:build": "ng build --prod --aot",
-        "ng:serve": "ng serve --prod --aot",
-        "start": "webpack-dev-server --inline --progress --port 6999 --compress --history-api-fallback",
-        "build": "concurrently \"rimraf dist\" \"webpack --config config/webpack.prod.js --progress --profile --bail\"",
-        "build-dev": "concurrently \"rimraf dist\" \"webpack --display-error-details --config config/webpack.dev.js --progress --profile --bail\"",
-        "typings": "typings",
-        "lint": "tslint ./src/app/**/*.ts",
+        "start": "ng serve",
+        "build": "ng build --prod --aot",
         "test": "karma start --browsers Chrome",
         "e2e": "ng e2e"
     },

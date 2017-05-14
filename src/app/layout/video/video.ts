@@ -1,7 +1,8 @@
-import {Component, ViewChild, NgZone} from '@angular/core';
+import {Component, ViewChild, NgZone, Inject} from '@angular/core';
 import {LayoutService} from '../layout-service';
 import {Observable} from 'rxjs/Observable';
 import {Observer} from 'rxjs/Observer';
+import {DOCUMENT} from "@angular/platform-browser";
 
 
 @Component({
@@ -17,16 +18,17 @@ export class VideoComponent {
     private playing = false;
 
     constructor(private _zone: NgZone,
-                public layout: LayoutService) {
+                public layout: LayoutService,
+                @Inject(DOCUMENT) private document: any) {
         layout.video.subscribe(v => {
             $(this.videoPlayer.nativeElement).find('source').remove();
 
-            const source = document.createElement('source');
+            const source = this.document.createElement('source');
             source.src = v + '.webm';
             source.type = 'video/webm';
             this.videoPlayer.nativeElement.appendChild(source);
 
-            const source2 = document.createElement('source');
+            const source2 = this.document.createElement('source');
             source2.src = v + '.mp4';
             source2.type = 'video/mp4';
             this.videoPlayer.nativeElement.appendChild(source2);
@@ -42,10 +44,10 @@ export class VideoComponent {
         layout.background.subscribe(b => {
             $(this.videoPlayer.nativeElement).parent().css('background-image', 'url(' + b + ')');
         });
-        if (window.document) {
+        if (this.document) {
             const self = this;
             this.mousedown = Observable.create((observer: Observer<any>) => {
-                window.document.addEventListener('mousedown', (args: any) => {
+                this.document.addEventListener('mousedown', (args: any) => {
                     self._zone.run(() => observer.next(args));
                 });
             });

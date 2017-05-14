@@ -8,6 +8,10 @@ import {MainComponent} from './main/main';
 
 export const menuRoutes: Routes = [
     {
+        path: 'fb',
+        component: MainComponent,
+    },
+    {
         path: '',
         canActivate: [AuthGuard],
         canActivateChild: [AuthGuard],

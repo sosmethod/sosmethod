@@ -1,13 +1,9 @@
-﻿@import '~@angular/material/_theming';
+﻿@import '~@angular/material/theming';
 @import './sos-color';
 @import './sos-materials';
 @import './sos-circle';
 @import './sos-circle-color';
 @import './sos-circle-animations';
-
-@include mat-core();
-
-@include angular-material-theme($theme);
 
 .signup, .gift, .testimonials {
     .mat-sidenav-container[fullscreen] {

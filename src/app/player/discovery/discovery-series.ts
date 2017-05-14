@@ -31,7 +31,6 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit {
                 private _el: ElementRef,
                 public audio: AudioService,
                 public auth: AuthGuard) {
-
     }
 
     ngOnInit() {
@@ -54,8 +53,23 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit {
         this.seriesCompleted(this.series, this.day);
         if (this.day === '_day_1' ||
             $(this.discoverySeries.nativeElement).find('a[href*=".mp3"]')
-                .eq(parseInt(this.day.replace('_day_', '')) - 1).is('.completed')) {
+                .eq(parseInt(this.day.replace('_day_', '')) - 2).is('.completed')) {
             this.audio.Play(encodeURIComponent(this.audioFile));
+        }
+        if (this.day === '_day_1' &&
+            // only do this if it is new
+            !$(this.discoverySeries.nativeElement).find('a[href*=".mp3"]')
+                .eq(parseInt(this.day.replace('_day_', '')) - 1).is('.completed')) {
+            this.router.navigate(['/survey/series/' + this.router.url.split('/').slice(1, 3).join('_')]);
+        }
+        if ((this.day === '_day_5' && this.router.url.indexOf('_5_day')
+            || this.day === '_day_11' && this.router.url.indexOf('_11_day')) &&
+            // only do this if it is new
+            !$(this.discoverySeries.nativeElement).find('a[href*=".mp3"]')
+                .eq(parseInt(this.day.replace('_day_', '')) - 1).is('.completed') &&
+            $(this.discoverySeries.nativeElement).find('a[href*=".mp3"]')
+                .eq(parseInt(this.day.replace('_day_', '')) - 2).is('.completed')) {
+            this.router.navigate(['/survey/completed/' + this.router.url.split('/').slice(1, 3).join('_')]);
         }
     }
 
@@ -65,7 +79,7 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit {
         const keys = (this.auth.user ? Object.keys(this.auth.user.completed) : [])
             .filter(k => this.auth.user.completed[k].indexOf(series) > -1
             && this.auth.user.completed[k].indexOf(this.router.url.indexOf('_11_day') > -1 ? '_11_day' : '_5_day') > -1);
-        keys.sort((a, b) => parseInt(b) - parseInt(a));
+        keys.sort((a, b) => parseInt(a) - parseInt(b));
         if (series === '') {
             const seriesUri = this.auth.user
                 ? this.auth.user.completed[keys.pop()].split('/').slice(0, 3).join('/')
