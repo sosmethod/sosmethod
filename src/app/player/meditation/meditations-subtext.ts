@@ -1,6 +1,7 @@
-import {Component, OnInit, ElementRef} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Component, OnInit, ElementRef, AfterViewInit, OnDestroy} from '@angular/core';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {AudioService} from '../../layout/audio.service';
+import {Subscription} from 'rxjs/Subscription';
 
 
 @Component({
@@ -8,39 +9,59 @@ import {AudioService} from '../../layout/audio.service';
     templateUrl: './meditations-subtext.html',
     styleUrls: ['./meditations-subtext.scss']
 })
-export class MeditationsSubtextComponent implements OnInit {
+export class MeditationsSubtextComponent implements OnInit, AfterViewInit, OnDestroy {
     series: string;
     public day: string;
+    public audioUrl: string;
+    public routerSub: Subscription;
+    public routeSub: Subscription;
+    public loaded = false;
 
     constructor(public router: Router,
                 public route: ActivatedRoute,
                 private _el: ElementRef,
                 public audio: AudioService) {
-
     }
 
     ngOnInit() {
-        const that = this;
-        this.route.params.subscribe(params => {
+        this.routeSub = this.route.params.subscribe(params => {
             this.series = params['meditation'];
-
             if (!params['audio'] || params['audio'] === '') {
-                // TODO: get first uncompleted or first
-                setTimeout(() => {
-                    const audio = $(that._el.nativeElement).find('[routerLink*="' + this.series + '"]').first().attr('routerLink');
-                    that.router.navigate([audio], {replaceUrl: true});
-                });
-                this.day = '';
+                this.audioUrl = '';
             } else {
-                this.audio.Play(encodeURIComponent(params['audio']));
-                setTimeout(() => {
-                    const day = $(that._el.nativeElement).find('[routerLink*="' + params['audio'] + '"]').index();
-                    that.audio.playerPositions.next($(that._el.nativeElement).find('a[href*=".mp3"]').length);
-                    that.audio.position.next(day);
-                    this.day = '_day_' + day;
-                });
+                this.audioUrl = params['audio'];
             }
         });
+    }
+
+    ngOnDestroy() {
+        if (typeof this.routerSub !== 'undefined') {
+            this.routerSub.unsubscribe();
+        }
+        this.routeSub.unsubscribe();
+    }
+
+    ngAfterViewInit() {
+        if (this.audioUrl === '') {
+            // TODO: get first uncompleted or first
+            const audio = $(this._el.nativeElement).find('[routerLink*="' + this.series + '"]').first().attr('routerLink');
+            this.router.navigate([audio], {replaceUrl: true});
+            return;
+        } else {
+            this.audio.Play(encodeURIComponent(this.audioUrl));
+            const day = $(this._el.nativeElement).find('[routerLink*="' + this.audioUrl + '"]').index();
+            this.audio.playerPositions.next($(this._el.nativeElement).find('a[href*=".mp3"]').length);
+            this.audio.position.next(day);
+            this.day = '_day_' + day;
+        }
+        if (!this.loaded) {
+            this.loaded = true;
+            setTimeout(() => {
+                this.routerSub = this.router.events.filter(e => e instanceof NavigationEnd
+                && this.router.url.indexOf('meditations') > -1)
+                    .subscribe(() => this.ngAfterViewInit());
+            });
+        }
     }
 }
 

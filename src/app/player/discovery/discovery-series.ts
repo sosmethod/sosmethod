@@ -1,7 +1,8 @@
-import {Component, OnInit, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy} from '@angular/core';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {AudioService} from '../../layout/audio.service';
 import {AuthGuard} from '../../dialogs/+auth/auth-guard';
+import {Subscription} from 'rxjs/Subscription';
 
 
 @Component({
@@ -9,7 +10,7 @@ import {AuthGuard} from '../../dialogs/+auth/auth-guard';
     templateUrl: './discovery-series.html',
     styleUrls: ['./discovery-series.scss']
 })
-export class DiscoverySeriesComponent implements OnInit, AfterViewInit {
+export class DiscoverySeriesComponent implements OnInit, AfterViewInit, OnDestroy {
     static colorSeries: any = {
         'essentials': 'sos-circle-purple',
         'soothing_relief': 'sos-circle-green',
@@ -23,6 +24,9 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit {
     public series: string;
     public day: string;
     public audioFile: string;
+    public routerSub: Subscription;
+    public routeSub: Subscription;
+    public loaded = false;
 
     static seriesRegex = (s: string) => (/Day_([0-9]+)|[0-9]+_([0-9]+)/ig).exec(s.replace(/ |%20/ig, '_'));
 
@@ -34,7 +38,7 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-        this.route.params.subscribe(params => {
+        this.routeSub = this.route.params.subscribe(params => {
             this.series = typeof params.discovery !== 'undefined' ? params['discovery'] : '';
             if (typeof params.audio === 'undefined') {
                 this.day = '';
@@ -49,8 +53,25 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit {
         });
     }
 
+    ngOnDestroy() {
+        if (typeof this.routerSub !== 'undefined') {
+            this.routerSub.unsubscribe();
+        }
+        this.routeSub.unsubscribe();
+    }
+
     ngAfterViewInit() {
-        this.seriesCompleted(this.series, this.day);
+        console.log('hit');
+        this.seriesCompleted();
+        // get first uncompleted or first
+        if (this.day === '') {
+            let nextLink = $(this._el.nativeElement).find('ol [routerLink*="' + this.series + '"]:not(.completed)').first();
+            if (nextLink.length === 0) {
+                nextLink = $(this._el.nativeElement).find('ol [routerLink*="' + this.series + '"]').first();
+            }
+            this.router.navigate([nextLink.attr('routerLink')], {replaceUrl: true});
+            return;
+        }
         if (this.day === '_day_1' ||
             $(this.discoverySeries.nativeElement).find('a[href*=".mp3"]')
                 .eq(parseInt(this.day.replace('_day_', '')) - 2).is('.completed')) {
@@ -61,6 +82,7 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit {
             !$(this.discoverySeries.nativeElement).find('a[href*=".mp3"]')
                 .eq(parseInt(this.day.replace('_day_', '')) - 1).is('.completed')) {
             this.router.navigate(['/survey/series/' + this.router.url.split('/').slice(1, 3).join('_')]);
+            return;
         }
         if ((this.day === '_day_5' && this.router.url.indexOf('_5_day')
             || this.day === '_day_11' && this.router.url.indexOf('_11_day')) &&
@@ -70,17 +92,24 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit {
             $(this.discoverySeries.nativeElement).find('a[href*=".mp3"]')
                 .eq(parseInt(this.day.replace('_day_', '')) - 2).is('.completed')) {
             this.router.navigate(['/survey/completed/' + this.router.url.split('/').slice(1, 3).join('_')]);
+            return;
+        }
+        if (!this.loaded) {
+            this.loaded = true;
+            setTimeout(() => {
+                this.routerSub = this.router.events.filter(e => e instanceof NavigationEnd
+                && (this.router.url.indexOf('_5_day') > -1 || this.router.url.indexOf('_11_day') > -1))
+                    .subscribe(() => this.ngAfterViewInit());
+            });
         }
     }
 
-    seriesCompleted(series: string, day: string) {
-        const that = this;
-
+    seriesCompleted() {
         const keys = (this.auth.user ? Object.keys(this.auth.user.completed) : [])
-            .filter(k => this.auth.user.completed[k].indexOf(series) > -1
+            .filter(k => this.auth.user.completed[k].indexOf(this.series) > -1
             && this.auth.user.completed[k].indexOf(this.router.url.indexOf('_11_day') > -1 ? '_11_day' : '_5_day') > -1);
         keys.sort((a, b) => parseInt(a) - parseInt(b));
-        if (series === '') {
+        if (this.series === '') {
             const seriesUri = this.auth.user
                 ? this.auth.user.completed[keys.pop()].split('/').slice(0, 3).join('/')
                 : '/_5_day/essentials';
@@ -102,14 +131,6 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit {
             }
         });
 
-        // get first uncompleted or first
-        if (day === '') {
-            let nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]:not(.completed)').first();
-            if (nextLink.length === 0) {
-                nextLink = $(that._el.nativeElement).find('ol [routerLink*="' + series + '"]').first();
-            }
-            that.router.navigate([nextLink.attr('routerLink')], {replaceUrl: true});
-        }
     }
 
     goBackToCourse() {
