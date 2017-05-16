@@ -4,7 +4,6 @@ import {AuthGuard} from '../+auth/auth-guard';
 
 import {DialogGuard} from '../dialog-guard';
 import {SurveyDialogComponent} from './survey';
-import {SurveyProfileComponent} from './survey-profile';
 import {SurveySeriesComponent} from './survey-series';
 import {SurveyCompletedComponent} from './survey-completed';
 import {SurveyMeditationComponent} from './survey-meditation';
@@ -16,13 +15,6 @@ export const surveyRoutes: Routes = [
         canActivateChild: [AuthGuard, DialogGuard],
         data: {roles: ['anonymous', 'user']},
         component: SurveyDialogComponent,
-    },
-    {
-        path: 'profile',
-        canActivate: [AuthGuard, DialogGuard],
-        canActivateChild: [AuthGuard, DialogGuard],
-        data: {roles: ['anonymous', 'user']},
-        component: SurveyProfileComponent,
     },
     {
         path: 'series/:series',

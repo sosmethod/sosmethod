@@ -21,6 +21,7 @@ export class ToolbarComponent implements OnInit {
     @Output() openMenu = new EventEmitter();
     public route: Subject<string> = new Subject();
     public user: firebase.User;
+    public photo: string;
     public playing: boolean;
 
     constructor(public database: AngularFireDatabase,
@@ -33,7 +34,13 @@ export class ToolbarComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.fireAuth.auth.onAuthStateChanged((u: firebase.User | null) => this.user = u);
+        this.fireAuth.auth.onAuthStateChanged((u: firebase.User | null) => {
+            this.user = u;
+            if (this.user != null
+                && typeof this.user.providerData !== 'undefined' && typeof this.user.providerData[0] !== 'undefined') {
+                this.photo = this.user.providerData[0].photoURL;
+            }
+        });
         this.audio._audio = this.player.nativeElement;
         this.audio.AttachEvents();
         this.audio.state.subscribe(s => this.playing = s === 'playing');

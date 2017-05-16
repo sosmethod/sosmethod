@@ -12,12 +12,16 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway|Questrial:400,700|Open+Sans:400,700" rel="stylesheet">
     <link href="/assets/slick.css" rel="stylesheet" type="text/css"/>
-    <link href="/assets/slick-theme.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/slick-theme.css" rel="stylesheet" type="text/css"/>
 
     <style>
         @keyframes rotation {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .loading {
@@ -31,7 +35,7 @@
             justify-content: center;
             color: rgba(11, 228, 230, 1);
             background: url(/assets/cave.jpg) no-repeat 50% 50%;
-            background-size:cover;
+            background-size: cover;
         }
 
         .loading span {
@@ -62,5 +66,19 @@
     <div class="loading"><span></span></div>
 </bc-app>
 <script src="https://checkout.stripe.com/checkout.js"></script>
+<!-- Hotjar Tracking Code for sosmethod.io -->
+<script>
+    (function (h, o, t, j, a, r) {
+        h.hj = h.hj || function () {
+                (h.hj.q = h.hj.q || []).push(arguments)
+            };
+        h._hjSettings = {hjid: 503291, hjsv: 5};
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+</script>
 </body>
 </html>

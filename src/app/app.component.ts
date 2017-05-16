@@ -52,7 +52,9 @@ export class AppComponent implements OnInit {
         this.layout.secondaryOpen.subscribe(o => this.isSecondary = o);
         this.layout.toolsOpen.subscribe(o => this.isTools = o);
         this.router.events.filter(e => e instanceof NavigationStart)
-            .subscribe(e => this.activate(null));
+            .subscribe((e: NavigationStart) => {
+                this.activate(null);
+            });
         this.dialog.afterOpen.subscribe(() => this.openDialog = true);
         this.dialog.afterAllClosed.subscribe(() => this.openDialog = false);
     }

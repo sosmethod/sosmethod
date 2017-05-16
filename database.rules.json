@@ -1,10 +1,26 @@
 {
-  "rules": {
-    "users": {
-      "$uid": {
-        ".read": "$uid === auth.uid || auth.token.email.toLowerCase() === data.child('username').val() || $uid === auth.token.email.toLowerCase().replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_').replace('[', '_').replace(']', '_')",
-        ".write": "$uid === auth.uid || auth.token.email.toLowerCase() === data.child('username').val() || $uid === auth.token.email.toLowerCase().replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_').replace('[', '_').replace(']', '_')"
-      }
+    "rules": {
+        "users": {
+            "$uid": {
+                ".read": "$uid === auth.uid || auth.token.email.toLowerCase() === data.child('username').val() || $uid === auth.token.email.toLowerCase().replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_').replace('[', '_').replace(']', '_')",
+                ".write": "$uid === auth.uid || auth.token.email.toLowerCase() === data.child('username').val() || $uid === auth.token.email.toLowerCase().replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_').replace('[', '_').replace(']', '_')"
+            }
+        },
+        "roles": {
+            "$role": {
+                "$uid": {
+                    ".read": "$uid === auth.token.email.toLowerCase().replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_').replace('[', '_').replace(']', '_')"
+                }
+            },
+            ".write": "false"
+        },
+        "groups": {
+            "$role": {
+                "$uid": {
+                    ".read": "$uid === auth.token.email.toLowerCase().replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_').replace('[', '_').replace(']', '_')"
+                }
+            },
+            ".write": "false"
+        }
     }
-  }
 }

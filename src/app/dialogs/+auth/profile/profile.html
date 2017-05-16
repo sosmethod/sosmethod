@@ -1,7 +1,8 @@
 <a md-button md-dialog-close (click)="dialog.closeAll()" tabindex="-1">
     <md-icon>cancel</md-icon>
 </a>
-<md-tab-group>
+<md-tab-group #tabContent
+              (selectedIndexChange)="saveTab = tabContent.selectedIndex === 0 || tabContent.selectedIndex === 3">
     <md-tab label="Account">
         <bc-subscription [form]="form"></bc-subscription>
     </md-tab>
@@ -11,7 +12,11 @@
     <md-tab label="Discovery">
         <bc-discovery-timeline></bc-discovery-timeline>
     </md-tab>
+    <md-tab label="Survey">
+        <bc-survey-profile></bc-survey-profile>
+    </md-tab>
 </md-tab-group>
-<md-dialog-actions>
+<md-dialog-actions *ngIf="saveTab">
     <button md-raised-button color="primary" type="submit" (click)="save()">Save</button>
 </md-dialog-actions>
+

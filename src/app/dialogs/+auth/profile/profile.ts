@@ -1,4 +1,4 @@
-import {Component, Optional} from '@angular/core';
+import {AfterViewInit, Component, Optional, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {AuthGuard} from '../auth-guard';
@@ -14,11 +14,13 @@ import {Profile} from './profile-model';
 })
 
 
-export class AccountProfileComponent {
+export class AccountProfileComponent implements AfterViewInit {
     email: string;
     public user: firebase.User;
     public form: FormGroup;
     public data: Profile = new Profile();
+    @ViewChild('tabContent') public tabContent: any;
+    public saveTab = false;
 
     constructor(public router: Router,
                 public fireAuth: AngularFireAuth,
@@ -27,6 +29,12 @@ export class AccountProfileComponent {
                 public dialog: MdDialog,
                 @Optional() public dialogRef?: MdDialogRef<AccountProfileComponent>) {
         this.form = builder.group(this.data);
+    }
+
+    ngAfterViewInit() {
+        Promise.resolve().then(() => {
+            this.saveTab = this.tabContent.selectedIndex === 0 || this.tabContent.selectedIndex === 3;
+        });
     }
 
     save() {

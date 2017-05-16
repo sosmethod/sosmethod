@@ -3,7 +3,7 @@
     <div id="discovery-leaf" #discoveryLeaf>
         <a md-button routerLink="/_5_day/essentials" mdTooltip="Release stress &amp; gain peace of mind"
            class=" sos-circle sos-circle-purple"
-            *ngIf="(series | async) === 'essentials'"><b></b><span></span><span></span><span></span><span>
+           *ngIf="(series | async) === 'essentials'"><b></b><span></span><span></span><span></span><span>
             <span class="centerized"> 5 day</span></span></a>
         <a md-button routerLink="/_11_day/essentials" mdTooltip="Advance positivity &amp; mindful awareness"
            class=" sos-circle sos-circle-purple"
@@ -41,7 +41,7 @@
         <a md-button (click)="doNothing()" mdTooltip="Help your child be happier, healthier & smarter"
            class=" sos-circle sos-circle-blue locked"
            *ngIf="(series | async) === 'kids'"><b></b><span></span><span></span><span></span><span>
-            <span class="centerized"> 11 day</span></span></a>
+            <span class="centerized"> 1 day</span></span></a>
         <a md-button routerLink="/_5_day/pets" mdTooltip="Release stress &amp; gain a bright mind"
            class=" sos-circle sos-circle-coral"
            *ngIf="(series | async) === 'pets'"><b></b><span></span><span></span><span></span><span>

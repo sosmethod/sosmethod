@@ -13,7 +13,7 @@
            *ngIf="(route | async) != 'gift' && (route | async) != 'signup' && user?.email">
             <span class="name-wrapper">{{auth.user?.name?.first}} &nbsp; &nbsp; </span>
             <span class="image-wrapper"><img
-                    [src]="user?.photoURL || '/assets/icon_static_user_man.png'"/></span></a>
+                    [src]="photo || '/assets/icon_static_user_man.png'"/></span></a>
         <a md-raised-button routerLink="/contact"
            *ngIf="(route | async) == 'gift' || (route | async) == 'signup'">contact us</a>
         <a md-raised-button (click)="logout()"

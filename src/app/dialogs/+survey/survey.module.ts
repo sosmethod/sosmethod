@@ -1,22 +1,18 @@
 import {NgModule} from '@angular/core';
-
-import {SurveyDialogComponent} from './survey';
-
 import {COMMON_MODULES} from '../../shared/common.module';
 import {routing} from './survey.routing';
 import {SurveySeriesComponent} from './survey-series';
-import {SurveyProfileComponent} from './survey-profile';
 import {DialogGuard} from '../dialog-guard';
 import {AnswerComponent} from './answer';
 import {SurveyCompletedComponent} from './survey-completed';
 import {AnswerRecommendComponent} from './answer-recommend';
 import {SurveyMeditationComponent} from './survey-meditation';
+import {SurveyDialogComponent} from './survey';
 
 
 export const COMPONENTS = [
-    SurveyDialogComponent,
     SurveySeriesComponent,
-    SurveyProfileComponent,
+    SurveyDialogComponent,
     SurveyCompletedComponent,
     AnswerRecommendComponent,
     SurveyMeditationComponent,

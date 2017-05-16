@@ -13,9 +13,10 @@ import {DiscoveryTimelineComponent} from './profile/discovery-timeline';
 import {MeditationTimelineComponent} from './profile/meditation-timeline';
 import {COMMON_MODULES} from '../../shared/common.module';
 import {DialogGuard} from '../dialog-guard';
-import {AuthGuard} from './auth-guard';
+import {SurveyProfileComponent} from '../+survey/survey-profile';
 
 export const COMPONENTS = [
+    SurveyProfileComponent,
     AccountLoginComponent,
     ResetPasswordComponent,
     ForgotPasswordComponent,

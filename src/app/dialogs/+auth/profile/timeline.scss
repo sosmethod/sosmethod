@@ -1,18 +1,22 @@
 
+table {
+    width: 100%;
+}
+
 td:first-child a {
-    padding-left:40px;
+    padding-left: 40px;
     position: relative;
-    display:inline-block;
+    display: inline-block;
 }
 
 td:first-child a i {
     display: inline-block;
     width: 30px;
     height: 30px;
-    position:absolute;
-    left:0;
-    top:50%;
-    margin-top:-15px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -15px;
 }
 
 td:first-child a i span {
