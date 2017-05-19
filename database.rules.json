@@ -21,6 +21,12 @@
                 }
             },
             ".write": "false"
+        },
+        "surveys": {
+            "$uid": {
+                ".read": "$uid === auth.token.email.toLowerCase().replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_').replace('[', '_').replace(']', '_')"
+            },
+            ".write": "false"
         }
     }
 }

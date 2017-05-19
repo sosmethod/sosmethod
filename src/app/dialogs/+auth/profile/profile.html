@@ -4,7 +4,7 @@
 <md-tab-group #tabContent
               (selectedIndexChange)="saveTab = tabContent.selectedIndex === 0 || tabContent.selectedIndex === 3">
     <md-tab label="Account">
-        <bc-subscription [form]="form"></bc-subscription>
+        <bc-subscription [form]="form" [profile]="data"></bc-subscription>
     </md-tab>
     <md-tab label="Meditations">
         <bc-meditation-timeline></bc-meditation-timeline>
@@ -13,7 +13,7 @@
         <bc-discovery-timeline></bc-discovery-timeline>
     </md-tab>
     <md-tab label="Survey">
-        <bc-survey-profile></bc-survey-profile>
+        <bc-survey-profile [form]="survey" [profile]="surveyProfile"></bc-survey-profile>
     </md-tab>
 </md-tab-group>
 <md-dialog-actions *ngIf="saveTab">

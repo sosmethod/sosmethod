@@ -1,128 +1,216 @@
 <div #discoverySeries>
-<a md-button class="back" (click)="goBackToCourse()"> </a>
-<div [class]="day"></div>
-<bc-discovery-subtext></bc-discovery-subtext>
-<div *ngIf="series == 'essentials' && router.url.indexOf('_5_day') > -1"
-     class="_11_day_essentials _5_day">
-    <a md-button routerLink="/discovery/essentials"> </a>
-    <h1>{{"DISCOVERY.TITLE._5_day_essentials" | translate}}</h1>
-    <h2>{{"DISCOVERY.SUBTITLE._5_day_essentials" | translate}}</h2>
-    <ol>
-        <li><a md-button routerLink="/_5_day/essentials/Day 1 - ESS 5 day Meditation Reinvented NEW FINAL copy.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/essentials/Day 2 - ESS 5 day Epi Neuro V2 NEW FINAL 2017 copy.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/essentials/Day 3 - ESS 5 Day Most Imp Thing NEW FINAL 2017 copy 2.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/essentials/Day 4 - ESS 5 Day Stop Drop Roll NEW FINAL 2017 copy 2.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/essentials/Day 5 - ESS 5day Excellence NEW FINAL 2017 copy.mp3"><span></span></a></li>
-    </ol>
-</div>
-<div *ngIf="series == 'essentials' && router.url.indexOf('_11_day') > -1"
-     class="_11_day_essentials _11_day">
-    <a md-button routerLink="/discovery/essentials"> </a>
-    <h1>{{"DISCOVERY.TITLE._11_day_essentials" | translate}}</h1>
-    <h2>{{"DISCOVERY.SUBTITLE._11_day_essentials" | translate}}</h2>
-    <ol>
-        <li><a md-button routerLink="/_11_day/essentials/01 1 - 11 Day Essentials Overcoming Stumbling Blocks.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/essentials/02 2 - 11 Day Neuroplasticity.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/essentials/03 3 - 11 Day ESS Focus Fuel Action.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/essentials/04 4 - 11 Day ESS Positivity Tool.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/essentials/05 5 - 11 Day ESS Daydream.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/essentials/06 6 - 11 DAY ESS Affirming Word.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/essentials/07 7 - 11 Day ESS Mind Sculpting.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/essentials/08 8 - 11 DAY ESS Possibility of 5.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/essentials/09 9 - 11 Day Ess Greatest Teachers.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/essentials/10 10 - 11 DAY ESS Brain Waves.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/essentials/11 11 - 11 Day Ess Feeding the Mind Body.mp3"><span></span></a></li>
-    </ol>
-</div>
-<div  *ngIf="series == 'focus_and_creativity' && router.url.indexOf('_11_day') > -1"
-      class="_11_day_focus_and_creativity _11_day">
-    <a md-button routerLink="/discovery/focus_and_creativity"> </a>
-    <h1>{{"DISCOVERY.TITLE._11_day_focus_and_creativity" | translate}}</h1>
-    <h2>{{"DISCOVERY.SUBTITLE._11_day_focus_and_creativity" | translate}}</h2>
-    <ol>
-        <li><a md-button routerLink="/_11_day/focus_and_creativity/Day 1 FC 11 Day Necessity of Creativity V2 NEW FINAL 2017 copy.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/focus_and_creativity/Day 2 FC 11 day Intention & To Do FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/focus_and_creativity/Day 3 FC 11 day HF Intention FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/focus_and_creativity/Day 4 FC 11 day Priorities FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/focus_and_creativity/Day 5 FC 11 day SO principal FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/focus_and_creativity/Day 6 FC 11 day Helpful Tension FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/focus_and_creativity/Day 7 FC 11 day Science of Intuition FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/focus_and_creativity/Day 8 FC 11 day Intuitive Abilities FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/focus_and_creativity/Day 9 FC 11 day Dynamic Messages FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/focus_and_creativity/Day 10 FC 11 day Passion & Trust FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/focus_and_creativity/Day 11 FC 11 day Future V2 FINAL.mp3"><span></span></a></li>
-    </ol>
-</div>
-<div  *ngIf="series == 'soothing_relief' && router.url.indexOf('_11_day') > -1"
-      class="_11_day_soothing_relief _11_day">
-    <a md-button routerLink="/discovery/soothing_relief"> </a>
-    <h1>{{"DISCOVERY.TITLE._11_day_soothing_relief" | translate}}</h1>
-    <h2>{{"DISCOVERY.SUBTITLE._11_day_soothing_relief" | translate}}</h2>
-    <ol>
-        <li><a md-button routerLink="/_11_day/soothing_relief/Day 1 11 Day SR Being Open V2 FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/soothing_relief/Day 2 11 Day SR Healing Traditions V2 FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/soothing_relief/Day 3 11 Day SR Body's Potential V2 FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/soothing_relief/Day 4 11 Day SR Morning After Tool FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/soothing_relief/Day 5 11 Day SR Deepening Mindfulness V2 FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/soothing_relief/Day 6 11 Day SR Be In The Moment V2 FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/soothing_relief/Day 7 11 Day SR Hidden Inheritance V2 FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/soothing_relief/Day 8 11 Day SR Forgiveness Tool v2 FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/soothing_relief/Day 9 11 Day SR Regret Free FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/soothing_relief/Day 10 11 Day SR Complaints FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_11_day/soothing_relief/Day 11 11 Day SR Freedom FINAL.mp3"><span></span></a></li>
-    </ol>
-</div>
-<div  *ngIf="series == 'soothing_relief' && router.url.indexOf('_5_day') > -1"
-      class="_5_day_soothing_relief _5_day">
-    <a md-button routerLink="/discovery/soothing_relief"> </a>
-    <h1>{{"DISCOVERY.TITLE._5_day_soothing_relief" | translate}}</h1>
-    <h2>{{"DISCOVERY.SUBTITLE._5_day_soothing_relief" | translate}}</h2>
-    <ol>
-        <li><a md-button routerLink="/_5_day/soothing_relief/Day 1 - 5 DAY Soothing Relief - WELCOME.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/soothing_relief/Day 2 - 5 DAY Soothing Relief - Epigenetics and You.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/soothing_relief/Day 3 - 5 DAY Soothing Relief - Rewind.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/soothing_relief/Day 4 - 5 DAY Soothing Relief - Clear The Slate.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/soothing_relief/Day 5 - 5 DAY Soothing Relief - Perception.mp3"><span></span></a></li>
-    </ol>
-</div>
-<div  *ngIf="series == 'focus_and_creativity' && router.url.indexOf('_5_day') > -1"
-      class="_5_day_focus_and_creativity _5_day">
-    <a md-button routerLink="/discovery/focus_and_creativity"> </a>
-    <h1>{{"DISCOVERY.TITLE._5_day_focus_and_creativity" | translate}}</h1>
-    <h2>{{"DISCOVERY.SUBTITLE._5_day_focus_and_creativity" | translate}}</h2>
-    <ol>
-        <li><a md-button routerLink="/_5_day/focus_and_creativity/Day 1 - 5 DAY Focus & Creativity - Higher Mind Solutions.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/focus_and_creativity/Day 2 - 5 DAY Focus & Creativity - Mirror Neurons.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/focus_and_creativity/Day 3 - 5 DAY Focus & Creativity - Request Envision.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/focus_and_creativity/Day 4 - 5 DAY Focus & Creativity - Higher Mind.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/focus_and_creativity/Day 5 - 5 DAY Focus & Creativity - Value of Time.mp3"><span></span></a></li>
-    </ol>
-</div>
-<div  *ngIf="series == 'pets' && router.url.indexOf('_5_day') > -1"
-      class="_5_day_pets _5_day">
-    <a md-button routerLink="/discovery/pets"> </a>
-    <h1>{{"DISCOVERY.TITLE._5_day_pets" | translate}}</h1>
-    <h2>{{"DISCOVERY.SUBTITLE._5_day_pets" | translate}}</h2>
-    <ol>
-        <li><a md-button routerLink="/_5_day/pets/01 1 HD 5 day ESS Meditation Reinvented FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/pets/01 2 HD 5day ESS Genetics V2 FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/pets/01 3 HD 5 day ESS Halo FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/pets/01 4 HD 5day ESS SDR Tool FINAL.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/pets/01 5 HD 5day ESS Excellent Adventures FINAL.mp3"><span></span></a></li>
-    </ol>
-</div>
-<div  *ngIf="series == 'improving_relationships' && router.url.indexOf('_5_day') > -1"
-      class="_5_day_improving_relationships _5_day">
-    <a md-button routerLink="/discovery/improving_relationships"> </a>
-    <h1>{{"DISCOVERY.TITLE._5_day_improving_relationships" | translate}}</h1>
-    <h2>{{"DISCOVERY.SUBTITLE._5_day_improving_relationships" | translate}}</h2>
-    <ol>
-        <li><a md-button routerLink="/_5_day/improving_relationships/Day 1 - 5 DAY Improving Relationships - Cooperation & Love.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/improving_relationships/Day 2 - 5 DAY Improving Relationships - Power of Thought.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/improving_relationships/Day 3 - 5 DAY Improving Relationships - Conscious Communication.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/improving_relationships/Day 4 - 5 DAY Improving Relationships - Enhancing Self Esteem.mp3"><span></span></a></li>
-        <li><a md-button routerLink="/_5_day/improving_relationships/Day 5 - 5 DAY Improving Relationships - Changing the Conversation.mp3"><span></span></a></li>
-    </ol>
-</div>
+    <a md-button class="back" (click)="goBackToCourse()" mdTooltip="Go Back"> </a>
+    <div [class]="day"></div>
+    <bc-discovery-subtext></bc-discovery-subtext>
+    <div *ngIf="series == 'essentials' && seriesLength === '_5_day'"
+         class="_11_day_essentials _5_day">
+        <a md-button routerLink="/discovery/essentials"> </a>
+        <h1>{{"DISCOVERY.TITLE._5_day_essentials" | translate}}</h1>
+        <h2>{{"DISCOVERY.SUBTITLE._5_day_essentials" | translate}}</h2>
+        <ol>
+            <li><a md-button routerLink="/_5_day/essentials/Day 1 - ESS 5 day Meditation Reinvented NEW FINAL copy.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_5_day/essentials/Day 2 - ESS 5 day Epi Neuro V2 NEW FINAL 2017 copy.mp3"><span></span></a>
+            </li>
+            <li><a md-button routerLink="/_5_day/essentials/Day 3 - ESS 5 Day Most Imp Thing NEW FINAL 2017 copy 2.mp3"><span></span></a>
+            </li>
+            <li><a md-button routerLink="/_5_day/essentials/Day 4 - ESS 5 Day Stop Drop Roll NEW FINAL 2017 copy 2.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_5_day/essentials/Day 5 - ESS 5day Excellence NEW FINAL 2017 copy.mp3"><span></span></a>
+            </li>
+        </ol>
+    </div>
+    <div *ngIf="series == 'essentials' && seriesLength === '_11_day'"
+         class="_11_day_essentials _11_day">
+        <a md-button routerLink="/discovery/essentials"> </a>
+        <h1>{{"DISCOVERY.TITLE._11_day_essentials" | translate}}</h1>
+        <h2>{{"DISCOVERY.SUBTITLE._11_day_essentials" | translate}}</h2>
+        <ol>
+            <li><a md-button
+                   routerLink="/_11_day/essentials/01 1 - 11 Day Essentials Overcoming Stumbling Blocks.mp3"><span></span></a>
+            </li>
+            <li><a md-button routerLink="/_11_day/essentials/02 2 - 11 Day Neuroplasticity.mp3"><span></span></a></li>
+            <li><a md-button routerLink="/_11_day/essentials/03 3 - 11 Day ESS Focus Fuel Action.mp3"><span></span></a>
+            </li>
+            <li><a md-button routerLink="/_11_day/essentials/04 4 - 11 Day ESS Positivity Tool.mp3"><span></span></a>
+            </li>
+            <li><a md-button routerLink="/_11_day/essentials/05 5 - 11 Day ESS Daydream.mp3"><span></span></a></li>
+            <li><a md-button routerLink="/_11_day/essentials/06 6 - 11 DAY ESS Affirming Word.mp3"><span></span></a>
+            </li>
+            <li><a md-button routerLink="/_11_day/essentials/07 7 - 11 Day ESS Mind Sculpting.mp3"><span></span></a>
+            </li>
+            <li><a md-button routerLink="/_11_day/essentials/08 8 - 11 DAY ESS Possibility of 5.mp3"><span></span></a>
+            </li>
+            <li><a md-button routerLink="/_11_day/essentials/09 9 - 11 Day Ess Greatest Teachers.mp3"><span></span></a>
+            </li>
+            <li><a md-button routerLink="/_11_day/essentials/10 10 - 11 DAY ESS Brain Waves.mp3"><span></span></a></li>
+            <li><a md-button routerLink="/_11_day/essentials/11 11 - 11 Day Ess Feeding the Mind Body.mp3"><span></span></a>
+            </li>
+        </ol>
+    </div>
+    <div *ngIf="series == 'focus_and_creativity' && seriesLength === '_11_day'"
+         class="_11_day_focus_and_creativity _11_day">
+        <a md-button routerLink="/discovery/focus_and_creativity"> </a>
+        <h1>{{"DISCOVERY.TITLE._11_day_focus_and_creativity" | translate}}</h1>
+        <h2>{{"DISCOVERY.SUBTITLE._11_day_focus_and_creativity" | translate}}</h2>
+        <ol>
+            <li><a md-button
+                   routerLink="/_11_day/focus_and_creativity/Day 1 FC 11 Day Necessity of Creativity V2 NEW FINAL 2017 copy.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/focus_and_creativity/Day 2 FC 11 day Intention & To Do FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/focus_and_creativity/Day 3 FC 11 day HF Intention FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/focus_and_creativity/Day 4 FC 11 day Priorities FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/focus_and_creativity/Day 5 FC 11 day SO principal FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/focus_and_creativity/Day 6 FC 11 day Helpful Tension FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/focus_and_creativity/Day 7 FC 11 day Science of Intuition FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/focus_and_creativity/Day 8 FC 11 day Intuitive Abilities FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/focus_and_creativity/Day 9 FC 11 day Dynamic Messages FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/focus_and_creativity/Day 10 FC 11 day Passion & Trust FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/focus_and_creativity/Day 11 FC 11 day Future V2 FINAL.mp3"><span></span></a>
+            </li>
+        </ol>
+    </div>
+    <div *ngIf="series == 'soothing_relief' && seriesLength === '_11_day'"
+         class="_11_day_soothing_relief _11_day">
+        <a md-button routerLink="/discovery/soothing_relief"> </a>
+        <h1>{{"DISCOVERY.TITLE._11_day_soothing_relief" | translate}}</h1>
+        <h2>{{"DISCOVERY.SUBTITLE._11_day_soothing_relief" | translate}}</h2>
+        <ol>
+            <li><a md-button routerLink="/_11_day/soothing_relief/Day 1 11 Day SR Being Open V2 FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/soothing_relief/Day 2 11 Day SR Healing Traditions V2 FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/soothing_relief/Day 3 11 Day SR Body's Potential V2 FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/soothing_relief/Day 4 11 Day SR Morning After Tool FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/soothing_relief/Day 5 11 Day SR Deepening Mindfulness V2 FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/soothing_relief/Day 6 11 Day SR Be In The Moment V2 FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/soothing_relief/Day 7 11 Day SR Hidden Inheritance V2 FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/soothing_relief/Day 8 11 Day SR Forgiveness Tool v2 FINAL.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_11_day/soothing_relief/Day 9 11 Day SR Regret Free FINAL.mp3"><span></span></a></li>
+            <li><a md-button
+                   routerLink="/_11_day/soothing_relief/Day 10 11 Day SR Complaints FINAL.mp3"><span></span></a></li>
+            <li><a md-button routerLink="/_11_day/soothing_relief/Day 11 11 Day SR Freedom FINAL.mp3"><span></span></a>
+            </li>
+        </ol>
+    </div>
+    <div *ngIf="series == 'soothing_relief' && seriesLength === '_5_day'"
+         class="_5_day_soothing_relief _5_day">
+        <a md-button routerLink="/discovery/soothing_relief"> </a>
+        <h1>{{"DISCOVERY.TITLE._5_day_soothing_relief" | translate}}</h1>
+        <h2>{{"DISCOVERY.SUBTITLE._5_day_soothing_relief" | translate}}</h2>
+        <ol>
+            <li><a md-button
+                   routerLink="/_5_day/soothing_relief/Day 1 - 5 DAY Soothing Relief - WELCOME.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_5_day/soothing_relief/Day 2 - 5 DAY Soothing Relief - Epigenetics and You.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_5_day/soothing_relief/Day 3 - 5 DAY Soothing Relief - Rewind.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_5_day/soothing_relief/Day 4 - 5 DAY Soothing Relief - Clear The Slate.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_5_day/soothing_relief/Day 5 - 5 DAY Soothing Relief - Perception.mp3"><span></span></a>
+            </li>
+        </ol>
+    </div>
+    <div *ngIf="series == 'focus_and_creativity' && seriesLength === '_5_day'"
+         class="_5_day_focus_and_creativity _5_day">
+        <a md-button routerLink="/discovery/focus_and_creativity"> </a>
+        <h1>{{"DISCOVERY.TITLE._5_day_focus_and_creativity" | translate}}</h1>
+        <h2>{{"DISCOVERY.SUBTITLE._5_day_focus_and_creativity" | translate}}</h2>
+        <ol>
+            <li><a md-button
+                   routerLink="/_5_day/focus_and_creativity/Day 1 - 5 DAY Focus & Creativity - Higher Mind Solutions.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_5_day/focus_and_creativity/Day 2 - 5 DAY Focus & Creativity - Mirror Neurons.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_5_day/focus_and_creativity/Day 3 - 5 DAY Focus & Creativity - Request Envision.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_5_day/focus_and_creativity/Day 4 - 5 DAY Focus & Creativity - Higher Mind.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_5_day/focus_and_creativity/Day 5 - 5 DAY Focus & Creativity - Value of Time.mp3"><span></span></a>
+            </li>
+        </ol>
+    </div>
+    <div *ngIf="series == 'pets' && seriesLength === '_5_day'"
+         class="_5_day_pets _5_day">
+        <a md-button routerLink="/discovery/pets"> </a>
+        <h1>{{"DISCOVERY.TITLE._5_day_pets" | translate}}</h1>
+        <h2>{{"DISCOVERY.SUBTITLE._5_day_pets" | translate}}</h2>
+        <ol>
+            <li><a md-button
+                   routerLink="/_5_day/pets/01 1 HD 5 day ESS Meditation Reinvented FINAL.mp3"><span></span></a></li>
+            <li><a md-button routerLink="/_5_day/pets/01 2 HD 5day ESS Genetics V2 FINAL.mp3"><span></span></a></li>
+            <li><a md-button routerLink="/_5_day/pets/01 3 HD 5 day ESS Halo FINAL.mp3"><span></span></a></li>
+            <li><a md-button routerLink="/_5_day/pets/01 4 HD 5day ESS SDR Tool FINAL.mp3"><span></span></a></li>
+            <li><a md-button routerLink="/_5_day/pets/01 5 HD 5day ESS Excellent Adventures FINAL.mp3"><span></span></a>
+            </li>
+        </ol>
+    </div>
+    <div *ngIf="series == 'improving_relationships' && seriesLength === '_5_day'"
+         class="_5_day_improving_relationships _5_day">
+        <a md-button routerLink="/discovery/improving_relationships"> </a>
+        <h1>{{"DISCOVERY.TITLE._5_day_improving_relationships" | translate}}</h1>
+        <h2>{{"DISCOVERY.SUBTITLE._5_day_improving_relationships" | translate}}</h2>
+        <ol>
+            <li><a md-button
+                   routerLink="/_5_day/improving_relationships/Day 1 - 5 DAY Improving Relationships - Cooperation & Love.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_5_day/improving_relationships/Day 2 - 5 DAY Improving Relationships - Power of Thought.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_5_day/improving_relationships/Day 3 - 5 DAY Improving Relationships - Conscious Communication.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_5_day/improving_relationships/Day 4 - 5 DAY Improving Relationships - Enhancing Self Esteem.mp3"><span></span></a>
+            </li>
+            <li><a md-button
+                   routerLink="/_5_day/improving_relationships/Day 5 - 5 DAY Improving Relationships - Changing the Conversation.mp3"><span></span></a>
+            </li>
+        </ol>
+    </div>
 </div>
 

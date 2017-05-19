@@ -10,7 +10,7 @@
         Scale 1-5:</label>
     <br/>
     <br/>
-    <bc-answer></bc-answer>
+    <bc-answer [form]="form" [name]="'feltStressed'"></bc-answer>
     <br/>
     <br/>
 
@@ -18,7 +18,7 @@
         Scale 1-5:</label>
     <br/>
     <br/>
-    <bc-answer></bc-answer>
+    <bc-answer [form]="form" [name]="'feltCalm'"></bc-answer>
     <br/>
     <br/>
 
@@ -26,11 +26,11 @@
         Scale 1-5:</label>
     <br/>
     <br/>
-    <bc-answer></bc-answer>
+    <bc-answer [form]="form" [name]="'manageChallenges'"></bc-answer>
     <br/>
     <br/>
 
-    <label class="error">Oops! Please answer both questions and try again.</label>
+    <label class="error" *ngIf="error">Oops! Please answer all questions and try again.</label>
 </md-dialog-content>
 <md-dialog-actions>
     <button md-raised-button color="primary" type="submit">Send</button>

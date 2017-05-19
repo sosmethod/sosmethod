@@ -1,3 +1,4 @@
+<div [formGroup]="form">
 <a md-button md-dialog-close (click)="dialog.closeAll()" tabindex="-1">
     <md-icon>cancel</md-icon>
 </a>
@@ -9,7 +10,7 @@
     <br/>
     <md-input-container>
         <textarea mdInput placeholder="(fill in the blank)"
-                  name="feedback"></textarea>
+                  name="feedback" formControlName="experience"></textarea>
     </md-input-container>
     <br/>
 
@@ -17,7 +18,7 @@
     <br/>
     <md-input-container>
         <textarea mdInput placeholder="(fill in the blank)"
-                  name="feedback"></textarea>
+                  name="feedback" formControlName="enhanced"></textarea>
     </md-input-container>
     <br/>
 
@@ -25,12 +26,15 @@
         Scale 1-5:</label>
     <br/>
     <br/>
-    <bc-answer-recommend></bc-answer-recommend>
+    <bc-answer-recommend [form]="form" [name]="'recommend'"></bc-answer-recommend>
     <br/>
     <br/>
 
-    <label class="error">Oops! Please answer both questions and try again.</label>
+    <label class="error" *ngIf="error">Oops! Please answer all questions and try again.</label>
 </md-dialog-content>
 <md-dialog-actions>
     <button md-raised-button color="primary" type="submit">Send</button>
 </md-dialog-actions>
+</div>
+
+

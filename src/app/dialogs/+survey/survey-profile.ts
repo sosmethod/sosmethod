@@ -1,5 +1,6 @@
-import {Component, Optional} from '@angular/core';
+import {Component, Input, Optional} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
+import {FormGroup} from '@angular/forms';
 
 
 @Component({
@@ -8,9 +9,21 @@ import {MdDialog, MdDialogRef} from '@angular/material';
     styleUrls: ['./survey-profile.scss']
 })
 export class SurveyProfileComponent {
-    constructor(public dialog: MdDialog, @Optional() public dialogRef?: MdDialogRef<SurveyProfileComponent>) {
-    }
+    @Input() public form: FormGroup;
+    @Input() public profile: SurveyProfile;
+    @Input() public error = false;
 
+    constructor(public dialog: MdDialog,
+                @Optional() public dialogRef?: MdDialogRef<SurveyProfileComponent>) {
+    }
 }
 
+export class SurveyProfile {
+    continent = '';
+    other = '';
+    advertiser = '';
+    priorities = '';
+    challenge = '';
+    ageGroup = '';
+}
 

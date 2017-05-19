@@ -21,12 +21,14 @@ export class DiscoveryComponent implements OnInit {
     private _series: string;
 
     static isCompleted(user: AuthUser, seriesUri: string) {
-        const urls = user && typeof user.completed !== 'undefined' ? Object.keys(user.completed).map(c => user.completed[c])
-            .filter(c => c.indexOf(seriesUri) > -1)
-            .map(l => {
-                const match = DiscoverySeriesComponent.seriesRegex(l);
-                return parseInt(match[1] || match[2]);
-            }) : [];
+        const urls = user && typeof user.completed !== 'undefined'
+            ? Object.keys(user.completed).map(c => user.completed[c])
+                .filter(c => c.indexOf(seriesUri) > -1)
+                .map(l => {
+                    const match = DiscoverySeriesComponent.seriesRegex(l);
+                    return parseInt(match[1] || match[2]);
+                })
+            : [];
         return urls.filter((u, i) => urls.indexOf(i + 1) > -1).length === (seriesUri.indexOf('_11_day') > -1 ? 11 : 5);
     }
 

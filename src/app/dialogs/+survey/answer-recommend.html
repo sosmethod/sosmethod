@@ -1,5 +1,6 @@
-<div class="answer">
+<div class="answer" [formGroup]="form">
     <md-slider class="example-margin"
+               [formControlName]="name"
                [invert]="true"
                [max]="5"
                [min]="1"

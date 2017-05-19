@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {FormGroup} from '@angular/forms';
 
 
 @Component({
@@ -7,7 +8,8 @@ import {Component} from '@angular/core';
     styleUrls: ['./answer.scss']
 })
 export class AnswerComponent {
-
+    @Input() form: FormGroup;
+    @Input() name: string;
     value = 0;
 
     constructor() {

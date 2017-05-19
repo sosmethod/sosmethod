@@ -67,7 +67,7 @@
     .options li a /deep/ h3,
     .options li a /deep/ h4,
     .options li a /deep/ h5 {
-        font-size:12px;
+        font-size: 12px;
         line-height: 20px;
     }
 
@@ -75,5 +75,9 @@
     .options li:hover h3,
     .options:hover li:nth-child(2):hover h3 {
         font-size: 130%;
+    }
+
+    .options {
+        height: 200px;
     }
 }

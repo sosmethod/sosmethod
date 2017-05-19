@@ -1,9 +1,9 @@
-<md-dialog-content id="contact" class="modal">
+<md-dialog-content id="contact" [formGroup]="form" class="modal">
     <h2>Hi! Nice to meet you.</h2>
     <p>This survey was set up as a way for us to get to know you better. Ready to customize you&rsquo;re experience? Let&#39;s
         begin:</p>
     <br/>
-    <md-select placeholder="Where are you from?">
+    <md-select [(ngModel)]="profile.continent" formControlName="continent" placeholder="Where are you from?">
         <md-option>Asia</md-option>
         <md-option>Africa</md-option>
         <md-option>Europe</md-option>
@@ -12,7 +12,7 @@
         <md-option>South America</md-option>
     </md-select>
     <br/>
-    <md-select placeholder="What age group are you in?">
+    <md-select [(ngModel)]="profile.ageGroup" formControlName="ageGroup" placeholder="What age group are you in?">
         <md-option>21 &amp; under</md-option>
         <md-option>22 to 37</md-option>
         <md-option>38 to 53</md-option>
@@ -21,11 +21,12 @@
     </md-select>
     <br/>
     <md-input-container>
-        <textarea mdInput placeholder="What is your single biggest challenge?"
+        <textarea [(ngModel)]="profile.challenge" formControlName="challenge" mdInput
+                  placeholder="What is your single biggest challenge?"
                   name="feedback"></textarea>
     </md-input-container>
     <br/>
-    <md-select placeholder="What concerns you the most?">
+    <md-select [(ngModel)]="profile.priorities" formControlName="priorities" placeholder="What concerns you the most?">
         <md-option>Health</md-option>
         <md-option>Career</md-option>
         <md-option>Finances</md-option>
@@ -34,18 +35,18 @@
         <md-option>Personal Relationships</md-option>
     </md-select>
     <br/>
-    <md-select placeholder="How did you find SOS?">
-        <md-option>Internet Search</md-option>
-        <md-option>Social Media</md-option>
-        <md-option>Blog</md-option>
-        <md-option>Other:</md-option>
+    <md-select [(ngModel)]="profile.advertiser" formControlName="advertiser" placeholder="How did you find SOS?">
+        <md-option value="search">Internet Search</md-option>
+        <md-option value="social">Social Media</md-option>
+        <md-option value="blog">Blog</md-option>
+        <md-option value="other">Other:</md-option>
     </md-select>
     <br/>
-    <md-input-container>
-        <input mdInput type="text" placeholder=""/>
+    <md-input-container *ngIf="profile.advertiser === 'other'">
+        <input [(ngModel)]="profile.other" formControlName="other" mdInput type="text" placeholder=""/>
     </md-input-container>
     <br/>
-    <label class="error">Oops! Please answer all questions and try again.</label>
+    <label class="error" *ngIf="error">Oops! Please answer all questions and try again.</label>
 </md-dialog-content>
 
 

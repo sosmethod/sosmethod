@@ -6,6 +6,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Profile} from './profile-model';
+import {SurveyProfile} from '../../+survey/survey-profile';
 
 @Component({
     selector: 'bc-profile',
@@ -18,7 +19,9 @@ export class AccountProfileComponent implements AfterViewInit {
     email: string;
     public user: firebase.User;
     public form: FormGroup;
-    public data: Profile = new Profile();
+    public survey: FormGroup;
+    public data = new Profile();
+    public surveyProfile = new SurveyProfile();
     @ViewChild('tabContent') public tabContent: any;
     public saveTab = false;
 
@@ -29,6 +32,7 @@ export class AccountProfileComponent implements AfterViewInit {
                 public dialog: MdDialog,
                 @Optional() public dialogRef?: MdDialogRef<AccountProfileComponent>) {
         this.form = builder.group(this.data);
+        this.survey = builder.group(this.surveyProfile);
     }
 
     ngAfterViewInit() {

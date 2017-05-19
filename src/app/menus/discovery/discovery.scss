@@ -111,28 +111,9 @@
         margin-left: -10px;
     }
 
-    &.locked.sos-circle-green:after {
-        background: url(/assets/lock_soothing-0cf3ad.png);
-    }
-
-    &.locked.sos-circle-blue:after {
-        background: url(/assets/lock_essentials-0be4e6.png);
-    }
-
-    &.locked.sos-circle-purple:after {
-        background: url(/assets/lock_kids-8400ff.png);
-    }
-
-    &.locked.sos-circle-gold:after {
-        background: url(/assets/lock_focus-ffd885.png);
-    }
-
-    &.locked.sos-circle-coral:after {
-        background: url(/assets/lock_pets-f77272.png);
-    }
-
-    &.locked.sos-circle-ruby:after {
-        background: url(/assets/lock_relationships-db5ccc.png);
+    &.locked:after {
+        background: url(/assets/lock_white-ffffff.png);
+        opacity: .5;
     }
 
     &.locked.popout:after {

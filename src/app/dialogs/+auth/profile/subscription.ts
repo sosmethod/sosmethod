@@ -4,6 +4,7 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 import * as firebase from 'firebase';
 import {AuthGuard} from '../auth-guard';
 import {FormGroup} from '@angular/forms';
+import {Profile} from './profile-model';
 
 @Component({
     selector: 'bc-subscription',
@@ -13,6 +14,7 @@ import {FormGroup} from '@angular/forms';
 export class SubscriptionComponent {
     private firebase: firebase.app.App;
     @Input() form: FormGroup;
+    @Input() profile: Profile;
 
     constructor(public router: Router,
                 public auth: AuthGuard,
