@@ -23,10 +23,7 @@ export class MeditateComponent implements OnInit {
                 this.router.navigate([meditation.first().attr('routerLink')]);
             }
         });
-    }
-
-    ngOnInit() {
-        this.route.params.map(params => {
+        this.route.params.subscribe(params => {
             this.series = params['discovery'];
             if (!params['audio'] || params['audio'] === '') {
                 this.day = '';
@@ -35,6 +32,9 @@ export class MeditateComponent implements OnInit {
                 this.day = '_day_' + parseInt(match[1] || match[2]);
             }
         });
+    }
+
+    ngOnInit() {
     }
 
 }

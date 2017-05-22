@@ -65,8 +65,8 @@ export class MeditationsSubtextComponent implements OnInit, AfterViewInit, OnDes
         this.day = '_day_' + day;
         this.audios = Object.keys(audio).map(k => ({
             series: k,
-            url: '/play/meditations/' + this.discovery + '/' + this.series + '/' + audio[k],
-            color: 'sos-circle ' + Meditations.colorSeries[this.discovery],
+            url: audio[k].substr(0, 1) !== '/' ? ('/play/meditations/' + this.discovery + '/' + this.series + '/' + audio[k]) : audio[k],
+            color: audio[k].substr(0, 1) !== '/' ? ('sos-circle sos-circle-mini ' + Meditations.colorSeries[this.discovery]) : '',
         }));
         if (!this.loaded) {
             this.loaded = true;
