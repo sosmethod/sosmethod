@@ -1,0 +1,40 @@
+<form action="#" [formGroup]="form" (ngSubmit)="onSend()">
+    <a md-button md-dialog-close (click)="dialog.closeAll()" tabindex="-1">
+        <md-icon>cancel</md-icon>
+    </a>
+    <h2 md-dialog-title>Meditation Reinvented</h2>
+    <md-dialog-content id="contact" class="modal">
+        <p>So much can happen during meditation. Take just a moment now to reflect on:</p>
+
+        <label>How would you describe this experience to others?</label>
+        <br/>
+        <md-input-container>
+        <textarea mdInput [(ngModel)]="survey.experienced" placeholder="(fill in the blank)"
+                  name="feedback" formControlName="experience"></textarea>
+        </md-input-container>
+        <br/>
+
+        <label>How would your life will be enhanced from continuously practicing SOS Method?</label>
+        <br/>
+        <md-input-container>
+        <textarea mdInput [(ngModel)]="survey.enhanced" placeholder="(fill in the blank)"
+                  name="feedback" formControlName="enhanced"></textarea>
+        </md-input-container>
+        <br/>
+
+        <label>How likely are you to recommend this meditation to others?
+            Scale 1-5:</label>
+        <br/>
+        <br/>
+        <bc-answer-recommend [form]="form" [model]="survey" [name]="'recommend'"></bc-answer-recommend>
+        <br/>
+        <br/>
+
+        <label class="error" *ngIf="error">Oops! Please answer all questions and try again.</label>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <button md-raised-button color="primary" type="submit">Send</button>
+    </md-dialog-actions>
+</form>
+
+

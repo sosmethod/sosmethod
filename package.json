@@ -5,9 +5,11 @@
     "main": "index.ts",
     "scripts": {
         "start": "ng serve",
-        "build": "ng build --prod --aot",
+        "build": "ng build --prod --aot --no-sourcemap",
+        "postbuild": "sw-precache --root=dist/www --config=sw-precache-config.js",
         "test": "karma start --browsers Chrome",
-        "e2e": "ng e2e"
+        "e2e": "ng e2e",
+        "static": "cd dist/www && live-server --port=4200 --host=localhost --entry-file=/index.html"
     },
     "repository": {
         "type": "git",
@@ -93,6 +95,7 @@
         "tslint-loader": "latest",
         "typescript": "latest",
         "webpack-merge": "latest",
-        "extract-text-webpack-plugin": "latest"
+        "extract-text-webpack-plugin": "latest",
+        "sw-precache": "latest"
     }
 }

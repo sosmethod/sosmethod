@@ -1,8 +1,8 @@
 ﻿import {Component, ElementRef, Inject} from '@angular/core';
 import {LayoutService} from './layout-service';
-import {AuthGuard} from '../dialogs/+auth/auth-guard';
+import {AuthGuard} from '../+dialogs/+auth/auth-guard';
 import {Observable} from 'rxjs/Observable';
-import {DOCUMENT} from "@angular/platform-browser";
+import {DOCUMENT} from '@angular/platform-browser';
 
 
 @Component({

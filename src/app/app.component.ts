@@ -5,7 +5,7 @@ import {LayoutService} from './layout/layout-service';
 import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
 import {AudioService} from './layout/audio.service';
-import {AuthGuard} from './dialogs/+auth/auth-guard';
+import {AuthGuard} from './+dialogs/+auth/auth-guard';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {Observable} from 'rxjs/Observable';
 import {Observer} from 'rxjs/Observer';
@@ -41,7 +41,6 @@ export class AppComponent implements OnInit {
                 public auth: AuthGuard,
                 public dialog: MdDialog,
                 public audio: AudioService,
-                public meta: MetaService,
                 public router: Router,
                 @Inject(DOCUMENT) private document: any) {
         this.translate.addLangs(['en', 'fr', 'tr']);

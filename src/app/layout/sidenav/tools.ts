@@ -1,8 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {LayoutService} from '../layout-service';
 import {MdDialog} from '@angular/material';
-import {AuthUser} from '../../dialogs/+auth/auth-user';
-import {AuthGuard} from '../../dialogs/+auth/auth-guard';
+import {AuthUser} from '../../+dialogs/+auth/auth-user';
+import {AuthGuard} from '../../+dialogs/+auth/auth-guard';
 
 
 @Component({

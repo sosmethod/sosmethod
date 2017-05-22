@@ -14,6 +14,14 @@
             "love_forgiveness": "Love & Forgiveness",
             "emergency": "Emergency SOS"
         },
+        "SERIES": {
+            "classic_calm": "calm &<br/> deep peace",
+            "relax": "relax &<br/>deep sleep",
+            "elevate": "elevate <br/>& energize",
+            "affirming_word": "affirming<br/>word",
+            "love_forgiveness": "forgiveness<br/>& love",
+            "emergency": "emergency<br/>SOS"
+        },
         "SUBTITLE": {
             "classic_calm": "stress relief & inspiration",
             "relax": "binaural beats for therapy",
@@ -33,11 +41,11 @@
             "light_on": "turn on the light",
             "body_stars": "body of stars",
             "connect": "connect",
-            "play_all_relax": "turn on the light",
+            "play_all_relax": "play all",
             "serenity": "serenity",
             "tranquility": "tranquility",
             "soothe": "soothe",
-            "play_all_sleep": "serenity",
+            "play_all_sleep": "play all",
             "believe": "I believe",
             "say_yes": "say yes",
             "music_heart": "music in my heart",
@@ -50,7 +58,7 @@
             "bless_day": "bless this day",
             "francis": "st. francis prayer",
             "love_you": "the love in you",
-            "forgiveness": "this is love... forgiven",
+            "forgiveness": "forgiven",
             "thank_you": "thank you... I love you",
             "breath": "three breath awareness"
         }
@@ -67,36 +75,26 @@
             "_5_day_pets": "5 Day Happy Dogs"
         },
         "SUBTITLE": {
-            "_5_day_essentials": "release stress and gain peace of mind",
+            "_5_day_essentials": "release stress & gain peace of mind",
             "_11_day_essentials": "advance positivity & mindful awareness",
-            "_5_day_focus_and_creativity": "release stress and expand peace of mind",
+            "_5_day_focus_and_creativity": "boost courage, confidence & inspiration",
             "_11_day_focus_and_creativity": "increase performance & fulfillment",
-            "_5_day_soothing_relief": "overcome patterns, gain vitality & joy",
-            "_11_day_soothing_relief": "release stress and expand peace of mind",
+            "_5_day_soothing_relief": "reduce anxiety, depression & trauma",
+            "_11_day_soothing_relief": "overcome patterns, gain vitality & joy",
             "_5_day_improving_relationships": "open communication & acceptance",
-            "_5_day_pets": "release stress & gain a bright mind"
+            "_11_day_improving_relationships": "open communication & acceptance",
+            "_5_day_kids": "teens chill out & power up fast",
+            "_11_day_kids": "help your child be happier, healthier & smarter",
+            "_5_day_pets": "release stress & gain a bright mind",
+            "_11_day_pets": "advance positivity & mindful awareness"
         },
         "SERIES": {
-            "_5_day_essentials": {
-                "_day_1": "/_5_day/essentials/Day 1 - ESS 5 day Meditation Reinvented NEW FINAL copy.mp3",
-                "_day_2": "/_5_day/essentials/Day 2 - ESS 5 day Epi Neuro V2 NEW FINAL 2017 copy.mp3",
-                "_day_3": "/_5_day/essentials/Day 3 - ESS 5 Day Most Imp Thing NEW FINAL 2017 copy 2.mp3",
-                "_day_4": "/_5_day/essentials/Day 4 - ESS 5 Day Stop Drop Roll NEW FINAL 2017 copy 2.mp3",
-                "_day_5": "/_5_day/essentials/Day 5 - ESS 5day Excellence NEW FINAL 2017 copy.mp3"
-            },
-            "_11_day_essentials": {
-                "_day_1": "/_11_day/essentials/01 1 - 11 Day Essentials Overcoming Stumbling Blocks.mp3",
-                "_day_2": "/_11_day/essentials/02 2 - 11 Day Neuroplasticity.mp3",
-                "_day_3": "/_11_day/essentials/03 3 - 11 Day ESS Focus Fuel Action.mp3",
-                "_day_4": "/_11_day/essentials/04 4 - 11 Day ESS Positivity Tool.mp3",
-                "_day_5": "/_11_day/essentials/05 5 - 11 Day ESS Daydream.mp3",
-                "_day_6": "/_11_day/essentials/06 6 - 11 DAY ESS Affirming Word.mp3",
-                "_day_7": "/_11_day/essentials/07 7 - 11 Day ESS Mind Sculpting.mp3",
-                "_day_8": "/_11_day/essentials/08 8 - 11 DAY ESS Possibility of 5.mp3",
-                "_day_9": "/_11_day/essentials/09 9 - 11 Day Ess Greatest Teachers.mp3",
-                "_day_10": "/_11_day/essentials/10 10 - 11 DAY ESS Brain Waves.mp3",
-                "_day_11": "/_11_day/essentials/11 11 - 11 Day Ess Feeding the Mind Body.mp3"
-            }
+            "essentials": "essentials",
+            "focus_and_creativity": "focus<br/>and<br/>creativity",
+            "soothing_relief": "soothing<br/>relief",
+            "improving_relationships": "improving<br/>relationships",
+            "kids": "super<br/>kids",
+            "pets": "happy<br/>dogs"
         },
         "SUBTEXT": {
             "_5_day_essentials": {

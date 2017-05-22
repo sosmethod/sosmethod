@@ -24,9 +24,9 @@
         },
         "surveys": {
             "$uid": {
-                ".read": "$uid === auth.token.email.toLowerCase().replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_').replace('[', '_').replace(']', '_')"
-            },
-            ".write": "false"
+                ".read": "$uid.contains('_anonymous') || $uid.contains(auth.token.email.toLowerCase().replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_').replace('[', '_').replace(']', '_'))",
+                ".write": "$uid.contains('_anonymous') || $uid.contains(auth.token.email.toLowerCase().replace('.', '_').replace('$', '_').replace('/', '_').replace('#', '_').replace('[', '_').replace(']', '_'))"
+            }
         }
     }
 }

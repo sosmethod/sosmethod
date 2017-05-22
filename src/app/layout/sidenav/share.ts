@@ -1,7 +1,7 @@
 import {Component, Inject, Input} from '@angular/core';
 import {LayoutService} from '../layout-service';
 import {MdDialog} from '@angular/material';
-import {AuthGuard} from '../../dialogs/+auth/auth-guard';
+import {AuthGuard} from '../../+dialogs/+auth/auth-guard';
 import {DOCUMENT} from "@angular/platform-browser";
 
 

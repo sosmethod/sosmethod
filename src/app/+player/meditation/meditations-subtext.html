@@ -1,0 +1,8 @@
+<div [class]="day" [class.single]="(audio.playerPositions | async) == 1"></div>
+<div class="meditations_{{series}}">
+    <a md-button *ngFor="let l of audios; let k = index"
+       class="sos-circle sos-circle-mini {{l.color}}" [routerLink]="l.url">
+        <span></span><span></span><span></span><span><span>{{l.series}}</span></span></a>
+    <h3>{{'MEDITATIONS.MEDITATE.' + series | translate}}</h3>
+</div>
+

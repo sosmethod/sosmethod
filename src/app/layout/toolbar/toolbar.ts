@@ -3,12 +3,13 @@ import {MdDialog} from '@angular/material';
 import {NavigationEnd, Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
 import {AudioService} from '../audio.service';
-import {AuthGuard} from '../../dialogs/+auth/auth-guard';
+import {AuthGuard} from '../../+dialogs/+auth/auth-guard';
 import {Http, Headers, Request} from '@angular/http';
-import {DiscoverySeriesComponent} from '../../player/discovery/discovery-series';
+import {DiscoverySeriesComponent} from '../../+player/discovery/discovery-series';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {Environment} from '../../../../config/environment.i';
+import {Series} from "../../shared/series";
 
 
 @Component({
@@ -52,8 +53,7 @@ export class ToolbarComponent implements OnInit {
                 const route = e.url.split('/')[1] || 'home';
                 this.route.next(route);
                 // TODO: query router config for not PlayerComponent paths?
-                if (route.indexOf('_5_day') === -1 && route.indexOf('_11_day') === -1
-                    && route.indexOf('meditations') === -1 && this.playing) {
+                if (route.indexOf('play') === -1 && this.playing) {
                     this.audio.Pause();
                 }
             }
@@ -70,7 +70,7 @@ export class ToolbarComponent implements OnInit {
             + '/completed/' + dateKey).set(this.router.url);
         const segments = this.router.url.split('/');
         if (segments[1] === '_5_day' && segments[2] === 'essentials') {
-            const match = DiscoverySeriesComponent.seriesRegex(segments[3]);
+            const match = Series.seriesRegex(segments[3]);
             const day = parseInt(match[1] || match[2]);
             const isNew = completed.indexOf(this.router.url) === -1;
             if (day === 5 && isNew) {

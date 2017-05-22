@@ -1,0 +1,15 @@
+<div #discoverySeries>
+    <a md-button class="back" (click)="goBackToCourse()" mdTooltip="Go Back"> </a>
+    <div [class]="day"></div>
+    <bc-discovery-subtext></bc-discovery-subtext>
+    <div [class]="series + ' ' + seriesLength">
+        <h1>{{"DISCOVERY.TITLE." + seriesLength + "_" + series | translate}}</h1>
+        <h2>{{"DISCOVERY.SUBTITLE." + seriesLength + "_" + series | translate}}</h2>
+        <ol>
+            <li *ngFor="let l of audios; let i = index">
+                <a md-button [routerLink]="l" [class.completed]="completed.indexOf(i + 1) > -1"><span></span></a>
+            </li>
+        </ol>
+    </div>
+</div>
+

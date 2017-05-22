@@ -9,22 +9,19 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 
 // sos modules
 import {LayoutModule} from './layout/layout.module';
-import {DialogModule} from './dialogs/dialogs.module';
-import {MenusModule} from './menus/menus.module';
-import {PlayerModule} from './player/player.module';
-import {PagesModule} from './pages/pages.module';
-
+import {DialogModule} from './+dialogs/dialogs.module';
+import {PagesModule} from './+pages/pages.module';
+import {PlayModule} from './+player/play.module';
+import {MenuModule} from './+menus/menu.module';
 import {AppComponent} from './app.component';
-
-// errors
-import {NotFoundComponent} from './layout/404/not-found';
 
 // translation service
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import {routing} from './app.routing';
-import {COMMON_MODULES, SharedModule} from './shared/common.module';
+import {SharedModule, sharedModules} from './shared/shared.module';
+import {PlatformModule} from '@angular/material';
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -40,10 +37,11 @@ export const FirebaseConfig: FirebaseAppConfig = {
 
 @NgModule({
     imports: [
+        PlatformModule,
         BrowserModule,
         BrowserAnimationsModule,
         SharedModule.forRoot(),
-        ...COMMON_MODULES,
+        ...sharedModules,
 
         AngularFireModule.initializeApp(FirebaseConfig),
         AngularFireDatabaseModule,
@@ -57,17 +55,18 @@ export const FirebaseConfig: FirebaseAppConfig = {
         }),
         routing,
 
+        // lazy
         PagesModule,
         DialogModule,
+        PlayModule,
+        MenuModule,
 
+        // shared
         LayoutModule,
-        MenusModule,
-        PlayerModule
     ],
     exports: [RouterModule, SharedModule, AppComponent],
     declarations: [
         AppComponent,
-        NotFoundComponent,
     ],
     bootstrap: [AppComponent]
 })
