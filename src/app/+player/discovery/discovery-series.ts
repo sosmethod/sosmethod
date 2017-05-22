@@ -37,8 +37,9 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit, OnDestro
             if (typeof params.audio === 'undefined' || !params['audio'] || params['audio'] === '') {
                 // get first uncompleted or first
                 let audioUrl = this.audios[0];
+                console.log(this.completed);
                 for (let i = 0; i < this.audios.length; i++) {
-                    if (this.completed.indexOf(i + 1) === -1 && this.completed.indexOf(i) > -1) {
+                    if (this.completed.indexOf(i + 1) > -1) {
                         audioUrl = this.audios[i];
                     }
                 }
