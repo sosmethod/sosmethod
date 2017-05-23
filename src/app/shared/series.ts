@@ -109,9 +109,9 @@ export class Series {
         const match = Series.seriesRegex(link.split('/').pop());
         const keys = Object.keys(Series.colorSeries);
         const s = (new RegExp(keys.join('|'), 'ig')).exec(link)[0];
-        const day = 'DISCOVERY.SUBTEXT.'
+        const day = 'DISCOVERY.SUBTITLE.'
             + (link.indexOf('_11_day') > -1 ? '_11_day' : '_5_day')
-            + '_' + s + '._day_' + (match ? parseInt(match[1] || match[2]) : '');
+            + '_' + s;
         const series = 'DISCOVERY.TITLE.'
             + (link.indexOf('_11_day') > -1 ? '_11_day' : '_5_day') + '_' + s;
         return {

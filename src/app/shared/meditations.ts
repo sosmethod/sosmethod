@@ -164,10 +164,12 @@ export class Meditations {
         const m = (new RegExp(Meditations.links.join('|'), 'ig')).exec(link);
         const series = 'MEDITATIONS.TITLE.' + s;
         const meditation = 'MEDITATIONS.MEDITATE.' + (m ? m[0].split('/')[1] : '');
+        const day = 'MEDITATIONS.SUBTITLE.' + s;
         return {
             series: s,
             color: 'sos-circle ' + (link.indexOf('play_all') > -1 ? 'popout' : Meditations.colorSeries[s]),
             meditation: meditation,
+            day: day,
             seriesText: series,
             time: typeof time !== 'undefined' && time != null
                 ? time
