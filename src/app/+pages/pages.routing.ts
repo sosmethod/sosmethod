@@ -15,6 +15,10 @@ export const pagesRoutes: Routes = [
         path: 'testimonials',
         loadChildren: './+testimonials/testimonials.module#TestimonialsModule'
     },
+    {
+        path: 'foundation',
+        loadChildren: './+foundation/foundation.module#foundationModule'
+    },
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forChild(pagesRoutes);

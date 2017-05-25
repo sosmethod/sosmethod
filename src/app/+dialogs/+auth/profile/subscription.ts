@@ -5,6 +5,7 @@ import * as firebase from 'firebase';
 import {AuthGuard} from '../auth-guard';
 import {FormGroup} from '@angular/forms';
 import {Profile} from './profile-model';
+import {CheckoutService} from '../../../shared/checkout-service';
 
 @Component({
     selector: 'bc-subscription',
@@ -19,11 +20,13 @@ export class SubscriptionComponent {
     constructor(public router: Router,
                 public auth: AuthGuard,
                 public dialog: MdDialog,
+                public checkout: CheckoutService,
                 @Optional() public dialogRef?: MdDialogRef<SubscriptionComponent>) {
         this.firebase = firebase.app();
     }
 
-    openCheckout(title: string, amount: number) {
+    openCheckout(description: string, amount: number) {
+        this.checkout.openCheckout(description, amount);
     }
 
 }

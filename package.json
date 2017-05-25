@@ -96,6 +96,7 @@
         "typescript": "latest",
         "webpack-merge": "latest",
         "extract-text-webpack-plugin": "latest",
-        "sw-precache": "latest"
+        "sw-precache": "latest",
+        "phonegap": "latest"
     }
 }

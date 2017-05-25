@@ -37,11 +37,13 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit, OnDestro
             if (typeof params.audio === 'undefined' || !params['audio'] || params['audio'] === '') {
                 // get first uncompleted or first
                 let audioUrl = this.audios[0];
-                console.log(this.completed);
                 for (let i = 0; i < this.audios.length; i++) {
                     if (this.completed.indexOf(i + 1) > -1) {
-                        audioUrl = this.audios[i];
+                        audioUrl = this.audios[i + 1];
                     }
+                }
+                if (typeof audioUrl === 'undefined') {
+                    audioUrl = this.audios[0];
                 }
                 this.router.navigate([audioUrl], {replaceUrl: true});
                 this.day = '';
@@ -55,15 +57,17 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit, OnDestro
     }
 
     getCompletedKeys() {
-        const keys = (this.auth.user ? Object.keys(this.auth.user.completed) : [])
-            .filter(k => this.auth.user.completed[k].indexOf(this.series) > -1
-            && this.auth.user.completed[k].indexOf(this.router.url.indexOf('_11_day') > -1 ? '_11_day' : '_5_day') > -1);
+        let keys = (this.auth.user ? Object.keys(this.auth.user.completed) : [])
+            .filter((k) => this.auth.user.completed[k].indexOf(this.router.url.indexOf('_11_day') > -1 ? '_11_day' : '_5_day') > -1);
+        if (this.series !== '') {
+            keys = keys.filter(k => this.auth.user.completed[k].indexOf(this.series) > -1);
+        }
         keys.sort((a, b) => parseInt(a) - parseInt(b));
         return keys;
     }
 
     updateSeries() {
-        const keys = this.getCompletedKeys();
+        let keys = this.getCompletedKeys();
         if (this.series === '' && this.auth.user) {
             const last = this.auth.user ? this.auth.user.completed[keys.pop()] : '';
             const seriesKeys = Object.keys(Series.colorSeries);
@@ -75,6 +79,8 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit, OnDestro
         } else {
             this.seriesLength = this.router.url.indexOf('_11_day') > -1 ? '_11_day' : '_5_day';
         }
+        // get the new completed keys based on the current series
+        keys = this.getCompletedKeys();
         this.completed = keys
             .map(k => {
                 const match = Series.seriesRegex(this.auth.user.completed[k]);

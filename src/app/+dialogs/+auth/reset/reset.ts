@@ -45,9 +45,10 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
     }
 
     resetPassword() {
+        const that = this;
         this.fireAuth.auth.confirmPasswordReset(this.actionCode, this.password).then(function (resp) {
             // Password reset has been confirmed and new password updated.
-            this.dialog.closeAll();
+            that.dialog.closeAll();
             // TODO: Display a link back to the app, or sign-in the user directly
             // if the page belongs to the same domain as the app:
             // auth.signInWithEmailAndPassword(accountEmail, newPassword);

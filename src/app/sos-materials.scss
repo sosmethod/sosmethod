@@ -450,6 +450,11 @@ body bc-tools-menu, body bc-secondary-menu, body bc-share-menu {
 
 }
 
+body bc-secondary-menu md-sidenav.mat-sidenav {
+    max-width: 200px;
+    min-width: 200px;
+}
+
 bc-tools-menu {
 
     md-nav-list > *:first-child {

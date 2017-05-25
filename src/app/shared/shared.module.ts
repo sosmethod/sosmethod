@@ -12,6 +12,7 @@ import {LayoutService} from '../layout/layout-service';
 import {AudioService} from '../layout/audio.service';
 import {MetaService} from './meta-service';
 import {MainComponent} from '../+menus/main/main';
+import {CheckoutService} from './checkout-service';
 
 export const sharedModules = [
     CommonModule,
@@ -43,7 +44,8 @@ export class SharedModule {
                 ContentGuard,
                 AudioService,
                 LayoutService,
-                MetaService
+                MetaService,
+                CheckoutService
             ]
         };
     }

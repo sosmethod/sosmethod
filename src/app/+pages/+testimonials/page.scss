@@ -41,6 +41,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 600px;
 }
 
 #add-review > div > div {
@@ -48,19 +49,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-basis: 100%;
+    flex-grow: 1;
 }
 
 #videos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 60px;
     background: white;
 }
 
-#videos video {
-    margin: 20px;
+#videos > div {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    padding-bottom: 20%;
+    position: relative;
+}
+
+#videos iframe {
+    margin: 0 20px;
     border: 3px solid black;
+    flex-grow: 1;
+    flex-basis: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 40%;
+}
+
+#videos iframe:last-of-type {
+    left: auto;
+    right: 0;
 }
 
 #sponsors {

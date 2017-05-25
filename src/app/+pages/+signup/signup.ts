@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Http} from '@angular/http';
 import {AngularFireAuth} from 'angularfire2/auth';
-import {Environment} from '../../../../config/environment.i';
+import {CheckoutService} from '../../shared/checkout-service';
 
 @Component({
     selector: 'bc-signup',
@@ -11,7 +11,8 @@ import {Environment} from '../../../../config/environment.i';
 export class SignupComponent implements OnInit {
 
 
-    constructor(public user: AngularFireAuth,
+    constructor(public checkout: CheckoutService,
+                public user: AngularFireAuth,
                 public http: Http) {
 
     }
@@ -21,28 +22,7 @@ export class SignupComponent implements OnInit {
     }
 
     openCheckout(description: string, amount: number) {
-        const handler = (<any>window).StripeCheckout.configure({
-            key: 'pk_test_iPfh7cvdMxpsR2gWRn5rwH61',
-            image: 'https://sosmethod.io/Butterfly-Head-blue.jpg',
-            locale: 'auto',
-            zipCode: true,
-            token: function (token: any) {
-                // You can access the token ID with `token.id`.
-                // Get the token ID to your server-side code for use.
-                this.http.post(Environment.env.paymentUrl, JSON.stringify({
-                    token: token,
-                    plan: description,
-                    email: this.user.auth.currentUser.email
-                })).subscribe();
-            }
-        });
-
-        handler.open({
-            name: 'TheSOSMethod.com',
-            description: description,
-            amount: amount
-        });
-
+        this.checkout.openCheckout(description, amount);
     }
 
 }

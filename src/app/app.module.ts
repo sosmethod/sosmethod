@@ -29,7 +29,7 @@ export function HttpLoaderFactory(http: Http) {
 
 export const FirebaseConfig: FirebaseAppConfig = {
     apiKey: 'AIzaSyCqhdstV83rISzeWGyJy0DDhdeBAByWxtU',
-    authDomain: 'sosmethod-36e55.firebaseapp.com',
+    authDomain: window.location.hostname,
     databaseURL: 'https://sosmethod-36e55.firebaseio.com',
     storageBucket: 'sosmethod-36e55.appspot.com',
     messagingSenderId: '216534622213'

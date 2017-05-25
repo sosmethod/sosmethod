@@ -18,8 +18,7 @@
         <div class="hr"><span></span><span></span><span></span></div>
     </div>
     <div id="how-it-works">
-        <a md-raised-button color="primary" href="/signup/yearly_gift" class="button">Checkout
-            <input type="hidden" name="yearly_gift" value="9588"/></a>
+        <a md-raised-button color="primary" (click)="openCheckout('Yearly Gift', 9588)" class="button">Checkout</a>
         <h1>How It Works</h1>
         <div class="hr"><span></span><span></span><span></span></div>
         <ul>
