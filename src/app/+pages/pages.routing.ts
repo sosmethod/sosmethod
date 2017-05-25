@@ -17,7 +17,7 @@ export const pagesRoutes: Routes = [
     },
     {
         path: 'foundation',
-        loadChildren: './+foundation/foundation.module#foundationModule'
+        loadChildren: './+foundation/foundation.module#FoundationModule'
     },
 ];
 
