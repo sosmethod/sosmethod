@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {CheckoutService} from '../../shared/checkout-service';
 
 
 @Component({
@@ -9,12 +10,16 @@ import {Component, OnInit} from '@angular/core';
 export class FoundationPageComponent implements OnInit {
 
 
-    constructor() {
+    constructor(public checkout: CheckoutService) {
 
     }
 
     ngOnInit() {
 
+    }
+
+    openCheckout(description: string, amount: number) {
+        this.checkout.openCheckout(description, amount);
     }
 
 }

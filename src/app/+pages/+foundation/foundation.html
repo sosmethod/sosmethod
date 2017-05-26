@@ -1,13 +1,15 @@
 <div id="gift">
-    <div id="topic">
-        <h1>Meditation Reinvented</h1>
-        <h2>rapid soothing relief, hope, and empowerment</h2>
-        <h3>scientifically researched mindfulness programs</h3>
-        <a md-raised-button color="primary" routerLink="/faq" class="button">Learn more</a>
-    </div>
     <div>
-        <iframe src="https://player.vimeo.com/video/172167622?title=0&amp;byline=0&amp;portrait=0" frameborder="0"
-                allowfullscreen="allowfullscreen"></iframe>
+        <div id="topic">
+            <h1>Meditation Reinvented</h1>
+            <h2>rapid soothing relief, hope, and empowerment</h2>
+            <h3>scientifically researched mindfulness programs</h3>
+            <a md-raised-button color="primary" routerLink="/faq" class="button">Learn more</a>
+        </div>
+        <div>
+            <iframe src="https://player.vimeo.com/video/172167622?title=0&amp;byline=0&amp;portrait=0" frameborder="0"
+                    allowfullscreen="allowfullscreen"></iframe>
+        </div>
     </div>
 </div>
 <div class="hr"><span></span><span></span><span></span></div>
@@ -16,23 +18,60 @@
     <div>
         <h2>SOS Method programs are used by veterans, LGBT, and refugees, in foundations, hospitals, youth groups, and
             rehabilitation centers globally.</h2>
-        <div>
-            <span>Enjoy Calm &amp; Peace</span>
-        </div>
-        <div>
-            <span>Reduce Anxiety &amp; Depression</span>
-        </div>
-        <div>
-            <span>Increase Productivity</span>
-        </div>
-        <div>
-            <span>Relieve Stress & Trauma</span>
-        </div>
-        <div>
-            <span>Improve Relationships</span>
-        </div>
+        <ol>
+            <li>
+                <span>Enjoy Calm &amp; Peace</span>
+            </li>
+            <li>
+                <span>Reduce Anxiety &amp; Depression</span>
+            </li>
+            <li>
+                <span>Increase Productivity</span>
+            </li>
+            <li>
+                <span>Relieve Stress & Trauma</span>
+            </li>
+            <li>
+                <span>Improve Relationships</span>
+            </li>
+        </ol>
         <a md-raised-button color="primary" routerLink="/testimonials" class="button">Learn more</a>
     </div>
 </div>
-
-
+<div class="hr"><span></span><span></span><span></span></div>
+<div id="innovative">
+    <h1>Innovative Solutions for Stress &amp; Trauma</h1>
+    <div>
+        <img src="/assets/Butterfly-Head-blue_small.png"/>
+        <div>
+            <p>Endorsed by scientists, doctors, and caregivers, The SOS Method programs have evidences highly effective
+                benefits
+                in people affected by PTSD, depression, anxiety, bullying, abuse, war, and genocide.</p>
+            <p>The SIS iCare Programs enhance self-esteem, and improve health and productivity. In over 15 years of case
+                studies, 96.5% of participants experience, calm, relaxation, and peace - in minutes.</p>
+            <p><a md-raised-button color="primary" routerLink="/faq" class="button">Learn more</a></p>
+        </div>
+    </div>
+</div>
+<div class="hr"><span></span><span></span><span></span></div>
+<div id="mission">
+    <h1>We're all about Creating a Kinder, more Concious World.</h1>
+    <p>Our mission is enhanced by the partnerships we have with individuals and organizations around the world. Together
+        we can improve lives and create lasting social impact. We can't wait for you to join us!</p>
+    <div>
+        <p>
+            <img src="">
+            <a md-raised-button color="primary" (click)="openCheckout('Yearly Gift', 9588)" class="button">Donate</a>
+        </p>
+        <p>
+            <img src="">
+            <a md-raised-button color="primary" routerLink="/contact" class="button">Partner</a>
+        </p>
+    </div>
+    <h1>Our Partners</h1>
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<bc-page-footer></bc-page-footer>

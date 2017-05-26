@@ -1,8 +1,10 @@
-var webpack = require('webpack');
-var webpackMerge = require('webpack-merge');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var commonConfig = require('./webpack.common.js');
-var helpers = require('./helpers');
+const webpack = require('webpack');
+const webpackMerge = require('webpack-merge');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const commonConfig = require('./webpack.common.js');
+const helpers = require('./helpers');
+const UglifyJsParallelPlugin = require('webpack-uglify-parallel');
+const os = require('os');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
@@ -18,7 +20,13 @@ module.exports = webpackMerge(commonConfig, {
 
     plugins: [
         new webpack.NoErrorsPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
+        //new webpack.optimize.UglifyJsPlugin({
+        //    mangle: false,
+        //    sourceMap: false
+        //}),
+        new UglifyJsParallelPlugin({
+            workers: os.cpus().length, // usually having as many workers as cpu cores gives good results
+            // other uglify options
             mangle: false,
             sourceMap: false
         }),

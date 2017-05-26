@@ -11,7 +11,7 @@ export class CheckoutService {
     openCheckout(description: string, amount: number) {
         const handler = (<any>window).StripeCheckout.configure({
             key: 'pk_test_iPfh7cvdMxpsR2gWRn5rwH61',
-            image: 'https://sosmethod.io/assets/Butterfly-Head-blue.jpg',
+            image: 'https://sosmethod.io/assets/Butterfly-Head-blue_small.png',
             locale: 'auto',
             zipCode: true,
             token: function (token: any) {

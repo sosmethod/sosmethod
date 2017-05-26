@@ -17,5 +17,5 @@ export const COMPONENTS = [
     declarations: COMPONENTS,
     exports: COMPONENTS
 })
-export class GiftModule {
+export class FoundationModule {
 }
