@@ -5,12 +5,6 @@
 @import './sos-circle-color';
 @import './sos-circle-animations';
 
-.signup, .gift, .testimonials, .foundation {
-    .mat-sidenav-container[fullscreen] {
-        position: static;
-    }
-}
-
 .return-to-top,
 .stretch-right {
     position: absolute;
@@ -104,4 +98,25 @@ bc-app .activate {
     }
 }
 
+body {
 
+    .contact-link {
+        display: none;
+    }
+
+    .signup, .gift, .testimonials, .foundation {
+
+        .mat-sidenav-container[fullscreen] {
+            position: static;
+        }
+
+        .profile, .login-link, .logout-link {
+            display: none;
+        }
+
+        .contact-link {
+            display: inline-block;
+        }
+    }
+
+}
