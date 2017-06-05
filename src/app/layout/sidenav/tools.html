@@ -4,29 +4,29 @@
             <span>Mindful Tools</span>
             <small>Smart processes that develop habits to be responsive and adaptive to everyday life</small>
         </div>
+        <a md-raised-button [class.locked]="getLocked('/tool/stop_drop')" routerLink="/tool/stop_drop">
+            <span>Stop Drop &amp; Roll</span>
+            <small>Emergency release of emotion</small>
+        </a>
         <a md-raised-button [class.locked]="getLocked('/tool/positivity')" routerLink="/tool/positivity">
             <span>Positivity</span>
             <small>Uplifting start to the day</small>
         </a>
         <a md-raised-button [class.locked]="getLocked('/tool/possibility_5')" routerLink="/tool/possibility_5">
-            <span>Positivity</span>
-            <small>Uplifting start to the day</small>
+            <span>Possibility of 5</span>
+            <small>Inspired solutions and dreams</small>
+        </a>
+        <a md-raised-button [class.locked]="getLocked('/tool/rewind')" routerLink="/tool/rewind">
+            <span>Rewind</span>
+            <small>Let go of past hurt &amp; upset</small>
         </a>
         <a md-raised-button [class.locked]="getLocked('/tool/envision')" routerLink="/tool/envision">
             <span>Request &amp; Envision</span>
             <small>Ask for guidance &amp; imagine the future</small>
         </a>
-        <a md-raised-button [class.locked]="getLocked('/tool/stop_drop')" routerLink="/tool/stop_drop">
-            <span>Stop Drop &amp; Roll</span>
-            <small>Emergency release of emotion</small>
-        </a>
         <a md-raised-button [class.locked]="getLocked('/tool/communication')" routerLink="/tool/communication">
             <span>Conscious Communication</span>
             <small>Empowering thoughts &amp; words</small>
-        </a>
-        <a md-raised-button [class.locked]="getLocked('/tool/rewind')" routerLink="/tool/rewind">
-            <span>Rewind</span>
-            <small>Let go of past hurt &amp; upset</small>
         </a>
         <!--<a md-raised-button routerLink="/tool/morning">
             <span>Morning After</span><small>What worked, what didn't, what's better</small></a>-->

@@ -18,7 +18,6 @@
 <bc-footer *ngIf="router.url === '/'"></bc-footer>
 <div class="stretch-right">
     <a md-raised-button mdTooltipPosition="above"
-       *ngIf="router.url.indexOf('/signup') == -1 && router.url.indexOf('/gift') == -1 && router.url.indexOf('/testimonials') == -1"
        mdTooltip="Choose a background" [class.active]="layout.sidebarOpen | async"
        (click)="toggleSidenav()"></a>
 </div>

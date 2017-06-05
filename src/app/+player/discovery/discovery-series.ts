@@ -84,7 +84,7 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit, OnDestro
         this.completed = keys
             .map(k => {
                 const match = Series.seriesRegex(this.auth.user.completed[k]);
-                return parseInt(match[1] || match[2]);
+                return match && parseInt(match[1] || match[2]) || 0;
             });
         this.audios = Series.audios[this.seriesLength + '/' + this.series]
             .map(a => '/play/' + this.seriesLength + '/' + this.series + '/' + a);

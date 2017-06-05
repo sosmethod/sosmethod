@@ -8,7 +8,7 @@
      [class.playing]="(audio.state | async) == 'playing'"
      [class.stopped]="(audio.state | async) != 'playing'">
     <div class="preview-inner">
-        <div class="preview-progress centerized">
+        <div class="preview-progress">
             <md-progress-spinner
                     color="primary"
                     mode="determinate"
@@ -16,8 +16,8 @@
             </md-progress-spinner>
         </div>
         <div class="preview-play">
-            <a (click)="audio.Play()" class="play centerized"></a>
-            <a (click)="audio.Pause()" class="pause centerized"></a>
+            <a (click)="audio.Play()" class="play"></a>
+            <a (click)="audio.Pause()" class="pause"></a>
         </div>
     </div>
 </div>

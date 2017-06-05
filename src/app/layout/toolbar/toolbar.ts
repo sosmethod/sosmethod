@@ -35,6 +35,7 @@ export class ToolbarComponent implements OnInit {
     }
 
     ngOnInit() {
+        const that = this;
         this.fireAuth.auth.onAuthStateChanged((u: firebase.User | null) => {
             this.user = u;
             if (this.user != null
@@ -45,8 +46,10 @@ export class ToolbarComponent implements OnInit {
         this.audio._audio = this.player.nativeElement;
         this.audio.AttachEvents();
         this.audio.state.subscribe(s => this.playing = s === 'playing');
-        this.audio.ended.subscribe(() => {
-            this.recordCompleted.apply(this);
+        this.audio.timeupdate.subscribe(() => {
+            if (Math.round(this.audio._audio.currentTime / (this.audio._audio.duration || 1) * 100) > 90) {
+                this.recordCompleted.apply(that);
+            }
         });
         this.router.events.subscribe((e) => {
             if (e instanceof NavigationEnd) {

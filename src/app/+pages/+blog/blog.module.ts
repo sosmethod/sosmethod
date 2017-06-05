@@ -1,10 +1,12 @@
 import {NgModule} from '@angular/core';
 import {COMMON_MODULES} from '../../shared/shared.module';
-import {FoundationPageComponent} from './blog';
 import {routing} from './blog.routing';
 import {SharedPagesModule} from '../shared/shared-pages.module';
+import {BlogComponent} from './blog';
+import {BlogSidebarComponent} from './sidebar';
 export const COMPONENTS = [
-    FoundationPageComponent
+    BlogComponent,
+    BlogSidebarComponent
 ];
 
 
@@ -17,5 +19,5 @@ export const COMPONENTS = [
     declarations: COMPONENTS,
     exports: COMPONENTS
 })
-export class FoundationModule {
+export class BlogModule {
 }

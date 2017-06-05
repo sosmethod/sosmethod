@@ -104,7 +104,7 @@ body {
         display: none;
     }
 
-    .signup, .gift, .testimonials, .foundation {
+    .signup, .gift, .testimonials, .foundation, .blog {
 
         .mat-sidenav-container[fullscreen] {
             position: static;
@@ -116,6 +116,10 @@ body {
 
         .contact-link {
             display: inline-block;
+        }
+
+        ~ .stretch-right {
+            display: none;
         }
     }
 

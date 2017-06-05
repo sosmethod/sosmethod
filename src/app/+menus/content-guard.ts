@@ -29,14 +29,15 @@ export class ContentGuard {
     redirectDialog(route: ActivatedRouteSnapshot): Observable<boolean> {
         return this.auth.subj.map(() => {
             let pass = true;
-            if (route.url.toString().indexOf('_5_day') > -1 || route.url.toString().indexOf('_11_day') > -1) {
-                pass = !Series.isLocked(this.auth.user, route.url.toString());
+            if (route.url.toString().indexOf('_5_day') > -1
+                || route.url.toString().indexOf('_11_day') > -1) {
+                pass = !Series.isLocked(this.auth.user, route.url.join('/'));
             }
             if (route.url.toString().indexOf('meditations') > -1) {
-                pass = !Meditations.isLocked(this.auth.user, route.url.toString());
+                pass = !Meditations.isLocked(this.auth.user, route.url.join('/'));
             }
             if (route.url.toString().indexOf('tool') > -1) {
-                pass = !ToolsMenuComponent.isLocked(this.auth.user, route.url.toString());
+                pass = !ToolsMenuComponent.isLocked(this.auth.user, route.url.join('/'));
             }
             if (!pass) {
                 const that = this;

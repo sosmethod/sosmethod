@@ -91,7 +91,115 @@ export class Series {
             'Day 3 - 5 DAY Improving Relationships - Conscious Communication.mp3',
             'Day 4 - 5 DAY Improving Relationships - Enhancing Self Esteem.mp3',
             'Day 5 - 5 DAY Improving Relationships - Changing the Conversation.mp3'
+        ],
+        '_5_day/kids': [
+            'Day 1 SK 5day .mp3',
+            'Day 2 SK 5day Super Skills FINAL.mp3',
+            'Day 3 SK 5day Halo Effect FINAL.mp3',
+            'Day 4 SK 5day SDR Tool FINAL.mp3',
+            'Day 5 SK 5day Excellent Adventures FINAL',
         ]
+    };
+
+    static dailyMeditations: { [key: string]: string[][] } = {
+        '_5_day/essentials': [[
+            'classic_calm/sweet_spot',
+            '/bonus/essentials_day_1'
+        ], [
+            'classic_calm/calm_strength',
+            '/bonus/essentials_day_2'
+        ], [
+            'classic_calm/sweet_spot',
+            '/bonus/essentials_day_3'
+        ], [
+            'classic_calm/calm_strength',
+            '/tool/stop_drop'
+        ], [
+            'elevate/believe',
+            '/bonus/essentials_day_5'
+        ]],
+        '_11_day/essentials': [[
+            'classic_calm/breathe',
+            '/bonus/essentials11_day_1',
+        ], [
+            'classic_calm/ease_comfort',
+            '/bonus/essentials11_day_2',
+        ], [
+            'classic_calm/breathe',
+            '/bonus/essentials11_day_3',
+        ], [
+            'elevate/say_yes',
+            '/tool/positivity',
+        ], [
+            'classic_calm/ease_comfort',
+            '/bonus/essentials11_day_5',
+        ], [
+            'affirming_word/grateful',
+            '/bonus/essentials11_day_6',
+        ], [
+            'classic_calm/breathe',
+            '/bonus/essentials11_day_7',
+        ], [
+            'affirming_word/grateful',
+            '/tool/possibility_5',
+        ], [
+            'classic_calm/ease_comfort',
+            '/bonus/essentials11_day_9',
+        ], [
+            'relax/serenity',
+            '/bonus/essentials11_day_10',
+        ], [
+            'elevate/say_yes',
+            '/bonus/essentials11_day_11',
+        ]],
+        '_5_day/soothing_relief': [[
+            'emergency/breath',
+            '/bonus/soothing_day_1',
+        ], [
+            'relax/light_on',
+            '/bonus/soothing_day_2',
+        ], [
+            'classic_calm/into_silence',
+            '/tool/rewind',
+        ], [
+            'elevate/music_heart',
+            '/tool/stop_drop',
+        ], [
+            'affirming_word/grateful',
+            '/bonus/soothing_day_5',
+        ]],
+        '_5_day/focus_and_creativity': [[
+            'classic_calm/into_silence',
+            '/bonus/creativity_day_1',
+        ], [
+            'relax/tranquility',
+            '/bonus/creativity_day_2',
+        ], [
+            'elevate/paint_life',
+            '/tool/envision',
+        ], [
+            'affirming_word/divine_love',
+            '/bonus/creativity_day_4',
+        ], [
+            'elevate/believe',
+            '/bonus/creativity_day_5',
+        ]],
+        '_5_day/improving_relationships': [[
+            'elevate/this_moment',
+            '/bonus/improving_day_1',
+        ], [
+            'relax/tranquility',
+            '/bonus/improving_day_2',
+        ], [
+            'love_forgiveness/thank_you',
+            '/tool/communication',
+        ], [
+            'classic_calm/easy_breath',
+            '/bonus/improving_day_4',
+        ], [
+            'elevate/believe',
+            '/bonus/improving_day_5'
+        ]]
     };
 
     static colorSeries: { [key: string]: string } = {
@@ -134,7 +242,7 @@ export class Series {
                 .filter(c => c.indexOf(seriesUri) > -1)
                 .map(l => {
                     const match = Series.seriesRegex(l.replace('#/', ''));
-                    return parseInt(match[1] || match[2]);
+                    return match && parseInt(match[1] || match[2]) || 0;
                 })
             : [];
         return urls.filter((u, i) => urls.indexOf(i + 1) > -1).length === (seriesUri.indexOf('_11_day') > -1 ? 11 : 5);
@@ -147,6 +255,9 @@ export class Series {
         if (u != null && !Series.isCompleted(u, '_11_day/essentials') &&
             seriesUri.indexOf('_11_day') > -1 && seriesUri.indexOf('essentials') > -1) {
             return false;
+        }
+        if (Object.keys(Series.audios).filter((k) => seriesUri.indexOf(k) > -1).length === 0) {
+            return true;
         }
         return !(u != null && Series.isCompleted(u, '_11_day/essentials'));
     }

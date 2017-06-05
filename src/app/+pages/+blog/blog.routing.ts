@@ -1,18 +1,18 @@
 import {RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {AuthGuard} from '../../+dialogs/+auth/auth-guard';
-import {FoundationPageComponent} from './blog';
+import {BlogComponent} from './blog';
 
-export const giftRoutes: Routes = [
+export const blogRoutes: Routes = [
     {
         path: '',
         canActivate: [AuthGuard],
         canActivateChild: [AuthGuard],
         data: {roles: ['anonymous', 'user']},
-        component: FoundationPageComponent,
+        component: BlogComponent,
     },
 ];
 
 
-export const routing: ModuleWithProviders = RouterModule.forChild(giftRoutes);
+export const routing: ModuleWithProviders = RouterModule.forChild(blogRoutes);
 

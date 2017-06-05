@@ -286,7 +286,7 @@ body {
         padding: 0;
     }
 
-    bc-player a[routerLink*="/tool/"] {
+    bc-player a.tool {
         margin: 10px 10px -13px;
         vertical-align: middle;
         padding: 75px 0 0;
@@ -298,7 +298,7 @@ body {
         background-size: contain;
     }
 
-    bc-player a[routerLink*="/tool/"]:before {
+    bc-player a.tool:before {
         display: block;
         content: " ";
         background: url(/assets/triangle.png) no-repeat 50% top;
@@ -314,7 +314,7 @@ body {
         transition: ease-in-out .25s;
     }
 
-    bc-player a[routerLink*="/tool/"]:after {
+    bc-player a.tool:after {
         display: block;
         content: " ";
         background: url(/assets/triangle_small.png) no-repeat 50% top;
@@ -331,7 +331,6 @@ body {
         transition: ease-in-out .25s;
     }
 
-    bc-player a[routerLink*="/bonus/"],
     bc-player a.bonus {
         margin: 10px 10px -13px;
         vertical-align: middle;
@@ -342,7 +341,6 @@ body {
         width: 65px;
     }
 
-    bc-player a[routerLink*="/bonus/"]:before,
     bc-player a.bonus:before {
         box-shadow: inset 0 0 10px rgba(219, 92, 204, 0.7), inset 0 0 20px rgba(219, 92, 204, 0.5), inset 0 0 20px rgba(219, 92, 204, 0);
         content: " ";
@@ -357,7 +355,6 @@ body {
         transition: ease-in-out .25s;
     }
 
-    bc-player a[routerLink*="/bonus/"]:after,
     bc-player a.bonus:after {
         content: " ";
         position: absolute;

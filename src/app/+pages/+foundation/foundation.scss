@@ -160,3 +160,38 @@ ul li {
     margin: 0 10px;
     padding: 0;
 }
+
+#videos {
+    padding: 60px;
+    background: white;
+}
+
+#videos > div {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    padding-bottom: 20%;
+    position: relative;
+}
+
+#videos iframe {
+    margin: 0 20px;
+    border: 3px solid black;
+    flex-grow: 1;
+    flex-basis: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 40%;
+}
+
+#videos iframe:last-of-type {
+    left: auto;
+    right: 0;
+}
+
+

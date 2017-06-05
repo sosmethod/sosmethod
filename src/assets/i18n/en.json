@@ -72,7 +72,8 @@
             "_5_day_soothing_relief": "5 Day Soothing Relief",
             "_11_day_soothing_relief": "11 Day Soothing Relief",
             "_5_day_improving_relationships": "5 Day Improving Relationships",
-            "_5_day_pets": "5 Day Happy Dogs"
+            "_5_day_pets": "5 Day Happy Dogs",
+            "_5_day_kids": "5 Day Super Kids"
         },
         "SUBTITLE": {
             "_5_day_essentials": "release stress & gain peace of mind",
@@ -170,6 +171,13 @@
                 "_day_3": "day 3 - conscious communication - 7 min",
                 "_day_4": "day 4 - enhancing self esteem - 4 min",
                 "_day_5": "day 5 - changing the conversation - 6 min"
+            },
+            "_5_day_kids": {
+                "_day_1": "day 1 - super skills - 6 min",
+                "_day_2": "day 2 - super skills - 6 min",
+                "_day_3": "day 3 - halo effect - 7 min",
+                "_day_4": "day 4 - stop, drop, & roll tool - 6 min",
+                "_day_5": "day 5 - excellent adventures - 7 min"
             }
         }
     }

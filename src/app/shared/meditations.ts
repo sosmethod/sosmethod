@@ -186,6 +186,9 @@ export class Meditations {
             || seriesUri.indexOf('elevate') > -1 && seriesUri.indexOf('believe') > -1) {
             return false;
         }
+        if (Object.keys(Meditations.audios).filter((k) => seriesUri.indexOf(k) > -1).length === 0) {
+            return true;
+        }
         return !u;
 
     }
