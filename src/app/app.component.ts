@@ -59,10 +59,13 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-        const that = this;
         this.router.events.subscribe((e) => {
             if (e instanceof NavigationEnd) {
-                that.route.next(e.url.split(/[\/?]/ig)[1] || 'home');
+                let urlClass = e.url.split(/[\/#?]/ig)[1];
+                if (typeof urlClass === 'undefined' || urlClass.trim() === '' || urlClass === null) {
+                    urlClass = 'home';
+                }
+                this.route.next(urlClass);
             }
         });
         if (this.document) {

@@ -57,7 +57,7 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit, OnDestro
     }
 
     getCompletedKeys() {
-        let keys = (this.auth.user ? Object.keys(this.auth.user.completed) : [])
+        let keys = (this.auth.user ? Object.keys(this.auth.user.completed || {}) : [])
             .filter((k) => this.auth.user.completed[k].indexOf(this.router.url.indexOf('_11_day') > -1 ? '_11_day' : '_5_day') > -1);
         if (this.series !== '') {
             keys = keys.filter(k => this.auth.user.completed[k].indexOf(this.series) > -1);
@@ -68,8 +68,10 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit, OnDestro
 
     updateSeries() {
         let keys = this.getCompletedKeys();
-        if (this.series === '' && this.auth.user) {
-            const last = this.auth.user ? this.auth.user.completed[keys.pop()] : '';
+        if (this.series === '' && typeof this.auth.user !== 'undefined'
+            && this.auth.user !== null && typeof this.auth.user.completed !== 'undefined'
+            && keys.length > 0) {
+            const last = this.auth.user.completed[keys.pop()];
             const seriesKeys = Object.keys(Series.colorSeries);
             this.seriesLength = this.auth.user && last.indexOf('_11_day') > -1 ? '_11_day' : '_5_day';
             this.series = this.auth.user ? (new RegExp(seriesKeys.join('|'), 'ig')).exec(last)[0] : 'essentials';
@@ -111,9 +113,9 @@ export class DiscoverySeriesComponent implements OnInit, AfterViewInit, OnDestro
             this.audio.Play(encodeURIComponent(this.audioFile));
         }
         // only do this if it is new
-        if (this.day === '_day_1' && !this.checkCompleted(0)) {
-            this.router.navigate(['/survey/series/' + this.seriesLength + '_' + this.series]);
-        }
+        // if (this.day === '_day_1' && !this.checkCompleted(0)) {
+        //    this.router.navigate(['/survey/series/' + this.seriesLength + '_' + this.series]);
+        // }
         // only do this if it is new
         if ((this.day === '_day_5' && this.seriesLength === '_5_day'
             || this.day === '_day_11' && this.seriesLength === '_11_day')
