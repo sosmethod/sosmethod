@@ -1,0 +1,51 @@
+.welcome-message h1 {
+    padding: 50px;
+    text-align: center;
+}
+
+article {
+    flex-basis: 100%;
+    padding: 60px 30px 60px 50px;
+    background: white;
+}
+
+article h1, article h2 {
+    color: #4997cb;
+    margin-top: 0;
+}
+
+img {
+    height: auto;
+    width: 100%;
+}
+
+.inlineImageWrapper {
+    background: url(/assets/shutterstock_316023563_small.jpg) no-repeat 50% 50%;
+    background-size: cover;
+    padding: 60px;
+    text-align: center;
+    color: white;
+}
+
+.content {
+    display: flex;
+    color: #333;
+}
+
+.content a {
+    color: #4997cb;
+}
+
+bc-blog-sidebar {
+    padding: 60px 50px 60px 30px;
+    background: #4997cb;
+    width: 220px;
+    flex-grow: 1;
+    flex-basis: 220px;
+    display: block;
+    flex-shrink: 0;
+}
+
+bc-blog-sidebar /deep/ h3 {
+    margin: 0;
+}

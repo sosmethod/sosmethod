@@ -1,0 +1,39 @@
+
+#survey {
+    display:flex;
+    flex-direction: column;
+}
+
+md-radio-group {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+md-input-container {
+    width:100%;
+}
+
+md-input-container /deep/ .mat-input-placeholder-wrapper {
+    overflow:visible;
+}
+
+md-input-container /deep/ .mat-input-placeholder {
+    overflow:visible;
+    overflow-x:visible;
+    white-space: normal;
+}
+
+md-radio-button /deep/ .mat-radio-label {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+md-radio-button /deep/ .mat-radio-label-content {
+    padding-left:0;
+}

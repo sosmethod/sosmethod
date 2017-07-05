@@ -1,0 +1,16 @@
+<bc-course></bc-course>
+<div id="discovery" #discovery>
+    <div id="discovery-leaf" #discoveryLeaf>
+        <a md-button *ngFor="let l of links"
+           routerLink="/play/{{l.url}}"
+           class=" sos-circle {{l.color}}"
+           [mdTooltip]="l.day | translate"
+           [class.locked]="l.locked"
+           [class.completed]="l.completed"><b></b><span></span><span></span><span></span><span>
+            <span>{{l.url.indexOf('_5_day') > -1 ? '5 day' : '11 day'}}</span></span></a>
+    </div>
+    <a md-button *ngFor="let l of seriesLinks"
+       routerLink="/course/discovery/{{l.url}}"
+       class=" sos-circle {{l.color}}"><b></b><span></span><span></span><span></span><span>
+        <span [innerHtml]="('DISCOVERY.SERIES.' + l.series | translate)"></span></span></a>
+</div>

@@ -1,0 +1,93 @@
+﻿<!doctype html>
+<html>
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <title>The SOS Method | Meditation Reinvented</title>
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"/>
+    <link rel="shortcut icon" href="/assets/SOSmodelV4-150x150.png">
+    <link rel="apple-touch-icon" href="/assets/SOSmodelV4-150x150.png">
+    <link rel="icon" type="image/png" href="/assets/SOSmodelV4-150x150.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Questrial:400,700|Open+Sans:400,700" rel="stylesheet">
+    <link href="/assets/slick.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/slick-theme.css" rel="stylesheet" type="text/css"/>
+
+    <style>
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(11, 228, 230, 1);
+            background: url(/assets/cave.jpg) no-repeat 50% 50%;
+            background-size: cover;
+        }
+
+        .loading span {
+            position: relative;
+            height: 60px;
+            width: 60px;
+        }
+
+        .loading span:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            border: 2px solid;
+            border-top-color: transparent;
+            -webkit-animation: rotation 0.8s infinite cubic-bezier(.6, .3, .3, .6);
+            animation: rotation 0.8s infinite cubic-bezier(.6, .3, .3, .6);
+        }
+
+    </style>
+</head>
+<body>
+<bc-app>
+    <div class="loading"><span></span></div>
+</bc-app>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<!-- Hotjar Tracking Code for sosmethod.io -->
+<script>
+    (function (h, o, t, j, a, r) {
+        h.hj = h.hj || function () {
+                (h.hj.q = h.hj.q || []).push(arguments)
+            };
+        h._hjSettings = {hjid: 503291, hjsv: 5};
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+</script>
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
+            console.log('Service Worker registered');
+        }).catch(function (err) {
+            console.log('Service Worker registration failed: ', err);
+        });
+    }
+</script>
+</body>
+</html>

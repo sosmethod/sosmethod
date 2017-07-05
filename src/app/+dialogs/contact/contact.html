@@ -1,0 +1,28 @@
+<a md-button md-dialog-close (click)="dialog.closeAll()" tabindex="-1">
+    <md-icon>cancel</md-icon>
+</a>
+<h2 md-dialog-title>We love hearing from you, send us a note below.</h2>
+<md-dialog-content id="contact" class="modal">
+    <md-input-container>
+        <input mdInput name="name" type="text" placeholder="Name" [(ngModel)]="name"/>
+    </md-input-container>
+    <md-input-container>
+        <input mdInput name="email" type="text" placeholder="Email" [(ngModel)]="email"/>
+    </md-input-container>
+    <md-input-container>
+        <textarea mdInput name="message" placeholder="Message" [(ngModel)]="message"></textarea>
+    </md-input-container>
+    <label *ngIf="error" class="error">Oops! Looks like some information is missing from the form. Please make sure all
+        areas are completed. Thank you!</label>
+    <label *ngIf="done" class="done">Thank you for contacting us. We’ll get back to you as soon as possible.<br/>
+        <br/>
+        If you do not see the email in your inbox, please check your junk or spam folder and add “info@thesosmethod.com”
+        to your Contacts.<br/>
+        <br/>
+        In the mean time, check out our:<br/>
+        <a md-raised-button routerLink="/faq">Frequently Asked Questions</a>
+    </label>
+</md-dialog-content>
+<md-dialog-actions>
+    <button md-raised-button color="primary" type="submit" (click)="send()">Send</button>
+</md-dialog-actions>

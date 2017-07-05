@@ -1,0 +1,31 @@
+
+.video {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    object-fit: cover;
+    justify-content: center; /* align items in Main Axis */
+    align-items: center; /* align items in Cross Axis */
+    align-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.video img,
+.video video {
+    flex: 0 1 100%;
+    object-fit: cover;
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: none;
+    max-width: none;
+}

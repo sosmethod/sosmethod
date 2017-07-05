@@ -1,0 +1,85 @@
+
+.sos-circle, .mat-button.sos-circle {
+
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    padding: 10px;
+    vertical-align: middle;
+    font-size: 18px;
+    color: $textColor;
+    transition: border ease-in-out .25s, box-shadow ease-in-out .25s;
+    position: relative;
+    z-index: 1;
+    font-family: "Century Gothic", sans-serif;
+    letter-spacing: 1px;
+
+
+    &.sos-circle-mini, &.sos-circle-mini .mat-button-wrapper {
+
+        min-width: 0;
+        height: 65px;
+        width: 65px;
+
+        & > span:not(.mat-button-wrapper):nth-of-type(1) {
+            animation: borderAnimSmall 5s ease-in-out infinite alternate;
+        }
+
+        & > span:not(.mat-button-wrapper):nth-of-type(2) {
+            animation: borderAnimSmall2 6s ease-in-out infinite alternate;
+        }
+
+        & > span:not(.mat-button-wrapper):nth-of-type(3) {
+            animation: borderAnimSmall3 7s ease-in-out infinite
+        }
+    }
+
+
+
+    &, .mat-button-wrapper {
+
+        & > span:not(.mat-button-wrapper):nth-of-type(4) {
+            min-height:100%;
+            top: 0;
+            left: 0;
+            width: auto;
+            height: auto;
+            bottom: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        & > span:not(.mat-button-wrapper):nth-of-type(1),
+        & > span:not(.mat-button-wrapper):nth-of-type(2),
+        & > span:not(.mat-button-wrapper):nth-of-type(3) {
+            border-radius: 100%;
+            border: 2px solid #FFFFFF;
+            display: block;
+            padding: 0;
+            box-shadow: inset 0 0 40px rgba(255, 255, 255, .75);
+            transition: border ease-in-out .25s, box-shadow ease-in-out .25s;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: auto;
+            height: auto;
+            bottom: 0;
+            right: 0;
+            animation: borderAnim 5s ease-in-out infinite alternate;
+        }
+
+        & > span:not(.mat-button-wrapper):nth-of-type(2) {
+            animation: borderAnim2 6s ease-in-out infinite alternate;
+        }
+
+        & > span:not(.mat-button-wrapper):nth-of-type(3) {
+            animation: borderAnim3 7s ease-in-out infinite;
+        }
+    }
+
+}
+

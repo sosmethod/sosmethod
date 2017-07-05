@@ -1,0 +1,20 @@
+<a md-button md-dialog-close (click)="dialog.closeAll()" tabindex="-1">
+    <md-icon>cancel</md-icon>
+</a>
+<h2 md-dialog-title>Survey</h2>
+<md-dialog-content id="contact" class="modal">
+    <label><span>Would you recommend meditation to others?</span></label>
+    <md-radio-group [(ngModel)]="score">
+        <md-radio-button *ngFor="let item of [1,2,3,4,5,6,7,8,9,10]" [value]="item">{{item}}</md-radio-button>
+    </md-radio-group>
+    <md-input-container>
+        <textarea mdInput placeholder="Any suggestions, feedback, or features your would like to see?"
+                  name="feedback"></textarea>
+    </md-input-container>
+    <label class="error">Oops! Please answer both questions and try again.</label>
+</md-dialog-content>
+<md-dialog-actions>
+    <button md-raised-button color="primary" type="submit">Send</button>
+</md-dialog-actions>
+
+

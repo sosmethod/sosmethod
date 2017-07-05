@@ -1,0 +1,10 @@
+<div class="meditate" #discovery>
+
+    <div [class]="series + ' ' + day">
+        <a md-button *ngFor="let l of links" [routerLink]="l.url"
+           [class]="l.color" [mdTooltip]="l.tooltip | translate">
+            <span></span><span></span><span></span><span><span>{{l.label}}</span></span>
+        </a>
+    </div>
+
+</div>

@@ -1,0 +1,30 @@
+﻿md-sidenav {
+  max-width: 140px;
+  position:fixed;
+  right:0;
+  top:0;
+  bottom:0;
+}
+
+:host {
+
+}
+
+aside img
+{
+  height:100px;
+  width:100px;
+  display:inline-block;
+  border:2px solid #ffffff;
+  border-radius: 100%;
+  margin:0;
+}
+
+.mat-nav-list a {
+  padding:0;
+  border-radius: 100%;
+  overflow:hidden;
+}
+
+
+

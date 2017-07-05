@@ -1,0 +1,53 @@
+@import '../../sos-color';
+
+:host {
+
+    h1 {
+        margin: 0;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        text-align: center;
+        color: $inverseTextColor;
+    }
+
+    .faq {
+        padding: 0;
+        max-width: 100%;
+        width: 500px;
+    }
+
+    div > ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-radius: 20px;
+        position: relative;
+        width: auto;
+        display: block;
+    }
+
+    li > div {
+        top: 0;
+        left: 100%;
+        display: none;
+        padding: 20px;
+        border-radius: 20px;
+        position: static;
+        height: auto;
+        width: auto;
+    }
+
+    li > a {
+        position: relative;
+        display: block;
+        padding: 20px;
+        color: $inverseTextColor;
+        white-space: normal;
+        text-align: left;
+    }
+
+    li > a.active ~ div {
+        display: block;
+    }
+
+}

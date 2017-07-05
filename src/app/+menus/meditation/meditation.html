@@ -1,0 +1,15 @@
+<bc-course></bc-course>
+<div id="meditation" #discovery>
+    <div id="meditation-leaf" #discoveryLeaf>
+        <a md-button *ngFor="let l of links"
+           routerLink="/play/meditations/{{l.url}}"
+           class=" sos-circle {{l.color}}"
+           [class.locked]="l.locked"><b></b><span></span><span></span><span></span><span>
+            <span>{{l.meditation | translate}}</span></span></a>
+    </div>
+    <a md-button *ngFor="let l of seriesLinks"
+       [mdTooltip]="l.day | translate"
+       routerLink="/course/meditation/{{l.url}}"
+       class=" sos-circle {{l.color}}"><b></b><span></span><span></span><span></span><span>
+        <span [innerHtml]="('MEDITATIONS.SERIES.' + l.series | translate)"></span></span></a>
+</div>

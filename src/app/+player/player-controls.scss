@@ -1,0 +1,56 @@
+
+#player-buttons > a
+{
+    display:inline-block;
+    height: 36px;
+    width:36px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+}
+
+#player-buttons > a
+{
+    margin:8px 0;
+}
+
+#player-buttons
+{
+    position:fixed;
+    z-index: 2000;
+    right:60px;
+    bottom:10px;
+    transition: ease-in-out .8s;
+}
+
+a.fullscreen
+{
+    opacity: .7;
+    background-image:url(/assets/full-screen-icon-png-11_white.png);
+    background-size: auto 100%;
+    background-position: 50% 50%;
+}
+
+a.rewind
+{
+    background-image: url(/assets/rewind_active.png);
+    background-size: auto 100%;
+    opacity: .7;
+    background-position: 50% 50%;
+}
+
+/deep/ .meditations #player-buttons > a.rewind
+{
+    display:none;
+}
+
+a.fullscreen:active,
+a.fullscreen:hover,
+a.fullscreen:focus,
+a.rewind:active,
+a.rewind:hover,
+a.rewind:focus
+{
+    opacity: 1;
+}
+
+

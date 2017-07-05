@@ -1,0 +1,14 @@
+﻿<form class="form-signin" method="POST" action="#" role="form" autocomplete="off">
+    <h2 md-dialog-title="">Forgot Password</h2>
+    <md-dialog-content>
+        <md-input-container>
+            <input mdInput id="newPassword" type="password" maxlength="25" autocomplete="off" placeholder="New Password"
+                   length="40" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+        </md-input-container>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <button md-raised-button color="primary" (click)="resetPassword()" id="signupSubmit" type="submit">
+            Reset Password
+        </button>
+    </md-dialog-actions>
+</form>

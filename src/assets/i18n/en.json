@@ -1,0 +1,184 @@
+{
+    "en": "English",
+    "fr": "French",
+    "HOME": {
+        "TITLE": "SOS Method | Meditation Reinvented",
+        "SELECT": "Change language"
+    },
+    "MEDITATIONS": {
+        "TITLE": {
+            "classic_calm": "Calm & Deep Peace",
+            "relax": "Relax",
+            "elevate": "Elevate & Energize",
+            "affirming_word": "Affirming Word",
+            "love_forgiveness": "Love & Forgiveness",
+            "emergency": "Emergency SOS"
+        },
+        "SERIES": {
+            "classic_calm": "calm &<br/> deep peace",
+            "relax": "relax &<br/>deep sleep",
+            "elevate": "elevate <br/>& energize",
+            "affirming_word": "affirming<br/>word",
+            "love_forgiveness": "forgiveness<br/>& love",
+            "emergency": "emergency<br/>SOS"
+        },
+        "SUBTITLE": {
+            "classic_calm": "stress relief & inspiration",
+            "relax": "conducive for sleep and therapy",
+            "sleep": "conducive for sleep",
+            "elevate": "feel uplifted and happy on a break or commute",
+            "affirming_word": "setting the tone for loving kindness",
+            "love_forgiveness": "focused meditations for loving relationships",
+            "emergency": "immediate aid for anxiety and trauma"
+        },
+        "MEDITATE": {
+            "calm_strength": "calm & strength",
+            "ease_comfort": "ease & comfort",
+            "breathe": "breathe, just breathe",
+            "into_silence": "into the silence",
+            "sweet_spot": "the sweet spot",
+            "easy_breath": "easy breath",
+            "light_on": "turn on the light",
+            "body_stars": "body of stars",
+            "connect": "connect",
+            "play_all_relax": "play all",
+            "serenity": "serenity",
+            "tranquility": "tranquility",
+            "soothe": "soothe",
+            "play_all_sleep": "play all",
+            "believe": "I believe",
+            "say_yes": "say yes",
+            "music_heart": "music in my heart",
+            "paint_life": "paint life's canvas",
+            "happy_reason": "happy for no reason",
+            "this_moment": "in this moment",
+            "grateful": "grateful",
+            "moon_rising": "moon rising",
+            "divine_love": "divine love",
+            "bless_day": "bless this day",
+            "francis": "st. francis prayer",
+            "love_you": "the love in you",
+            "forgiveness": "forgiven",
+            "thank_you": "thank you... I love you",
+            "breath": "three breath awareness"
+        }
+    },
+    "DISCOVERY": {
+        "TITLE": {
+            "_5_day_essentials": "5 Day Essentials",
+            "_11_day_essentials": "11 Day Essentials",
+            "_5_day_focus_and_creativity": "5 Day Focus & Creativity",
+            "_11_day_focus_and_creativity": "11 Day Focus & Creativity",
+            "_5_day_soothing_relief": "5 Day Soothing Relief",
+            "_11_day_soothing_relief": "11 Day Soothing Relief",
+            "_5_day_improving_relationships": "5 Day Improving Relationships",
+            "_5_day_pets": "5 Day Happy Dogs",
+            "_5_day_kids": "5 Day Super Kids"
+        },
+        "SUBTITLE": {
+            "_5_day_essentials": "release stress & gain peace of mind",
+            "_11_day_essentials": "advance positivity & mindful awareness",
+            "_5_day_focus_and_creativity": "boost courage, confidence & inspiration",
+            "_11_day_focus_and_creativity": "increase performance & fulfillment",
+            "_5_day_soothing_relief": "reduce anxiety, depression & trauma",
+            "_11_day_soothing_relief": "overcome patterns, gain vitality & joy",
+            "_5_day_improving_relationships": "open communication & acceptance",
+            "_11_day_improving_relationships": "open communication & acceptance",
+            "_5_day_kids": "teens chill out & power up fast",
+            "_11_day_kids": "help your child be happier, healthier & smarter",
+            "_5_day_pets": "release stress & gain a bright mind",
+            "_11_day_pets": "advance positivity & mindful awareness"
+        },
+        "SERIES": {
+            "essentials": "essentials",
+            "focus_and_creativity": "focus<br/>and<br/>creativity",
+            "soothing_relief": "soothing<br/>relief",
+            "improving_relationships": "improving<br/>relationships",
+            "kids": "super<br/>kids",
+            "pets": "happy<br/>dogs"
+        },
+        "SUBTEXT": {
+            "_5_day_essentials": {
+                "_day_1": "day 1 - meditation reinvented - 5 min",
+                "_day_2": "day 2 - genetics & brain hacking - 6 min",
+                "_day_3": "day 3 - the most important thing - 6 min",
+                "_day_4": "day 4 - stop drop & roll tool - 6 min",
+                "_day_5": "day 5 - excellence - 6 min"
+            },
+            "_5_day_pets": {
+                "_day_1": "day 1 - meditation reinvented - 6 min",
+                "_day_2": "day 2 - genetics - 7 min",
+                "_day_3": "day 3 - halo - 7 min",
+                "_day_4": "day 4 - stop drop & roll tool - 7 min",
+                "_day_5": "day 5 - excellent adventures - 7 min"
+            },
+            "_11_day_essentials": {
+                "_day_1": "day 1 - overcome stumbling blocks reinvented - 5 min",
+                "_day_2": "day 2 - neuroplasticity - 5 min",
+                "_day_3": "day 3 - focus, fuel and action - 5 min",
+                "_day_4": "day 4 - positivity tool - 9 min",
+                "_day_5": "day 5 - daydreaming - 5 min",
+                "_day_6": "day 6 - affirming word - 5 min",
+                "_day_7": "day 7 - mind sculpting - 5 min",
+                "_day_8": "day 8 - possibility of 5 tool - 9 min",
+                "_day_9": "day 9 - the greatest teachers - 5 min",
+                "_day_10": "day 10 - brain waves - 5 min",
+                "_day_11": "day 11 - feeding the mind & body - 5 min"
+            },
+            "_11_day_soothing_relief": {
+                "_day_1": "day 1 - being open - 6 min",
+                "_day_2": "day 2 - healing tradition - 6 min",
+                "_day_3": "day 3 - body's potential - 6 min",
+                "_day_4": "day 4 - morning after tool - 8 min",
+                "_day_5": "day 5 - deepening mindfulness - 6 min",
+                "_day_6": "day 6 - be in the moment - 5 min",
+                "_day_7": "day 7 - hidden inheritance - 6 min",
+                "_day_8": "day 8 - forgiveness tool - 9 min",
+                "_day_9": "day 9 - regret free - 7 min",
+                "_day_10": "day 10 - complaints - 4 min",
+                "_day_11": "day 11 - freedom - 9 min"
+            },
+            "_11_day_focus_and_creativity": {
+                "_day_1": "day 1 - necessity of creativity - 6 min",
+                "_day_2": "day 2 - intention & to do - 6 min",
+                "_day_3": "day 3 - intention - 6 min",
+                "_day_4": "day 4 - priorities - 8 min",
+                "_day_5": "day 5 - principal - 6 min",
+                "_day_6": "day 6 - helpful tension - 5 min",
+                "_day_7": "day 7 - science of intuition - 6 min",
+                "_day_8": "day 8 - intuitive abilities - 9 min",
+                "_day_9": "day 9 - dynamic messages - 7 min",
+                "_day_10": "day 10 - passion & trust - 4 min",
+                "_day_11": "day 11 - future - 7 min"
+            },
+            "_5_day_focus_and_creativity": {
+                "_day_1": "day 1 - higher mind solutions - 6 min",
+                "_day_2": "day 2 - mirror neurons - 6 min",
+                "_day_3": "day 3 - request envision - 10 min",
+                "_day_4": "day 4 - higher mind - 7 min",
+                "_day_5": "day 5 - value of time - 7 min"
+            },
+            "_5_day_soothing_relief": {
+                "_day_1": "day 1 - welcome - 6 min",
+                "_day_2": "day 2 - epigenics and you - 6 min",
+                "_day_3": "day 3 - rewind - 7 min",
+                "_day_4": "day 4 - clear the slate - 4 min",
+                "_day_5": "day 5 - perception - 6 min"
+            },
+            "_5_day_improving_relationships": {
+                "_day_1": "day 1 - cooperation & love - 5 min",
+                "_day_2": "day 2 - power of thought - 5 min",
+                "_day_3": "day 3 - conscious communication - 7 min",
+                "_day_4": "day 4 - enhancing self esteem - 4 min",
+                "_day_5": "day 5 - changing the conversation - 6 min"
+            },
+            "_5_day_kids": {
+                "_day_1": "day 1 - super skills - 6 min",
+                "_day_2": "day 2 - super skills - 6 min",
+                "_day_3": "day 3 - halo effect - 7 min",
+                "_day_4": "day 4 - stop, drop, & roll tool - 6 min",
+                "_day_5": "day 5 - excellent adventures - 7 min"
+            }
+        }
+    }
+}

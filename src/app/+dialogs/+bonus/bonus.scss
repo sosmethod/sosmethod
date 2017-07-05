@@ -1,0 +1,49 @@
+
+#bonus {
+    max-width: 600px;
+}
+
+ol {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+li > a,
+li > button {
+    height: 36px;
+    width: 36px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    margin: 8px 12px;
+    padding: 0;
+    min-width: 0;
+    display: inline-block;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+li a[href*="facebook"] {
+    background-image: url(/assets/icon_active_fb.png);
+}
+
+li a[href*="facebook"]:active,
+li a[href*="facebook"]:hover,
+li a[href*="facebook"]:focus {
+    background-image: url(/assets/icon_active_fb.png);
+}
+
+li a[href*="twitter"] {
+    background-image: url(/assets/icon_active_twitter.png);
+}
+
+li a[href*="twitter"]:active,
+li a[href*="twitter"]:hover,
+li a[href*="twitter"]:focus {
+    background-image: url(/assets/icon_active_twitter.png);
+}
+

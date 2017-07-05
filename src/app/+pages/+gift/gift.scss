@@ -1,0 +1,202 @@
+ul
+{
+    list-style: none;
+    padding:0;
+    margin: 60px 0;
+}
+
+h1
+{
+    text-align: center;
+    margin-top:0;
+}
+
+#gift
+{
+    padding:50px;
+    background: url(/assets/gifting.jpg) no-repeat 50% top;
+    background-size:cover;
+    position:relative;
+}
+
+> .hr
+{
+    top:100%;
+}
+
+/deep/ #foundation > div,
+#how-it-works,
+#signup .description > div {
+    padding: 40px;
+    background: rgba(73,151,203,0.8);
+    position: relative;
+    margin-bottom: 50px;
+    z-index: 1;
+}
+
+#how-it-works {
+    width: 50%;
+}
+
+a[href*="/signup"]
+{
+    position: absolute;
+    top: 50%;
+    left: 150%;
+    margin-left: -75px;
+    font-size: 24px;
+    padding: 20px;
+}
+
+#whats-included
+{
+    padding-bottom:50px;
+    position: relative;
+}
+
+#whats-included h1
+{
+    max-width:300px;
+    margin-left:50%;
+}
+
+#whats-included li
+{
+    display:block;
+    max-width:350px;
+    padding:20px 0 20px 80px;
+    position:relative;
+    font-size:18px;
+    font-weight: bold;
+}
+
+#whats-included li small
+{
+    font-weight: normal;
+}
+
+#how-it-works:after,
+#whats-included li:after
+{
+    content: " ";
+    display:block;
+    padding:0;
+    background:url(/assets/boxes.png) no-repeat 50% 50%;
+    background-size: contain;
+    height: 75px;
+    width: 75px;
+    position:absolute;
+    left:0;
+    top:50%;
+    margin-top:-45px;
+}
+
+#how-it-works:after
+{
+    top: 50%;
+    margin-left: -200px;
+    height: 400px;
+    width: 400px;
+    left: 150%;
+    margin-bottom: 20px;
+    z-index: -1;
+    margin-top: -200px;
+}
+
+
+#whats-included li:nth-of-type(3),
+#whats-included li:nth-of-type(1)
+{
+    margin-left:auto;
+}
+
+#whats-included li:nth-of-type(3)
+{
+    margin-right:50px;
+}
+
+#whats-included li:nth-of-type(4)
+{
+    margin-left:50px;
+}
+
+#signup i, #how-it-works i {
+    height: 65px;
+    width: 65px;
+    position: absolute;
+}
+
+#how-it-works li
+{
+    position:relative;
+    margin:20px 0;
+}
+
+#how-it-works li i
+{
+    left:0;
+}
+
+#how-it-works ul li > span, #signup ol li > span {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 100px;
+    width: 100%;
+    transition: ease-in-out .25s;
+    max-height: 1em;
+    margin-left: -6px;
+}
+
+#how-it-works ul li > span {
+    max-height: none;
+}
+
+#how-it-works ul li:before, #signup ol li:before {
+    content: " ";
+    display: inline-block;
+    height: 65px;
+    vertical-align: middle;
+}
+
+@media all and (max-width: 1000px) {
+    #how-it-works {
+        width:80%;
+        padding-bottom:150px;
+    }
+
+    #how-it-works:after {
+        left:50%;
+        bottom:0;
+        top:auto;
+        height:150px;
+        width:150px;
+    }
+
+    a[href*="/signup"] {
+        left: 50%;
+        bottom:50px;
+        top:auto;
+        font-size:20px;
+        padding:10px;
+        margin-left:0;
+    }
+}
+
+@media all and (max-width: 700px) {
+
+    #gift, #foundation {
+        padding: 20px;
+    }
+
+    /deep/ #foundation > div,
+    #how-it-works,
+    #signup .description > div {
+        padding: 15px;
+        margin-bottom:0;
+    }
+
+    #how-it-works {
+        width:100%;
+        padding-bottom:150px;
+    }
+}
